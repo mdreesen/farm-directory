@@ -1,0 +1,21 @@
+.heroContainer {
+  align-items: center;
+  position: relative;
+  display: contents;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero {
+  height: 75vh;
+  width: 100vw;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.title {
+  position: absolute;
+  top: 25%;
+  backdrop-filter: blur(15px);
+}
