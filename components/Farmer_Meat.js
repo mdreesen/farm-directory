@@ -1,25 +1,34 @@
 // Import meatFarmers data
-import meatData from '../utils/meatFarmers.json';
+import meatData from '../utils/food/meat.json';
+
+// Import Components
+import Card from '../components/Card';
 
 export default function Farmer_Meat(props) {
 
-    // console.log(meatData)
-    // let productItem = props.product;
-    const eachFarmer = props.product ? meatData[`${props.product}`]?.map((item, index) => {
-        return (
-            <section key={`Farmer-${item.name}`}>
-                <div>
-                    <h3>{item?.name}</h3>
-                    <p>{item?.description}</p>
-                </div>
-            </section>
-        )
-    }) : '';
+    const products = [props.product]
+
+    const beef = products.includes('beef') ?
+        meatData?.beef.map(data => {
+            const feed = data?.grassFinished ? data?.grassFinished : data?.grainFinished;
+
+            const title = data?.grassFinished ? 'Grass Finished' : 'Grain Finished';
+
+            return (
+                <section>
+                    <h2>{title}</h2>
+                    {
+                        feed.map(item => <Card logo={`/images/logos/${item?.logo}`} name={item?.name} description={item?.description}/>)
+                    }
+                </section>
+            )
+
+        })
+    : ''
 
     return (
         <div>
-            <h2>Meat Farmer</h2>
-            {eachFarmer}
+            {beef}
         </div>
     )
 }

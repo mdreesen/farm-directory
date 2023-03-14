@@ -1,0 +1,34 @@
+{
+    "eggs": [
+        {
+            "chicken": [
+                {
+                    "name": "Kenny Smith",
+                    "description": "Cool dude that wants his meat enjoyed by thousands. Who wouldn't",
+                    "logo": "logoSix.jpg",
+                    "starCount": [1, 2, 3, 4, 5]
+                }
+            ]
+        },
+        {
+            "duck": [
+                {
+                    "name": "Person Two",
+                    "description": "Something about Person Two",
+                    "logo": "logoOne.jpg",
+                    "starCount": [1, 2, 3, 4, 5]
+                }
+            ]
+        },
+        {
+            "quail": [
+                {
+                    "name": "Person Three",
+                    "description": "Something about person three",
+                    "logo": "logoTwo.webp",
+                    "starCount": [1, 2, 3, 4, 5]
+                }
+            ]
+        }
+    ]
+}
