@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Head from 'next/head'
 // import Image from 'next/image'
 // import { Inter } from 'next/font/google'
@@ -7,9 +9,24 @@ import styles from '@/styles/Home.module.css'
 
 // Import Components
 import Hero from '../components/Hero';
-import Farmer_Meat from '@/components/Farmer_Meat';
+import AllFood from '@/components/Food/AllFood';
 
 export default function Home() {
+
+  const [food, setFood] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const getFood = await fetch("/api/food");
+      // debugger;
+      const getFoodJson = await getFood.json();
+      setFood(getFoodJson);
+
+      setIsLoading(false);
+    })();
+  }, []);
+
+
   return (
     <>
       <Head>
@@ -20,10 +37,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Hero source={'./videos/hero-video.mp4'}/>
-        <Farmer_Meat product={'beef'}/>
-        <Farmer_Meat product={'pig'}/>
-        <Farmer_Meat product={'chicken'}/>
-
+        <AllFood food={food} setFood={setFood} />
       </main>
     </>
   )

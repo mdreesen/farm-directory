@@ -1,0 +1,623 @@
+[
+    {
+        "beef": [
+            {
+                "grassFinished": [
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoSix.jpg",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    },
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoOne.jpg",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    },
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoTwo.webp",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            },
+            {
+                "grainFinished": [
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoSix.jpg",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    },
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoOne.jpg",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    },
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoTwo.webp",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "pork": [
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoThree.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoFour.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoFive.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "goat": [
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoThree.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoFour.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoFive.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "sheep": [
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoThree.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoFour.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Kenny Smith",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoFive.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "chicken": [
+            {
+                "farmerName": "Person One",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoOne.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Person Two",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoTwo.webp",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Person Three",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoThree.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "turkey": [
+            {
+                "farmerName": "Person One",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoOne.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Person Two",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoTwo.webp",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Person Three",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoThree.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+
+    {
+        "otherMeat": [
+            {
+                "farmerName": "Person One",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoOne.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Person Two",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoTwo.webp",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "farmerName": "Person Three",
+                "farmName": "Farm Name",
+                "location": {
+                    "city": "Kalispell",
+                    "state": "Montana",
+                    "zip": "59901",
+                    "address": "290 Jaquette Rd"
+                },
+                "phoneNumber": "406-260-7818",
+                "email": "kennethwsmithjr@gmail.com",
+                "website": "www.kdfarms.site",
+                "logo": "logoThree.jpg",
+                "starCount": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        ]
+    },
+
+    {
+        "eggs": [
+            {
+                "chicken": [
+                    {
+                        "farmerName": "Kenny Smith",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoSix.jpg",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            },
+            {
+                "duck": [
+                    {
+                        "farmerName": "Person Two",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoOne.jpg",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            },
+            {
+                "quail": [
+                    {
+                        "farmerName": "Person Three",
+                        "farmName": "Farm Name",
+                        "location": {
+                            "city": "Kalispell",
+                            "state": "Montana",
+                            "zip": "59901",
+                            "address": "290 Jaquette Rd"
+                        },
+                        "phoneNumber": "406-260-7818",
+                        "email": "kennethwsmithjr@gmail.com",
+                        "website": "www.kdfarms.site",
+                        "logo": "logoTwo.webp",
+                        "starCount": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
