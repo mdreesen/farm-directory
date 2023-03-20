@@ -1,49 +1,28 @@
 import { useState, useEffect } from "react";
+import AllFood from "../components/Food/AllFood";
 
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 
 // Import Components
 import Hero from '../components/Hero';
-import AllFood from '@/components/Food/AllFood';
 
 export default function Home() {
 
   const [food, setFood] = useState([]);
-  const [isLoading, setLoading] = useState(false)
-
-  async function fetchFood() {
-    const response = await fetch('http://localhost:3000/api/food');
-    // waits until the request completes...
-    console.log(response);
-  }
-
-  console.log(fetchFood())
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
-    // const fetching = await fetch('http://localhost:3000/api/food')
-    fetch('http://localhost:3000/api/food')
-      .then((res) => {
-        console.log(res)
-      })
-      .then((data) => {
-        setFood(data)
-        setLoading(false)
-      })
+    (async () => {
+      const getAllFood = await fetch("/api/food");
+      const getAllFoodJson = await getAllFood.json();
+      setFood(getAllFoodJson);
+
+      setIsLoading(false);
+    })();
   }, []);
 
-  // if (isLoading) return <p>Loading...</p>
-
-  // if (!food) return <p>No Farm Data Yet, Sad Face</p>
-
-  const FoodData = () => {
-    if (isLoading) return <p>Loading...</p>
-
-    if (!food) return <p>No Farm Data Yet, Sad Face</p>
-
-    return <AllFood food={food} setFood={setFood} />
-  }
+  const isFood = food ? <AllFood food={food} setFood={setFood} /> : <p>No Farm Data Yet, Sad Face</p>
 
   return (
     <>
@@ -56,7 +35,7 @@ export default function Home() {
       <main className={styles.main}>
         <Hero source={'./videos/hero-video.mp4'} />
 
-        <FoodData />
+        {isFood}
       </main>
     </>
   )

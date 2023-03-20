@@ -1,15 +1,15 @@
-import { useState } from "react";
+import EachFood from "./EachFood";
 
-const AllFood = ({ food, setFood }) => {
-  const { postedAt } = food;
-
+const AllFoods = ({ food, setFood }) => {
   return (
     <>
-    <div>
-    {new Date(postedAt).toLocaleString()}
-    </div>
+      {food.map((item) => (
+        <div key={item._id}>
+          <EachFood food={item} setFood={setFood} />
+        </div>
+      ))}
     </>
   );
 };
 
-export default AllFood;
+export default AllFoods;
