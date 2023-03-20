@@ -6,11 +6,12 @@ import styles from '@/styles/Home.module.css';
 
 // Import Components
 import Hero from '../components/Hero';
+import Loading from '../components/Loading';
 
 export default function Home() {
 
   const [food, setFood] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     (async () => {
@@ -34,8 +35,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Hero source={'./videos/hero-video.mp4'} />
-
-        {isFood}
+        <section>
+          {isLoading ? <Loading isLoading={isLoading} />  : isFood}
+        </section>
       </main>
     </>
   )
