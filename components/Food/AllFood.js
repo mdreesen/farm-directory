@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-// import { useForm } from "@mantine/form";
-// import { showNotification } from "@mantine/notifications";
-
 const AllFood = ({ food, setFood }) => {
   const { postedAt } = food;
 

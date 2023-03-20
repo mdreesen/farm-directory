@@ -1,13 +1,10 @@
-// import { getAccessToken, withApiAuthRequired } from "@auth0/nextjs-auth0";
-
 export default async function handler(req, res) {
-//   const { accessToken } = await getAccessToken(req, res);
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Request-Headers": "*",
-    //   jwtTokenString: accessToken,
+      "api-key": process.env.MONGODB_DATA_API_KEY,
     },
   };
   const fetchBody = {
@@ -77,4 +74,4 @@ export default async function handler(req, res) {
     console.error(error);
     res.status(500).json({ error });
   }
-};
+}
