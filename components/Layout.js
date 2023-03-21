@@ -1,13 +1,11 @@
-// import Navigation from './Navigation';
-// import MobileNavigation from './MobileNavigation';
+import Navigation from './Navigation';
 // import Footer from './Footer';
 
 
 export default function Layout({ children }) {
     return (
         <>
-            {/* <Navigation /> */}
-            {/* <MobileNavigation /> */}
+            <Navigation />
             <main>{children}</main>
             {/* <Footer /> */}
         </>

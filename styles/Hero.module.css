@@ -17,5 +17,12 @@
 .title {
   position: absolute;
   top: 25%;
-  /* backdrop-filter: blur(15px); */
+  width: 100%;
+  text-align: center;
+}
+
+.backgroundImg {
+  height: 75vh !important;
+  position: relative !important;
+  object-fit: cover;
 }
