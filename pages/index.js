@@ -36,7 +36,7 @@ export default function Home() {
       <main className={styles.main}>
         <Hero source={'./videos/hero-video.mp4'} />
         <section>
-          {isLoading ? <Loading isLoading={isLoading} />  : isFood}
+          {isLoading ? <Loading Loading={isLoading} />  : isFood}
         </section>
       </main>
     </>
