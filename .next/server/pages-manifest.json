@@ -1,8 +1,9 @@
 {
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/farmers": "pages/farmers.js",
-  "/": "pages/index.js",
-  "/api/food": "pages/api/food.js"
+  "/api/food": "pages/api/food.js",
+  "/_error": "pages/_error.js",
+  "/_app": "pages/_app.js",
+  "/farmers": "pages/farmers.html",
+  "/": "pages/index.html",
+  "/404": "pages/404.html"
 }
