@@ -18,8 +18,9 @@ export default function Hero(props) {
             <Image
                 className={styles['backgroundImg']}
                 src={`/images/background/${props.source}.webp`}
-                alt={props.heroImage}
+                alt={props.source}
                 fill
+                priority
             />
             <h1 className={styles['title']}>{props.imageTitle}</h1>
         </div>

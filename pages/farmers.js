@@ -22,7 +22,9 @@ export default function Farmers() {
         })();
     }, []);
 
-    const isFood = food ? (
+    console.log(food)
+
+    const isFood = food.length ? (
         <div className={styles['container']}>
             <AllFood food={food} setFood={setFood} />
         </div>
