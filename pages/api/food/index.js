@@ -4,15 +4,15 @@ export default async function handler(req, res) {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Request-Headers": "*",
-      "api-key": process.env.MONGODB_DATA_API_KEY,
+      "api-key": process.env.NEXT_PUBLIC_MONGODB_DATA_API_KEY,
     },
   };
   const fetchBody = {
-    dataSource: process.env.MONGODB_DATA_SOURCE,
+    dataSource: process.env.NEXT_PUBLIC_MONGODB_DATA_SOURCE,
     database: "farm_directory",
     collection: "food",
   };
-  const baseUrl = `${process.env.MONGODB_DATA_API_URL}/action`;
+  const baseUrl = `${process.env.NEXT_PUBLIC_MONGODB_DATA_API_URL}/action`;
 
   try {
     switch (req.method) {
