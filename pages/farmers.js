@@ -15,9 +15,9 @@ export default function Farmers() {
 
     useEffect(() => {
         (async () => {
-            const getAllFood = await fetch("/api/food");
-            const getAllFoodJson = await getAllFood.json();
-            setFood(getAllFoodJson);
+
+            const getAllFood = await fetch("/api/food").then(response => response.json());
+            setFood(getAllFood);
 
             setIsLoading(false);
         })();
@@ -42,8 +42,8 @@ export default function Farmers() {
             <main>
                 <Hero image source={'background-image'} imageTitle="Farmers" />
                 {
-                    isLoading ?  <Loading Loading={isLoading} /> : isFood
-                    
+                    isLoading ? <Loading Loading={isLoading} /> : isFood
+
                 }
             </main>
         </>
