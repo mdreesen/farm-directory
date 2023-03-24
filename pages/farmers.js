@@ -12,6 +12,11 @@ export default function Farmers() {
     const [food, setFood] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
 
+    console.log('NEXT_PUBLIC_MONGODB_DATA_API_KEY', process.env.NEXT_PUBLIC_MONGODB_DATA_API_KEY);
+    console.log('NEXT_PUBLIC_MONGODB_DATA_API_URL', process.env.NEXT_PUBLIC_MONGODB_DATA_API_URL);
+    console.log('NEXT_PUBLIC_MONGODB_DATA_SOURCE', process.env.NEXT_PUBLIC_MONGODB_DATA_SOURCE)
+
+
     useEffect(() => {
         (async () => {
             const getAllFood = await fetch("/api/food");
