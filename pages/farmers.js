@@ -10,7 +10,7 @@ import styles from '../styles/Farmer.module.css';
 export default function Farmers() {
 
     const [food, setFood] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
@@ -41,7 +41,10 @@ export default function Farmers() {
             </Head>
             <main>
                 <Hero image source={'background-image'} imageTitle="Farmers" />
-                {isLoading ? <Loading Loading={isLoading} /> : isFood}
+                {
+                    isLoading ?  <Loading Loading={isLoading} /> : isFood
+                    
+                }
             </main>
         </>
     )
