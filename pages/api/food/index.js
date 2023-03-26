@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   };
   const fetchBody = {
     dataSource: process.env.NEXT_PUBLIC_MONGODB_DATA_SOURCE,
-    database: "farm_directory",
+    database: "farm-directory",
     collection: "food",
   };
   const baseUrl = `${process.env.NEXT_PUBLIC_MONGODB_DATA_API_URL}/action`;
