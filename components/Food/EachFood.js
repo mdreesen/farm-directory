@@ -13,46 +13,37 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function EachFood({ food, setFood, avatar, name, title, phone, email }) {
+export default function EachFood({ food }) {
   const { classes } = useStyles();
 
-  const { _id, postedAt, body, user: farmerUser } = food;
+  const { postedAt, user: farmerUser } = food;
+
+  console.log("farmerUser", farmerUser)
 
   return (
     <div className={styles['cardContainer']}>
       <Group noWrap>
-        {/* <Avatar src={avatar} size={94} radius="md" /> */}
         <div>
-          <Text fz="xs" tt="uppercase" fw={700} c="dimmed">
-            {title}
+          {/* Title Of Each Farm */}
+          <Text fz="lg" fw={500} className={classes.name}>
+            {farmerUser?.farm_name}
           </Text>
 
-          <Text fz="lg" fw={500} className={classes.name}>
-            {farmerUser?.name}
-          </Text>
+          {/* Farm Information */}
+          <Group noWrap spacing={10} mt={3}>
+            <Text className={styles['farmerUser_container']} fz="xs" c="dimmed">
+              <span>{farmerUser?.name}</span>
+              <span>{farmerUser?.Farm_location}</span>
+              <span>{farmerUser?.phone}</span>
+              <span>{farmerUser?.email}</span>
+            </Text>
+          </Group>
 
 
           <Group noWrap spacing={10} mt={3}>
             {/* <IconAt stroke={1.5} size="1rem" className={classes.icon} /> */}
             <Text fz="xs" c="dimmed">
               {new Date(postedAt).toLocaleString()}
-            </Text>
-            <Text fz="xs" c="dimmed">
-              {body}
-            </Text>
-          </Group>
-
-          <Group noWrap spacing={10} mt={3}>
-            {/* <IconAt stroke={1.5} size="1rem" className={classes.icon} /> */}
-            <Text fz="xs" c="dimmed">
-              {email}
-            </Text>
-          </Group>
-
-          <Group noWrap spacing={10} mt={5}>
-            {/* <IconPhoneCall stroke={1.5} size="1rem" className={classes.icon} /> */}
-            <Text fz="xs" c="dimmed">
-              {phone}
             </Text>
           </Group>
         </div>

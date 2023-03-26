@@ -41,10 +41,7 @@ export default function Farmers() {
             </Head>
             <main>
                 <Hero image source={'background-image'} imageTitle="Farmers" />
-                {
-                    isLoading ? <Loading Loading={isLoading} /> : isFood
-
-                }
+                {isLoading ? <Loading Loading={isLoading} /> : isFood}
             </main>
         </>
     )
