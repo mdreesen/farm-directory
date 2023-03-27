@@ -16,9 +16,10 @@ const useStyles = createStyles((theme) => ({
 export default function EachFarmer({ farmer }) {
   const { classes } = useStyles();
 
-  const { postedAt, user: farmerUser } = farmer;
+  // Logging the Farmer User information
+  // console.log(farmer)
 
-  console.log("farmerUser", farmerUser)
+  const { product, product_feed, postedAt, user: farmerUser } = farmer;
 
   return (
     <div className={styles['cardContainer']}>

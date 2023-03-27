@@ -23,8 +23,6 @@ export default function Farmers() {
         })();
     }, []);
 
-    console.log(farmer)
-
     const isFarmer = farmer.length ? (
         <div className={styles['container']}>
             <AllFarmers farmer={farmer} setFarmer={setFarmer} />
