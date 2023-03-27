@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from 'styles/Hero.module.css';
 
-export default function Hero({
+export function Hero({
   video,
   source,
   image,

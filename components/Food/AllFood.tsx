@@ -1,6 +1,6 @@
-import EachFood from 'components/Food/EachFood';
+import { EachFood } from 'components/Food/EachFood';
 
-const AllFoods = ({ food }: { food: any[] }) => {
+export function AllFoods({ food }: { food: any[] }) {
   return (
     <>
       {food.map((item: any) => (
@@ -10,6 +10,4 @@ const AllFoods = ({ food }: { food: any[] }) => {
       ))}
     </>
   );
-};
-
-export default AllFoods;
+}

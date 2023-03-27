@@ -1,9 +1,8 @@
 import Head from 'next/head';
 
-import AllFood from 'components/Food/AllFood';
-
 import styles from '/styles/Farmer.module.css';
-import Hero from 'components/Hero';
+import { AllFoods } from 'components/Food/AllFood';
+import { Hero } from 'components/Hero';
 import { ax } from 'lib/axios.lib';
 
 export default function Farmers({ documents: food }: any) {
@@ -18,7 +17,7 @@ export default function Farmers({ documents: food }: any) {
       <main>
         <Hero image source={'background-image'} imageTitle='Farmers' />
         <div className={styles['container']}>
-          <AllFood food={food} />
+          <AllFoods food={food} />
         </div>
       </main>
     </>

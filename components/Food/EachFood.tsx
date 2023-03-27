@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function EachFood({ food, title, phone, email }: any) {
+export function EachFood({ food, title, phone, email }: any) {
   const { classes } = useStyles();
 
   const { postedAt, body, user: farmerUser } = food;
