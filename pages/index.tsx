@@ -1,8 +1,25 @@
 import Head from 'next/head';
 import styles from '/styles/Home.module.css';
 import Hero from 'components/Hero';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { LogError } from 'utils/util';
 
 export default function Home() {
+  const [data, setData] = useState<any>();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await axios.get('', {
+          headers: {},
+        });
+      } catch (error) {
+        LogError(error);
+      }
+    })();
+  }, []);
+
   const abstract = (
     <section>
       <h2>Abstract</h2>

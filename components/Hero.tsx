@@ -8,8 +8,8 @@ export default function Hero({
   imageTitle,
 }: {
   video?: boolean;
+  image?: boolean;
   source: string;
-  image?: any;
   imageTitle?: string;
 }) {
   return (
