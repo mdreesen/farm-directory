@@ -1,39 +1,12 @@
-import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 import AllFood from 'components/Food/AllFood';
-import Loading from 'components/Loading';
 
 import styles from '/styles/Farmer.module.css';
 import Hero from 'components/Hero';
+import { ax } from 'lib/axios.lib';
 
-export default function Farmers() {
-  const [food, setFood] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const getAllFood = await fetch('/api/food').then((response) => response.json());
-        setFood(getAllFood);
-
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
-
-  console.log(food);
-
-  const isFood = food.length ? (
-    <div className={styles['container']}>
-      <AllFood food={food} setFood={setFood} />
-    </div>
-  ) : (
-    <p>No Farm Data Yet, Sad Face</p>
-  );
-
+export default function Farmers({ documents: food }: any) {
   return (
     <>
       <Head>
@@ -44,8 +17,17 @@ export default function Farmers() {
       </Head>
       <main>
         <Hero image source={'background-image'} imageTitle='Farmers' />
-        {isLoading ? <Loading /> : isFood}
+        <div className={styles['container']}>
+          <AllFood food={food} />
+        </div>
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { documents } = await ax.farmers.find;
+  return {
+    props: { documents },
+  };
 }

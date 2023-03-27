@@ -1,4 +1,5 @@
 import { createStyles, Text, Group } from '@mantine/core';
+import { useFormatDate } from 'hooks/useFormatDate';
 import styles from '../../styles/Card.module.css';
 const useStyles = createStyles((theme) => ({
   icon: {
@@ -10,10 +11,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function EachFood({ food, setFood, avatar, name, title, phone, email }: any) {
+export default function EachFood({ food, title, phone, email }: any) {
   const { classes } = useStyles();
 
   const { postedAt, body, user: farmerUser } = food;
+
+  const date = useFormatDate(postedAt);
 
   return (
     <div className={styles['cardContainer']}>
@@ -31,7 +34,8 @@ export default function EachFood({ food, setFood, avatar, name, title, phone, em
           <Group noWrap spacing={10} mt={3}>
             {/* <IconAt stroke={1.5} size="1rem" className={classes.icon} /> */}
             <Text fz='xs' c='dimmed'>
-              {new Date(postedAt).toLocaleString()}
+              {/* {new Date(postedAt).toLocaleString()} */}
+              {date}
             </Text>
             <Text fz='xs' c='dimmed'>
               {body}
