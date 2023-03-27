@@ -2,9 +2,10 @@ import { AllFoods } from 'components/Food/AllFood';
 import { Hero } from 'components/Hero';
 import { ax } from 'lib/axios.lib';
 import Head from 'next/head';
+import { LogError } from 'utils/util';
 import styles from '/styles/Farmer.module.css';
 
-export default function Farmers({ documents: food }: any) {
+export default function Farmers({ food }: { food?: any[] }) {
   return (
     <>
       <Head>
@@ -15,17 +16,20 @@ export default function Farmers({ documents: food }: any) {
       </Head>
       <main>
         <Hero image source={'background-image'} imageTitle='Farmers' />
-        <div className={styles['container']}>
-          <AllFoods food={food} />
-        </div>
+        <div className={styles['container']}>{food && <AllFoods food={food} />}</div>
       </main>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const { documents } = await ax.farmers.find;
-  return {
-    props: { documents },
-  };
+  try {
+    const { documents } = await ax.farmers.find;
+    return {
+      props: { food: documents },
+    };
+  } catch (error) {
+    LogError(error);
+    return { props: {} };
+  }
 }
