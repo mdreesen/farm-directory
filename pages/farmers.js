@@ -2,32 +2,32 @@ import { useState, useEffect } from "react";
 import Head from 'next/head';
 
 import Hero from '../components/Hero';
-import AllFood from "../components/Food/AllFood";
+import AllFarmers from "../components/Farmers/AllFarmers";
 import Loading from '../components/Loading';
 
 import styles from '../styles/Farmer.module.css';
 
 export default function Farmers() {
 
-    const [food, setFood] = useState([]);
+    const [farmer, setFarmer] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
         (async () => {
 
-            const getAllFood = await fetch("/api/food").then(response => response.json());
-            setFood(getAllFood);
+            const getAllFarmerData = await fetch("/api/farmers").then(response => response.json());
+            setFarmer(getAllFarmerData);
 
             setIsLoading(false);
         })();
     }, []);
 
-    console.log(food)
+    console.log(farmer)
 
-    const isFood = food.length ? (
+    const isFarmer = farmer.length ? (
         <div className={styles['container']}>
-            <AllFood food={food} setFood={setFood} />
+            <AllFarmers farmer={farmer} setFarmer={setFarmer} />
         </div>
     ) : <p>No Farm Data Yet, Sad Face</p>
 
@@ -41,7 +41,7 @@ export default function Farmers() {
             </Head>
             <main>
                 <Hero image source={'background-image'} imageTitle="Farmers" />
-                {isLoading ? <Loading Loading={isLoading} /> : isFood}
+                {isLoading ? <Loading Loading={isLoading} /> : isFarmer}
             </main>
         </>
     )
