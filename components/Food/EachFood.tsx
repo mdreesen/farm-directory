@@ -1,6 +1,7 @@
-import { createStyles, Text, Group } from '@mantine/core';
+import { createStyles, Group, Text } from '@mantine/core';
 import { useFormatDate } from 'hooks/useFormatDate';
 import styles from '../../styles/Card.module.css';
+
 const useStyles = createStyles((theme) => ({
   icon: {
     color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[5],

@@ -1,9 +1,8 @@
-import Head from 'next/head';
-
-import styles from '/styles/Farmer.module.css';
 import { AllFoods } from 'components/Food/AllFood';
 import { Hero } from 'components/Hero';
 import { ax } from 'lib/axios.lib';
+import Head from 'next/head';
+import styles from '/styles/Farmer.module.css';
 
 export default function Farmers({ documents: food }: any) {
   return (
