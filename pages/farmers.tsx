@@ -1,0 +1,51 @@
+import { useState, useEffect } from 'react';
+import Head from 'next/head';
+
+import AllFood from 'components/Food/AllFood';
+import Loading from 'components/Loading';
+
+import styles from '/styles/Farmer.module.css';
+import Hero from 'components/Hero';
+
+export default function Farmers() {
+  const [food, setFood] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const getAllFood = await fetch('/api/food').then((response) => response.json());
+        setFood(getAllFood);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  console.log(food);
+
+  const isFood = food.length ? (
+    <div className={styles['container']}>
+      <AllFood food={food} setFood={setFood} />
+    </div>
+  ) : (
+    <p>No Farm Data Yet, Sad Face</p>
+  );
+
+  return (
+    <>
+      <Head>
+        <title>Farmers | Farm Directory</title>
+        <meta name='description' content='Farm Directory Farmer Search' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <main>
+        <Hero image source={'background-image'} imageTitle='Farmers' />
+        {isLoading ? <Loading /> : isFood}
+      </main>
+    </>
+  );
+}
