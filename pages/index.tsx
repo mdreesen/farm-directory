@@ -64,7 +64,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <Hero video source={'./videos/hero-video.mp4'} />
+        <Hero video source={'/videos/hero-video.mp4'} />
         {abstract}
         {need}
       </main>
