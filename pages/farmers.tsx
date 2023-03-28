@@ -15,8 +15,8 @@ export default function Farmers({ farmers }: { farmers: any[] }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
+        <Hero image source={'background-image'} imageTitle='Farmers' />
         <div className={styles['container']}>
-          <Hero image source={'background-image'} imageTitle='Farmers' />
           <AllFarmers farmers={farmers} />
         </div>
       </main>
