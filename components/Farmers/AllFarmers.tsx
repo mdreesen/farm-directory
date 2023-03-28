@@ -1,3 +1,4 @@
+import React from 'react';
 import { EachFarmer } from './EachFarmer';
 
 export function AllFarmers({ farmers }: { farmers: any }) {

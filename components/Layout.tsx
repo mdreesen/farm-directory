@@ -1,4 +1,5 @@
-import { Navigation } from 'components/Navigation';
+import React from 'react';
+import { Navigation } from './Navigation';
 import { ReactNode } from 'react';
 // import Footer from './Footer';
 

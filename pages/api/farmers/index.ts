@@ -1,4 +1,4 @@
-import { ax } from 'lib/axios.lib';
+import { ax } from '../../../lib/axios.lib';
 import type { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         break;
       }
       case 'DELETE': {
-        const data = await ax.farmers.updateOne(req);
+        const data = await ax.farmers.deleteOne(req);
         res.status(200).json(data);
         break;
       }
