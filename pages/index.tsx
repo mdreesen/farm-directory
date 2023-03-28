@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hero } from '../components/Hero';
+import { Hero } from 'components/Hero';
 import Head from 'next/head';
 import styles from '/styles/Home.module.css';
 
