@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { AllFarmers } from '../components/Farmers/AllFarmers';
+import { AllFarmers } from 'components/Farmers/AllFarmers';
 import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
-import styles from '../styles/Farmer.module.css';
+import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
 
 export default function Farmers({ farmers }: { farmers: any[] }) {

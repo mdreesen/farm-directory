@@ -1,4 +1,4 @@
-import { EachFarmer } from './EachFarmer';
+import { EachFarmer } from 'components/Farmers/EachFarmer';
 
 export function AllFarmers({ farmers }: { farmers: any }) {
   return (
