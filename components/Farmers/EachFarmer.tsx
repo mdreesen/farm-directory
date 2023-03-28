@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function EachFarmer({ farmer }: { farmer: any }) {
+export function EachFarmer({ farmer }: { farmer: any }) {
   const { classes } = useStyles();
 
   const { postedAt, user: farmerUser } = farmer;
