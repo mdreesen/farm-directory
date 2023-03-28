@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         break;
       }
       case 'DELETE': {
-        const data = await ax.farmers.updateOne(req);
+        const data = await ax.farmers.deleteOne(req);
         res.status(200).json(data);
         break;
       }
