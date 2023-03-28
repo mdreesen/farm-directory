@@ -1,3 +1,4 @@
+import React from 'react';
 import { createStyles, Group, Text } from '@mantine/core';
 import { useFormatDate } from 'hooks/useFormatDate';
 import styles from '/styles/Card.module.css';

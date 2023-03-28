@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import { AllFarmers } from 'components/Farmers/AllFarmers';
 import { ax } from 'lib/axios.lib';

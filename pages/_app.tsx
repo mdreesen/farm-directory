@@ -1,5 +1,6 @@
+import React from 'react';
 import axios from 'axios';
-import { Layout } from 'components/Layout';
+import { Layout } from '../components/Layout';
 import { AppProps } from 'next/app';
 import '/styles/globals.css';
 
