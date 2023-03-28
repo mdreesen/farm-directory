@@ -1,11 +1,11 @@
-import { AllFoods } from 'components/Food/AllFood';
-import { Hero } from 'components/Hero';
-import { ax } from 'lib/axios.lib';
 import Head from 'next/head';
+import { AllFarmers } from '../components/Farmers/AllFarmers';
+import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
-import styles from '/styles/Farmer.module.css';
+import styles from '../styles/Farmer.module.css';
+import { Hero } from 'components/Hero';
 
-export default function Farmers({ food }: { food?: any[] }) {
+export default function Farmers({ farmers }: { farmers: any[] }) {
   return (
     <>
       <Head>
@@ -15,8 +15,10 @@ export default function Farmers({ food }: { food?: any[] }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <Hero image source={'background-image'} imageTitle='Farmers' />
-        <div className={styles['container']}>{food && <AllFoods food={food} />}</div>
+        <div className={styles['container']}>
+          <Hero image source={'background-image'} imageTitle='Farmers' />
+          <AllFarmers farmers={farmers} />
+        </div>
       </main>
     </>
   );
@@ -26,7 +28,7 @@ export async function getStaticProps() {
   try {
     const { documents } = await ax.farmers.find;
     return {
-      props: { food: documents },
+      props: { farmers: documents },
     };
   } catch (error) {
     LogError(error);
