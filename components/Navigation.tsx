@@ -1,14 +1,21 @@
-// import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, rem } from '@mantine/core';
+import { useState } from 'react';
+import Link from 'next/link';
+import { createStyles, Header, Transition, Paper, Container, Group, Burger, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-// import { MantineLogo } from '@mantine/ds';
+
+import styles from '../styles/Navigation.module.css';
 
 const useStyles = createStyles((theme) => ({
+  root: {
+    position: 'relative',
+    zIndex: 1,
+  },
+
   header: {
     display: 'flex',
     justifyContent: 'end',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
   },
 
   links: {
@@ -19,6 +26,27 @@ const useStyles = createStyles((theme) => ({
 
   burger: {
     [theme.fn.largerThan('xs')]: {
+      display: 'none',
+    },
+    zIndex: 9000,
+  },
+
+  dropdown: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    zIndex: 3000,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: 'hidden',
+    width: '40%',
+    height: "100vh",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+
+    [theme.fn.largerThan('sm')]: {
       display: 'none',
     },
   },
@@ -53,26 +81,47 @@ export function Navigation() {
       'label': 'home'
     },
     {
-      'link': '/farmers',
-      'label': 'farmers'
+      'link': '/farm-to-table',
+      'label': 'Farm to Table'
+    },
+    {
+      'link': '/live-animals',
+      'label': 'Live Animals'
+    },
+    {
+      'link': '/hay',
+      'label': 'Hay'
+    },
+    {
+      'link': '/straw',
+      'label': 'Straw'
+    },
+    {
+      'link': '/farm-services',
+      'label': 'Farm Services'
     }
   ]
 
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, { toggle, close }] = useDisclosure(false);
+  const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
-      className={cx(classes.link)}
+      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+      onClick={() => {
+        setActive(link.link);
+        close();
+      }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
-    <Header height={60}>
+    <Header className={styles['container']} height={60}>
       <Container className={classes.header}>
         {/* <MantineLogo size={28} /> */}
         <Group spacing={5} className={classes.links}>
@@ -80,6 +129,14 @@ export function Navigation() {
         </Group>
 
         <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+            </Paper>
+          )}
+        </Transition>
       </Container>
     </Header>
   );

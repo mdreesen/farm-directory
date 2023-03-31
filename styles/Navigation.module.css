@@ -1,12 +1,5 @@
 .container {
-    width: 100%;
-    height: 48px;
+    background-color: transparent;
     position: fixed;
-    z-index: 9999;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.container > a {
-padding: 0 10px;
+    border-bottom: none;
 }
