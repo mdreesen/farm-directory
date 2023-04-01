@@ -6,6 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (req.method) {
       case 'GET': {
         const data = await ax.farmers.find;
+        debugger;
         res.status(200).json(data.documents);
         break;
       }

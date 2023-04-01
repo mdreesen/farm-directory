@@ -7,6 +7,8 @@ import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
 
 export default function Farmers({ farmers }: { farmers: any[] }) {
+  const typeLiveAnimalsForSale = farmers.filter(item => item.type === 'Live Animals For Sale')
+console.log(typeLiveAnimalsForSale)
   return (
     <>
       <Head>
@@ -18,7 +20,7 @@ export default function Farmers({ farmers }: { farmers: any[] }) {
       <main>
         <Hero image source={'background-image'} imageTitle='Live Animals' />
         <div className={styles['container']}>
-          <AllFarmers farmers={farmers} />
+          {typeLiveAnimalsForSale && <AllFarmers farmers={farmers} />}
         </div>
       </main>
     </>

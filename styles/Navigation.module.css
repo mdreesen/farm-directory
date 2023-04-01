@@ -2,4 +2,5 @@
     background-color: transparent;
     position: fixed;
     border-bottom: none;
+    backdrop-filter: blur(15px);
 }

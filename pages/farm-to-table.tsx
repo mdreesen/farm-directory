@@ -7,6 +7,8 @@ import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
 
 export default function Farmers({ farmers }: { farmers: any[] }) {
+  const typeFarmToTable = farmers.filter(item => item.type === 'Farm to Table')
+
   return (
     <>
       <Head>
@@ -18,7 +20,7 @@ export default function Farmers({ farmers }: { farmers: any[] }) {
       <main>
         <Hero image source={'background-image'} imageTitle='Farm To Table' />
         <div className={styles['container']}>
-          <AllFarmers farmers={farmers} />
+          {typeFarmToTable && <AllFarmers farmers={farmers}/>}
         </div>
       </main>
     </>

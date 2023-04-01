@@ -44,7 +44,8 @@ const useStyles = createStyles((theme) => ({
     height: "100vh",
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    paddingTop: '50px',
+    backdropFilter: 'blur(15px)',
 
     [theme.fn.largerThan('sm')]: {
       display: 'none',
