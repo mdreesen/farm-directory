@@ -2,7 +2,7 @@
     {
       "postedAt": 1651965202500,
       "type": "Farm to Table",
-      "product": "Beef",
+      "product": ["Beef"],
       "product_feed": "Grass Finished",
       "likes": [],
       "user": {
@@ -196,6 +196,40 @@
         "id": "6276fc6ba6d2c39f61157254",
         "name": "Snow White",
         "farm_name": "Num Num Farms LLC",
+        "Farm_location": "Kalispell, MT 59901, 290 Jaquette Rd.",
+        "phone": "123-456-7890",
+        "email": "smart@mongodb.com",
+        "website": "www.kdfarms.site",
+        "picture": "kd_logo"
+      }
+    },
+    {
+      "postedAt": 1651965202494,
+      "type": "Live Animals For Sale",
+      "product": ["Livestock", "Cattle"],
+      "product_feed": "",
+      "likes": [],
+      "user": {
+        "id": "6276fc6ba6d2c39f61157254",
+        "name": "Test 1",
+        "farm_name": "Testing 1 LLC",
+        "Farm_location": "Kalispell, MT 59901, 290 Jaquette Rd.",
+        "phone": "123-456-7890",
+        "email": "smart@mongodb.com",
+        "website": "www.kdfarms.site",
+        "picture": "kd_logo"
+      }
+    },
+    {
+      "postedAt": 1651965202494,
+      "type": "Live Animals For Sale",
+      "product": ["Equine", "Mules", "Donkeys"],
+      "product_feed": "",
+      "likes": [],
+      "user": {
+        "id": "6276fc6ba6d2c39f61157254",
+        "name": "Test 1",
+        "farm_name": "Testing 1 LLC",
         "Farm_location": "Kalispell, MT 59901, 290 Jaquette Rd.",
         "phone": "123-456-7890",
         "email": "smart@mongodb.com",
