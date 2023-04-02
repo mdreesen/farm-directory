@@ -1,14 +1,15 @@
 import { EachFarmer } from 'components/Farmers/EachFarmer';
 
 export function AllFarmers({ farmers }: { farmers: any }) {
+  const farmerData = farmers || [];
   return (
     <>
-      {farmers.map((farmer: any) => {
-        return (
+      {farmerData.map((farmer: any) => {
+        return farmer ? (
           <div key={farmer._id}>
           <EachFarmer farmer={farmer} />
         </div>
-        )
+        ) : <div>No Data</div>
       })}
     </>
   );

@@ -29,8 +29,9 @@ export async function getStaticProps() {
   try {
     const { documents } = await ax.farmers.find;
     return {
-      props: { farmers: documents },
+      props: { farmers: documents},
     };
+    
   } catch (error) {
     LogError(error);
     return { props: {} };

@@ -1,14 +1,23 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { AllFarmers } from 'components/Farmers/AllFarmers';
 import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
+import { IFarmer } from 'types/mongo.types';
 
 export default function Farmers({ farmers }: { farmers: any[] }) {
-  const typeLiveAnimalsForSale = farmers.filter(item => item.type === 'Live Animals For Sale')
-console.log(typeLiveAnimalsForSale)
+  const [filter, setFilter] = useState<IFarmer[]>()
+
+  console.log(farmers)
+
+  useEffect(() => {
+    const data = [...farmers]
+
+    setFilter(data.filter(farmerUser => farmerUser.type === "Live Animals For Sale"));
+  }, [])
   return (
     <>
       <Head>
@@ -20,7 +29,7 @@ console.log(typeLiveAnimalsForSale)
       <main>
         <Hero image source={'background-image'} imageTitle='Live Animals' />
         <div className={styles['container']}>
-          {typeLiveAnimalsForSale && <AllFarmers farmers={farmers} />}
+          {farmers ? <AllFarmers farmers={filter || farmers} /> : <div>Apologies, No Farmer For This Category</div>}
         </div>
       </main>
     </>
@@ -31,8 +40,9 @@ export async function getStaticProps() {
   try {
     const { documents } = await ax.farmers.find;
     return {
-      props: { farmers: documents },
+      props: { farmers: documents},
     };
+    
   } catch (error) {
     LogError(error);
     return { props: {} };
