@@ -5,8 +5,9 @@ import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
+import { IFarmer } from 'types/mongo.types';
 
-export default function Farmers({ farmers }: { farmers: any[] }) {
+export default function LiveAnimalsPage({ farmers }: { farmers: IFarmer[] }) {
   const typeLiveAnimalsForSale = farmers.filter((item) => item.type === 'Live Animals For Sale');
   return (
     <>

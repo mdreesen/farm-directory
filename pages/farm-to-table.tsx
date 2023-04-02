@@ -5,9 +5,10 @@ import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
+import { IFarmer } from 'types/mongo.types';
 
-export default function Farmers({ farmers }: { farmers: any[] }) {
-  const typeFarmToTable = farmers.filter(item => item.type === 'Farm to Table')
+export default function FarmToTablePage({ farmers }: { farmers: IFarmer[] }) {
+  const typeFarmToTable = farmers.filter((item) => item.type === 'Farm to Table');
 
   return (
     <>
@@ -19,9 +20,7 @@ export default function Farmers({ farmers }: { farmers: any[] }) {
       </Head>
       <main>
         <Hero image source={'background-image'} imageTitle='Farm To Table' />
-        <div className={styles['container']}>
-          {typeFarmToTable && <AllFarmers farmers={farmers}/>}
-        </div>
+        <div className={styles['container']}>{typeFarmToTable && <AllFarmers farmers={farmers} />}</div>
       </main>
     </>
   );

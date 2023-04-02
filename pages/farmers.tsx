@@ -5,8 +5,9 @@ import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
+import { IFarmer } from 'types/mongo.types';
 
-export default function Farmers({ farmers }: { farmers: any[] }) {
+export default function FarmersPage({ farmers }: { farmers: IFarmer[] }) {
   return (
     <>
       <Head>
