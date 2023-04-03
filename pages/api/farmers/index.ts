@@ -1,4 +1,4 @@
-import { ax } from '../../../lib/axios.lib';
+import { ax } from 'lib/axios.lib';
 import type { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

@@ -1,12 +1,23 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { AllFarmers } from 'components/Farmers/AllFarmers';
 import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
+import { IFarmer } from 'types/mongo.types';
 
-export default function Farmers({ farmers }: { farmers: any[] }) {
+export default function StrawPage({ farmers }: { farmers: IFarmer[] }) {
+
+  const [filter, setFilter] = useState<IFarmer[]>()
+
+  useEffect(() => {
+    const data = [...farmers]
+
+    setFilter(data.filter(farmerUser => farmerUser.type === "Straw"));
+  }, [])
+
   return (
     <>
       <Head>
@@ -18,7 +29,7 @@ export default function Farmers({ farmers }: { farmers: any[] }) {
       <main>
         <Hero image source={'background-image'} imageTitle='Straw' />
         <div className={styles['container']}>
-          <AllFarmers farmers={farmers} />
+          {filter?.length === 0 ? <div>Apologies, No Farmer For This Category</div> : <AllFarmers farmers={filter} />}
         </div>
       </main>
     </>

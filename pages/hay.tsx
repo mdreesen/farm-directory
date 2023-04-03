@@ -8,7 +8,7 @@ import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
 import { IFarmer } from 'types/mongo.types';
 
-export default function Farmers({ farmers }: { farmers: any[] }) {
+export default function HayPage({ farmers }: { farmers: IFarmer[] }) {
   const [filter, setFilter] = useState<IFarmer[]>();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Farmers({ farmers }: { farmers: any[] }) {
       <main>
         <Hero image source={'background-image'} imageTitle='Hay' />
         <div className={styles['container']}>
-        {filter ? <AllFarmers farmers={filter} /> : <div>Apologies, No Farmer For This Category</div>}
+        {filter?.length === 0 ? <div>Apologies, No Farmer For This Category</div> : <AllFarmers farmers={filter} />}
         </div>
       </main>
     </>
