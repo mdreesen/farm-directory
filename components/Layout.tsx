@@ -1,7 +1,6 @@
-import React from 'react';
-import { Navigation } from './Navigation';
+import { Footer } from 'components/Footer';
+import { Navigation } from 'components/Navigation';
 import { ReactNode } from 'react';
-import Footer from './Footer';
 
 export function Layout({ children }: { children: ReactNode }) {
   return (

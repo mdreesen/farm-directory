@@ -5,10 +5,10 @@ import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
+import { IFarmer } from 'types/mongo.types';
 
-export default function Farmers({ farmers }: { farmers: any[] }) {
-  const typeLiveAnimalsForSale = farmers.filter(item => item.type === 'Live Animals For Sale')
-console.log(typeLiveAnimalsForSale)
+export default function LiveAnimalsPage({ farmers }: { farmers: IFarmer[] }) {
+  const typeLiveAnimalsForSale = farmers.filter((item) => item.type === 'Live Animals For Sale');
   return (
     <>
       <Head>
@@ -19,9 +19,7 @@ console.log(typeLiveAnimalsForSale)
       </Head>
       <main>
         <Hero image source={'background-image'} imageTitle='Live Animals' />
-        <div className={styles['container']}>
-          {typeLiveAnimalsForSale && <AllFarmers farmers={farmers} />}
-        </div>
+        <div className={styles['container']}>{typeLiveAnimalsForSale && <AllFarmers farmers={farmers} />}</div>
       </main>
     </>
   );
