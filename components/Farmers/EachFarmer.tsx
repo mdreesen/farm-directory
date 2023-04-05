@@ -16,37 +16,52 @@ const useStyles = createStyles((theme) => ({
 export function EachFarmer({ farmer }: { farmer: any }) {
   const { classes } = useStyles();
 
-  const { postedAt, user: farmerUser } = farmer;
+  const { postedAt, user: farmerUser, product } = farmer;
 
   const date = useFormatDate(postedAt);
 
+  const farmerProduct = product.map(product => (
+    <Text className={styles['farmerUser_container']} fz='xs' key={product.farm_name}>
+      <span>{product?.product_name}</span>
+      <span>{product?.product_feed}</span>
+      <span>{product?.product_description}</span>
+      <span>{product?.available ? 'Available' : 'Not Available'}</span>
+    </Text>
+  ))
+
   return (
-    <div className={styles['cardContainer']}>
-      <Group noWrap>
-        <div>
-          {/* Title Of Each Farm */}
-          <Text fz='lg' fw={500} className={classes.name}>
-            {farmerUser?.farm_name}
+    <Group className={styles['cardContainer']} noWrap>
+      <div>
+        <Text fz="lg" fw={500} tt="uppercase" c="dimmed">
+          {farmerUser?.farm_name}
+        </Text>
+
+        <Text fz="md" fw={400} className={classes.name}>
+          <span>{`${farmerUser?.first_name} ${farmerUser?.last_name}`}</span>
+        </Text>
+
+        <Group noWrap spacing={10} mt={3}>
+          <Text fz="xs" c="dimmed">
+            <span>{`${farmerUser?.address_road} `}</span>
+            <span>{`${farmerUser?.address_city + ','} ${farmerUser?.address_state} `}</span>
+            <span>{`${farmerUser?.address_zip}`}</span>
           </Text>
+        </Group>
 
-          {/* Farm Information */}
-          <Group noWrap spacing={10} mt={3}>
-            <Text className={styles['farmerUser_container']} fz='xs' c='dimmed'>
-              <span>{farmerUser?.name}</span>
-              <span>{farmerUser?.Farm_location}</span>
-              <span>{farmerUser?.phone}</span>
-              <span>{farmerUser?.email}</span>
-            </Text>
-          </Group>
+        <Group noWrap spacing={10} mt={3}>
+          <Text className={styles['farmer_info']} fz="xs" c="dimmed">
+            <span>{farmerUser?.email && `Email: ${farmerUser?.email}`}</span>
+            <span>{farmerUser?.phone && `Phone: ${farmerUser?.phone}`}</span>
+          </Text>
+        </Group>
 
-          <Group noWrap spacing={10} mt={3}>
-            {/* <IconAt stroke={1.5} size="1rem" className={classes.icon} /> */}
-            <Text fz='xs' c='dimmed'>
-              {date}
-            </Text>
-          </Group>
-        </div>
-      </Group>
-    </div>
+        <Group noWrap spacing={10} mt={5}>
+          <Text fz="xs" c="dimmed">
+            {date}
+          </Text>
+        </Group>
+      </div>
+      {farmerProduct}
+    </Group>
   );
 }
