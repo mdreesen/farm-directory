@@ -79,8 +79,12 @@
   margin: 0;
 }
 
+main {
+  background: whitesmoke;
+}
+
 section {
-  padding: 6% 4% 6% 4%;
+  padding: 6% 4%;
 }
 
 h1 {

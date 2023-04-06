@@ -6,9 +6,7 @@ export function AllFarmers({ farmers }: { farmers: any }) {
     <>
       {farmerData.map((farmer: any) => {
         return farmer ? (
-          <div key={farmer._id}>
           <EachFarmer farmer={farmer} />
-        </div>
         ) : <div>No Data</div>
       })}
     </>

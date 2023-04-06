@@ -20,14 +20,17 @@ export function EachFarmer({ farmer }: { farmer: any }) {
 
   const date = useFormatDate(postedAt);
 
-  const farmerProduct = product.map(product => (
-    <Text className={styles['farmerUser_container']} fz='xs' key={product.farm_name}>
-      <span>{product?.product_name}</span>
-      <span>{product?.product_feed}</span>
-      <span>{product?.product_description}</span>
-      <span>{product?.available ? 'Available' : 'Not Available'}</span>
+  // For the key, need to change index to an _id on the product
+  const farmerProduct = product.map((product, index) => {
+    return product.show && (
+    <Text className={styles['farmerUser_container']} fz='sm' c="dimmed" key={`product.farm_name-${index}`}>
+      <Text fw={800}>{product?.product_name && `Product: ${product?.product_name}`}</Text>
+      <Text>{product?.product_feed.length >= 1 && `Feed: ${product?.product_feed}`}</Text>
+      <Text>{product?.product_description && `Description: ${product?.product_description}`}</Text>
+      <Text tt="uppercase">{product?.available ? 'Available Now' : 'Not Available'}</Text>
     </Text>
-  ))
+    )
+})
 
   return (
     <Group className={styles['cardContainer']} noWrap>

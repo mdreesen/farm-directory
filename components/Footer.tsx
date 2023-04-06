@@ -4,7 +4,7 @@ import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: rem(120),
+    marginTop: rem(0),
     borderTop: `${rem(1)} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}`,
   },
 
@@ -33,7 +33,6 @@ export function Footer() {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        {/* <MantineLogo size={28} /> */}
         <Group spacing={0} className={classes.links} position='right' noWrap>
           <ActionIcon size='lg'>
             <IconBrandTwitter size='1.05rem' stroke={1.5} />

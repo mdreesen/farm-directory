@@ -29,7 +29,7 @@ export default function FarmToTablePage({ farmers }: { farmers: IFarmer[] }) {
       <main>
         <Hero image source={'background-image'} imageTitle='Farm To Table' />
         <div className={styles['container']}>
-          {filter?.length === 0 ? <div>Apologies, No Farmer For This Category</div> : <AllFarmers farmers={filter} />}
+          {filter?.length === 0 ? <div className="no-data">Apologies, No Farmer For This Category</div> : <AllFarmers farmers={filter} />}
         </div>
       </main>
     </>
