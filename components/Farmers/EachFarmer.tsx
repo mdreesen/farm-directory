@@ -2,6 +2,7 @@ import React from 'react';
 import { createStyles, Group, Text } from '@mantine/core';
 import { useFormatDate } from 'hooks/useFormatDate';
 import styles from '/styles/Card.module.css';
+import { Product } from '../../types/mongo.types'
 
 const useStyles = createStyles((theme) => ({
   icon: {
@@ -21,7 +22,7 @@ export function EachFarmer({ farmer }: { farmer: any }) {
   const date = useFormatDate(postedAt);
 
   // For the key, need to change index to an _id on the product
-  const farmerProduct = product.map((product, index) => {
+  const farmerProduct = product.map((product: Product, index: number) => {
     return product.show && (
     <Text className={styles['farmerUser_container']} fz='sm' c="dimmed" key={`product.farm_name-${index}`}>
       <Text fw={800}>{product?.product_name && `Product: ${product?.product_name}`}</Text>

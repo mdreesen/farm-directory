@@ -18,3 +18,11 @@ export interface IFarmer {
   type: string;
   user: IUser;
 }
+
+export interface Product {
+  product_name: string;
+  product_feed: string;
+  product_description: string;
+  available: boolean;
+  show: boolean;
+}
