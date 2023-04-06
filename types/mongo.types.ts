@@ -21,7 +21,7 @@ export interface IFarmer {
 
 export interface Product {
   product_name: string;
-  product_feed: string;
+  product_feed: any[];
   product_description: string;
   available: boolean;
   show: boolean;
