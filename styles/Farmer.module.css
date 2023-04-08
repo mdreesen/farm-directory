@@ -5,3 +5,8 @@
   row-gap: 2rem;
   padding: 4%;
 }
+
+.no-data {
+  padding: 2%;
+  text-align: center;
+}
