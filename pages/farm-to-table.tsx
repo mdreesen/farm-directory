@@ -8,7 +8,7 @@ import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
 import { IFarmer } from 'types/mongo.types';
 
-export default function FarmToTablePage({ farmers }: { farmers: IFarmer[] }) {
+export default function FarmToTablePage({ farmers, props }: { farmers: IFarmer[], props: any }) {
 
   const [filter, setFilter] = useState<IFarmer[]>();
 
@@ -17,6 +17,9 @@ export default function FarmToTablePage({ farmers }: { farmers: IFarmer[] }) {
 
     setFilter(data.filter(farmerUser => farmerUser.type === "Farm to Table"));
   }, [])
+
+  console.log(filter?.filter(item => item.product.includes(props?.product) ?? ''))
+
 
   return (
     <>
