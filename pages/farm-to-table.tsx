@@ -18,7 +18,7 @@ export default function FarmToTablePage({ farmers, props }: { farmers: IFarmer[]
     setFilter(data.filter(farmerUser => farmerUser.type === "Farm to Table"));
   }, [])
 
-  console.log(filter?.filter(item => item.product.includes(props?.product) ?? ''))
+  console.log(filter)
 
 
   return (
