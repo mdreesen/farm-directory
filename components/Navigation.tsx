@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { createStyles, Header, Transition, Paper, Container, Group, Burger, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
+import { useUser } from '@auth0/nextjs-auth0/client';
+
+
 import styles from '../styles/Navigation.module.css';
 
 const useStyles = createStyles((theme) => ({
@@ -76,30 +79,36 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function Navigation() {
+  const { user } = useUser();
+
   const links = [
     {
       'link': '/',
-      'label': 'home'
+      'label': 'home',
     },
     {
       'link': '/farm-to-table',
-      'label': 'Farm to Table'
+      'label': 'Farm to Table',
     },
     {
       'link': '/live-animals',
-      'label': 'Live Animals'
+      'label': 'Live Animals',
     },
     {
       'link': '/hay',
-      'label': 'Hay'
+      'label': 'Hay',
     },
     {
       'link': '/straw',
-      'label': 'Straw'
+      'label': 'Straw',
     },
     {
       'link': '/farm-services',
-      'label': 'Farm Services'
+      'label': 'Farm Services',
+    },
+    {
+      'link': '/api/auth/logout',
+      'label': 'Logout',
     }
   ]
 
@@ -107,7 +116,16 @@ export function Navigation() {
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
+  const loginLink = (
+    <Link
+      href={'/api/auth/login'}
+      className={cx(classes.link)}
+    >
+      Login
+    </Link>
+  );
+
+  const items = user ? links.map((link) => (
     <Link
       key={link.label}
       href={link.link}
@@ -119,7 +137,7 @@ export function Navigation() {
     >
       {link.label}
     </Link>
-  ));
+  )) : loginLink;
 
   return (
     <Header className={styles['container']} height={60}>
