@@ -22,7 +22,7 @@ import {
               jwtTokenString: accessToken,
             },
             body: JSON.stringify({
-              dataSource: process.env.MONGODB_DATA_SOURCE,
+              dataSource: process.env.NEXT_PUBLIC_MONGODB_DATA_SOURCE,
               database: "farm_directory",
               collection: "users",
             }),
@@ -39,7 +39,7 @@ import {
                 jwtTokenString: accessToken,
               },
               body: JSON.stringify({
-                dataSource: process.env.MONGODB_DATA_SOURCE,
+                dataSource: process.env.NEXT_PUBLIC_MONGODB_DATA_SOURCE,
                 database: "farm_directory",
                 collection: "users",
                 filter: { _id: { $oid: readDataJson.document._id } },
@@ -73,7 +73,7 @@ import {
               jwtTokenString: accessToken,
             },
             body: JSON.stringify({
-              dataSource: process.env.MONGODB_DATA_SOURCE,
+              dataSource: process.env.NEXT_PUBLIC_MONGODB_DATA_SOURCE,
               database: "farm_directory",
               collection: "users",
               filter: { _id: { $oid: req.body._id } },
