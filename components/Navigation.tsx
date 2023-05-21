@@ -81,7 +81,7 @@ const useStyles = createStyles((theme) => ({
 export function Navigation() {
   const { user } = useUser();
 
-  const loggedOutLinks = [
+  const loggedOutLinksArray = [
     {
       'link': '/',
       'label': 'home',
@@ -112,7 +112,7 @@ export function Navigation() {
     }
   ]
 
-  const loggedInLinks = [
+  const loggedInLinksArray = [
     {
       'link': '/',
       'label': 'home',
@@ -141,13 +141,48 @@ export function Navigation() {
       'link': '/api/auth/logout',
       'label': 'Logout',
     }
-  ]
+  ];
+
+  // const loggedInFarmerLinksArray = [
+  //   {
+  //     'link': '/',
+  //     'label': 'home',
+  //   },
+  //   {
+  //     'link': '/farm-to-table',
+  //     'label': 'Farm to Table',
+  //   },
+  //   {
+  //     'link': '/live-animals',
+  //     'label': 'Live Animals',
+  //   },
+  //   {
+  //     'link': '/hay',
+  //     'label': 'Hay',
+  //   },
+  //   {
+  //     'link': '/straw',
+  //     'label': 'Straw',
+  //   },
+  //   {
+  //     'link': '/farm-services',
+  //     'label': 'Farm Services',
+  //   },
+  //   {
+  //     'link': '/farmer-profile',
+  //     'label': 'Profile',
+  //   },
+  //   {
+  //     'link': '/api/auth/logout',
+  //     'label': 'Logout',
+  //   }
+  // ]
 
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(loggedOutLinks[0].link);
+  const [active, setActive] = useState(loggedOutLinksArray[0].link);
   const { classes, cx } = useStyles();
 
-  const items = user ? loggedInLinks.map((link) => (
+  const loggedOut = loggedOutLinksArray.map((link) => (
     <Link
       key={link.label}
       href={link.link}
@@ -159,7 +194,9 @@ export function Navigation() {
     >
       {link.label}
     </Link>
-  )) : loggedOutLinks.map((link) => (
+  ));
+
+  const loggedIn = loggedInLinksArray.map((link) => (
     <Link
       key={link.label}
       href={link.link}
@@ -172,6 +209,9 @@ export function Navigation() {
       {link.label}
     </Link>
   ))
+
+  const items = user ? loggedIn : loggedOut;
+
 
   return (
     <Header className={styles['container']} height={60}>
