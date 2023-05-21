@@ -81,7 +81,38 @@ const useStyles = createStyles((theme) => ({
 export function Navigation() {
   const { user } = useUser();
 
-  const links = [
+  const loggedOutLinks = [
+    {
+      'link': '/',
+      'label': 'home',
+    },
+    {
+      'link': '/farm-to-table',
+      'label': 'Farm to Table',
+    },
+    {
+      'link': '/live-animals',
+      'label': 'Live Animals',
+    },
+    {
+      'link': '/hay',
+      'label': 'Hay',
+    },
+    {
+      'link': '/straw',
+      'label': 'Straw',
+    },
+    {
+      'link': '/farm-services',
+      'label': 'Farm Services',
+    },
+    {
+      'link': '/api/auth/login',
+      'label': 'Login',
+    }
+  ]
+
+  const loggedInLinks = [
     {
       'link': '/',
       'label': 'home',
@@ -113,19 +144,10 @@ export function Navigation() {
   ]
 
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState(loggedOutLinks[0].link);
   const { classes, cx } = useStyles();
 
-  const loginLink = (
-    <Link
-      href={'/api/auth/login'}
-      className={cx(classes.link)}
-    >
-      Login
-    </Link>
-  );
-
-  const items = user ? links.map((link) => (
+  const items = user ? loggedInLinks.map((link) => (
     <Link
       key={link.label}
       href={link.link}
@@ -137,7 +159,19 @@ export function Navigation() {
     >
       {link.label}
     </Link>
-  )) : loginLink;
+  )) : loggedOutLinks.map((link) => (
+    <Link
+      key={link.label}
+      href={link.link}
+      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+      onClick={() => {
+        setActive(link.link);
+        close();
+      }}
+    >
+      {link.label}
+    </Link>
+  ))
 
   return (
     <Header className={styles['container']} height={60}>
