@@ -88,12 +88,22 @@ section {
 }
 
 h1 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 4rem;
 }
 
 h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   text-align: center;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+span {
+  font-family: sans-serif;
 }
 
 /* html,

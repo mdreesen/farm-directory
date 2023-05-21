@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
 import { AllFarmers } from 'components/Farmers/AllFarmers';
 import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { Hero } from 'components/Hero';
 import { IFarmer } from 'types/mongo.types';
+import { NoFarmer } from 'components/NoFarmer';
 
 export default function FarmServicesPage({ farmers }: { farmers: IFarmer[] }) {
 
@@ -29,7 +29,7 @@ export default function FarmServicesPage({ farmers }: { farmers: IFarmer[] }) {
       <main>
         <Hero image source={'background-image'} imageTitle='Farm Services' />
         <div className={styles['container']}>
-          {filter?.length === 0 ? <div className={styles['no-data']}>Apologies, No Farmer For This Category</div> : <AllFarmers farmers={filter} />}
+          {filter?.length === 0 ? <NoFarmer/> : <AllFarmers farmers={filter} />}
         </div>
       </main>
     </>
