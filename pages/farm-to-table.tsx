@@ -18,9 +18,6 @@ export default function FarmToTablePage({ farmers }: { farmers: IFarmer[], props
     setFilter(data.filter(farmerUser => farmerUser.type === "Farm to Table"));
   }, [])
 
-  console.log(filter)
-
-
   return (
     <>
       <Head>

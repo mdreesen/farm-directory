@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { createStyles, Header, Transition, Paper, Container, Group, Burger, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
@@ -138,45 +138,14 @@ export function Navigation() {
       'label': 'Farm Services',
     },
     {
+      'link': '/farmer-profile',
+      'label': 'Profile',
+    },
+    {
       'link': '/api/auth/logout',
       'label': 'Logout',
     }
   ];
-
-  // const loggedInFarmerLinksArray = [
-  //   {
-  //     'link': '/',
-  //     'label': 'home',
-  //   },
-  //   {
-  //     'link': '/farm-to-table',
-  //     'label': 'Farm to Table',
-  //   },
-  //   {
-  //     'link': '/live-animals',
-  //     'label': 'Live Animals',
-  //   },
-  //   {
-  //     'link': '/hay',
-  //     'label': 'Hay',
-  //   },
-  //   {
-  //     'link': '/straw',
-  //     'label': 'Straw',
-  //   },
-  //   {
-  //     'link': '/farm-services',
-  //     'label': 'Farm Services',
-  //   },
-  //   {
-  //     'link': '/farmer-profile',
-  //     'label': 'Profile',
-  //   },
-  //   {
-  //     'link': '/api/auth/logout',
-  //     'label': 'Logout',
-  //   }
-  // ]
 
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(loggedOutLinksArray[0].link);

@@ -3,21 +3,19 @@ import Head from 'next/head';
 import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
-import { Hero } from 'components/Hero';
-// import { AllFarmers } from 'components/Farmers/AllFarmers';
-// import { NoFarmer } from 'components/NoFarmer';
-// import { IFarmer } from 'types/mongo.types';
+import { FarmerProfile } from 'components/FarmerProfile';
+import useFarmerUser from '../utils/composable/useFarmerUser';
+import { IFarmer } from 'types/mongo.types';
 
-export default function FarmersPage() {
+export default function FarmersPage({ farmers }: { farmers: IFarmer[], props: any }) {
 
-//   const [filter, setFilter] = useState<IFarmer[]>();
+  const farmyWarmy = useFarmerUser(farmers)
+
+const hayBoisVisual = farmyWarmy.map((item: any) => (
+  <FarmerProfile data={item} key={item?.user?.farm_name}/>
+))
 
 
-//   useEffect(() => {
-//     const data = [...farmers]
-
-//     setFilter(data.filter(farmerUser => farmerUser.type === "Hay"));
-//   }, [])
   return (
     <>
       <Head>
@@ -27,8 +25,8 @@ export default function FarmersPage() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <Hero image source={'background-image'} imageTitle='Farmers' />
         <div className={styles['container']}>
+          {hayBoisVisual}
         </div>
       </main>
     </>
