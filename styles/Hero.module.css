@@ -46,7 +46,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    row-gap: 22vh;
+    row-gap: 15vh;
   }
 
   .center-con {
@@ -54,6 +54,7 @@
     /* height: 100vh; */
     align-items: center;
     justify-content: center;
+    scroll-behavior: smooth;
   }
   .round {
     position: relative;
@@ -102,7 +103,7 @@
     left: 45%;
     bottom: 54%;
   }
-  
+/*   
   .round:hover .arrowSpan:nth-child(1) {
     transform: rotate(-135deg);
   }
@@ -117,5 +118,5 @@
   
   .round:hover .arrowSpan:nth-child(4) {
     transform: rotate(-225deg);
-  }
+  } */
 }

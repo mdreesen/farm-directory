@@ -15,7 +15,7 @@ export function Hero({
 }) {
 
   const downArrow = (
-<div className={styles["center-con"]}>
+<a className={styles["center-con"]} href="#about">
     
     <div className={styles["round"]}>
         <span className={styles['arrowSpan']} />
@@ -24,7 +24,7 @@ export function Hero({
         <span className={styles['arrowSpan']} />
     </div>
     
-</div>
+</a>
   );
   return (
     <div>

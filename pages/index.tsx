@@ -5,7 +5,7 @@ import styles from '/styles/Home.module.css';
 
 export default function HomePage() {
   const abstract = (
-    <section>
+    <section id="about">
       <h2>About</h2>
       <p>We are a small group of folks with a strong desire to connect local consumers to local farmers. The idea was
         started by a fourth generation farmer from Northwest Montana who navigated the hurdles of direct marketing in
