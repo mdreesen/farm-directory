@@ -6,7 +6,7 @@ export function FarmerProfile(props: any) {
     console.log('!@!', props?.data)
 
     const products = props?.data?.product?.map((item: any) => (
-        <div>
+        <div className={styles['section-products']}>
             <span>{item?.product_name}</span>
             <div>
                 {item?.product_feed && <span>{item?.product_feed}</span>}

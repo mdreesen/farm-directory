@@ -80,6 +80,7 @@ const useStyles = createStyles((theme) => ({
 
 export function Navigation() {
   const { user } = useUser();
+  console.log('User here', user)
 
   const loggedOutLinksArray = [
     {
