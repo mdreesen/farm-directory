@@ -8,7 +8,11 @@ export function ProfileUser() {
 
     return (
         <section className={styles['container']}>
-
+            <section className={styles['container']}>
+                <h2>{user?.email}</h2>
+                <span>Name: {user?.name}</span>
+                <span>Updated At: {user?.updated_at}</span>
+            </section>
         </section>
     );
 };

@@ -14,8 +14,9 @@ export default function FarmersPage({ farmers }: { farmers: IFarmer[], props: an
   const farmyWarmy = useFarmerUser(farmers);
   const { user } = useUser();
 
-  console.log(farmyWarmy);
-  console.log(user)
+  // console.log('farmers',farmers)
+  // console.log('farmer whole',farmyWarmy);
+  // console.log('user',user)
 
 
   return (
@@ -28,8 +29,8 @@ export default function FarmersPage({ farmers }: { farmers: IFarmer[], props: an
       </Head>
       <main>
         <div className={styles['container']}>
-          <ProfileFarmer data={farmyWarmy} />
-          <ProfileUser />
+          {farmyWarmy.length && <ProfileFarmer data={farmyWarmy} />}
+          {user && <ProfileUser />}
         </div>
       </main>
     </>

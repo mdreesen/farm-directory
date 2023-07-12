@@ -25,10 +25,11 @@ export function EachFarmer({ farmer }: { farmer: any }) {
 
   // For the key, need to change index to an _id on the product
   const farmerProduct = product ? product.map((product: Product, index: number) => {
+    console.log(product)
     return product.show && (
     <Text className={styles['farmerUser_container']} fz='sm' c="dimmed" key={`product.farm_name-${index}`}>
       <Text fw={800}>{product?.product_name && `Product: ${product?.product_name}`}</Text>
-      <Text>{product?.product_feed.length >= 1 && `Feed: ${product?.product_feed}`}</Text>
+      <Text>{product?.product_feed[0]} {product?.product_feed[1] && '&'} {product?.product_feed[1]}</Text>
       <Text>{product?.product_description && `Description: ${product?.product_description}`}</Text>
       <Text tt="uppercase">{product?.available ? 'Available Now' : 'Not Available'}</Text>
     </Text>
