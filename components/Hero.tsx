@@ -13,6 +13,19 @@ export function Hero({
   source: string;
   imageTitle?: string;
 }) {
+
+  const downArrow = (
+<div className={styles["center-con"]}>
+    
+    <div className={styles["round"]}>
+        <span className={styles['arrowSpan']} />
+        <span className={styles['arrowSpan']} />
+        <span className={styles['arrowSpan']} />
+        <span className={styles['arrowSpan']} />
+    </div>
+    
+</div>
+  );
   return (
     <div>
       {video && (
@@ -20,7 +33,11 @@ export function Hero({
           <video autoPlay width='250' loop muted className={styles['hero']}>
             <source src={source} type='video/mp4' />
           </video>
-          <h1 className={styles['title']}>Farm Directory</h1>
+          <h1 className={styles['title']}>
+            Farm Directory
+
+            {downArrow}
+            </h1>
         </div>
       )}
       {image && (
