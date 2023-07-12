@@ -3,19 +3,21 @@ import styles from '../styles/FarmerProfile.module.css';
 
 export function FarmerProfile(props: any) {
 
-    console.log('!@!', props?.data)
-
-    const products = props?.data?.product?.map((item: any) => (
-        <div className={styles['section-products']}>
-            <span>{item?.product_name}</span>
-            <div>
-                {item?.product_feed && <span>{item?.product_feed}</span>}
-                <span>{item?.product_description}</span>
-                <span>{item?.available ? 'Available Now' : 'Not Available'}</span>
-                <span>{item?.show ? 'Product is showing to the public.' : 'Product is hidden from public.'}</span>
+    const products = props?.data?.product?.map((item: any) => {
+        console.log(item)
+        const feed = <span>{item?.product_feed[0]} {item?.product_feed[1] ? '&' : ''} {item?.product_feed[1]}</span>
+        return (
+            <div className={styles['section-products']}>
+                <span>{item?.product_name}</span>
+                <div className={styles['section-product-data']}>
+                    {feed}
+                    <span>{item?.product_description}</span>
+                    <span>{item?.available ? 'Available Now' : 'Not Available'}</span>
+                    <span>{item?.show ? 'Product is showing to the public.' : 'Product is hidden from public.'}</span>
+                </div>
             </div>
-        </div>
-    ))
+        )
+    })
 
     return (
         <section className={styles['container']}>

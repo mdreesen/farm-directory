@@ -21,6 +21,8 @@ export function EachFarmer({ farmer }: { farmer: any }) {
 
   const date = useFormatDate(postedAt);
 
+  console.log(product)
+
   // For the key, need to change index to an _id on the product
   const farmerProduct = product ? product.map((product: Product, index: number) => {
     return product.show && (
