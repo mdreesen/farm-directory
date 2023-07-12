@@ -84,7 +84,7 @@ export function Navigation() {
   const loggedOutLinksArray = [
     {
       'link': '/',
-      'label': 'home',
+      'label': 'Home',
     },
     {
       'link': '/farm-to-table',
