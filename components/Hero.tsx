@@ -16,7 +16,6 @@ export function Hero({
 
   const downArrow = (
 <a className={styles["center-con"]} href="#about">
-    
     <div className={styles["round"]}>
         <span className={styles['arrowSpan']} />
         <span className={styles['arrowSpan']} />
@@ -35,9 +34,9 @@ export function Hero({
           </video>
           <h1 className={styles['title']}>
             Farm Directory
+            </h1>
 
             {downArrow}
-            </h1>
         </div>
       )}
       {image && (
