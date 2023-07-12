@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/FarmerProfile.module.css';
 
-export function FarmerProfile(props: any) {
+export function ProfileFarmer(props: any) {
 
     const products = props?.data?.product?.map((item: any) => {
         console.log(item)

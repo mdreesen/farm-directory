@@ -3,17 +3,19 @@ import Head from 'next/head';
 import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
-import { FarmerProfile } from 'components/FarmerProfile';
+import { ProfileFarmer } from 'components/ProfileFarmer';
+import { ProfileUser } from 'components/ProfileUser';
 import useFarmerUser from '../utils/composable/useFarmerUser';
 import { IFarmer } from 'types/mongo.types';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function FarmersPage({ farmers }: { farmers: IFarmer[], props: any }) {
 
-  const farmyWarmy = useFarmerUser(farmers)
+  const farmyWarmy = useFarmerUser(farmers);
+  const { user } = useUser();
 
-const hayBoisVisual = farmyWarmy.map((item: any) => (
-  <FarmerProfile data={item} key={item?.user?.farm_name}/>
-))
+  console.log(farmyWarmy);
+  console.log(user)
 
 
   return (
@@ -26,7 +28,8 @@ const hayBoisVisual = farmyWarmy.map((item: any) => (
       </Head>
       <main>
         <div className={styles['container']}>
-          {hayBoisVisual}
+          <ProfileFarmer data={farmyWarmy} />
+          <ProfileUser />
         </div>
       </main>
     </>

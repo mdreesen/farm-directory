@@ -138,7 +138,7 @@ export function Navigation() {
       'label': 'Farm Services',
     },
     {
-      'link': '/farmer-profile',
+      'link': '/profile',
       'label': 'Profile',
     },
     {
