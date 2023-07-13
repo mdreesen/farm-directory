@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/FarmerProfile.module.css';
+import { OnOffSwitch } from 'components/OnOffSwitch';
 
 export function ProfileFarmer(props: any) {
 
@@ -12,8 +13,12 @@ export function ProfileFarmer(props: any) {
                 <div className={styles['section-product-data']}>
                     {feed}
                     <span>{item?.product_description}</span>
-                    <span>{item?.available ? 'Available Now' : 'Not Available'}</span>
-                    <span>{item?.show ? 'Product is showing to the public.' : 'Product is hidden from public.'}</span>
+                    {/* <span>{item?.available ? 'Available Now' : 'Not Available'}</span> */}
+                    <OnOffSwitch onLabel={'Available now.'} offLabel={'Not available.'} />
+
+                    {/* <span>{item?.show ? 'Product is showing to the public.' : 'Product is hidden from public.'}</span> */}
+                    <OnOffSwitch onLabel={'Product is shown to public.'} offLabel={'Product hidden from public.'} />
+
                 </div>
             </div>
         )
