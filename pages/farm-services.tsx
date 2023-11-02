@@ -13,7 +13,7 @@ export default function FarmServicesPage({ farmers }: { farmers: IFarmer[] }) {
   const [filter, setFilter] = useState<IFarmer[]>();
 
   useEffect(() => {
-    const data = [...farmers]
+    const data = [...farmers] ?? []
 
     setFilter(data.filter(farmerUser => farmerUser.type === "Hay"));
   }, [])

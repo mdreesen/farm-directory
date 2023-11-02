@@ -75,6 +75,18 @@
 
 a {
   scroll-behavior: smooth;
+  text-decoration: none;
+  font-family: sans-serif;
+  color: black;
+  font-weight: 300;
+}
+
+a:hover {
+  scroll-behavior: smooth;
+  text-decoration: none;
+  font-family: sans-serif;
+  color: black;
+  /* font-weight: 300; */
 }
 
 main {

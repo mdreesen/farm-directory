@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createStyles, Container, Group, ActionIcon, rem } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 
@@ -32,6 +33,10 @@ export function Footer() {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
+      <Group spacing={0} className={classes.links} position='left' noWrap>
+        <Link href="/about">About</Link>
+      </Group>
+
         <Group spacing={0} className={classes.links} position='right' noWrap>
           <ActionIcon size='lg'>
             <IconBrandTwitter size='1.05rem' stroke={1.5} />

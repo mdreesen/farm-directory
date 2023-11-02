@@ -6,3 +6,12 @@
   /* padding: 6rem; */
   /* min-height: 100vh; */
 }
+
+.about {
+  display: flex;
+  flex-direction: column;
+}
+
+.about > h2 {
+  padding: 4rem;
+}
