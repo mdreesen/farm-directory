@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
+import styles from 'styles/About.module.css';
 
 export default function about() {
 
     const abstract = (
-        <section id="about">
+        <section>
             <h2>About</h2>
             <p>We are a small group of folks with a strong desire to connect local consumers to local farmers. The idea was
                 started by a fourth generation farmer from Northwest Montana who navigated the hurdles of direct marketing in
@@ -63,7 +64,7 @@ export default function about() {
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <main>
+            <main className={styles['main']}>
                 {abstract}
                 {whoWeAre}
                 {whyCharge}

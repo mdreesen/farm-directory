@@ -15,7 +15,7 @@ export default function HomePage() {
       </Head>
       <main className={styles.main}>
         <Hero video source={'/videos/hero-video.mp4'} />
-        <section className={styles.about}>
+        <section className={styles.about} id="about">
           <h2>Connecting local consumers to local farmers</h2>
           <h2>We advertise in your local areas to drive traffic to your listings</h2>
           <h2>Eliminating the need to build a website</h2>

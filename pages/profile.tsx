@@ -18,8 +18,8 @@ export default function FarmersPage({ farmers }: { farmers: IFarmer[], props: an
   console.log('farmer whole',farmyWarmy);
   // console.log('user',user)
 
-  const farmerProfile = farmyWarmy?.map((data: any) => (
-    <ProfileFarmer data={data} />
+  const farmerProfile = farmyWarmy?.map((data: any, index: number) => (
+    <ProfileFarmer key={`farmer-${index}`} data={data} />
   ))
 
 
