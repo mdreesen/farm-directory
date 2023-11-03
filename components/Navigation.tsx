@@ -115,7 +115,7 @@ export function Navigation() {
   const loggedInLinksArray = [
     {
       'link': '/',
-      'label': 'home',
+      'label': 'Home',
     },
     {
       'link': '/farm-to-table',
