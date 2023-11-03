@@ -33,7 +33,7 @@
 
 @media only screen and (max-width: 575px) {
   .hero {
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
     object-fit: cover;
     filter: brightness(0.8);
@@ -49,7 +49,7 @@
     row-gap: 15vh;
   }
 
-  .center-con {
+  /* .center-con {
     display: flex;
     position: absolute;
     bottom: 30px;
@@ -102,7 +102,7 @@
     transform: rotate(-45deg);
     left: 45%;
     bottom: 54%;
-  }
+  } */
 /*   
   .round:hover .arrowSpan:nth-child(1) {
     transform: rotate(-135deg);
