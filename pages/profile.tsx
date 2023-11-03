@@ -4,15 +4,15 @@ import { ax } from 'lib/axios.lib';
 import { LogError } from 'utils/util';
 import styles from 'styles/Farmer.module.css';
 import { ProfileFarmer } from 'components/ProfileFarmer';
-import { ProfileUser } from 'components/ProfileUser';
+// import { ProfileUser } from 'components/ProfileUser';
 import useFarmerUser from '../utils/composable/useFarmerUser';
 import { IFarmer } from 'types/mongo.types';
-import { useUser } from '@auth0/nextjs-auth0/client';
+// import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function FarmersPage({ farmers }: { farmers: IFarmer[], props: any }) {
 
   const farmyWarmy = useFarmerUser(farmers);
-  const { user } = useUser();
+  // const { user } = useUser();
 
   // console.log('farmers',farmers)
   console.log('farmer whole',farmyWarmy);
