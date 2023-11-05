@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import styles from 'styles/Farmer.module.css';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { EditProfileForm } from 'components/forms/EditProfileForm';
 
 export default function UserProfilePage() {
   const { user } = useUser();
@@ -18,6 +19,7 @@ export default function UserProfilePage() {
         <div className={styles['container']}>
           <br />
           <div className={styles['container']}>{user && <div>{user.name}</div>}</div>
+          <EditProfileForm />
         </div>
       </main>
     </>
