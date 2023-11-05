@@ -18,7 +18,7 @@ interface IError {
 function InputError({ className, field }: IError) {
   return (
     <div className={className}>
-      {field.error?.message || (!field.isDirty && field.isTouched && <>Required</>) || <>&nbsp;</>}
+      {(field.error && field.error.message) || (!field.isDirty && field.isTouched && <>Required</>) || <>&nbsp;</>}
     </div>
   );
 }
@@ -39,14 +39,12 @@ export function EditProfileForm() {
 
   return (
     <form
-      onSubmit={handleSubmit(async (submit) => {
-        console.log(valid);
-        console.log(submit);
-
-        // try {
-        // } catch (error) {
-        //   console.log(error);
-        // }
+      onSubmit={handleSubmit(async ({ firstname, lastname, email }) => {
+        try {
+          console.log({ firstname, lastname, email });
+        } catch (error) {
+          console.log(error);
+        }
 
         reset();
       })}
