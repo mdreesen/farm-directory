@@ -13,6 +13,7 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.6.0",
     "@emotion/react": "^11.10.6",
+    "@hookform/resolvers": "3.0.0",
     "@mantine/core": "^6.0.5",
     "@mantine/hooks": "^6.0.5",
     "@tabler/icons-react": "^2.12.0",
@@ -23,12 +24,12 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.43.7",
+    "react-hook-form": "^7.47.0",
     "react-is": "^18.2.0",
-    "sass": "^1.49.10",
+    "sass": "^1.69.5",
     "sharp": "^0.30.6",
     "vercel": "^28.18.1",
-    "yup": "^1.0.2",
+    "yup": "1.0.2",
     "zustand": "^4.3.7"
   },
   "devDependencies": {
