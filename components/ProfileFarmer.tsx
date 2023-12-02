@@ -5,7 +5,6 @@ import { OnOffSwitch } from 'components/OnOffSwitch';
 export function ProfileFarmer(props: any) {
 
     const products = props?.data?.product?.map((item: any, index: number) => {
-        console.log(item)
         const feed = <span>{item?.product_feed[0]} {item?.product_feed[1] ? '&' : ''} {item?.product_feed[1]}</span>
         return (
             <div className={styles['section-products']} key={`${item}-${index}`}>

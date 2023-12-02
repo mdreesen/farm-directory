@@ -39,6 +39,7 @@ export default function FarmToTablePage({ farmers }: { farmers: IFarmer[], props
 export async function getStaticProps() {
   try {
     const { documents } = await ax.farmers.find;
+
     return {
       props: { farmers: documents },
     };

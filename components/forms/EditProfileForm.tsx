@@ -41,7 +41,8 @@ export function EditProfileForm() {
     <form
       onSubmit={handleSubmit(async ({ firstname, lastname, email }) => {
         try {
-          console.log({ firstname, lastname, email });
+          // console.log({ firstname, lastname, email });
+          return { firstname, lastname, email }
         } catch (error) {
           console.log(error);
         }
