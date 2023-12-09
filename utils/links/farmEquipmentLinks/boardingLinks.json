@@ -1,0 +1,12 @@
+{
+    "farmEquipmentLinks": [
+        {
+            "linkName": "horse boarding",
+            "directTo": "/boarding-pasture/horse-boarding"
+        },
+        {
+            "linkName": "pasture for rent",
+            "directTo": "/boarding-pasture/pasture-rent"
+        }
+    ]
+}

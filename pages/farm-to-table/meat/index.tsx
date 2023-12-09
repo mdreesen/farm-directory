@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import { CategoryCard } from '../components/CategoryCard';
-import parentLinks from '../utils/links/parentLinks.json';
+import { CategoryCard } from '../../../components/CategoryCard';
+import parentLinks from '../../../utils/links/farmToTableLinks/meatLinks.json';
 import styles from '/styles/Home.module.css';
 
 
-export default function HomePage() {
+export default function FarmToTable() {
 
 
   const cardMapping = parentLinks?.map((item) => <CategoryCard itemData={item} />);

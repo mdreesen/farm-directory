@@ -1,0 +1,40 @@
+{
+    "farmEquipmentLinks": [
+        {
+            "linkName": "veterinarian / medicine",
+            "directTo": "/veterinarian-medicine"
+        },
+        {
+            "linkName": "farrier",
+            "directTo": "/farrier"
+        },
+        {
+            "linkName": "boarding / pasture",
+            "directTo": "/boarding-pasture"
+        },
+        {
+            "linkName": "training",
+            "directTo": "/training"
+        },
+        {
+            "linkName": "hauling",
+            "directTo": "/hauling"
+        },
+        {
+            "linkName": "butchering",
+            "directTo": "/butchering"
+        },
+        {
+            "linkName": "fence building / mobile welding",
+            "directTo": "/building-welding"
+        },
+        {
+            "linkName": "equipment sales / repair",
+            "directTo": "/sales-repair"
+        },
+        {
+            "linkName": "other",
+            "directTo": "/other-farm-equipment"
+        }
+    ]
+}

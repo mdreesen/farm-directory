@@ -1,0 +1,14 @@
+.scrollProgress {
+    /* color: ;
+    background: red; */
+    background: linear-gradient(rgb(249, 115, 22), rgb(253, 224, 71));  /* fallback for old browsers */
+
+    height: 100%;
+    justify-content: flex-end;
+    display: flex;
+    position: fixed;
+    width: 0.2rem;
+    top: 0;
+    z-index: 9999;
+
+  }

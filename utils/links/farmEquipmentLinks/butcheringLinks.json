@@ -1,0 +1,20 @@
+{
+    "farmEquipmentLinks": [
+        {
+            "linkName": "custom exempt",
+            "directTo": "/butchering/custom-exempt"
+        },
+        {
+            "linkName": "state inspected",
+            "directTo": "/butchering/state-inspected"
+        },
+        {
+            "linkName": "usda inspected",
+            "directTo": "/butchering/usda-inspected"
+        },
+        {
+            "linkName": "mobile butchers",
+            "directTo": "/butchering/mobile-butchers"
+        }
+    ]
+}

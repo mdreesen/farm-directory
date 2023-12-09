@@ -80,11 +80,12 @@ a:hover {
   text-decoration: none;
   font-family: sans-serif;
   color: black;
-  /* font-weight: 300; */
 }
 
 main {
-  background: whitesmoke;
+  /* background: whitesmoke; */
+  background: linear-gradient(90deg,rgba(3,11,6,.977) 2%,#0f0e0e 49%);
+  padding: 6rem 0;
 }
 
 section {
@@ -122,24 +123,3 @@ body {
   /* overflow-x: hidden; */
   scroll-behavior: smooth;
 }
-
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */

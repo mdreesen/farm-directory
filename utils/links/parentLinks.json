@@ -1,0 +1,22 @@
+[
+    {
+        "linkName": "Farm to Table",
+        "directTo": "/farm-to-table"
+    },
+    {
+        "linkName": "Live Animals",
+        "directTo": "/live-animals"
+    },
+    {
+        "linkName": "Hay",
+        "directTo": "/hay"
+    },
+    {
+        "linkName": "Straw",
+        "directTo": "/straw"
+    },
+    {
+        "linkName": "Farm Services",
+        "directTo": "/farm-services"
+    }
+]

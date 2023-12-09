@@ -1,0 +1,22 @@
+[
+    {
+        "linkName": "meat",
+        "directTo": "/farm-to-table/meat"
+    },
+    {
+        "linkName": "eggs",
+        "directTo": "/farm-to-table/eggs"
+    },
+    {
+        "linkName": "milk",
+        "directTo": "/farm-to-table/milk"
+    },
+    {
+        "linkName": "vegetables",
+        "directTo": "/farm-to-table/vegetables"
+    },
+    {
+        "linkName": "kitchen goods",
+        "directTo": "/farm-to-table/kitchen-goods"
+    }
+]

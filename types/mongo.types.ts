@@ -13,7 +13,7 @@ export interface IFarmer {
   _id: string;
   likes: any[];
   postedAt: number;
-  product: string;
+  product: any[];
   product_feed: string;
   type: string;
   user: IUser;

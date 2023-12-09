@@ -138,14 +138,16 @@ export function Navigation() {
       'label': 'Farm Services',
     },
     {
-      'link': '/profile',
-      'label': 'Profile',
-    },
-    {
       'link': '/api/auth/logout',
       'label': 'Logout',
     }
   ];
+
+  // Taking out profile for user for now
+  // {
+  //   'link': '/profile',
+  //   'label': 'Profile',
+  // },
 
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(loggedOutLinksArray[0].link);

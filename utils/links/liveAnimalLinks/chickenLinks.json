@@ -1,0 +1,12 @@
+{
+    "chickenLinks": [
+        {
+            "linkName": "layers",
+            "directTo": "/birds/chickens/layers"
+        },
+        {
+            "linkName": "meat chickens",
+            "directTo": "/birds/chickens/meat-chickens"
+        }
+    ]
+}
