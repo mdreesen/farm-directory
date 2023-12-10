@@ -4,12 +4,12 @@
     font-family: sans-serif;
   }
   
-  .container::before,
+  /* .container::before,
   .container::after {
     content: "";
     background-color: #fab5704c;
     position: absolute;
-  }
+  } */
   
   .container::before {
     border-radius: 50%;

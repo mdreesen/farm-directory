@@ -13,7 +13,7 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Navigation />
-      <motion.div className={styles['scrollProgress']} style={{ scaleY: scrollYProgress }} />
+      <motion.div className={styles['scrollProgress']} style={{ scaleX: scrollYProgress }} />
 
       <main>{children}</main>
       <Footer />

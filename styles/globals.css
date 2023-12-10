@@ -84,7 +84,11 @@ a:hover {
 
 main {
   /* background: whitesmoke; */
-  background: linear-gradient(90deg,rgba(3,11,6,.977) 2%,#0f0e0e 49%);
+  /* background: linear-gradient(90deg,rgba(3,11,6,.977) 2%,#0f0e0e 49%); */
+  /* background: #F4FAF8; */
+  background: #16222a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #16222a, #3a6073);
   padding: 6rem 0;
 }
 
