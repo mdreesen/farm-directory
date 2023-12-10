@@ -14,10 +14,8 @@ export default function BeefPage({ farmers }: { farmers: IFarmer[], props: any }
   useEffect(() => {
     const data = [...farmers]
 
-    console.log(data)
-
     setFilter(data.filter(farmerUser => {
-      console.log(farmerUser?.product.filter(item => item.product_name?.includes('Beef')))
+      // console.log(farmerUser?.product.filter(item => item.product_name?.includes('Beef')))
       return farmerUser.type === "Farm to Table"
     }));
   }, [])

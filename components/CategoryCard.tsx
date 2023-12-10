@@ -3,8 +3,8 @@ import Link from 'next/link';
 import styles from '../styles/CategoryCard.module.css';
 
 export function CategoryCard(itemData: any) {
-    console.log(itemData?.itemData)
-    const data = itemData?.itemData
+    const data = itemData?.itemData;
+    
     return (
         <Link href={data?.directTo}>
         <div className={styles["container"]}>
