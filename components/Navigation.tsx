@@ -24,6 +24,7 @@ const useStyles = createStyles((theme) => ({
   links: {
     [theme.fn.smallerThan('xs')]: {
       display: 'none',
+      color: 'white',
     },
   },
 
@@ -32,6 +33,7 @@ const useStyles = createStyles((theme) => ({
       display: 'none',
     },
     zIndex: 9000,
+    color: 'white'
   },
 
   dropdown: {
@@ -61,21 +63,25 @@ const useStyles = createStyles((theme) => ({
     padding: `${rem(8)} ${rem(12)}`,
     borderRadius: theme.radius.sm,
     textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
+    color: "black",
     fontWeight: 500,
 
-    '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+    [theme.fn.largerThan('sm')]: {
+      color: "white",
     },
+
+    // '&:hover': {
+    //   backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+    // },
   },
 
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
-    },
-  },
+  // linkActive: {
+  //   '&, &:hover': {
+  //     backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
+  //     color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+  //   },
+  // },
 }));
 
 export function Navigation() {
@@ -157,7 +163,7 @@ export function Navigation() {
     <Link
       key={link.label}
       href={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+      className={cx(classes.link)}
       onClick={() => {
         setActive(link.link);
         close();
@@ -171,7 +177,7 @@ export function Navigation() {
     <Link
       key={link.label}
       href={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+      className={cx(classes.link)}
       onClick={() => {
         setActive(link.link);
         close();

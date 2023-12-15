@@ -1,23 +1,23 @@
 {
     "liveAnimalsLinks": [
         {
-            "linkName": "livestock / cattle",
+            "linkName": "Livestock / Cattle",
             "directTo": "/live-animals"
         },
         {
-            "linkName": "equine / mules / donkeys",
+            "linkName": "Equine / Mules / Donkeys",
             "directTo": "/equine-mules-donkeys"
         },
         {
-            "linkName": "pigs / hogs / piglets",
+            "linkName": "Pigs / Hogs / Piglets",
             "directTo": "/pigs-hogs-piglets"
         },
         {
-            "linkName": "birds",
+            "linkName": "Birds",
             "directTo": "/birds"
         },
         {
-            "linkName": "goat / sheep / small ruminants",
+            "linkName": "Goat / Sheep / Small Ruminants",
             "directTo": "/goat-sheep-ruminants"
         }
     ]

@@ -1,18 +1,18 @@
 [
     {
-        "linkName": "chicken",
+        "linkName": "Chicken",
         "directTo": "/eggs/chicken"
     },
     {
-        "linkName": "duck",
+        "linkName": "Duck",
         "directTo": "/eggs/duck"
     },
     {
-        "linkName": "quail",
+        "linkName": "Quail",
         "directTo": "/eggs/quail"
     },
     {
-        "linkName": "other",
+        "linkName": "Other",
         "directTo": "/eggs/other"
     }
 ]

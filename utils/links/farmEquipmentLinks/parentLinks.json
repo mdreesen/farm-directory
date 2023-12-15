@@ -13,27 +13,27 @@
             "directTo": "/boarding-pasture"
         },
         {
-            "linkName": "training",
+            "linkName": "Training",
             "directTo": "/training"
         },
         {
-            "linkName": "hauling",
+            "linkName": "Hauling",
             "directTo": "/hauling"
         },
         {
-            "linkName": "butchering",
+            "linkName": "Butchering",
             "directTo": "/butchering"
         },
         {
-            "linkName": "fence building / mobile welding",
+            "linkName": "Fence Building / Mobile Welding",
             "directTo": "/building-welding"
         },
         {
-            "linkName": "equipment sales / repair",
+            "linkName": "Equipment Sales / Repair",
             "directTo": "/sales-repair"
         },
         {
-            "linkName": "other",
+            "linkName": "Other",
             "directTo": "/other-farm-equipment"
         }
     ]

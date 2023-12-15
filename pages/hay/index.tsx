@@ -8,25 +8,26 @@ import { AllFarmers } from 'components/Farmers/AllFarmers';
 import { NoFarmer } from 'components/NoFarmer';
 import { IFarmer } from 'types/mongo.types';
 
-export default function LiveAnimalsPage({ farmers }: { farmers: IFarmer[] }) {
-  const [filter, setFilter] = useState<IFarmer[]>()
+export default function FarmToTablePage({ farmers }: { farmers: IFarmer[], props: any }) {
+
+  const [filter, setFilter] = useState<IFarmer[]>();
 
   useEffect(() => {
     const data = [...farmers]
 
-    setFilter(data.filter(farmerUser => farmerUser.type === "Live Animals For Sale"));
+    setFilter(data.filter(farmerUser => farmerUser.type === "Farm to Table"));
   }, [])
 
   return (
     <>
       <Head>
-        <title>Farmers | Farm Directory</title>
+        <title>Farm To Table | Farm Directory</title>
         <meta name='description' content='Farm Directory Farmer Search' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <Hero image source={'background-image'} imageTitle='Live Animals' />
+        <Hero image source={'background-image'} imageTitle='Farm To Table' />
         <div className={styles['container']}>
           {filter?.length === 0 ? <NoFarmer/> : <AllFarmers farmers={filter} />}
         </div>
@@ -38,12 +39,13 @@ export default function LiveAnimalsPage({ farmers }: { farmers: IFarmer[] }) {
 export async function getStaticProps() {
   try {
     const { documents } = await ax.farmers.find;
+
     return {
       props: { farmers: documents },
     };
-
   } catch (error) {
     LogError(error);
     return { props: {} };
   }
 }
+

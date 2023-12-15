@@ -1,23 +1,23 @@
 {
     "birdLinks": [
         {
-            "linkName": "chicks and chickens",
+            "linkName": "Chicks and Chickens",
             "directTo": "/birds/chickens"
         },
         {
-            "linkName": "turkeys",
+            "linkName": "Turkeys",
             "directTo": "/birds/turkeys"
         },
         {
-            "linkName": "ducks and ducklings",
+            "linkName": "Ducks and Ducklings",
             "directTo": "/birds/duck"
         },
         {
-            "linkName": "geese",
+            "linkName": "Geese",
             "directTo": "/birds/geese"
         },
         {
-            "linkName": "other",
+            "linkName": "Other",
             "directTo": "/birds/other"
         }
     ]

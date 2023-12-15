@@ -4,3 +4,13 @@
     border-bottom: none;
     backdrop-filter: blur(15px);
 }
+
+/* .links {
+    color: white;
+} */
+
+@media only screen and (max-width: 575px) {
+    .links {
+        color: black;
+    }
+}
