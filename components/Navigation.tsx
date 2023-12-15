@@ -156,7 +156,7 @@ export function Navigation() {
   // },
 
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(loggedOutLinksArray[0].link);
+  const [_active, setActive] = useState(loggedOutLinksArray[0].link);
   const { classes, cx } = useStyles();
 
   const loggedOut = loggedOutLinksArray.map((link) => (
