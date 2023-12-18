@@ -1,24 +1,22 @@
-{
-    "birdLinks": [
-        {
-            "linkName": "Chicks and Chickens",
-            "directTo": "/birds/chickens"
-        },
-        {
-            "linkName": "Turkeys",
-            "directTo": "/birds/turkeys"
-        },
-        {
-            "linkName": "Ducks and Ducklings",
-            "directTo": "/birds/duck"
-        },
-        {
-            "linkName": "Geese",
-            "directTo": "/birds/geese"
-        },
-        {
-            "linkName": "Other",
-            "directTo": "/birds/other"
-        }
-    ]
-}
+[
+    {
+        "linkName": "Chicks and Chickens",
+        "directTo": "/live-animals/birds/chickens"
+    },
+    {
+        "linkName": "Turkeys",
+        "directTo": "/live-animals/birds/turkeys"
+    },
+    {
+        "linkName": "Ducks and Ducklings",
+        "directTo": "/live-animals/birds/duck"
+    },
+    {
+        "linkName": "Geese",
+        "directTo": "/live-animals/birds/geese"
+    },
+    {
+        "linkName": "Other",
+        "directTo": "/live-animals/birds/other"
+    }
+]

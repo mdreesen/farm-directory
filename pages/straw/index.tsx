@@ -1,51 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
-import { ax } from 'lib/axios.lib';
-import { LogError } from 'utils/util';
-import styles from 'styles/Farmer.module.css';
-import { Hero } from 'components/Hero';
-import { AllFarmers } from 'components/Farmers/AllFarmers';
-import { NoFarmer } from 'components/NoFarmer';
-import { IFarmer } from 'types/mongo.types';
+import { CategoryCard } from '../../components/CategoryCard';
+import parentLinks from '../../utils/links/strawLinks/straw.json';
+import styles from '/styles/Home.module.css';
 
-export default function FarmToTablePage({ farmers }: { farmers: IFarmer[], props: any }) {
 
-  const [filter, setFilter] = useState<IFarmer[]>();
+export default function FarmToTable() {
 
-  useEffect(() => {
-    const data = [...farmers]
 
-    setFilter(data.filter(farmerUser => farmerUser.type === "Farm to Table"));
-  }, [])
+  const cardMapping = parentLinks?.map((item) => <CategoryCard itemData={item} />);
 
   return (
     <>
       <Head>
-        <title>Farm To Table | Farm Directory</title>
-        <meta name='description' content='Farm Directory Farmer Search' />
+        <title>Home | Farm Directory</title>
+        <meta name='description' content='Farm Directory Home Page' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <Hero image source={'background-image'} imageTitle='Farm To Table' />
-        <div className={styles['container']}>
-          {filter?.length === 0 ? <NoFarmer/> : <AllFarmers farmers={filter} />}
-        </div>
+      <main className={styles.main}>
+        {cardMapping}
       </main>
     </>
   );
 }
-
-export async function getStaticProps() {
-  try {
-    const { documents } = await ax.farmers.find;
-
-    return {
-      props: { farmers: documents },
-    };
-  } catch (error) {
-    LogError(error);
-    return { props: {} };
-  }
-}
-

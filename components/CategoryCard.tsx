@@ -14,6 +14,7 @@ export function CategoryCard(itemData: any) {
                         <strong>Navigate</strong>
                     </div>
                 </div>
+
             </div>
         </Link>
     );

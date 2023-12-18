@@ -1,24 +1,14 @@
-{
-    "liveAnimalsLinks": [
-        {
-            "linkName": "Livestock / Cattle",
-            "directTo": "/live-animals"
-        },
-        {
-            "linkName": "Equine / Mules / Donkeys",
-            "directTo": "/equine-mules-donkeys"
-        },
-        {
-            "linkName": "Pigs / Hogs / Piglets",
-            "directTo": "/pigs-hogs-piglets"
-        },
-        {
-            "linkName": "Birds",
-            "directTo": "/birds"
-        },
-        {
-            "linkName": "Goat / Sheep / Small Ruminants",
-            "directTo": "/goat-sheep-ruminants"
-        }
-    ]
-}
+[
+    {
+        "linkName": "Barley",
+        "directTo": "/straw/barley"
+    },
+    {
+        "linkName": "Wheat",
+        "directTo": "/straw/wheat"
+    },
+    {
+        "linkName": "Other",
+        "directTo": "/straw/other"
+    }
+]

@@ -1,40 +1,38 @@
-{
-    "farmEquipmentLinks": [
-        {
-            "linkName": "veterinarian / medicine",
-            "directTo": "/veterinarian-medicine"
-        },
-        {
-            "linkName": "farrier",
-            "directTo": "/farrier"
-        },
-        {
-            "linkName": "boarding / pasture",
-            "directTo": "/boarding-pasture"
-        },
-        {
-            "linkName": "Training",
-            "directTo": "/training"
-        },
-        {
-            "linkName": "Hauling",
-            "directTo": "/hauling"
-        },
-        {
-            "linkName": "Butchering",
-            "directTo": "/butchering"
-        },
-        {
-            "linkName": "Fence Building / Mobile Welding",
-            "directTo": "/building-welding"
-        },
-        {
-            "linkName": "Equipment Sales / Repair",
-            "directTo": "/sales-repair"
-        },
-        {
-            "linkName": "Other",
-            "directTo": "/other-farm-equipment"
-        }
-    ]
-}
+[
+    {
+        "linkName": "veterinarian / medicine",
+        "directTo": "/farm-services/medical"
+    },
+    {
+        "linkName": "farrier",
+        "directTo": "/farm-services/farrier"
+    },
+    {
+        "linkName": "boarding / pasture",
+        "directTo": "/farm-services/boarding-pasture"
+    },
+    {
+        "linkName": "Training",
+        "directTo": "/farm-services/training"
+    },
+    {
+        "linkName": "Hauling",
+        "directTo": "/farm-services/hauling"
+    },
+    {
+        "linkName": "Butchering",
+        "directTo": "/farm-services/butchering"
+    },
+    {
+        "linkName": "Fence Building / Mobile Welding",
+        "directTo": "/farm-services/building-welding"
+    },
+    {
+        "linkName": "Equipment Sales / Repair",
+        "directTo": "/farm-services/sales-repair"
+    },
+    {
+        "linkName": "Other",
+        "directTo": "/farm-services/other"
+    }
+]

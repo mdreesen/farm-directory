@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import { CategoryCard } from '../../../components/CategoryCard';
-import parentLinks from '../../../utils/links/farmEquipmentLinks/butcheringLinks.json';
+import { CategoryCard } from '../../../../components/CategoryCard';
+import parentLinks from '../../../../utils/links/liveAnimalLinks/chickenLinks.json';
 import styles from '/styles/Home.module.css';
 
 
