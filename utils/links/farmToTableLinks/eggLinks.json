@@ -1,18 +1,18 @@
 [
     {
         "linkName": "Chicken",
-        "directTo": "/eggs/chicken"
+        "directTo": "/farm-to-table/eggs/chicken"
     },
     {
         "linkName": "Duck",
-        "directTo": "/eggs/duck"
+        "directTo": "/farm-to-table/eggs/duck"
     },
     {
         "linkName": "Quail",
-        "directTo": "/eggs/quail"
+        "directTo": "/farm-to-table/eggs/quail"
     },
     {
         "linkName": "Other",
-        "directTo": "/eggs/other"
+        "directTo": "/farm-to-table/eggs/other"
     }
 ]

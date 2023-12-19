@@ -1,0 +1,18 @@
+[
+    {
+        "linkName": "Alfalfa Hay",
+        "directTo": "/hay/alfalfa-hay"
+    },
+    {
+        "linkName": "Alfalfa / Grass Hay",
+        "directTo": "/hay/alfalfa-grass-hay"
+    },
+    {
+        "linkName": "Grass Hay",
+        "directTo": "/hay/grass-hay"
+    },
+    {
+        "linkName": "Other Hay / Silage",
+        "directTo": "/hay/other"
+    }
+]

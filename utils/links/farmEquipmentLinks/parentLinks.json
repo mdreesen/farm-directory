@@ -1,14 +1,14 @@
 [
     {
-        "linkName": "veterinarian / medicine",
+        "linkName": "Veterinarian / Medicine",
         "directTo": "/farm-services/medical"
     },
     {
-        "linkName": "farrier",
+        "linkName": "Farrier",
         "directTo": "/farm-services/farrier"
     },
     {
-        "linkName": "boarding / pasture",
+        "linkName": "Boarding / Pasture",
         "directTo": "/farm-services/boarding-pasture"
     },
     {

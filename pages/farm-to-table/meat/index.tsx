@@ -8,7 +8,7 @@ import styles from '/styles/Home.module.css';
 export default function FarmToTable() {
 
 
-  const cardMapping = meatLinks?.map((item) => <CategoryCard itemData={item} />);
+  const cardMapping = meatLinks?.map((item) => <CategoryCard itemData={item} key={item} />);
 
   return (
     <>

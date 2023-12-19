@@ -1,12 +1,10 @@
-{
-    "farmEquipmentLinks": [
-        {
-            "linkName": "Horse Boarding",
-            "directTo": "/boarding-pasture/horse-boarding"
-        },
-        {
-            "linkName": "Pasture For Rent",
-            "directTo": "/boarding-pasture/pasture-rent"
-        }
-    ]
-}
+[
+    {
+        "linkName": "Horse Boarding",
+        "directTo": "/farm-services/boarding-pasture/horse-boarding"
+    },
+    {
+        "linkName": "Pasture For Rent",
+        "directTo": "/farm-services/boarding-pasture/pasture-rent"
+    }
+]
