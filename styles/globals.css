@@ -127,3 +127,8 @@ body {
   /* overflow-x: hidden; */
   scroll-behavior: smooth;
 }
+
+label {
+  color: white;
+  padding-top: 1rem;
+}
