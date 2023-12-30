@@ -1,11 +1,10 @@
 "use client"
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-
 import styles from '@/app/styles/Form.module.css';
 
-
 export const CreateFarmerForm = () => {
+    
     const startData = {
         first_name: "",
         last_name: "",
@@ -158,7 +157,6 @@ export const CreateFarmerForm = () => {
                 onChange={handleChange}
                 value={formData?.instagram}
             />
-
 
             <input type="submit" value="Create Farmer" />
         </form>

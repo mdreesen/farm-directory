@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateFarmerForm } from '@/app/ui/forms/CreateFarmerForm'
+import { CreateFarmerForm } from '@/app/ui/forms/CreateFarmer/CreateFarmerForm'
 
 
 export default function Page({ params }) {
