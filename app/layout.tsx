@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+
 
 import { Navigation } from "@/app/ui/Navigation";
 import { Footer } from "@/app/ui/Footer";
@@ -19,10 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
-        {children}
-        <Footer />
+      <UserProvider>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          {children}
+          <Footer />
         </body>
+      </UserProvider>
     </html>
   )
 }
