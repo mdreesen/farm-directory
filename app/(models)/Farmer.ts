@@ -3,6 +3,15 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(`${process.env.MONGO_URI}`);
 mongoose.Promise = global.Promise;
 
+const productSchema = new Schema(
+    {
+        product_name: String,
+        product_description: String,
+        product_feed: String,
+        available: Boolean,
+        show_product: Boolean
+    }, { timestamps: true });
+
 const farmerSchema = new Schema(
     {
         first_name: String,
@@ -16,7 +25,7 @@ const farmerSchema = new Schema(
         email: String,
         website: String,
         facebook: String,
-        product: Array
+        products: [productSchema]
     }, { timestamps: true });
 
 const Farmer = mongoose.models.Farmers || mongoose.model("Farmers", farmerSchema);

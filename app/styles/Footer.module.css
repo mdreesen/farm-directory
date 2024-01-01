@@ -1,0 +1,15 @@
+.container {
+  height: 5rem;
+  width: 100%;
+  /* bottom: 0;
+  position: absolute; */
+  background-color: ghostwhite;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useState } from 'react';
 import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
 import {
@@ -13,7 +13,7 @@ import {
   IconSwitchHorizontal,
 } from '@tabler/icons-react';
 // import { MantineLogo } from '@mantinex/mantine-logo';
-// import classes from '@/app/styles/Navigation.module.css';
+import classes from '@/app/styles/Navigation.module.css';
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
@@ -25,7 +25,7 @@ interface NavbarLinkProps {
 function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <UnstyledButton onClick={onClick}  data-active={active || undefined}>
+      <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
         <Icon style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
       </UnstyledButton>
     </Tooltip>
@@ -55,12 +55,12 @@ export function Navigation() {
   ));
 
   return (
-    <nav >
+    <nav className={classes.navbar}>
       <Center>
         {/* <MantineLogo type="mark" size={30} /> */}
       </Center>
 
-      <div>
+      <div className={classes.navbarMain}>
         <Stack justify="center" gap={0}>
           {links}
         </Stack>
@@ -71,5 +71,5 @@ export function Navigation() {
         <NavbarLink icon={IconLogout} label="Logout" />
       </Stack>
     </nav>
-  );
+  )
 }
