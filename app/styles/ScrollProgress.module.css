@@ -1,11 +1,11 @@
 .scrollProgress {
-    background: ghostwhite;
+  background: ghostwhite;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: .1rem;
-    transform-origin: 0%;
-z-index: 9999;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: .1rem;
+  transform-origin: 0%;
+  z-index: 9999;
+}
