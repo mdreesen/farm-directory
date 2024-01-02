@@ -85,4 +85,10 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
+    .container .box .title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
   }
