@@ -39,12 +39,10 @@ export function Navigation() {
     },
   ];
 
-  let mongoData = {}
 
   const mongoUser = isUser();
-  mongoUser.then(data => mongoData = data)
 
-  console.log(mongoData)
+  console.log(mongoUser)
 
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
