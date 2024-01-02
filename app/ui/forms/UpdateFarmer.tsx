@@ -2,9 +2,12 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import styles from '@/app/styles/Form.module.css';
+import {authUser} from '@/app/composables/authUser';
 
-export const CreateFarmerForm = () => {
-    
+export const UpdateFarmer = ({ farmerData }: any) => {
+
+    // console.log('Farmer Data Here', farmerData)
+
     const startData = {
         first_name: "",
         last_name: "",
@@ -22,7 +25,7 @@ export const CreateFarmerForm = () => {
 
     const [formData, setFormData] = useState(startData);
 
-    const router = useRouter();
+    // const router = useRouter();
     const handleChange = (e: any) => {
         const value = e.target.value
         const name = e.target.name
@@ -33,19 +36,15 @@ export const CreateFarmerForm = () => {
         }));
     };
 
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
+    const handleSubmit = async (id: any) => {
 
-        const res = await fetch("/api/Farmers", {
-            method: "POST",
-            body: JSON.stringify({formData}),
-            // "content-type": "application/json"
+        const res = await fetch(`/api/Users/${id}`, {
+            method: "UPDATE",
+            cache: 'no-store',
+            body: JSON.stringify({ formData }),
         });
 
-        if (!res.ok) throw new Error("Failed to create Farmer");
-
-        router.refresh();
-        router.push("/create-farmer/created-farmer");
+        if (!res.ok) throw new Error("Failed to update Farmer");
     }
 
     return <div>

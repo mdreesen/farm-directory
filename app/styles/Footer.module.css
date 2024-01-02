@@ -1,8 +1,6 @@
 .container {
   height: 5rem;
   width: 100%;
-  /* bottom: 0;
-  position: absolute; */
   background-color: ghostwhite;
   display: flex;
   align-items: center;
@@ -12,4 +10,19 @@
 .icons {
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 630px) {
+  .container {
+    height: 5rem;
+    width: 86%;
+    background-color: ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    /* bottom: 0; */
+    position: absolute;
+    right: 0;
+  }
 }
