@@ -68,7 +68,7 @@
       color: white;
       position: relative;
       font-family: sans-serif;
-      left: 1rem;
+      /* left: 1rem; */
     }
 
     .container .box {

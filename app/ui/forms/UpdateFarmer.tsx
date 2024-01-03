@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import styles from '@/app/styles/Form.module.css';
 import {authUser} from '@/app/composables/authUser';
 
-export const UpdateFarmer = ({ farmerData }: any) => {
-
-    // console.log('Farmer Data Here', farmerData)
+export const UpdateFarmer = (params: any) => {
+    console.log(params)
 
     const startData = {
         first_name: "",
