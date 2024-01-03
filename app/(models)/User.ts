@@ -14,16 +14,6 @@ const userSchema = new Schema(
         usePasskey: Boolean,
         email_verified: Boolean,
         isFarmer: Boolean,
-        first_name: String,
-        last_name: String,
-        farm_name: String,
-        address_road: String,
-        address_city: String,
-        address_state: String,
-        address_zip: String,
-        phone: String,
-        website: String,
-        facebook: String,
     }, { timestamps: true });
 
 const User = mongoose.models.Users || mongoose.model("Users", userSchema);
