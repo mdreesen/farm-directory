@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerProfile.module.css';
-import Link from 'next/link';
 import { isUser } from '@/app/composables/data';
 
 
@@ -16,8 +15,6 @@ export default async function Page({ params }: any) {
   return (
     <div className={styles['container']}>
       <span>Email: {findUserData?.email}</span>
-
-      <Link href={`/profile-farmer/${params.id}/edit-farmer`}>Update Profile</Link>
     </div>
   );
 }

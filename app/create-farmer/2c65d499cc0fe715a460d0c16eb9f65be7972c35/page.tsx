@@ -1,12 +1,12 @@
 import React from 'react';
-import { UpdateFarmer } from '@/app/ui/forms/UpdateFarmer'
+import { CreateFarmerForm } from '@/app/ui/forms/CreateFarmerForm'
 
 
 export default function Page() {
 
   return (
     <div>
-      <UpdateFarmer />
+      <CreateFarmerForm />
     </div>
   )
 }

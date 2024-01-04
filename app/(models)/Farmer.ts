@@ -25,7 +25,21 @@ const farmerSchema = new Schema(
         email: String,
         website: String,
         facebook: String,
-        products: [productSchema]
+        product_one: String,
+        product_one_description: String,
+        product_one_feed: String,
+        product_one_available: Boolean,
+        product_one_show: Boolean,
+        product_two: String,
+        product_two_description: String,
+        product_two_feed: String,
+        product_two_available: Boolean,
+        product_two_show: Boolean,
+        product_three: String,
+        product_three_description: String,
+        product_three_feed: String,
+        product_three_available: Boolean,
+        product_three_show: Boolean
     }, { timestamps: true });
 
 const Farmer = mongoose.models.Farmers || mongoose.model("Farmers", farmerSchema);
