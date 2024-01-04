@@ -1,0 +1,12 @@
+.created {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  height: 91svh;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
