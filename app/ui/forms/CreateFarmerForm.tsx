@@ -17,7 +17,22 @@ export const CreateFarmerForm = () => {
         email: "",
         website: "",
         facebook: "",
-        instagram: ""
+        instagram: "",
+        product_one_title: "",
+        product_one_description: "",
+        product_one_feed: "",
+        product_one_available: true,
+        product_one_show: true,
+        product_two_title: "",
+        product_two_description: "",
+        product_two_feed: "",
+        product_two_available: true,
+        product_two_show: true,
+        product_three_title: "",
+        product_three_description: "",
+        product_three_feed: "",
+        product_three_available: true,
+        product_three_show: true
     };
 
     const [formData, setFormData] = useState(startData);
@@ -38,14 +53,14 @@ export const CreateFarmerForm = () => {
         e.preventDefault();
         const res = await fetch("/api/Farmers", {
             method: "POST",
-            // cache: 'no-store',
+            cache: 'no-store',
             body: JSON.stringify({ formData }),
         });
 
         if (!res.ok) throw new Error("Failed to update Farmer");
         router.refresh();
         router.push("/create-farmer/created-farmer");
-    }
+    };
 
     return <div>
         <form className={styles['container']} method="post" onSubmit={handleSubmit}>
@@ -155,6 +170,60 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.instagram}
+            />
+
+            <label>Product 1 Title</label>
+            <input
+                id="product_one_title"
+                name="product_one_title"
+                type="text"
+                onChange={handleChange}
+                value={formData?.product_one_title}
+            />
+
+            <label>Product 1 Description</label>
+            <textarea
+                id="product_one_description"
+                name="product_one_description"
+                rows={5}
+                onChange={handleChange}
+                value={formData?.product_one_description}
+            />
+
+            <label>Product 2 Title</label>
+            <input
+                id="product_two_title"
+                name="product_two_title"
+                type="text"
+                onChange={handleChange}
+                value={formData?.product_two_title}
+            />
+
+            <label>Product 2 Description</label>
+            <textarea
+                id="product_two_description"
+                name="product_two_description"
+                rows={5}
+                onChange={handleChange}
+                value={formData?.product_two_description}
+            />
+
+            <label>Product 3 Title</label>
+            <input
+                id="product_three_title"
+                name="product_three_title"
+                type="text"
+                onChange={handleChange}
+                value={formData?.product_three_title}
+            />
+
+            <label>Product 3 Description</label>
+            <textarea
+                id="product_three_description"
+                name="product_three_description"
+                rows={5}
+                onChange={handleChange}
+                value={formData?.product_three_description}
             />
 
             <input type="submit" value="Create Farmer" />
