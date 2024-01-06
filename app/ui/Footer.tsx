@@ -13,7 +13,6 @@ export function Footer() {
       <div className={styles['icons']}>
         <span>something</span>
         <span>something2</span>
-
       </div>
     </div>
   );
