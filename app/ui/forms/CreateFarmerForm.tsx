@@ -62,8 +62,9 @@ export const CreateFarmerForm = () => {
         router.push("/create-farmer/created-farmer");
     };
 
-    return <div>
-        <form className={styles['container']} method="post" onSubmit={handleSubmit}>
+    const basicInfo = (
+        <div className={styles['basicInfo']}>
+            <h2>Basic Information</h2>
             <label>First Name</label>
             <input
                 id="first_name"
@@ -171,7 +172,12 @@ export const CreateFarmerForm = () => {
                 onChange={handleChange}
                 value={formData?.instagram}
             />
+        </div>
+    );
 
+    const productOneInfo = (
+        <div className={styles['product']}>
+            <h2>Product One Information</h2>
             <label>Product 1 Title</label>
             <input
                 id="product_one_title"
@@ -190,6 +196,20 @@ export const CreateFarmerForm = () => {
                 value={formData?.product_one_description}
             />
 
+            <label>Product 1 Feed Type</label>
+            <input
+                id="product_one_feed"
+                name="product_one_feed"
+                type="text"
+                onChange={handleChange}
+                value={formData?.product_one_feed}
+            />
+        </div>
+    );
+
+    const productTwoInfo = (
+        <div className={styles['product']}>
+            <h2>Product Two Information</h2>
             <label>Product 2 Title</label>
             <input
                 id="product_two_title"
@@ -208,6 +228,20 @@ export const CreateFarmerForm = () => {
                 value={formData?.product_two_description}
             />
 
+            <label>Product 2 Feed Type</label>
+            <input
+                id="product_two_feed"
+                name="product_two_feed"
+                type="text"
+                onChange={handleChange}
+                value={formData?.product_two_feed}
+            />
+        </div>
+    );
+
+    const productThreeInfo = (
+        <div className={styles['product']}>
+            <h2>Product Three Information</h2>
             <label>Product 3 Title</label>
             <input
                 id="product_three_title"
@@ -226,6 +260,24 @@ export const CreateFarmerForm = () => {
                 value={formData?.product_three_description}
             />
 
+            <label>Product 3 Feed Type</label>
+            <input
+                id="product_three_feed"
+                name="product_three_feed"
+                type="text"
+                onChange={handleChange}
+                value={formData?.product_three_feed}
+            />
+
+        </div>
+    );
+
+    return <div>
+        <form className={styles['container']} method="post" onSubmit={handleSubmit}>
+            {basicInfo}
+            {productOneInfo}
+            {productTwoInfo}
+            {productThreeInfo}
             <input type="submit" value="Create Farmer" />
         </form>
     </div>
