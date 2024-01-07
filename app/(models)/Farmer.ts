@@ -25,6 +25,7 @@ const farmerSchema = new Schema(
         email: String,
         website: String,
         facebook: String,
+        instagram: String,
         product_one_title: String,
         product_one_description: String,
         product_one_feed: String,
