@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { ax } from 'lib/axios.lib';
-import { LogError } from 'utils/util';
-import styles from 'styles/Farmer.module.css';
-import { AllFarmers } from 'components/Farmers/AllFarmers';
-import { NoFarmer } from 'components/NoFarmer';
-import { IFarmer } from 'types/mongo.types';
+import styles from '@/app/styles/Farmer.module.css';
+import {fetchFarmers } from '@/app/composables/data';
+import { filterGrassBeefFarmer } from '@/app/composables/filterFarmer';
+import FarmerCard from "@/app/ui/FarmerCard";
+import { Suspense } from 'react';
 
-export default function BeefPage({ farmers }: { farmers: IFarmer[], props: any }) {
 
-  const [filter, setFilter] = useState<IFarmer[]>();
+export default async function Page() {
+  const farmers = await fetchFarmers();
+  const farmerCategory = await filterGrassBeefFarmer(farmers?.farmers);
+  console.log(farmerCategory)
 
-  useEffect(() => {
-    const data = [...farmers]
-
-    setFilter(data.filter(farmerUser => {
-      console.log(farmerUser?.product.filter(item => item.product_name?.includes('Beef')));
-
-      const products = farmerUser?.product.filter(item => item.product_name?.includes('Beef')) ?? [];
-      const finishedProduct = products?.map(item => item?.product_feed.filter((feed: any) => feed?.includes('Grass Finished')))
-
-      if (finishedProduct) return farmerUser.type === "Farm to Table"
-    }));
-  }, [])
+  const categoryFarmers = farmerCategory?.map((item: Object) => <FarmerCard farmerData={item} />);
 
   return (
     <>
@@ -34,23 +23,12 @@ export default function BeefPage({ farmers }: { farmers: IFarmer[], props: any }
       </Head>
       <main>
         <div className={styles['container']}>
-          {filter?.length === 0 ? <NoFarmer/> : <AllFarmers farmers={filter} />}
+          <Suspense fallback={<h3>Loading...</h3>}>
+            {categoryFarmers}
+          </Suspense>
         </div>
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  try {
-    const { documents } = await ax.farmers.find;
-
-    return {
-      props: { farmers: documents },
-    };
-  } catch (error) {
-    LogError(error);
-    return { props: {} };
-  }
 }
 
