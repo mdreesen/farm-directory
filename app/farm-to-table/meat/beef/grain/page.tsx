@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import styles from '@/app/styles/Farmer.module.css';
-import { fetchFarmers } from '@/app/composables/data';
+import { farmer, fetchFarmers } from '@/app/composables/data';
 import FarmerCard from "@/app/ui/FarmerCard";
 import { Suspense } from 'react';
 
 
 export default async function BeefPage() {
   const farmers = await fetchFarmers();
+  console.log(farmers?.farmers)
 
-  const categoryFarmers = farmers?.farmers?.map((item: Object) => <FarmerCard farmerData={item} />);
+  const categoryFarmers = farmers?.farmers?.reverse()?.map((item: Object) => <FarmerCard farmerData={item} />);
 
   return (
     <>

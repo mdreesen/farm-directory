@@ -5,34 +5,31 @@ import styles from '@/app/styles/FarmerCard.module.css';
 import { farmer } from "@/app/composables/data";
 
 export default async function FarmerCard(farmerData: any) {
-    console.log('what', farmerData?.farmerData);
+    // console.log('what', farmerData);
     const data = farmerData?.farmerData;
 
     const socialLinks = (
         <div>
-            {data?.facebook && <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/facebook.svg" alt="" /><span className="sr-only">facebook</span></a>}
-            {data?.instagram && <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/dribbble.svg" alt="" /><span className="sr-only">instagram</span></a>}
+            {data?.facebook && <a href="#"><img src="#" alt="" /><span className="sr-only">facebook</span></a>}
+            {data?.instagram && <a href="#"><img src="#" alt="" /><span className="sr-only">instagram</span></a>}
         </div>
     );
 
     const productCategoryOne = data?.product_one_title && (
         <div className={styles["stat"]}>
             <span className={styles["label"]}>{data?.product_one_title}</span>
-            <span className={styles["value"]}>56K</span>
         </div>
     );
 
     const productCategoryTwo = data?.product_two_title && (
         <div className={styles["stat"]}>
-            <span className={styles["label"]}>{data?.product_one_title}</span>
-            <span className={styles["value"]}>56K</span>
+            <span className={styles["label"]}>{data?.product_two_title}</span>
         </div>
     );
 
     const productCategoryThree = data?.product_three_title && (
         <div className={styles["stat"]}>
-            <span className={styles["label"]}>{data?.product_one_title}</span>
-            <span className={styles["value"]}>56K</span>
+            <span className={styles["label"]}>{data?.product_three_title}</span>
         </div>
     );
 
@@ -46,10 +43,10 @@ export default async function FarmerCard(farmerData: any) {
                     <p>
                         {data?.address_road} {data?.address_city} {data?.address_state}, {data?.address_zip}
                     </p>
-                    <p>
-                        {data?.phone}
-                        {data?.email}
-                        {data?.website}
+                    <p className={styles['info']}>
+                        Phone: {data?.phone}<br/>
+                        Email: {data?.email}<br/>
+                        <a href={data?.website}>{data?.website}</a>
                     </p>
                 </div>
                 <div className={styles["social-accounts"]}>
