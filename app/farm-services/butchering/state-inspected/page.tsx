@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { Suspense } from 'react';
 import Head from 'next/head';
-import { ax } from 'lib/axios.lib';
-import { LogError } from 'utils/util';
-import styles from 'styles/Farmer.module.css';
-import { AllFarmers } from 'components/Farmers/AllFarmers';
-import { NoFarmer } from 'components/NoFarmer';
-import { IFarmer } from 'types/mongo.types';
+import styles from '@/app/styles/Farmer.module.css';
+import {fetchFarmers } from '@/app/composables/data';
+import { filterGrainBeefFarmer } from '@/app/composables/farmerData/filterBeefFarmer';
+import FarmerCard from "@/app/ui/FarmerCard";
+import { NoFarmer } from '@/app/ui/NoFarmer';
 
-export default function FarmToTablePage({ farmers }: { farmers: IFarmer[], props: any }) {
 
-  const [filter, setFilter] = useState<IFarmer[]>();
+export default async function Page() {
+  const farmers = await fetchFarmers();
+  const farmerCategory = await filterGrainBeefFarmer(farmers?.farmers);
+  const categoryFarmers = farmerCategory?.map((item: Object) => <FarmerCard farmerData={item} />);
 
-  useEffect(() => {
-    const data = [...farmers]
-
-    setFilter(data.filter(farmerUser => farmerUser.type === "Farm to Table"));
-  }, [])
+  if (farmerCategory.length === 0) return <NoFarmer />
 
   return (
     <>
@@ -27,23 +24,12 @@ export default function FarmToTablePage({ farmers }: { farmers: IFarmer[], props
       </Head>
       <main>
         <div className={styles['container']}>
-          {filter?.length === 0 ? <NoFarmer/> : <AllFarmers farmers={filter} />}
+          <Suspense fallback={<h3>Loading...</h3>}>
+            {categoryFarmers}
+          </Suspense>
         </div>
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  try {
-    const { documents } = await ax.farmers.find;
-
-    return {
-      props: { farmers: documents },
-    };
-  } catch (error) {
-    LogError(error);
-    return { props: {} };
-  }
 }
 

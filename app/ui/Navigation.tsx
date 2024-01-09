@@ -45,18 +45,17 @@ export default function Navigation(mongoUser: any) {
 
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
-  const notLoggedIn = <a href="/api/auth/login" className={styles['link']}>Login</a>
-  const isLoggedIn = <a href="/api/auth/logout" className={styles['link']}>Logout</a>
+  // const notLoggedIn = <a href="/api/auth/login" className={styles['link']}>Login</a>
+  // const isLoggedIn = <a href="/api/auth/logout" className={styles['link']}>Logout</a>
 
   const profile = user && <Link href={`/profile-farmer/${findUserData?._id}`}>Profile</Link>
-  const authorized = user ? isLoggedIn : notLoggedIn;
+  // const authorized = user ? isLoggedIn : notLoggedIn;
 
 
   return (
     <div className={styles['container']}>
       {links}
       {profile}
-      {authorized}
     </div>
   );
 }
