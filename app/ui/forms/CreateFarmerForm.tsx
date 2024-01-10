@@ -3,6 +3,9 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import styles from '@/app/styles/Form.module.css';
 
+// Importing Categories
+import { CategoryFarmToTable } from '@/app/ui/productCategories/CategoryFarmToTable'
+
 export const CreateFarmerForm = () => {
 
     const startData = {
@@ -178,14 +181,23 @@ export const CreateFarmerForm = () => {
     const productOneInfo = (
         <div className={styles['product']}>
             <h2>Product One Information</h2>
-            <label>Product 1 Title</label>
-            <input
+            <label>Product 1</label>
+            {/* <input
                 id="product_one_title"
                 name="product_one_title"
                 type="text"
                 onChange={handleChange}
                 value={formData?.product_one_title}
-            />
+            /> */}
+            <select
+                name="product_one_title"
+                value={formData?.product_one_title}
+                onChange={handleChange}
+            >
+                <CategoryFarmToTable />
+
+
+            </select>
 
             <label>Product 1 Description</label>
             <textarea
@@ -210,7 +222,7 @@ export const CreateFarmerForm = () => {
     const productTwoInfo = (
         <div className={styles['product']}>
             <h2>Product Two Information</h2>
-            <label>Product 2 Title</label>
+            <label>Product 2</label>
             <input
                 id="product_two_title"
                 name="product_two_title"
@@ -242,7 +254,7 @@ export const CreateFarmerForm = () => {
     const productThreeInfo = (
         <div className={styles['product']}>
             <h2>Product Three Information</h2>
-            <label>Product 3 Title</label>
+            <label>Product 3</label>
             <input
                 id="product_three_title"
                 name="product_three_title"

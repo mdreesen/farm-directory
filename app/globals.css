@@ -136,3 +136,10 @@ label {
   color: white;
   padding-top: 1rem;
 }
+
+input {
+  background: transparent;
+  border-style: none;
+  border-bottom: solid;
+  color: white;
+}
