@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import styles from '@/app/styles/Form.module.css';
 
 // Importing Categories
-import { CategoryFarmToTable } from '@/app/ui/productCategories/CategoryFarmToTable'
+import { Categories } from '@/app/ui/productCategories/Categories';
+import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType'
+
 
 export const CreateFarmerForm = () => {
 
@@ -178,25 +180,55 @@ export const CreateFarmerForm = () => {
         </div>
     );
 
+    const productOneFeed = formData?.product_one_title === 'Beef' && (
+        <>
+            <label>Product 1 Feed Type</label>
+            <select
+                name="product_one_feed"
+                value={formData?.product_one_feed}
+                onChange={handleChange}
+            >
+                <CategoryFeedType />
+            </select>
+        </>
+    );
+
+    const productTwoFeed = formData?.product_two_title === 'Beef' && (
+        <>
+            <label>Product 2 Feed Type</label>
+            <select
+                name="product_two_feed"
+                value={formData?.product_two_feed}
+                onChange={handleChange}
+            >
+                <CategoryFeedType />
+            </select>
+        </>
+    );
+
+    const productThreeFeed = formData?.product_three_title === 'Beef' && (
+        <>
+            <label>Product 3 Feed Type</label>
+            <select
+                name="product_three_feed"
+                value={formData?.product_three_feed}
+                onChange={handleChange}
+            >
+                <CategoryFeedType />
+            </select>
+        </>
+    );
+
     const productOneInfo = (
         <div className={styles['product']}>
             <h2>Product One Information</h2>
             <label>Product 1</label>
-            {/* <input
-                id="product_one_title"
-                name="product_one_title"
-                type="text"
-                onChange={handleChange}
-                value={formData?.product_one_title}
-            /> */}
             <select
                 name="product_one_title"
                 value={formData?.product_one_title}
                 onChange={handleChange}
             >
-                <CategoryFarmToTable />
-
-
+                <Categories />
             </select>
 
             <label>Product 1 Description</label>
@@ -208,14 +240,7 @@ export const CreateFarmerForm = () => {
                 value={formData?.product_one_description}
             />
 
-            <label>Product 1 Feed Type</label>
-            <input
-                id="product_one_feed"
-                name="product_one_feed"
-                type="text"
-                onChange={handleChange}
-                value={formData?.product_one_feed}
-            />
+            {productOneFeed}
         </div>
     );
 
@@ -223,13 +248,13 @@ export const CreateFarmerForm = () => {
         <div className={styles['product']}>
             <h2>Product Two Information</h2>
             <label>Product 2</label>
-            <input
-                id="product_two_title"
+            <select
                 name="product_two_title"
-                type="text"
-                onChange={handleChange}
                 value={formData?.product_two_title}
-            />
+                onChange={handleChange}
+            >
+                <Categories />
+            </select>
 
             <label>Product 2 Description</label>
             <textarea
@@ -240,14 +265,7 @@ export const CreateFarmerForm = () => {
                 value={formData?.product_two_description}
             />
 
-            <label>Product 2 Feed Type</label>
-            <input
-                id="product_two_feed"
-                name="product_two_feed"
-                type="text"
-                onChange={handleChange}
-                value={formData?.product_two_feed}
-            />
+            {productTwoFeed}
         </div>
     );
 
@@ -255,13 +273,13 @@ export const CreateFarmerForm = () => {
         <div className={styles['product']}>
             <h2>Product Three Information</h2>
             <label>Product 3</label>
-            <input
-                id="product_three_title"
+            <select
                 name="product_three_title"
-                type="text"
-                onChange={handleChange}
                 value={formData?.product_three_title}
-            />
+                onChange={handleChange}
+            >
+                <Categories />
+            </select>
 
             <label>Product 3 Description</label>
             <textarea
@@ -272,25 +290,20 @@ export const CreateFarmerForm = () => {
                 value={formData?.product_three_description}
             />
 
-            <label>Product 3 Feed Type</label>
-            <input
-                id="product_three_feed"
-                name="product_three_feed"
-                type="text"
-                onChange={handleChange}
-                value={formData?.product_three_feed}
-            />
+            {productThreeFeed}
 
         </div>
     );
 
-    return <div>
-        <form className={styles['container']} method="post" onSubmit={handleSubmit}>
-            {basicInfo}
-            {productOneInfo}
-            {productTwoInfo}
-            {productThreeInfo}
-            <input type="submit" value="Create Farmer" />
-        </form>
-    </div>
+    return (
+        <div>
+            <form className={styles['container']} method="post" onSubmit={handleSubmit}>
+                {basicInfo}
+                {productOneInfo}
+                {productTwoInfo}
+                {productThreeInfo}
+                <input type="submit" value="Create Farmer" />
+            </form>
+        </div>
+    )
 };
