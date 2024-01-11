@@ -133,6 +133,9 @@ svg .polygon {
 }
 
 .bio {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
   font-size: 14px;
   /* color: #7B7B7B; */
   font-weight: 300;
@@ -174,18 +177,20 @@ svg .polygon {
 }
 
 .stat {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   width: calc(100% / 3);
   float: left;
   text-align: center;
-  border-left: 1px solid #EBEBEB;
+  border-left: 1px solid #EBEBEB; */
+  width: 100%;
+
 }
 
 .stat .label {
   display: block;
   text-transform: uppercase;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: .8rem;
   letter-spacing: 1px;
   /* color: #95989A; */
 }
@@ -195,4 +200,51 @@ svg .polygon {
   font-weight: 700;
   font-size: 20px;
   margin-top: 5px;
+}
+
+.card button {
+  padding: 0.8em 1.7em;
+  display: block;
+  margin: 1rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  transition: .4s ease-in-out;
+}
+
+.card button:hover {
+  background: #e8b563;
+  color: white;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 630px) {
+  .card {
+    position: relative;
+    width: 235px;
+    /* Remove for full width */
+    height: 450px;
+    /* Remove for full width */
+    box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+    font-size: 14px;
+    font-family: "Exo 2", sans-serif;
+    color: ghostwhite;
+    backdrop-filter: blur(100px);
+  }
+
+  .stat .label {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: .7rem;
+    letter-spacing: 1px;
+    /* color: #95989A; */
+  }
 }

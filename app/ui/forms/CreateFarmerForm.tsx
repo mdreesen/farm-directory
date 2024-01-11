@@ -1,11 +1,13 @@
 "use client"
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from '@/app/styles/Form.module.css';
 
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
-import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType'
+import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType';
+import { StatePicker } from "@/app/ui/statePicker";
+import { FormValidation } from "@/app/ui/FormValidation";
 
 
 export const CreateFarmerForm = () => {
@@ -41,6 +43,8 @@ export const CreateFarmerForm = () => {
     };
 
     const [formData, setFormData] = useState(startData);
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
 
     const router = useRouter();
 
@@ -63,8 +67,9 @@ export const CreateFarmerForm = () => {
         });
 
         if (!res.ok) throw new Error("Failed to update Farmer");
+        setIsLoading(false) // Set loading to false when the request completes
         router.refresh();
-        router.push("/create-farmer/created-farmer");
+        router.push("/farmer/created-farmer");
     };
 
     const basicInfo = (
@@ -78,6 +83,7 @@ export const CreateFarmerForm = () => {
                 onChange={handleChange}
                 value={formData?.first_name}
             />
+            <FormValidation data={formData?.first_name} />
 
             <label>Last Name</label>
             <input
@@ -86,7 +92,10 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.last_name}
+                required
             />
+            <FormValidation data={formData?.last_name} />
+
 
             <label>Farm Name</label>
             <input
@@ -104,7 +113,10 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.address_road}
+                required
             />
+            <FormValidation data={formData?.address_road} />
+
 
             <label>City</label>
             <input
@@ -113,16 +125,20 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.address_city}
+                required
             />
+            <FormValidation data={formData?.address_city} />
 
             <label>State</label>
-            <input
-                id="address_state"
+            <select
                 name="address_state"
-                type="text"
-                onChange={handleChange}
                 value={formData?.address_state}
-            />
+                onChange={handleChange}
+                required
+            >
+                <StatePicker />
+            </select>
+            <FormValidation data={formData?.address_state} />
 
             <label>Zip</label>
             <input
@@ -131,7 +147,10 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.address_zip}
+                required
             />
+            <FormValidation data={formData?.address_zip} />
+
 
             <label>Phone</label>
             <input
@@ -140,7 +159,10 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.phone}
+                required
             />
+            <FormValidation data={formData?.phone} />
+
 
             <label>Email</label>
             <input
@@ -149,9 +171,18 @@ export const CreateFarmerForm = () => {
                 type="text"
                 onChange={handleChange}
                 value={formData?.email}
+                required
             />
+            <FormValidation data={formData?.email} />
 
-            <label>Website</label>
+        </div>
+    );
+
+    const socialInfo = (
+        <div className={styles['basicInfo']}>
+
+            <h2>Social Information</h2>
+            <label>Website Link</label>
             <input
                 id="website"
                 name="website"
@@ -160,7 +191,7 @@ export const CreateFarmerForm = () => {
                 value={formData?.website}
             />
 
-            <label>Facebook</label>
+            <label>Facebook Link</label>
             <input
                 id="facebook"
                 name="facebook"
@@ -169,7 +200,7 @@ export const CreateFarmerForm = () => {
                 value={formData?.facebook}
             />
 
-            <label>Instagram</label>
+            <label>Instagram Link</label>
             <input
                 id="instagram"
                 name="instagram"
@@ -227,9 +258,11 @@ export const CreateFarmerForm = () => {
                 name="product_one_title"
                 value={formData?.product_one_title}
                 onChange={handleChange}
+                required
             >
                 <Categories />
             </select>
+            <FormValidation data={formData?.product_one_title} />
 
             <label>Product 1 Description</label>
             <textarea
@@ -299,10 +332,11 @@ export const CreateFarmerForm = () => {
         <div>
             <form className={styles['container']} method="post" onSubmit={handleSubmit}>
                 {basicInfo}
+                {socialInfo}
                 {productOneInfo}
                 {productTwoInfo}
                 {productThreeInfo}
-                <input type="submit" value="Create Farmer" />
+                {isLoading ? 'Loading...' : <input className={styles['submitBtn']} type="submit" value="Create Farmer" />}
             </form>
         </div>
     )

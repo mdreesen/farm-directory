@@ -2,14 +2,14 @@ import { Suspense } from 'react';
 import Head from 'next/head';
 import styles from '@/app/styles/Farmer.module.css';
 import {fetchFarmers } from '@/app/composables/data';
-import { filterGrainBeefFarmer } from '@/app/composables/farmerData/filterBeefFarmer';
+import { filterFarmerProducts } from '@/app/composables/farmerData/filterFarmerFarmToTable';
 import FarmerCard from "@/app/ui/FarmerCard";
 import { NoFarmer } from '@/app/ui/NoFarmer';
 
 
 export default async function Page() {
   const farmers = await fetchFarmers();
-  const farmerCategory = await filterGrainBeefFarmer(farmers?.farmers);
+  const farmerCategory = await filterFarmerProducts(farmers?.farmers, 'Milk');
   const categoryFarmers = farmerCategory?.map((item: Object) => <FarmerCard farmerData={item} />);
 
   if (farmerCategory.length === 0) return <NoFarmer />

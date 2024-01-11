@@ -77,6 +77,7 @@ export function Categories() {
 
   return (
     <>
+      <option value={""}>Please Select Product</option>
       {hay}
       {liveAnimals}
       {farmToTable}
