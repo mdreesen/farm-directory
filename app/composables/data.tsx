@@ -20,6 +20,16 @@ export async function fetchFarmers() {
     }
 };
 
+export async function fetchSingleFarmer(id: string) {
+    try {
+        const res = await fetch(process.env.LOCAL_URL + `/api/Farmers/${id}`);
+        return res?.json()
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+};
+
 export async function filterFarmer(farmer: any) {
     return farmer
 };

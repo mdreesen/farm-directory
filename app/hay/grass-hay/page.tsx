@@ -3,13 +3,14 @@ import Head from 'next/head';
 import styles from '@/app/styles/Farmer.module.css';
 import {fetchFarmers } from '@/app/composables/data';
 import { filterFarmerProducts } from '@/app/composables/farmerData/filterFarmerFarmToTable';
-import FarmerCard from "@/app/ui/FarmerCard";
-import { NoFarmer } from '@/app/ui/NoFarmer';
+import FarmerCard from "@/app/ui/farmer/FarmerCard";
+import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
+import { CardsSkeleton } from '@/app/ui/skeletons';
 
 
 export default async function Page() {
   const farmers = await fetchFarmers();
-  const farmerCategory = await filterFarmerProducts(farmers?.farmers, 'Vegetables');
+  const farmerCategory = await filterFarmerProducts(farmers?.farmers, 'Grass Hay');
   const categoryFarmers = farmerCategory?.map((item: Object) => <FarmerCard farmerData={item} />);
 
   if (farmerCategory.length === 0) return <NoFarmer />
@@ -24,7 +25,7 @@ export default async function Page() {
       </Head>
       <main>
         <div className={styles['container']}>
-          <Suspense fallback={<h3>Loading...</h3>}>
+          <Suspense fallback={<CardsSkeleton/>}>
             {categoryFarmers}
           </Suspense>
         </div>

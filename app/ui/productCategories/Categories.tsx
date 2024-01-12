@@ -4,12 +4,13 @@ export function Categories() {
   const farmToTable = (
     <>
       <option value="Beef">Meat Beef</option>
-      <option value="Bison-Yak">Meat Bison/Yak</option>
+      <option value="Bison/Yak">Meat Bison/Yak</option>
       <option value="Chicken">Meat Chicken</option>
       <option value="Goat">Meat Goat</option>
       <option value="Pork">Meat Pork</option>
       <option value="Sheep">Meat Sheep</option>
       <option value="Turkey">Meat Turkey</option>
+      <option value="Other Meat">Meat Other</option>
 
       <option value="Chicken Eggs">Eggs Chicken</option>
       <option value="Duck Eggs">Eggs Duck</option>
@@ -63,14 +64,14 @@ export function Categories() {
     <>
       <option value="Laying Chickens">Live Animals Laying Chickens</option>
       <option value="Meat Chickens">Live Animals Meat Chickens</option>
-      <option value="Ducks">Live Animals Ducks</option>
-      <option value="Geese">Live Animals Geese</option>
-      <option value="Turkeys">Live Animals Turkeys</option>
-      <option value="Equine/Mules/Donkeys">Live Animals Equine/Mules/Donkeys</option>
-      <option value="Goat/Sheep/Ruminants">Live Animals Goat/Sheep/Ruminants</option>
-      <option value="Livestock/Cattle">Live Animals Livestock/Cattle</option>
-      <option value="Llama/Alpaca">Live Animals Llama/Alpaca</option>
-      <option value="Pigs/Hogs/Piglets">Live Animals Pigs/Hogs/Piglets</option>
+      <option value="Live Ducks">Live Animals Ducks</option>
+      <option value="Live Geese">Live Animals Geese</option>
+      <option value="Live Turkeys">Live Animals Turkeys</option>
+      <option value="Live Equine/Mules/Donkeys">Live Animals Equine/Mules/Donkeys</option>
+      <option value="Live Goat/Sheep/Ruminants">Live Animals Goat/Sheep/Ruminants</option>
+      <option value="Live Livestock/Cattle">Live Animals Livestock/Cattle</option>
+      <option value="Live Llama/Alpaca">Live Animals Llama/Alpaca</option>
+      <option value="Live Pigs/Hogs/Piglets">Live Animals Pigs/Hogs/Piglets</option>
       <option value="Other Live Animals">Live Animals Other</option>
     </>
   )

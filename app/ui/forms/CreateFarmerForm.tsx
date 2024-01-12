@@ -7,7 +7,7 @@ import styles from '@/app/styles/Form.module.css';
 import { Categories } from '@/app/ui/productCategories/Categories';
 import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType';
 import { StatePicker } from "@/app/ui/statePicker";
-import { FormValidation } from "@/app/ui/FormValidation";
+import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 
 export const CreateFarmerForm = () => {

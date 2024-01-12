@@ -1,17 +1,7 @@
-import React from 'react';
-import Head from 'next/head';
-import { CategoryCard } from '@/app/ui/CategoryCard';
-import parentLinks from '@/utils/links/farmToTableLinks/parentLinks.json';
-import styles from '@/app/styles/Home.module.css';
+import FarmerDetails from "@/app/ui/farmer/FarmerDetails";
 
 
-export default function Page() {
+export default function Page({ params }: any) {
 
-
-
-  return (
-    <div>
-        This is the details page
-    </div>
-  );
+  return <FarmerDetails data={params}/>
 }

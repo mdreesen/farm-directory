@@ -1,6 +1,6 @@
 import React from 'react';
 // import Link from 'next/link';
-import { filterFarmer } from '../composables/data';
+import { filterFarmer } from '../../composables/data';
 import styles from '@/app/styles/FarmerCard.module.css';
 import { farmer } from "@/app/composables/data";
 import Link from 'next/link';
