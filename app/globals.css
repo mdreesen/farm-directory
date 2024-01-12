@@ -32,39 +32,6 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
-} */
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -75,7 +42,6 @@ a {
   scroll-behavior: smooth;
   text-decoration: none;
   font-family: sans-serif;
-  color: white;
   font-weight: 300;
 }
 
@@ -83,17 +49,15 @@ a:hover {
   scroll-behavior: smooth;
   text-decoration: none;
   font-family: sans-serif;
-  color: black;
+  color: #eab308;
 }
 
 main {
-  /* background: whitesmoke; */
-  /* background: linear-gradient(90deg,rgba(3,11,6,.977) 2%,#0f0e0e 49%); */
-  /* background: #F4FAF8; */
   background: #16222a; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #16222a, #3a6073);
   padding: 6rem 0;
+  min-height: 100svh;
 }
 
 section {
@@ -128,12 +92,11 @@ html {
 
 html,
 body {
-  /* max-width: 100vw; */
-  /* overflow-x: hidden; */
   scroll-behavior: smooth;
 
   background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #16222a, #3a6073);
+  min-height: 100svh;
 }
 
 label {

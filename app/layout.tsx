@@ -27,7 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <UserProvider>
-        <body className={inter.className} suppressHydrationWarning={true}>
+        <body className={`${inter.className}`} suppressHydrationWarning={true}>
           <Suspense fallback={<h3>Loading...</h3>}><Navigation mongoUser={mongoUser}/></Suspense>
           {children}
           <Footer />

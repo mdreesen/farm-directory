@@ -8,6 +8,7 @@
   z-index: 9999;
   -webkit-backdrop-filter: blur(100px);
   backdrop-filter: blur(100px);
+  top: 0;
 }
 
 .link {

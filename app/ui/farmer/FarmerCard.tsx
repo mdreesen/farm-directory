@@ -1,74 +1,43 @@
 import React from 'react';
-// import Link from 'next/link';
-import { filterFarmer } from '../../composables/data';
 import styles from '@/app/styles/FarmerCard.module.css';
-import { farmer } from "@/app/composables/data";
 import Link from 'next/link';
 
 export default async function FarmerCard(farmerData: any) {
-    // console.log('what', farmerData);
     const data = farmerData?.farmerData;
 
-    const socialLinks = (
-        <div>
-            {data?.facebook && <a href="#"><img src="#" alt="" /><span className="sr-only">facebook</span></a>}
-            {data?.instagram && <a href="#"><img src="#" alt="" /><span className="sr-only">instagram</span></a>}
+    const farmLogo = <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden flex justify-center items-center" style={{ backgroundImage: "url('/images/logos/logoThree.jpg')" }} title="Woman holding a mug"></div>
+
+    const farmerInfo = (
+        <div className="text-sm">
+            <p className="text-gray-900 leading-none">{data?.first_name} {data?.last_name}</p>
+            <p className="text-gray-600">{data?.createdAt}</p>
         </div>
     );
 
-    const productCategoryOne = data?.product_one_title && (
-        <div className={styles["stat"]}>
-            <span className={styles["label"]}>{data?.product_one_title}</span>
+    const farmerDetail = (
+        <div className="mb-2 flex flex-col justify-center align-middle items-center">
+            <div className="text-gray-600 font-bold text-l">Products</div>
+            <p className="text-gray-700 text-base flex items-center gap-x-2 flex-col lg:flex-row md:flex-col">
+                <span>{data?.product_one_title}</span>
+                <span>{data?.product_two_title}</span>
+                <span>{data?.product_three_title}</span>
+            </p>
         </div>
-    );
+    )
 
-    const productCategoryTwo = data?.product_two_title && (
-        <div className={styles["stat"]}>
-            <span className={styles["label"]}>{data?.product_two_title}</span>
-        </div>
-    );
-
-    const productCategoryThree = data?.product_three_title && (
-        <div className={styles["stat"]}>
-            <span className={styles["label"]}>{data?.product_three_title}</span>
-        </div>
-    );
-
-    const address = (
-        <div>
-            <span>Address</span>
-            <p>{data?.address_road}</p>
-            <p>{data?.address_city} {data?.address_state}, {data?.address_zip}</p>
-        </div>
-    );
 
     return (
-        <div className={styles["card"]}>
-
-            <div className={styles["card-body"]}>
-                <h2 className={styles["name"]}>{data?.farm_name}</h2>
-                <h4 className={styles["job-title"]}>{data?.first_name} {data?.last_name}</h4>
-                <div className={styles["bio"]}>
-                    {address}
-                    <p className={styles['info']}>
-                        Phone: {data?.phone}<br />
-                        Email: {data?.email}<br />
-                        <a href={data?.website}>{data?.website}</a>
-                    </p>
+        <div className="max-w-sm w-full lg:max-w-full lg:flex justify-center">
+            {farmLogo}
+            <div className="border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-[32rem]">
+                <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div>
+                {farmerDetail}
+                <div className='flex w-full justify-center mb-2'>
+                    <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>
                 </div>
-                <div className={styles["social-accounts"]}>
-                    {socialLinks}
-                </div>
-
-                <Link href={`/farmer/details/${data?._id}`}><button>Details</button></Link>
-            </div>
-
-            <div className={styles["card-footer"]}>
-                <h3>Products</h3>
-                <div className={styles["stats"]}>
-                    {productCategoryOne}
-                    {productCategoryTwo}
-                    {productCategoryThree}
+                <div className="flex items-center justify-center">
+                    <img className="w-10 h-10 rounded-full mr-4" src="/images/logos/logoTwo.webp" alt="Avatar of Jonathan Reinink" />
+                    {farmerInfo}
                 </div>
             </div>
         </div>

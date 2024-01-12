@@ -5,7 +5,7 @@ import {fetchFarmers } from '@/app/composables/data';
 import { filterGrassBeefFarmer } from '@/app/composables/farmerData/filterFarmerFarmToTable';
 import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
-import { CardsSkeleton } from '@/app/ui/skeletons';
+import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 
 export default async function Page() {
   const farmers = await fetchFarmers();

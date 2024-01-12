@@ -45,7 +45,6 @@ export async function filterGrassBeefFarmer(farmer: any) {
 export async function filterFarmerProducts(farmer: any, productTitle: string) {
     const category = [productTitle];
     const filtering = farmer.filter((item: any) => {
-        console.log(item?.product_two_title?.includes(category));
         switch (true) {
             case item?.product_one_title?.includes(category):
                 return item;

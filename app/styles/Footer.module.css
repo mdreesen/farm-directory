@@ -1,15 +1,16 @@
 .container {
-  /* position: absolute;
-  bottom: 0; */
   height: 5rem;
   width: 100%;
   background-color: ghostwhite;
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  /* bottom: 0;
+  position: absolute; */
 }
 
 .icons {
   display: flex;
-  flex-direction: column;
+  column-gap: 1rem;
 }

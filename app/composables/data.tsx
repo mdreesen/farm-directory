@@ -36,7 +36,6 @@ export async function filterFarmer(farmer: any) {
 
 export async function farmer(data: any) {
     const eachFarmer = data?.farmerData
-    // console.log('Data', data?.farmerData)
     const farmerObj = Object.entries(eachFarmer).forEach(([key, value]) => {
     console.log(`Key: ${key}, Value: ${value}`);
 });
