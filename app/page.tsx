@@ -7,7 +7,7 @@ import styles from '@/app/styles/Home.module.css';
 export default function HomePage() {
 
 
-  const cardMapping = parentLinks?.map((item, index) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
+  const cardMapping = parentLinks?.map((item: object, index: number) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
 
   return (
     <>
