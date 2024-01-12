@@ -29,7 +29,3 @@ export async function fetchSingleFarmer(id: string) {
         return error;
     }
 };
-
-export async function filterFarmer(farmer: any) {
-    return farmer
-};
