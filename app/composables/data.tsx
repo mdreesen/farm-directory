@@ -1,7 +1,7 @@
 
 export async function isUser() {
     try {
-        const res = await fetch(process.env.LOCAL_URL + `/api/Users`);
+        const res = await fetch(process.env.URL_API + `/api/Users`);
         return res?.json()
     }
     catch (error) {
@@ -12,7 +12,7 @@ export async function isUser() {
 
 export async function fetchFarmers() {
     try {
-        const res = await fetch(process.env.LOCAL_URL + "/api/Farmers");
+        const res = await fetch(process.env.URL_API + "/api/Farmers");
         return res?.json()
     } catch (error) {
         console.log(error);
@@ -22,7 +22,7 @@ export async function fetchFarmers() {
 
 export async function fetchSingleFarmer(id: string) {
     try {
-        const res = await fetch(process.env.LOCAL_URL + `/api/Farmers/${id}`);
+        const res = await fetch(process.env.URL_API + `/api/Farmers/${id}`);
         return res?.json()
     } catch (error) {
         console.log(error);
