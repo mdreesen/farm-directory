@@ -2,7 +2,7 @@
 import { Suspense } from 'react';
 import Head from 'next/head';
 import styles from '@/app/styles/Farmer.module.css';
-import { fetchFarmers } from '@/app/composables/data';
+import { fetchFarmers } from '@/app/composables/fetch/fetchFarmers';
 import { filterFarmerProducts } from '@/app/composables/farmerData/filterFarmerFarmToTable';
 import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
