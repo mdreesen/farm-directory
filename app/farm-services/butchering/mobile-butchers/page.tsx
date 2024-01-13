@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Head from 'next/head';
 import styles from '@/app/styles/Farmer.module.css';
-import {fetchFarmers } from '@/app/composables/data';
+import { fetchFarmers } from '@/app/composables/data';
 import { filterFarmerProducts } from '@/app/composables/farmerData/filterFarmerFarmToTable';
 import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
@@ -17,19 +17,11 @@ export default async function Page() {
 
   return (
     <>
-      <Head>
-        <title>Farm To Table | Farm Directory</title>
-        <meta name='description' content='Farm Directory Farmer Search' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <main>
-        <div className={styles['container']}>
-          <Suspense fallback={<CardsSkeleton/>}>
-            {categoryFarmers}
-          </Suspense>
-        </div>
-      </main>
+      <div className={styles['container']}>
+        <Suspense fallback={<CardsSkeleton />}>
+          {categoryFarmers}
+        </Suspense>
+      </div>
     </>
   );
 }
