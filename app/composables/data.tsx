@@ -1,5 +1,3 @@
-'use server';
-
 export async function isUser() {
     try {
         const res = await fetch(process.env.URL_API + `/api/Users`);
