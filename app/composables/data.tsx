@@ -1,4 +1,6 @@
 export async function isUser() {
+    'use server';
+
     try {
         const res = await fetch(process.env.URL_API + `/api/Users`);
         return res?.json() ?? []
@@ -10,6 +12,8 @@ export async function isUser() {
 };
 
 export async function fetchFarmers() {
+    'use server';
+
     try {
         const res = await fetch(process.env.URL_API + "/api/Farmers", {
             headers: {
@@ -24,6 +28,8 @@ export async function fetchFarmers() {
 };
 
 export async function fetchSingleFarmer(id: string) {
+    'use server';
+
     try {
         const res = await fetch(process.env.URL_API + `/api/Farmers/${id}`, {
             headers: {

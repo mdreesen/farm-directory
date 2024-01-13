@@ -12,7 +12,7 @@ export default async function Page() {
   const farmerCategory = await filterFarmerProducts(farmers?.farmers, 'Other Live Animals');
   const categoryFarmers = farmerCategory?.map((item: Object, index: number) => <FarmerCard key={index} farmerData={item} />);
 
-  if (farmerCategory.length === 0) return <NoFarmer />
+  if (farmerCategory?.length === 0) return <NoFarmer />
 
   return (
     <>

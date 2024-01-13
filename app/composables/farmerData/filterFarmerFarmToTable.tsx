@@ -1,6 +1,6 @@
 export async function filterGrainBeefFarmer(farmer: any) {
     const category = ['Grain'];
-    const filtering = farmer.filter((item: any) => {
+    const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {
             case item?.product_one_feed?.includes(category):
                 return item;
@@ -22,7 +22,7 @@ export async function filterGrainBeefFarmer(farmer: any) {
 
 export async function filterGrassBeefFarmer(farmer: any) {
     const category = ['Grass'];
-    const filtering = farmer.filter((item: any) => {
+    const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {
             case item?.product_one_feed?.includes(category):
                 return item;
@@ -44,7 +44,7 @@ export async function filterGrassBeefFarmer(farmer: any) {
 
 export async function filterFarmerProducts(farmer: any, productTitle: string) {
     const category = [productTitle];
-    const filtering = farmer.filter((item: any) => {
+    const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {
             case item?.product_one_title?.includes(category):
                 return item;
