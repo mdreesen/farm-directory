@@ -1,3 +1,4 @@
+'use server'
 import { Suspense } from 'react';
 import styles from '@/app/styles/Farmer.module.css';
 import { fetchFarmers } from '@/app/composables/data';

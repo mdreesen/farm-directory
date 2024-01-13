@@ -1,3 +1,4 @@
+'use server'
 import { Suspense } from 'react';
 import Head from 'next/head';
 import styles from '@/app/styles/Farmer.module.css';
