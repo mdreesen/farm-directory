@@ -35,11 +35,11 @@ export default async function FarmerDetails(data: any) {
     const productOne = (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
-                <span className="text-gray-700 font-bold">{farmerData?.product_one_title}</span>
-                <p>
-                    <span className="text-gray-700 mr-2">{farmerData?.product_one_feed}</span>
-                    {farmerData?.product_one_available ? <span className="text-gray-700">Available</span> : <span className="text-gray-700">Unavailable</span>}
-                </p>
+                <div className="flex flex-col">
+                    <span className="text-gray-700 font-bold">{farmerData?.product_one_title}</span>
+                    {farmerData?.product_one_feed && `Feed Type: ${farmerData?.product_one_feed}`}
+                </div>
+                <p>{farmerData?.product_one_available ? <span className="text-gray-700">Available</span> : <span className="text-gray-700">Unavailable</span>}</p>
             </div>
             <p className="mt-2">{farmerData?.product_one_description}</p>
         </div>
@@ -48,11 +48,11 @@ export default async function FarmerDetails(data: any) {
     const productTwo = (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
-                <span className="text-gray-700 font-bold">{farmerData?.product_two_title}</span>
-                <p>
-                    <span className="text-gray-700 mr-2">{farmerData?.product_two_feed}</span>
-                    {farmerData?.product_two_available ? <span className="text-gray-700">Available</span> : <span className="text-gray-700">Unavailable</span>}
-                </p>
+                <div className="flex flex-col">
+                    <span className="text-gray-700 font-bold">{farmerData?.product_two_title}</span>
+                    {farmerData?.product_two_feed && `Feed Type: ${farmerData?.product_two_feed}`}
+                </div>
+                <p>{farmerData?.product_two_available ? <span className="text-gray-700">Available</span> : <span className="text-gray-700">Unavailable</span>}</p>
             </div>
             <p className="mt-2">{farmerData?.product_two_description}</p>
         </div>
@@ -61,11 +61,11 @@ export default async function FarmerDetails(data: any) {
     const productThree = (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
-                <span className="text-gray-700 font-bold">{farmerData?.product_three_title}</span>
-                <p>
-                    <span className="text-gray-700 mr-2">{farmerData?.product_three_feed}</span>
-                    {farmerData?.product_three_available ? <span className="text-gray-700">Available</span> : <span className="text-gray-700">Unavailable</span>}
-                </p>
+                <div className="flex flex-col">
+                    <span className="text-gray-700 font-bold">{farmerData?.product_three_title}</span>
+                    {farmerData?.product_three_feed && `Feed Type: ${farmerData?.product_three_feed}`}
+                </div>
+                <p>{farmerData?.product_three_available ? <span className="text-gray-700">Available</span> : <span className="text-gray-700">Unavailable</span>}</p>
             </div>
             <p className="mt-2">{farmerData?.product_three_description}</p>
         </div>
