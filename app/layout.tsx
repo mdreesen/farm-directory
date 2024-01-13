@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { Suspense } from 'react';
 
 import Navigation from "@/app/ui/Navigation";
@@ -26,13 +25,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <UserProvider>
-        <body className={`${inter.className}`} suppressHydrationWarning={true}>
-          <Suspense fallback={<h3>Loading...</h3>}><Navigation mongoUser={mongoUser}/></Suspense>
-          {children}
-          <Footer />
-        </body>
-      </UserProvider>
+      <body className={`${inter.className}`} suppressHydrationWarning={true}>
+        <Suspense fallback={<h3>Loading...</h3>}><Navigation mongoUser={mongoUser} /></Suspense>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
