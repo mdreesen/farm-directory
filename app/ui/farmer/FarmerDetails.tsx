@@ -30,7 +30,7 @@ export default async function FarmerDetails(data: any) {
         </div>
     );
 
-    const productOne = (
+    const productOne = farmerData?.product_one_title !== "" && (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
@@ -43,7 +43,7 @@ export default async function FarmerDetails(data: any) {
         </div>
     );
 
-    const productTwo = (
+    const productTwo = farmerData?.product_two_title !== "" && (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
@@ -56,7 +56,7 @@ export default async function FarmerDetails(data: any) {
         </div>
     );
 
-    const productThree = (
+    const productThree = farmerData?.product_three_title !== "" && (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
@@ -112,7 +112,7 @@ export default async function FarmerDetails(data: any) {
                                 {productTwo}
                                 {productThree}
 
-                                <h3 className="font-semibold text-center mt-3 -mb-2">Find me on</h3>
+                                {farmerData?.facebook !== "" && farmerData?.instagram !== "" && <h3 className="font-semibold text-center mt-3 -mb-2">Find me on</h3>}
                                 {socialLinks}
                             </div>
                         </div>

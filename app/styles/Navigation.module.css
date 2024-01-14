@@ -6,8 +6,8 @@
   align-items: center;
   position: fixed;
   z-index: 9999;
-  -webkit-backdrop-filter: blur(100px);
-  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
   top: 0;
 }
 
@@ -15,8 +15,29 @@
   color: ghostwhite;
 }
 
+.mobile-container {
+  display: none;
+}
+
 @media only screen and (max-width: 630px) {
   .container {
     display: none;
   }
+
+  .mobile-container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, 18px);
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    align-content: center;
+    position: fixed;
+    z-index: 9999;
+    -webkit-backdrop-filter: blur(200px);
+    backdrop-filter: blur(200px);
+    bottom: 0;
+    font-size: .6rem;
+    }
 }

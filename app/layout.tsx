@@ -4,6 +4,7 @@ import './globals.css'
 import { Suspense } from 'react';
 
 import Navigation from "@/app/ui/Navigation";
+import MobileNavigation from './ui/MobileNavigation';
 import { Footer } from "@/app/ui/Footer";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,7 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <Suspense fallback={<h3>Loading...</h3>}><Navigation /></Suspense>
+        <Suspense fallback={<h3>Loading...</h3>}><Navigation /><MobileNavigation /></Suspense>
         {children}
         <Footer />
       </body>
