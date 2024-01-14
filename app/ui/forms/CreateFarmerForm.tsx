@@ -43,8 +43,7 @@ export const CreateFarmerForm = () => {
     };
 
     const [formData, setFormData] = useState(startData);
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const router = useRouter();
 
@@ -60,6 +59,8 @@ export const CreateFarmerForm = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+        setIsLoading(true)
+
         const res = await fetch("/api/Farmers", {
             method: "POST",
             cache: 'no-store',
@@ -67,7 +68,6 @@ export const CreateFarmerForm = () => {
         });
 
         if (!res.ok) throw new Error("Failed to update Farmer");
-        setIsLoading(false) // Set loading to false when the request completes
         router.refresh();
         router.push("/farmer/created-farmer");
     };
@@ -336,7 +336,13 @@ export const CreateFarmerForm = () => {
                 {productOneInfo}
                 {productTwoInfo}
                 {productThreeInfo}
-                {isLoading ? 'Loading...' : <input className={styles['submitBtn']} type="submit" value="Create Farmer" />}
+                {isLoading ? <span className="text-yellow-500 flex justify-center">Submitted, Now Loading...</span> : (
+                    <input
+                        className={styles['submitBtn']}
+                        type="submit"
+                        value="Create Farmer"
+                    />
+                )}
             </form>
         </div>
     )

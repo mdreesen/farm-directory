@@ -8,7 +8,7 @@ export default function Page() {
       <span>Farmer has been created!</span>
       <span>Thank You!</span>
 
-      <Link href="/create-farmer/2c65d499cc0fe715a460d0c16eb9f65be7972c35">Click to Create A Farmer</Link>
+      <Link href="/farmer/create-farmer/2c65d499cc0fe715a460d0c16eb9f65be7972c35">Click to Create A Farmer</Link>
     </div>
   )
 }
