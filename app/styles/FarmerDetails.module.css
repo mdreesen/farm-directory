@@ -4,3 +4,13 @@
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (max-width: 630px) {
+  .container {
+    min-height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 6rem 0;
+  }
+}
