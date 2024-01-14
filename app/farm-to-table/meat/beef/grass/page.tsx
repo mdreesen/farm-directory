@@ -1,15 +1,15 @@
-'use server'
+
 import { Suspense } from 'react';
 import styles from '@/app/styles/Farmer.module.css';
-import { fetchFarmers } from '@/app/composables/fetch/fetchFarmers';
-import { filterGrassBeefFarmer } from '@/app/composables/farmerData/filterFarmerFarmToTable';
+import { fetchFarmers } from '@/app/lib/data';
+import { filterGrassBeefFarmer } from '@/app/lib/filterFarmers';
 import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 
 export default async function Page() {
   const farmers = await fetchFarmers();
-  const farmerCategory = await filterGrassBeefFarmer(farmers?.farmers);
+  const farmerCategory = await filterGrassBeefFarmer(farmers);
 
   const categoryFarmers = farmerCategory?.map((item: Object, index: number) => <FarmerCard key={index} farmerData={item} />);
 

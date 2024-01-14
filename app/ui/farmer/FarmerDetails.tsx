@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import { fetchSingleFarmer } from '@/app/composables/fetch/fetchFarmers';
+import { fetchSingleFarmer } from '@/app/lib/data';
 
 export default async function FarmerDetails(data: any) {
+    console.log(data?.data?.id)
 
     const farmer = await fetchSingleFarmer(data?.data?.id);
-    const farmerData = farmer?.farmer;
-    console.log(farmerData);
+    console.log(farmer)
+    const farmerData = farmer;
 
     const farmerBasicInfo = (
         <div className="flex flex-col items-center">

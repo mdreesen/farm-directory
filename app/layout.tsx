@@ -6,8 +6,6 @@ import { Suspense } from 'react';
 import Navigation from "@/app/ui/Navigation";
 import { Footer } from "@/app/ui/Footer";
 
-import { isUser } from './composables/data';
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,12 +19,10 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const mongoUser = await isUser();
-
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <Suspense fallback={<h3>Loading...</h3>}><Navigation mongoUser={mongoUser} /></Suspense>
+        <Suspense fallback={<h3>Loading...</h3>}><Navigation /></Suspense>
         {children}
         <Footer />
       </body>

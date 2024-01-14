@@ -40,7 +40,9 @@ const farmerSchema = new Schema(
         product_three_description: String,
         product_three_feed: String,
         product_three_available: Boolean,
-        product_three_show: Boolean
+        product_three_show: Boolean,
+        createdAt: Number,
+        updatedAt: Number
     }, { timestamps: true });
 
 const Farmer = mongoose.models.Farmers || mongoose.model("Farmers", farmerSchema);
