@@ -1,0 +1,19 @@
+.no-data {
+  /* padding: 2%; */
+  text-align: center;
+}
+
+.container-message {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  color: ghostwhite;
+  height: 85vh;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}

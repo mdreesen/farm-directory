@@ -1,0 +1,16 @@
+.container {
+  height: 5rem;
+  width: 100%;
+  background-color: ghostwhite;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  /* bottom: 0;
+  position: absolute; */
+}
+
+.icons {
+  display: flex;
+  column-gap: 1rem;
+}
