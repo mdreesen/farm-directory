@@ -3,10 +3,7 @@ import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/data';
 
 export default async function FarmerDetails(data: any) {
-    console.log(data?.data?.id)
-
     const farmer = await fetchSingleFarmer(data?.data?.id);
-    console.log(farmer)
     const farmerData = farmer;
 
     const farmerBasicInfo = (
@@ -81,7 +78,7 @@ export default async function FarmerDetails(data: any) {
                         </path>
                     </svg>
                 </a>
-            )};
+            )}
 
             {farmerData?.instagram !== "" && (
                 <a className="text-gray-700 hover:text-yellow-500" aria-label="Visit TrendyMinds Instagram" href={farmerData?.instagram} target="_blank">
