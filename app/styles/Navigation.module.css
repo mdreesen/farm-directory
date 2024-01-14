@@ -39,5 +39,11 @@
     backdrop-filter: blur(200px);
     bottom: 0;
     font-size: .7rem;
+    background: ghostwhite;
+    }
+
+    .link {
+      color: black;
+      font-weight: 500;
     }
 }
