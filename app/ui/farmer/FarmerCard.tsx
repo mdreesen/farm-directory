@@ -14,8 +14,11 @@ export default async function FarmerCard(farmerData: any) {
 
     const farmerInfo = (
         <div className="text-sm">
-            <p className="text-gray-900 leading-none">{data?.first_name} {data?.last_name}</p>
-            <p className="text-gray-600">{data?.createdAt}</p>
+            <p className="text-gray-900 leading-none mb-1">{data?.first_name} {data?.last_name}</p>
+            <div>
+                <span className="text-gray-600">Created</span>
+                <p className="text-gray-600">{data?.createdAt}</p>
+            </div>
         </div>
     );
 
