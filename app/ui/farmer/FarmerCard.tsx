@@ -5,6 +5,11 @@ import Link from 'next/link';
 export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
 
+//     console.log(data?.createdAt)
+//     const date = new Date( data?.createdAt * 1000).toLocaleString();
+// console.log(date)
+
+
     const farmLogo = <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden flex justify-center items-center" style={{ backgroundImage: "url('/images/logos/logoThree.jpg')" }} title="Woman holding a mug"></div>
 
     const farmerInfo = (
@@ -27,7 +32,7 @@ export default async function FarmerCard(farmerData: any) {
 
 
     return (
-        <div className="max-w-sm w-full lg:max-w-full lg:flex justify-center">
+        <div className={`${styles['card']} max-w-sm lg:max-w-full lg:flex justify-center`}>
             {farmLogo}
             <div className="border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-[32rem]">
                 <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div>
