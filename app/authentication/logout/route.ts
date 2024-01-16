@@ -1,5 +1,6 @@
-// This function handles HTTP GET requests to the API route.
 import { NextRequest, NextResponse } from "next/server";
+
+// This function handles HTTP GET requests to the API route.
 
 export async function GET() {
     try {
@@ -8,7 +9,7 @@ export async function GET() {
                 message: "Logout successful",
                 success: true,
             }
-        )
+        );
         response.cookies.set("token", "",
         { httpOnly: true, expires: new Date(0)
         })

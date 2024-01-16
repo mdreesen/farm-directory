@@ -5,11 +5,10 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -20,16 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "auth": ["./auth"]
+      "@/*": ["./*"]
     }
   },
-  "include": [
-    "process.d.ts",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-, "app/api/auth/authOptions.js", "app/lib/mongoAdapter.js"  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/ui/dashboard/users-chart.js", "app/ui/dashboard/cards.js"],
   "exclude": ["node_modules"]
 }

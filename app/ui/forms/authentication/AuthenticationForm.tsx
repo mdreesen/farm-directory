@@ -52,14 +52,14 @@ export function AuthenticationForm() {
             body: JSON.stringify({ formData }),
         });
 
-        console.log('New User', !existingUser?.user);
+        // console.log('New User', !existingUser?.user);
         if (existingUser?.user) {
             setIsLoading(false);
             setError("User already exists");
             throw new Error("User already exists");
         }
         router.refresh();
-        router.push("/admin/dashboard");
+        router.push("/");
     };
 
     return (
