@@ -2,7 +2,7 @@ import Farmer from '@/app/(models)/Farmer';
 import { NextResponse } from 'next/server';
 
 // Get Single Farmer By ID
-export async function GET(req, { params }) {
+export async function GET(req: any, { params }: any) {
     try {
         const {id} = params;
         const farmer = await Farmer.findOne({_id: id});

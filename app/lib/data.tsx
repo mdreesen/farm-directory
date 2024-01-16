@@ -24,3 +24,15 @@ export async function fetchSingleFarmer(id: string) {
         return error
     }
 };
+
+export async function fetchSingleUser(id: string) {
+    noStore()
+
+    try {
+        const farmer = await Farmer.findOne({ _id: id });
+        return farmer
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};

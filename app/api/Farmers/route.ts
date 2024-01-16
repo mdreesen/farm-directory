@@ -13,7 +13,7 @@ export async function GET() {
 };
 
 // Creating Farmer
-export async function POST(req) {
+export async function POST(req: any) {
     try {
         const body = await req.json();
         const farmerData = body.formData;
@@ -26,7 +26,7 @@ export async function POST(req) {
 };
 
 // Deleting A Farmer
-export async function DELETE(req, { params }) {
+export async function DELETE(req: any, { params }: any) {
     try {
         const { id } = params;
         await Farmer.findByIdAndDelete(id);
