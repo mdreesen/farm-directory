@@ -194,7 +194,7 @@ export default async function farmersChart() {
   return (
     <div className="w-full md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Recent Sign Ups
+        Farmer Sign Ups Per Month
       </h2>
       {/* NOTE: comment in this code when you get to this point in the course */}
 

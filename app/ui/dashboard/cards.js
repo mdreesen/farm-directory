@@ -20,7 +20,7 @@ export default async function CardWrapper() {
       <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
         <div className="flex p-4">
           <UserGroupIcon className="h-5 w-5 text-gray-700" />
-          <h3 className="ml-2 text-sm font-medium">Total Customers</h3>
+          <h3 className="ml-2 text-sm font-medium">Total Farmers</h3>
         </div>
         <p
           className={`${lusitana.className}
