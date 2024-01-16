@@ -2,6 +2,7 @@
 import {
   UserGroupIcon,
   HomeIcon,
+  UserIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -12,7 +13,8 @@ import clsx from 'clsx';
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/admin/dashboard', icon: HomeIcon },
-  { name: 'Customers', href: '/admin/dashboard/customers', icon: UserGroupIcon },
+  // { name: 'Customers', href: '/admin/dashboard/customers', icon: UserGroupIcon },
+  { name: "Create Farmer", href: '/admin/dashboard/create-farmer', icon: UserIcon}
 ];
 
 export default function NavLinks() {

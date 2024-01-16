@@ -69,7 +69,7 @@ export const CreateFarmerForm = () => {
 
         if (!res.ok) throw new Error("Failed to update Farmer");
         router.refresh();
-        router.push("/farmer/created-farmer");
+        router.push("/admin/dashboard/create-farmer/created-farmer");
     };
 
     const basicInfo = (
