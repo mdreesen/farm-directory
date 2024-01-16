@@ -1,7 +1,7 @@
 import Users from '@/app/(models)/User';
 import { NextResponse } from 'next/server';
 
-export async function GET(req, { params }) {
+export async function GET(req: any, { params }: any) {
     try {
         const { id } = params;
         const user = await Users.findOne({ _id: id });
