@@ -20,26 +20,6 @@ export const formatDateToLocal = (
   return formatter.format(date);
 };
 
-// export const generateYAxis = (data: any) => {
-//   const monthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-//   // Filter by months
-//   const januaryUsers = farmer.filter((item: any) => item.createdAt.includes('Jan')).length;
-//   const februaryUsers = farmer.filter((item: any) => item.createdAt.includes('Feb')).length;
-//   const marchUsers = farmer.filter((item: any) => item.createdAt.includes('Mar')).length;
-//   const aprilUsers = farmer.filter((item: any) => item.createdAt.includes('Apr')).length;
-//   const mayUsers = farmer.filter((item: any) => item.createdAt.includes('May')).length;
-//   const juneUsers = farmer.filter((item: any) => item.createdAt.includes('Jun')).length;
-//   const julyUsers = farmer.filter((item: any) => item.createdAt.includes('Jul')).length;
-//   const augustUsers = farmer.filter((item: any) => item.createdAt.includes('Aug')).length;
-//   const septemberUsers = farmer.filter((item: any) => item.createdAt.includes('Sep')).length;
-//   const octoberUsers = farmer.filter((item: any) => item.createdAt.includes('Oct')).length;
-//   const novemberUsers = farmer.filter((item: any) => item.createdAt.includes('Nov')).length;
-//   const decemberUsers = farmer.filter((item: any) => item.createdAt.includes('Dec')).length;
-
-//   return { monthsArr, januaryUsers, februaryUsers, marchUsers, aprilUsers, mayUsers, juneUsers, julyUsers, augustUsers, septemberUsers, octoberUsers, novemberUsers, decemberUsers };
-// };
-
 export const generateYAxis = (data: any) => {
   const monthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 

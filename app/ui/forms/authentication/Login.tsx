@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 
@@ -16,10 +16,11 @@ export default function Login() {
 
     const [formData, setFormData] = useState(startData);
     const [isLoading, setIsLoading] = React.useState(false);
+    const [isError, setError] = useState<string>("");
 
     const handleChange = (e: any) => {
-        const value = e.target.value
-        const name = e.target.name
+        const value = e.target.value;
+        const name = e.target.name;
 
         setFormData((prevState: any) => ({
             ...prevState,
@@ -29,7 +30,7 @@ export default function Login() {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        setIsLoading(true)
+        setIsLoading(true);
 
         const loggingIn = await fetch("/api/Authentication/login", {
             method: "POST",
@@ -42,10 +43,28 @@ export default function Login() {
 
         const user = await loggingIn.json();
 
-        console.log('User Logged In', user, user?.isAdmin)
+        if (!loggingIn.ok) {
+            setIsLoading(false);
+            setError("Try again...finding the developer who made this...");
+            throw new Error("Failed to login user");
+        };
 
-        if (!loggingIn.ok) throw new Error("Failed to login user");
-        if (user?.isAdmin === true) return router.push("/admin/dashboard");
+        if (user?.message === 'Login successful') {
+            const authenticated = await fetch("/api/Authentication/authenticated", {
+                method: "GET",
+                cache: 'no-store',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+
+            const isAuthenticated = await authenticated.json();
+            isAuthenticated
+        }
+
+        if (user?.isAdmin === true) {
+            return router.push("/admin/dashboard");
+        }
 
         router.refresh();
         router.push("/");
@@ -59,7 +78,7 @@ export default function Login() {
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                            Sign in to your account
+                            Sign into your account
                         </h1>
                         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
                             <div>
@@ -74,9 +93,9 @@ export default function Login() {
                                 <button type="submit" className="w-full font-medium text-gray-900 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                             )}
 
-                            {/* {isError && <span style={{ color: 'red' }}>{isError}</span>} */}
+                            {isError && <span style={{ color: 'red' }}>{isError}</span>}
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                                Don’t have an account yet? <Link href="/authentication/signup" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</Link>
                             </p>
                         </form>
                     </div>
