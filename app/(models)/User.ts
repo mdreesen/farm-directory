@@ -8,7 +8,9 @@ const userSchema = new Schema(
         email: String,
         password: String,
         isFarmer: Boolean,
-        isAdmin: Boolean
+        isAdmin: Boolean,
+        createdAt: String,
+        updatedAt: String
     }, { timestamps: true });
 
 const User = mongoose.models.Users || mongoose.model("Users", userSchema);

@@ -1,7 +1,10 @@
 // 'use server'
-import CardWrapper from '@/app/ui/dashboard/cards';
-import UsersChart from '@/app/ui/dashboard/users-chart';
-import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import CardsFarmer from '@/app/ui/dashboard/cardsFarmer';
+import CardsUser from '@/app/ui/dashboard/CardsUser';
+
+import ChartFarmers from '@/app/ui/dashboard/chart-farmers';
+import ChartUsers from '@/app/ui/dashboard/chart-users';
+import LatestFarmers from '@/app/ui/dashboard/latest-farmers';
 
 // Fetching skeleton
 import { Suspense } from 'react';
@@ -16,19 +19,29 @@ export default async function Page() {
       <h1 className={`text-white font-bold mb-4 text-2xl md:text-4xl flex justify-center`}>
         Dashboard
       </h1>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+
         <Suspense fallback={<CardSkeleton />}>
-          <CardWrapper />
+          <CardsFarmer />
+        </Suspense>
+
+        <Suspense fallback={<CardSkeleton />}>
+          <CardsUser />
         </Suspense>
 
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+
         <Suspense fallback={<RevenueChartSkeleton />}>
-          <UsersChart />
+          <ChartFarmers />
+        </Suspense>
+
+        <Suspense fallback={<RevenueChartSkeleton />}>
+          <ChartUsers />
         </Suspense>
 
         <Suspense fallback={<LatestInvoicesSkeleton />}>
-          <LatestInvoices /> 
+          <LatestFarmers /> 
         </Suspense>
 
       </div>

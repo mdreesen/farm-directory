@@ -12,7 +12,7 @@ import { ReactElement, JSXElementConstructor, ReactNode, PromiseLikeOfReactNode,
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default async function farmersChart() {
+export default async function ChartFarmers() {
   const farmers = await fetchFarmers();
 
   const { januaryUsers, februaryUsers, marchUsers, aprilUsers, mayUsers, juneUsers, julyUsers, augustUsers, septemberUsers, octoberUsers, novemberUsers, decemberUsers } = generateYAxis(farmers);
@@ -21,10 +21,10 @@ export default async function farmersChart() {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
 
-  // console.log(yAxisLabels, topLabel);
 
-  const january =  (
+  const january = (
     <div className="flex flex-col items-center gap-2">
+      {januaryUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -37,8 +37,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const february =  (
+  const february = (
     <div className="flex flex-col items-center gap-2">
+      {februaryUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -51,8 +52,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const march =  (
+  const march = (
     <div className="flex flex-col items-center gap-2">
+      {marchUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -65,8 +67,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const april =  (
+  const april = (
     <div className="flex flex-col items-center gap-2">
+      {aprilUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -79,8 +82,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const may =  (
+  const may = (
     <div className="flex flex-col items-center gap-2">
+      {mayUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -93,8 +97,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const june =  (
+  const june = (
     <div className="flex flex-col items-center gap-2">
+      {juneUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -107,8 +112,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const july =  (
+  const july = (
     <div className="flex flex-col items-center gap-2">
+      {julyUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -121,8 +127,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const august =  (
+  const august = (
     <div className="flex flex-col items-center gap-2">
+      {augustUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -135,8 +142,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const september =  (
+  const september = (
     <div className="flex flex-col items-center gap-2">
+      {septemberUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -149,8 +157,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const october =  (
+  const october = (
     <div className="flex flex-col items-center gap-2">
+      {octoberUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -163,8 +172,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const november =  (
+  const november = (
     <div className="flex flex-col items-center gap-2">
+      {novemberUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
@@ -177,8 +187,9 @@ export default async function farmersChart() {
     </div>
   );
 
-  const december =  (
+  const december = (
     <div className="flex flex-col items-center gap-2">
+      {decemberUsers}
       <div
         className="w-full rounded-md bg-blue-300"
         style={{
