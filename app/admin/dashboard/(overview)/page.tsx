@@ -2,8 +2,6 @@
 import CardWrapper from '@/app/ui/dashboard/cards';
 import UsersChart from '@/app/ui/dashboard/users-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
-// import { lusitana } from '@/app/ui/fonts';
-// import { useRouter } from "next/navigation";
 
 // Fetching skeleton
 import { Suspense } from 'react';
@@ -11,26 +9,6 @@ import { RevenueChartSkeleton, LatestInvoicesSkeleton, CardSkeleton } from '@/ap
 
 
 export default async function Page() {
-  // const router = useRouter();
-
-  // const getUserDetails = async () => {
-
-  //   try {
-  //     const res = await fetch('/api/Authentication/authenticated', {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       },
-  //     });
-  //     console.log(res.json)
-  //     return res.json()
-  //   } catch (error) {
-  //     console.log(error);
-  //     return error
-  //   }
-  // };
-
-  // const userData = await getUserDetails();
 
 
   return (

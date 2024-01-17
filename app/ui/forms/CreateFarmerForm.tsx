@@ -81,7 +81,7 @@ export const CreateFarmerForm = () => {
                 name="first_name"
                 type="text"
                 onChange={handleChange}
-                value={formData?.first_name}
+                value={formData?.first_name.trim()}
             />
             <FormValidation data={formData?.first_name} />
 
@@ -91,7 +91,7 @@ export const CreateFarmerForm = () => {
                 name="last_name"
                 type="text"
                 onChange={handleChange}
-                value={formData?.last_name}
+                value={formData?.last_name.trim()}
                 required
             />
             <FormValidation data={formData?.last_name} />
@@ -132,7 +132,7 @@ export const CreateFarmerForm = () => {
             <label>State</label>
             <select
                 name="address_state"
-                value={formData?.address_state}
+                value={formData?.address_state.trim()}
                 onChange={handleChange}
                 required
             >
@@ -158,7 +158,7 @@ export const CreateFarmerForm = () => {
                 name="phone"
                 type="text"
                 onChange={handleChange}
-                value={formData?.phone}
+                value={formData?.phone.trim()}
                 required
             />
             <FormValidation data={formData?.phone} />
@@ -170,7 +170,7 @@ export const CreateFarmerForm = () => {
                 name="email"
                 type="text"
                 onChange={handleChange}
-                value={formData?.email}
+                value={formData?.email.trim()}
                 required
             />
             <FormValidation data={formData?.email} />
@@ -188,7 +188,7 @@ export const CreateFarmerForm = () => {
                 name="website"
                 type="text"
                 onChange={handleChange}
-                value={formData?.website}
+                value={formData?.website.trim()}
             />
 
             <label>Facebook Link</label>
@@ -197,7 +197,7 @@ export const CreateFarmerForm = () => {
                 name="facebook"
                 type="text"
                 onChange={handleChange}
-                value={formData?.facebook}
+                value={formData?.facebook.trim()}
             />
 
             <label>Instagram Link</label>
@@ -206,7 +206,7 @@ export const CreateFarmerForm = () => {
                 name="instagram"
                 type="text"
                 onChange={handleChange}
-                value={formData?.instagram}
+                value={formData?.instagram.trim()}
             />
         </div>
     );
@@ -216,7 +216,7 @@ export const CreateFarmerForm = () => {
             <label>Product 1 Feed Type</label>
             <select
                 name="product_one_feed"
-                value={formData?.product_one_feed}
+                value={formData?.product_one_feed.trim()}
                 onChange={handleChange}
             >
                 <CategoryFeedType />
@@ -229,7 +229,7 @@ export const CreateFarmerForm = () => {
             <label>Product 2 Feed Type</label>
             <select
                 name="product_two_feed"
-                value={formData?.product_two_feed}
+                value={formData?.product_two_feed.trim()}
                 onChange={handleChange}
             >
                 <CategoryFeedType />
@@ -242,7 +242,7 @@ export const CreateFarmerForm = () => {
             <label>Product 3 Feed Type</label>
             <select
                 name="product_three_feed"
-                value={formData?.product_three_feed}
+                value={formData?.product_three_feed.trim()}
                 onChange={handleChange}
             >
                 <CategoryFeedType />
@@ -256,7 +256,7 @@ export const CreateFarmerForm = () => {
             <label>Product 1</label>
             <select
                 name="product_one_title"
-                value={formData?.product_one_title}
+                value={formData?.product_one_title.trim()}
                 onChange={handleChange}
                 required
             >
@@ -283,7 +283,7 @@ export const CreateFarmerForm = () => {
             <label>Product 2</label>
             <select
                 name="product_two_title"
-                value={formData?.product_two_title}
+                value={formData?.product_two_title.trim()}
                 onChange={handleChange}
             >
                 <Categories />
@@ -308,7 +308,7 @@ export const CreateFarmerForm = () => {
             <label>Product 3</label>
             <select
                 name="product_three_title"
-                value={formData?.product_three_title}
+                value={formData?.product_three_title.trim()}
                 onChange={handleChange}
             >
                 <Categories />
@@ -320,7 +320,7 @@ export const CreateFarmerForm = () => {
                 name="product_three_description"
                 rows={5}
                 onChange={handleChange}
-                value={formData?.product_three_description}
+                value={formData?.product_three_description.trim()}
             />
 
             {productThreeFeed}

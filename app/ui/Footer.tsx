@@ -9,7 +9,7 @@ export function Footer() {
     <div className={styles['container']}>
       <div className='text-gray-700 flex flex-col'>
         <Link href="/about">About</Link>
-        <Link href="/authentication/login">login</Link>
+        <Link href="/authentication/login">Login</Link>
       </div>
       <div className={styles['icons']}>
         <a className="text-gray-700 hover:text-yellow-500" aria-label="Visit TrendyMinds Facebook" href="#" target="_blank">
