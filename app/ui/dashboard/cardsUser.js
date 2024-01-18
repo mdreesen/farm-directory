@@ -9,8 +9,8 @@ export default async function CardsUser() {
 
   // This is a freakin Array - typescript you suck
   // Not giving it extra types because I shouldnt have to you MOTHA@#%%$#%^%$%^&^%$#$%^%$#$%^&
-  const users = await fetchUsers();
-  const filterOutAdmin = users?.filter(item => item?.isAdmin === false);
+  const users = await fetchUsers() ?? [];
+  const filterOutAdmin = users?.filter((item) => item?.isAdmin === false) ?? [];
   const numberOfUsers = Number(filterOutAdmin.length);
 
   const Card = () => {

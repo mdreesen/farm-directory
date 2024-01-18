@@ -20,7 +20,7 @@ export default async function LatestFarmers() {
         {/* NOTE: comment in this code when you get to this point in the course */}
 
         <div className="bg-white px-6">
-          {latestFarmers?.map((data, i) => {
+          {latestFarmers.reverse()?.map((data, i) => {
             const latest = i + 1 <= 10
             return latest && (
               <div
