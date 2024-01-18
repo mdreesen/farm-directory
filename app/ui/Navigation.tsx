@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
-import { isLoggedIn } from '../lib/data';
+import {isLoggedIn} from '@/app/lib/data';
 
 export default async function Navigation() {
-  const loggedIn = await isLoggedIn();
+  const auth = await isLoggedIn();
+  console.log(auth)
 
   const navLinks = [
     {
@@ -39,8 +40,7 @@ export default async function Navigation() {
   ];
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
-console.log(loggedIn)
-  const authenticate = loggedIn ? (
+  const authenticate = auth ? (
     <LogoutButtonUser/>
   ) : (
     <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>

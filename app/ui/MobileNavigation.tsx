@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
 import { isLoggedIn } from '../lib/data';
+// import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
+
 
 export default async function MobileNavigation() {
-  const loggedIn = await isLoggedIn();
+  const loggedIn = isLoggedIn();
 
   const navLinks = [
     {
@@ -39,8 +41,6 @@ export default async function MobileNavigation() {
 
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
-
-console.log(loggedIn)
 
   return (
     <div className={styles['mobile-container']}>
