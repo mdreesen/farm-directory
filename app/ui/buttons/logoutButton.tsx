@@ -10,7 +10,7 @@ export default async function LogoutButton() {
   const [isLoading, setIsLoading] = React.useState(false);
 
 
-  const handleLogOut = async (e: any) => {
+  const handleLogOut = async () => {
     setIsLoading(true)
 
     const loggingOut = await fetch('/api/Authentication/logout', {

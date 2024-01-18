@@ -1,4 +1,3 @@
-// 'use server'
 import CardsFarmer from '@/app/ui/dashboard/cardsFarmer';
 import CardsUser from '@/app/ui/dashboard/CardsUser';
 

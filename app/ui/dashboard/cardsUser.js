@@ -5,7 +5,7 @@ import { lusitana } from '@/app/ui/fonts';
 
 import { fetchUsers } from '@/app/lib/data';
 
-export default async function CardWrapper() {
+export default async function CardsUser() {
 
   // This is a freakin Array - typescript you suck
   // Not giving it extra types because I shouldnt have to you MOTHA@#%%$#%^%$%^&^%$#$%^%$#$%^&
