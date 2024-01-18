@@ -5,12 +5,12 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 // import { signOut } from '@/auth';
 import { useRouter } from "next/navigation";
 
-export default async function LogoutButton() {
+export default function LogoutButton() {
   const router = useRouter();
   const [isLoading, setIsLoading] = React.useState(false);
 
 
-  const handleLogOut = async (e: any) => {
+  const handleLogOut = async () => {
     setIsLoading(true)
 
     const loggingOut = await fetch('/api/Authentication/logout', {

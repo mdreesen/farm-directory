@@ -203,7 +203,7 @@ export default async function ChartFarmers() {
   return (
     <div className="w-full md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Farmer Sign Ups Per Month
+        User Sign Ups Per Month
       </h2>
       {/* NOTE: comment in this code when you get to this point in the course */}
 

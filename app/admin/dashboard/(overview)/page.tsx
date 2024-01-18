@@ -1,6 +1,5 @@
-// 'use server'
 import CardsFarmer from '@/app/ui/dashboard/cardsFarmer';
-import CardsUser from '@/app/ui/dashboard/CardsUser';
+import CardsUser from '@/app/ui/dashboard/cardsUser';
 
 import ChartFarmers from '@/app/ui/dashboard/chart-farmers';
 import ChartUsers from '@/app/ui/dashboard/chart-users';

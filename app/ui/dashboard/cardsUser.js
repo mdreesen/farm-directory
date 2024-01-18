@@ -1,19 +1,16 @@
 import {
-  BanknotesIcon,
-  ClockIcon,
   UserGroupIcon,
-  InboxIcon,
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 
 import { fetchUsers } from '@/app/lib/data';
 
-export default async function CardWrapper() {
+export default async function CardsUser() {
 
   // This is a freakin Array - typescript you suck
   // Not giving it extra types because I shouldnt have to you MOTHA@#%%$#%^%$%^&^%$#$%^%$#$%^&
-  const users = await fetchUsers();
-  const filterOutAdmin = users?.filter(item => item?.isAdmin === false);
+  const users = await fetchUsers() ?? [];
+  const filterOutAdmin = users?.filter((item) => item?.isAdmin === false) ?? [];
   const numberOfUsers = Number(filterOutAdmin.length);
 
   const Card = () => {
