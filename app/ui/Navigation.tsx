@@ -1,15 +1,10 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
-import { cookies } from 'next/headers';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
-
+import { isLoggedIn } from '../lib/data';
 
 export default async function Navigation() {
-  const cookiesList = cookies()
-// console.log(cookiesList);
-const hasCookie = cookiesList.has(`${process.env.COOKIE_KEY}`)
-// console.log(hasCookie)
-
+  const loggedIn = await isLoggedIn();
 
   const navLinks = [
     {
@@ -44,8 +39,8 @@ const hasCookie = cookiesList.has(`${process.env.COOKIE_KEY}`)
   ];
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
-
-  const authenticate = hasCookie ? (
+console.log(loggedIn)
+  const authenticate = loggedIn ? (
     <LogoutButtonUser/>
   ) : (
     <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>

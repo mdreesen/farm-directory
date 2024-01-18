@@ -10,7 +10,7 @@ export async function GET() {
                 success: true,
             }
         );
-        response.cookies.set("token", "",
+        response.cookies.set(`${process.env.COOKIE_KEY}`, "",
         { httpOnly: true, expires: new Date(0)
         })
 
