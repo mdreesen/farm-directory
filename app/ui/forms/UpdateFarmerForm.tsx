@@ -71,7 +71,7 @@ export const UpdateFarmerForm = (data: any) => {
 
         if (!res.ok) throw new Error("Failed to update Farmer");
         router.refresh();
-        router.push("/admin/dashboard/create-farmer/created-farmer");
+        router.push(`/profile-farmer/${farmerData?._id}`);
     };
 
     const basicInfo = (
@@ -322,7 +322,7 @@ export const UpdateFarmerForm = (data: any) => {
                 name="product_three_description"
                 rows={5}
                 onChange={handleChange}
-                value={formData?.product_three_description.trim()}
+                value={formData?.product_three_description}
             />
 
             {productThreeFeed}
@@ -342,7 +342,7 @@ export const UpdateFarmerForm = (data: any) => {
                     <input
                         className={styles['submitBtn']}
                         type="submit"
-                        value="Create Farmer"
+                        value="Update"
                     />
                 )}
             </form>
