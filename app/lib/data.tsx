@@ -1,6 +1,7 @@
 import Farmer from '@/app/(models)/Farmer';
 import User from '@/app/(models)/User';
 import { unstable_noStore as noStore } from 'next/cache';
+import { cookies } from 'next/headers';
 
 export async function fetchFarmers() {
     noStore()
@@ -48,4 +49,9 @@ export async function fetchSingleUser(id: string) {
         console.log(error)
         return error
     }
+};
+
+export async function isLoggedIn() {
+    const cookiesList = cookies()
+    return cookiesList.has(`${process.env.COOKIE_KEY}`);
 };

@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
   const paths = path === '/admin' || '/admin/dashboard' || '/admin/dashboard/create-farmer' || '/admin/dashboard/create-farmer/created-farmer'
 
   // Get the token from the cookies
-  const token = request.cookies.get('token')?.value || ''
+  const token = request.cookies.get(`${process.env.COOKIE_KEY}`)?.value || ''
 
   // Redirect logic based on the path and token presence
   if(!paths && token) {

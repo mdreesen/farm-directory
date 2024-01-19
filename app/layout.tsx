@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import { Suspense } from 'react';
+import './globals.css';
 
 import Navigation from "@/app/ui/Navigation";
 import MobileNavigation from './ui/MobileNavigation';
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Farm Directory',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -23,7 +22,8 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <Suspense fallback={<h3>Loading...</h3>}><Navigation /><MobileNavigation /></Suspense>
+        <Navigation />
+        <MobileNavigation />
         {children}
         <Footer />
       </body>

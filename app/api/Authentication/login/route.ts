@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
         const { email, password } = body.formData;
 
         //check if user exists
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email });
 
         if (!user) {
             return NextResponse.json({ error: "User does not exist" }, { status: 400 })
@@ -43,10 +43,10 @@ export async function POST(req: NextRequest) {
             email: user.email,
             isFarmer: user.isFarmer,
             isAdmin: user.isAdmin
-        })
+        });
 
         // Set the token as an HTTP-only cookie
-        response.cookies.set("token", token, {
+        response.cookies.set(`${process.env.COOKIE_KEY}`, token, {
             httpOnly: true,
         })
 
