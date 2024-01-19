@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
-import { isLoggedIn } from '../lib/data';
-// import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
+import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
+import {isLoggedIn} from '@/app/lib/data';
 
 
 export default async function MobileNavigation() {
-  const loggedIn = isLoggedIn();
+  const auth = await isLoggedIn();
 
   const navLinks = [
     {
@@ -32,19 +32,22 @@ export default async function MobileNavigation() {
     {
       linkName: "Farm Services",
       goTo: "/farm-services"
-    },
-    {
-      linkName: "Farm Services",
-      goTo: "/farm-services"
-    },
+    }
   ];
 
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
 
+  const authenticate = auth ? (
+    <LogoutButtonUser/>
+  ) : (
+    <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>
+  );
+
   return (
     <div className={styles['mobile-container']}>
       {links}
+      {authenticate}
     </div>
   );
 }

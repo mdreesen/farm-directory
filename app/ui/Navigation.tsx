@@ -5,7 +5,6 @@ import {isLoggedIn} from '@/app/lib/data';
 
 export default async function Navigation() {
   const auth = await isLoggedIn();
-  console.log(auth)
 
   const navLinks = [
     {
@@ -32,11 +31,7 @@ export default async function Navigation() {
     {
       linkName: "Farm Services",
       goTo: "/farm-services"
-    },
-    {
-      linkName: "Farm Services",
-      goTo: "/farm-services"
-    },
+    }
   ];
 
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
