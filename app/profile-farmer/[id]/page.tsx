@@ -1,12 +1,17 @@
 import React from 'react';
+import FarmerDetails from '@/app/ui/farmer/FarmerDetails';
 import styles from '@/app/styles/FarmerProfile.module.css';
 
+import { fetchSingleFarmerByEmail } from '@/app/lib/data';
+import { loggedInUserData } from '@/app/lib/cookieData';
 
-export default async function Page({ params }: any) {
+export default async function Page() {
+  const auth = await loggedInUserData();
+  const farmerUserData = await fetchSingleFarmerByEmail(auth?.email ?? '');
 
   return (
     <div className={styles['container']}>
-      <span>This is profile for the future</span>
+      <FarmerDetails data={farmerUserData} />
     </div>
   );
 }

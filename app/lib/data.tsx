@@ -26,6 +26,18 @@ export async function fetchSingleFarmer(id: string) {
     }
 };
 
+export async function fetchSingleFarmerByEmail(email: string) {
+    noStore()
+
+    try {
+        const farmer = await Farmer.findOne({ email: email });
+        return farmer ?? {}
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function fetchUsers() {
     noStore()
 
