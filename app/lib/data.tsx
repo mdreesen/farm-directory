@@ -38,6 +38,18 @@ export async function fetchSingleFarmerByEmail(email: string) {
     }
 };
 
+export async function updateSingleFarmerByEmail(email: string) {
+    noStore()
+
+    try {
+        const farmer = await Farmer.findOne({ email: email });
+        return farmer ?? {}
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function fetchUsers() {
     noStore()
 
@@ -61,11 +73,6 @@ export async function fetchSingleUser(id: string) {
         return error
     }
 };
-
-// export async function isLoggedIn() {
-//     const cookiesList = cookies()
-//     return cookiesList.has(`${process.env.COOKIE_KEY}`);
-// };
 
 export async function isFarmer(data: any) {
     console.log(data);
