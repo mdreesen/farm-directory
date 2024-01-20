@@ -12,7 +12,7 @@ import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 
 export const UpdateFarmerForm = (data: any) => {
-    console.log('Update Farmer Form', data?.data);
+    // console.log('Update Farmer Form', data?.data);
     const farmerData = data?.data;
 
     const startData = {
@@ -72,8 +72,13 @@ export const UpdateFarmerForm = (data: any) => {
         });
 
         if (!res.ok) throw new Error("Failed to update Farmer");
+
         setEnableToast(true);
         setIsLoading(false);
+
+        setTimeout(() => {
+            setEnableToast(false);
+        }, 6000);
 
         // router.refresh();
         // router.push(`/profile-farmer/${farmerData?._id}`);

@@ -8,7 +8,6 @@ import { loggedInUserData } from '@/app/lib/cookieData';
 export default async function Page() {
     const auth = await loggedInUserData();
     const farmerUserData = await fetchSingleFarmerByEmail(auth?.email ?? '');
-    console.log('Farmer User Data', farmerUserData);
 
     // Need to parse Data from server and pass to client
     const parse = JSON.parse(JSON.stringify(farmerUserData));
