@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
-import {isLoggedIn} from '@/app/lib/cookieData';
+import {loggedInUserData} from '@/app/lib/cookieData';
 
 
 export default async function MobileNavigation() {
-  const auth = await isLoggedIn();
+  const auth = await loggedInUserData();
 
   const navLinks = [
     {
@@ -44,9 +44,12 @@ export default async function MobileNavigation() {
     <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>
   );
 
+  const farmerProfile = auth?.isFarmer ? <a href={`/profile-farmer/${auth?.id}`} className={styles['link']}>Profile</a> : '';
+
   return (
     <div className={styles['mobile-container']}>
       {links}
+      {farmerProfile}
       {authenticate}
     </div>
   );
