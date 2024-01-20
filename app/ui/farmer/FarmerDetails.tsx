@@ -97,7 +97,7 @@ export default async function FarmerDetails(data: any) {
     return (
         <div className={styles['container']}>
             <div className="rounded-lg">
-                {auth?.isFarmer && <div className={styles['update']}><Link href={`/profile-farmer/${farmerData?.id}/update`} className={styles['update-link']}>Update Information</Link></div>}
+                {auth?.isFarmer && <div className={styles['update']}><a href={`/profile-farmer/${farmerData?.id}/update`} className={styles['update-link']}>Update Information</a></div>}
                 <div className="container mx-auto py-8">
                     <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
                         <div className="col-span-4 sm:col-span-3">

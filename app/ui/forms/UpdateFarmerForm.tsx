@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from '@/app/styles/Form.module.css';
+import ToastApproved from "@/app/ui/toast/ToastApproved";
 
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
@@ -46,6 +47,7 @@ export const UpdateFarmerForm = (data: any) => {
 
     const [formData, setFormData] = useState(startData);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [enableToast, setEnableToast] = useState<boolean>(false);
 
     const router = useRouter();
 
@@ -70,8 +72,11 @@ export const UpdateFarmerForm = (data: any) => {
         });
 
         if (!res.ok) throw new Error("Failed to update Farmer");
-        router.refresh();
-        router.push(`/profile-farmer/${farmerData?._id}`);
+        setEnableToast(true);
+        setIsLoading(false);
+
+        // router.refresh();
+        // router.push(`/profile-farmer/${farmerData?._id}`);
     };
 
     const basicInfo = (
@@ -346,6 +351,7 @@ export const UpdateFarmerForm = (data: any) => {
                     />
                 )}
             </form>
+            {enableToast && <ToastApproved />}
         </div>
     )
 };
