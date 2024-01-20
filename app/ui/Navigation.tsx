@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
-import {isLoggedIn} from '@/app/lib/data';
+import {loggedInUserData} from '@/app/lib/cookieData';
 
 export default async function Navigation() {
-  const auth = await isLoggedIn();
+  const auth = await loggedInUserData();
 
   const navLinks = [
     {
@@ -34,16 +34,23 @@ export default async function Navigation() {
     }
   ];
 
+  // console.log('nav bar', auth);
+
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
+
   const authenticate = auth ? (
     <LogoutButtonUser/>
   ) : (
     <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>
   );
 
+  const farmerProfile = auth?.isFarmer ? <a href={`/profile-farmer/${auth?.id}`} className={styles['link']}>Profile</a> : '';
+
+
   return (
     <div className={styles['container']}>
       {links}
+      {farmerProfile}
       {authenticate}
     </div>
   );

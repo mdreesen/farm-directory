@@ -1,0 +1,8 @@
+.container {
+  /* width: 100%; */
+  position: fixed;
+  bottom: 65px;
+  left: 0;
+  justify-content: center;
+  display: flex;
+}

@@ -30,7 +30,9 @@ export async function POST(req: NextRequest) {
         const tokenData = {
             id: user._id,
             username: user.username,
-            email: user.email
+            email: user.email,
+            isFarmer: user.isFarmer,
+            isAdmin: user.isAdmin
         }
 
         // Create a token with expiration of 1 day

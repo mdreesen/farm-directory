@@ -1,8 +1,11 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/data';
+import Link from 'next/link';
+import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function FarmerDetails(data: any) {
+    const auth = await loggedInUserData();
     const farmer = await fetchSingleFarmer(data?.data?.id);
     const farmerData = farmer;
 
@@ -94,6 +97,7 @@ export default async function FarmerDetails(data: any) {
     return (
         <div className={styles['container']}>
             <div className="rounded-lg">
+                {auth?.isFarmer && <div className={styles['update']}><a href={`/profile-farmer/${farmerData?.id}/update`} className={styles['update-link']}>Update Information</a></div>}
                 <div className="container mx-auto py-8">
                     <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
                         <div className="col-span-4 sm:col-span-3">

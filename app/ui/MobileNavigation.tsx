@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
-import {isLoggedIn} from '@/app/lib/data';
+import {isLoggedIn} from '@/app/lib/cookieData';
 
 
 export default async function MobileNavigation() {

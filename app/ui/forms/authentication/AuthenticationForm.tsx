@@ -64,7 +64,6 @@ export function AuthenticationForm() {
         });
 
         const signUpUserData = await signUpUser.json();
-        console.log(signUpUserData)
         signUpUser;
 
         router.refresh();
