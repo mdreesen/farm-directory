@@ -1,12 +1,41 @@
+.card {
+  background-color: white;
+}
+.image {
+  color: transparent;
+  object-fit: cover;
+  height: 100%;
+  width: 50%;
+  background-color: white;
+  align-self: center;
+}
 
 @media only screen and (max-width: 1023px) {
   .card {
     width: 16rem;
+  }
+
+  .image {
+    color: transparent;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    align-self: center;
   }
 }
 
 @media only screen and (max-width: 630px) {
   .card {
     width: 14rem;
+  }
+
+  .image {
+    color: transparent;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    align-self: center;
   }
 }

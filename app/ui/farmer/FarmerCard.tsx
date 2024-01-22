@@ -1,11 +1,23 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerCard.module.css';
 import Link from 'next/link';
+import Image from 'next/image'
+import WrapperFarmerCard from '@/app/WrapperFarmerCard';
 
 export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
 
-    const farmLogo = <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden flex justify-center items-center" style={{ backgroundImage: "url('/images/logos/logoThree.jpg')" }} title="Woman holding a mug"></div>
+    const farmLogo = (
+        <Image
+            className={`${styles['image']} w-10 h-10 rounded-full mr-4`}
+            src={"/images/logos/logoThree.jpg"}
+            width={500}
+            height={500}
+            priority={true}
+            object-fit="cover"
+            alt="Picture of the author"
+        />
+    );
 
     const farmerInfo = (
         <div className="text-sm">
@@ -30,19 +42,27 @@ export default async function FarmerCard(farmerData: any) {
 
 
     return (
-        <div className={`${styles['card']} max-w-sm lg:max-w-full lg:flex justify-center`}>
-            {farmLogo}
-            <div className="border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-[32rem]">
-                <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div>
-                {farmerDetail}
-                <div className='flex w-full justify-center mb-2'>
-                    <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>
-                </div>
-                <div className="flex items-center justify-center">
-                    <img className="w-10 h-10 rounded-full mr-4" src="/images/logos/logoTwo.webp" alt="Avatar of Jonathan Reinink" />
-                    {farmerInfo}
+        <WrapperFarmerCard>
+            <div className={`${styles['card']} max-w-sm lg:max-w-full lg:flex justify-center`}>
+                {farmLogo}
+                <div className="border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-[32rem]">
+                    <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div>
+                    {farmerDetail}
+                    <div className='flex w-full justify-center mb-2'>
+                        <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>
+                    </div>
+                    <div className="flex items-center justify-center">
+                        <Image
+                            className="w-10 h-10 rounded-full mr-4"
+                            src="/images/logos/logoTwo.webp"
+                            width={500}
+                            height={500}
+                            alt="Picture of the author"
+                        />
+                        {farmerInfo}
+                    </div>
                 </div>
             </div>
-        </div>
+        </WrapperFarmerCard>
     );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '@/app/styles/CategoryCard.module.css';
-import PageWrapper from '../PageWrapper';
+import WrapperNavCard from '../WrapperNavCard';
 
 export function CategoryCard(itemData: any) {
     const data = itemData?.itemData;
 
     return (
-        <PageWrapper>
+        <WrapperNavCard>
             <div className={styles['container']}>
                 <Link href={data?.directTo}>
                     <div className={styles["container"]}>
@@ -17,6 +17,6 @@ export function CategoryCard(itemData: any) {
                     </div>
                 </Link>
             </div>
-        </PageWrapper>
+        </WrapperNavCard>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { CategoryCard } from '@/app/ui/CategoryCard';
 import parentLinks from '@/utils/links/farmToTableLinks/parentLinks.json';
 import styles from '@/app/styles/Home.module.css';
-import PageWrapper from '../PageWrapper';
+import PageWrapper from '../WrapperNavCard';
 
 
 export default function FarmToTable() {
