@@ -10,7 +10,7 @@ export function CategoryCard(itemData: any) {
             <Link href={data?.directTo}>
                 <div className={styles["container"]}>
                     <div className={styles["box"]}>
-                        <span className={styles["title"]}>{data?.linkName}</span>
+                        <span className={styles["title"]} dangerouslySetInnerHTML={{__html: data?.linkName}}></span>
                     </div>
                 </div>
             </Link>

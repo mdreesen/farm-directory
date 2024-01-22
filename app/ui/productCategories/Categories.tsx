@@ -29,6 +29,7 @@ export function Categories() {
     <>
       <option value="Horse Boarding">Services Horse Boarding</option>
       <option value="Pasture For Rent">Services Pasture For Rent</option>
+      <option value="Farmland/Pasture Needed">Services Farmland/Pasture Needed</option>
       <option value="Building/Welding">Services Building/Welding</option>
       <option value="Exempt Butchering">Services Exempt Butchering</option>
       <option value="Mobile Butchering">Services Mobile Butchering</option>
