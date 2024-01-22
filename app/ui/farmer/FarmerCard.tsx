@@ -5,11 +5,6 @@ import Link from 'next/link';
 export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
 
-//     console.log(data?.createdAt)
-//     const date = new Date( data?.createdAt * 1000).toLocaleString();
-// console.log(date)
-
-
     const farmLogo = <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden flex justify-center items-center" style={{ backgroundImage: "url('/images/logos/logoThree.jpg')" }} title="Woman holding a mug"></div>
 
     const farmerInfo = (
@@ -26,9 +21,9 @@ export default async function FarmerCard(farmerData: any) {
         <div className="mb-2 flex flex-col justify-center align-middle items-center">
             <div className="text-gray-600 font-bold text-l">Products</div>
             <p className="text-gray-700 text-base flex items-center gap-x-2 flex-col lg:flex-row md:flex-col">
-                <span>{data?.product_one_title}</span>
-                <span>{data?.product_two_title}</span>
-                <span>{data?.product_three_title}</span>
+                <span>{data?.product_one_feed ? `${data?.product_one_feed} fed ${data?.product_one_title}` : data?.product_one_title}</span>
+                <span>{data?.product_two_feed ? `${data?.product_two_feed} fed ${data?.product_two_title}` : data?.product_two_title}</span>
+                <span>{data?.product_three_feed ? `${data?.product_three_feed} fed ${data?.product_three_title}` : data?.product_three_title}</span>
             </p>
         </div>
     )

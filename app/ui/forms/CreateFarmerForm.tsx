@@ -320,7 +320,7 @@ export const CreateFarmerForm = () => {
                 name="product_three_description"
                 rows={5}
                 onChange={handleChange}
-                value={formData?.product_three_description.trim()}
+                value={formData?.product_three_description}
             />
 
             {productThreeFeed}

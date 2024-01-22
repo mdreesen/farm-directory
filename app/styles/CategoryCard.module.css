@@ -14,7 +14,7 @@
   
   .container .box {
     width: 13.875em;
-    height: 15.875em;
+    height: 12.875em;
     padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.222);
     -webkit-backdrop-filter: blur(20px);
@@ -77,7 +77,7 @@
 
     .container .box {
       width: 9.875em;
-      height: 10.875em;
+      height: 7.875rem;
       padding: 1rem;
       border: 1px solid rgba(255, 255, 255, 0.222);
       -webkit-backdrop-filter: blur(20px);

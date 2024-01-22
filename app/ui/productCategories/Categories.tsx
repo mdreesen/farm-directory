@@ -17,7 +17,7 @@ export function Categories() {
       <option value="Quail Eggs">Eggs Quail</option>
       <option value="Other Eggs">Eggs Other</option>
 
-      <option value="Kitchen_Goods">Kitchen Goods</option>
+      <option value="Kitchen Goods">Kitchen Goods</option>
 
       <option value="Milk">Milk</option>
 
@@ -28,7 +28,7 @@ export function Categories() {
   const farmServices = (
     <>
       <option value="Horse Boarding">Services Horse Boarding</option>
-      <option value="Rent Pasture">Services Rent Pasture</option>
+      <option value="Pasture For Rent">Services Pasture For Rent</option>
       <option value="Building/Welding">Services Building/Welding</option>
       <option value="Exempt Butchering">Services Exempt Butchering</option>
       <option value="Mobile Butchering">Services Mobile Butchering</option>
@@ -36,7 +36,7 @@ export function Categories() {
       <option value="USDA Inspected Butchering">Services USDA Inspected Butchering</option>
       <option value="Farrier">Services Farrier</option>
       <option value="Hauling">Services Hauling</option>
-      <option value="Medical">Services Medical</option>
+      <option value="Vet/Medicine">Services Vet/Medicine</option>
       <option value="Sales Repair">Services Sales Repair</option>
       <option value="Training">Services Training</option>
       <option value="Other Services">Services Other</option>
@@ -54,8 +54,8 @@ export function Categories() {
 
   const straw = (
     <>
-      <option value="Barley">Straw Barley</option>
-      <option value="Wheat">Straw Wheat</option>
+      <option value="Barley Straw">Straw Barley</option>
+      <option value="Wheat Straw">Straw Wheat</option>
       <option value="Other Straw">Straw Other</option>
     </>
   );
