@@ -49,19 +49,6 @@ export default function Login() {
             throw new Error("Failed to login user");
         };
 
-        if (user?.message === 'Login successful') {
-            const authenticated = await fetch("/api/Authentication/authenticated", {
-                method: "GET",
-                cache: 'no-store',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            });
-
-            const isAuthenticated = await authenticated.json();
-            isAuthenticated
-        }
-
         if (user?.isAdmin === true) {
             return router.push("/admin/dashboard");
         }

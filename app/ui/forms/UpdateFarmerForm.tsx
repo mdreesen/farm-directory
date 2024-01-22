@@ -11,9 +11,9 @@ import { StatePicker } from "@/app/ui/statePicker";
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 
-export const UpdateFarmerForm = (data: any) => {
-    // console.log('Update Farmer Form', data?.data);
+export const UpdateFarmerForm = async (data: any) => {
     const farmerData = data?.data;
+    console.log(farmerData)
 
     const startData = {
         first_name: farmerData?.first_name,
@@ -80,7 +80,7 @@ export const UpdateFarmerForm = (data: any) => {
             setEnableToast(false);
         }, 6000);
 
-        // router.refresh();
+        router.refresh();
         // router.push(`/profile-farmer/${farmerData?._id}`);
     };
 

@@ -11,9 +11,6 @@ export function CategoryCard(itemData: any) {
                 <div className={styles["container"]}>
                     <div className={styles["box"]}>
                         <span className={styles["title"]}>{data?.linkName}</span>
-                        <div>
-                            <strong>Navigate</strong>
-                        </div>
                     </div>
                 </div>
             </Link>
