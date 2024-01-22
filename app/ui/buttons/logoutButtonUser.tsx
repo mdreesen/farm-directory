@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import styles from '@/app/styles/Navigation.module.css';
 
 
-export default async function LogoutButtonUser() {
+export default function LogoutButtonUser() {
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -14,7 +14,8 @@ export default async function LogoutButtonUser() {
     });
 
     if (!res.ok) throw new Error("Failed to update Farmer");
-    router.refresh()
+    router.refresh();
+    router.push('/')
   };
 
 
