@@ -29,6 +29,10 @@ export default async function Navigation() {
       goTo: "/straw"
     },
     {
+      linkName: "Agritourism",
+      goTo: "/agritourism"
+    },
+    {
       linkName: "Farm Services",
       goTo: "/farm-services"
     }

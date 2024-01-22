@@ -74,7 +74,13 @@ export function Categories() {
       <option value="Live Pigs/Hogs/Piglets">Live Animals Pigs/Hogs/Piglets</option>
       <option value="Other Live Animals">Live Animals Other</option>
     </>
-  )
+  );
+
+  const agritourism = (
+    <>
+      <option value="Agritourism">Agritourism</option>
+    </>
+  );
 
   return (
     <>
@@ -84,6 +90,7 @@ export function Categories() {
       {farmToTable}
       {farmServices}
       {straw}
+      {agritourism}
     </>
   );
 }

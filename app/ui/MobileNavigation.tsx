@@ -30,6 +30,10 @@ export default async function MobileNavigation() {
       goTo: "/straw"
     },
     {
+      linkName: "Agritourism",
+      goTo: "/agritourism"
+    },
+    {
       linkName: "Farm Services",
       goTo: "/farm-services"
     }

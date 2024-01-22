@@ -1,0 +1,22 @@
+[
+    {
+        "linkName": "Pumpkin Patch",
+        "directTo": "/farm-to-table"
+    },
+    {
+        "linkName": "Corn Maze",
+        "directTo": "/live-animals"
+    },
+    {
+        "linkName": "Hay",
+        "directTo": "/hay"
+    },
+    {
+        "linkName": "Straw",
+        "directTo": "/straw"
+    },
+    {
+        "linkName": "Farm Services",
+        "directTo": "/farm-services"
+    }
+]
