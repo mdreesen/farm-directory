@@ -6,21 +6,17 @@ export default function about() {
 
     const about = aboutText?.map((item: any, index: number) => {
         return (
-            <>
-                <section key={`${item?.title}: ${index}`}>
-                    <h2>{item?.title ?? ''}</h2>
-                    <p>{item?.description ?? ''}</p>
-                </section>
-            </>
+            <div key={`${item?.title}: ${index}`}>
+                <h2>{item?.title ?? ''}</h2>
+                <p>{item?.description ?? ''}</p>
+            </div>
         )
-    })
+    });
 
     return (
-        <>
-            <div className={styles['main']}>
-                {about}
-            </div>
-        </>
+        <div className={styles['main']}>
+            {about}
+        </div>
     );
-}
+};
 
