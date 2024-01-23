@@ -7,13 +7,14 @@ import ToastApproved from "@/app/ui/toast/ToastApproved";
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
 import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType';
+import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
+import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
 import { StatePicker } from "@/app/ui/statePicker";
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 
 export const UpdateFarmerForm = (data: any) => {
     const farmerData = data?.data;
-    console.log(farmerData)
 
     const startData = {
         first_name: farmerData?.first_name,
@@ -81,7 +82,6 @@ export const UpdateFarmerForm = (data: any) => {
         }, 6000);
 
         router.refresh();
-        // router.push(`/profile-farmer/${farmerData?._id}`);
     };
 
     const basicInfo = (
@@ -286,6 +286,24 @@ export const UpdateFarmerForm = (data: any) => {
             />
 
             {productOneFeed}
+
+            <label>Do you want your product to show?</label>
+            <select
+                name="product_one_show"
+                value={formData?.product_one_show}
+                onChange={handleChange}
+            >
+                <CategoryShow />
+            </select>
+
+            <label>Is your product available now?</label>
+            <select
+                name="product_one_available"
+                value={formData?.product_one_available}
+                onChange={handleChange}
+            >
+                <CategoryAvailable />
+            </select>
         </div>
     );
 
@@ -311,6 +329,24 @@ export const UpdateFarmerForm = (data: any) => {
             />
 
             {productTwoFeed}
+
+            <label>Do you want your product to show?</label>
+            <select
+                name="product_two_show"
+                value={formData?.product_two_show}
+                onChange={handleChange}
+            >
+                <CategoryShow />
+            </select>
+
+            <label>Is your product available now?</label>
+            <select
+                name="product_two_available"
+                value={formData?.product_two_available}
+                onChange={handleChange}
+            >
+                <CategoryAvailable />
+            </select>
         </div>
     );
 
@@ -337,6 +373,23 @@ export const UpdateFarmerForm = (data: any) => {
 
             {productThreeFeed}
 
+            <label>Do you want your product to show?</label>
+            <select
+                name="product_three_show"
+                value={formData?.product_three_show}
+                onChange={handleChange}
+            >
+                <CategoryShow />
+            </select>
+
+            <label>Is your product available now?</label>
+            <select
+                name="product_three_available"
+                value={formData?.product_three_available}
+                onChange={handleChange}
+            >
+                <CategoryAvailable />
+            </select>
         </div>
     );
 
