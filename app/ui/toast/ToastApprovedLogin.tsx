@@ -1,9 +1,6 @@
-// import React from 'react';
-// import Link from 'next/link';
 import styles from '@/app/styles/toast/ToastApproved.module.css'
 
-export default function ToastApproved() {
-    // const data = itemData?.itemData;
+export default function ToastApprovedLogin() {
 
     return (
         <div className={styles['container']}>
@@ -14,7 +11,7 @@ export default function ToastApproved() {
                     </svg>
                     <span className="sr-only">Check icon</span>
                 </div>
-                <div className="ms-3 text-sm font-normal">Farmer Updated Successfully.</div>
+                <div className="ms-3 text-sm font-normal">Logged In Successfully.</div>
             </div>
         </div>
     );

@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import WrapperAuthentication from '@/app/WrapperAuthentication';
+import ToastApprovedLogin from "@/app/ui/toast/ToastApprovedLogin";
 
 
 export default function Login() {
@@ -17,6 +19,7 @@ export default function Login() {
     const [formData, setFormData] = useState(startData);
     const [isLoading, setIsLoading] = React.useState(false);
     const [isError, setError] = useState<string>("");
+    const [enableToast, setEnableToast] = useState<boolean>(false);
 
     const handleChange = (e: any) => {
         const value = e.target.value;
@@ -49,19 +52,28 @@ export default function Login() {
             throw new Error("Failed to login user");
         };
 
+        setEnableToast(true);
+        router.refresh();
+        router.push('/');
+
+
         if (user?.isAdmin === true) {
             return router.push("/admin/dashboard");
         }
 
+        setTimeout(() => {
+            setEnableToast(false);
+        }, 6000);
+
+        setIsLoading(false);
+
         router.refresh();
-        router.push("/");
-        if (user?.success === true) return setIsLoading(false);
     };
 
-
-    return (
-        <div className="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
-            <div className="w-full bg-white rounded-lg shadow">
+    const content = isLoading ? (
+        <WrapperAuthentication />
+    ) : (
+        <div className="w-full bg-white rounded-lg shadow">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                         Sign into your account
@@ -86,6 +98,12 @@ export default function Login() {
                     </form>
                 </div>
             </div>
+    )
+
+    return (
+        <div className="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
+            {content}
+            {enableToast && <ToastApprovedLogin/>}
         </div>
     )
 

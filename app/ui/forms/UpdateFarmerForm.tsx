@@ -13,7 +13,6 @@ import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 export const UpdateFarmerForm = async (data: any) => {
     const farmerData = data?.data;
-    console.log(farmerData)
 
     const startData = {
         first_name: farmerData?.first_name,
