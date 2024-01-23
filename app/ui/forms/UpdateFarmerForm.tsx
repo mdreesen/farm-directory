@@ -11,8 +11,9 @@ import { StatePicker } from "@/app/ui/statePicker";
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 
-export const UpdateFarmerForm = async (data: any) => {
+export const UpdateFarmerForm = (data: any) => {
     const farmerData = data?.data;
+    console.log(farmerData)
 
     const startData = {
         first_name: farmerData?.first_name,
@@ -32,14 +33,14 @@ export const UpdateFarmerForm = async (data: any) => {
         product_one_feed: farmerData?.product_one_feed,
         product_one_available: farmerData?.product_one_available,
         product_one_show: farmerData?.product_one_show,
-        product_two_title: farmerData?.first_name,
-        product_two_description: farmerData?.first_name,
-        product_two_feed: farmerData?.first_name,
+        product_two_title: farmerData?.product_two_title,
+        product_two_description: farmerData?.product_two_description,
+        product_two_feed: farmerData?.product_two_feed,
         product_two_available: farmerData?.product_two_available,
         product_two_show: farmerData?.product_two_show,
-        product_three_title: farmerData?.first_name,
-        product_three_description: farmerData?.first_name,
-        product_three_feed: farmerData?.first_name,
+        product_three_title: farmerData?.product_three_title,
+        product_three_description: farmerData?.product_three_description,
+        product_three_feed: farmerData?.product_three_feed,
         product_three_available: farmerData?.product_three_available,
         product_three_show: farmerData?.product_three_show
     };
@@ -92,7 +93,7 @@ export const UpdateFarmerForm = async (data: any) => {
                 name="first_name"
                 type="text"
                 onChange={handleChange}
-                value={formData?.first_name.trim()}
+                value={formData?.first_name}
             />
             <FormValidation data={formData?.first_name} />
 
@@ -102,7 +103,7 @@ export const UpdateFarmerForm = async (data: any) => {
                 name="last_name"
                 type="text"
                 onChange={handleChange}
-                value={formData?.last_name.trim()}
+                value={formData?.last_name}
                 required
             />
             <FormValidation data={formData?.last_name} />
@@ -340,7 +341,7 @@ export const UpdateFarmerForm = async (data: any) => {
     );
 
     return (
-        <div>
+        <>
             <form className={styles['container']} method="post" onSubmit={handleSubmit}>
                 {basicInfo}
                 {socialInfo}
@@ -356,6 +357,6 @@ export const UpdateFarmerForm = async (data: any) => {
                 )}
             </form>
             {enableToast && <ToastApproved />}
-        </div>
+        </>
     )
 };

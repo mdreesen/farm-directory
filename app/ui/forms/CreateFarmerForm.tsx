@@ -81,7 +81,7 @@ export const CreateFarmerForm = () => {
                 name="first_name"
                 type="text"
                 onChange={handleChange}
-                value={formData?.first_name.trim()}
+                value={formData?.first_name}
             />
             <FormValidation data={formData?.first_name} />
 
@@ -91,7 +91,7 @@ export const CreateFarmerForm = () => {
                 name="last_name"
                 type="text"
                 onChange={handleChange}
-                value={formData?.last_name.trim()}
+                value={formData?.last_name}
                 required
             />
             <FormValidation data={formData?.last_name} />

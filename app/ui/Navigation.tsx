@@ -38,8 +38,6 @@ export default async function Navigation() {
     }
   ];
 
-  // console.log('nav bar', auth);
-
   const links = navLinks.map((items, index) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
 
   const authenticate = auth ? (
