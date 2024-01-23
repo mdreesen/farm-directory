@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 
 import Navigation from "@/app/ui/Navigation";
 import MobileNavigation from './ui/MobileNavigation';
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Navigation />
         <MobileNavigation />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
