@@ -1,5 +1,9 @@
 [
     {
+        "linkName": "Custom Farming",
+        "directTo": "/farm-services/custom-farming"
+    },
+    {
         "linkName": "Vet / Medicine",
         "directTo": "/farm-services/medical"
     },

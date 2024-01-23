@@ -16,6 +16,10 @@
         "directTo": "/straw"
     },
     {
+        "linkName": "Agritourism",
+        "directTo": "/agritourism"
+    },
+    {
         "linkName": "Farm Services",
         "directTo": "/farm-services"
     }
