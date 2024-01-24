@@ -1,5 +1,5 @@
-// import { fetchFilteredCustomers } from '@/app/lib/data';
-// import CustomersTable from '@/app/ui/customers/table';
+import { searchUsers } from '@/app/lib/data';
+import FarmerTable from '@/app/ui/dashboard/FarmerTable';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,11 +16,11 @@ export default async function Page({
 }) {
   const query = searchParams?.query || '';
 
-  // const customers = await fetchFilteredCustomers(query);
+  const farmers = await searchUsers(query);
 
   return (
     <main>
-      {/* <CustomersTable customers={customers} /> */}
+      <FarmerTable customers={farmers} />
     </main>
   );
 }

@@ -3,7 +3,7 @@ import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 
 // Fetching farmers data
-import { fetchUsers } from '@/app/lib/data';
+import { fetchValidUsers } from '@/app/lib/data';
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -12,7 +12,7 @@ import { fetchUsers } from '@/app/lib/data';
 // https://airbnb.io/visx/
 
 export default async function ChartFarmers() {
-  const users = await fetchUsers();
+  const users = await fetchValidUsers();
 
   const { januaryUsers, februaryUsers, marchUsers, aprilUsers, mayUsers, juneUsers, julyUsers, augustUsers, septemberUsers, octoberUsers, novemberUsers, decemberUsers } = generateYAxis(users);
   if (!users || users.length === 0) {
