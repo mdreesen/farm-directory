@@ -1,13 +1,14 @@
 import React from 'react';
 import { CategoryCard } from '@/app/ui/CategoryCard';
-import parentLinks from '@/utils/links/agritourismLinks/parentLinks.json';
+import parentLinks from '@/utils/links/feedBeddingLinks/parentLinks.json';
 import styles from '@/app/styles/Home.module.css';
+import PageWrapper from '../WrapperNavCard';
 
 
 export default function FarmToTable() {
 
 
-  const cardMapping = parentLinks?.map((item, index) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
+  const cardMapping = parentLinks?.map((item) => <CategoryCard itemData={item} key={item} />);
 
   return (
     <>

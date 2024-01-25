@@ -1,0 +1,10 @@
+[
+    {
+        "linkName": "Hay",
+        "directTo": "/feed-bedding/hay"
+    },
+    {
+        "linkName": "Straw",
+        "directTo": "/feed-bedding/straw"
+    }
+]

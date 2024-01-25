@@ -8,8 +8,8 @@
         "directTo": "/farm-to-table/eggs"
     },
     {
-        "linkName": "Milk",
-        "directTo": "/farm-to-table/milk"
+        "linkName": "Milk/Dairy",
+        "directTo": "/farm-to-table/milk-dairy"
     },
     {
         "linkName": "Vegetables",

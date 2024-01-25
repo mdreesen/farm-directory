@@ -22,7 +22,7 @@ export function Categories() {
 
       <option value="Kitchen Goods">Kitchen Goods</option>
 
-      <option value="Milk">Milk</option>
+      <option value="Milk/Dairy">Milk/Dairy</option>
 
       <option value="Vegetables">Vegetables</option>
     </>
@@ -39,6 +39,7 @@ export function Categories() {
       <option value="State Inspected Butchering">Services State Inspected Butchering</option>
       <option value="USDA Inspected Butchering">Services USDA Inspected Butchering</option>
       <option value="Farrier">Services Farrier</option>
+      <option value="Feed/Fertilizer">Services Feed/Fertilizer</option>
       <option value="Hauling">Services Hauling</option>
       <option value="Vet/Medicine">Services Vet/Medicine</option>
       <option value="Sales Repair">Services Sales Repair</option>
@@ -82,7 +83,8 @@ export function Categories() {
 
   const agritourism = (
     <>
-      <option value="Agritourism">Agritourism</option>
+      <option value="Stores/Markets">Agritourism Stores/Markets</option>
+      <option value="Farm Events">Agritourism Farm Events</option>
     </>
   );
 

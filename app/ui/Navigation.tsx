@@ -21,12 +21,8 @@ export default async function Navigation() {
 
     },
     {
-      linkName: "Hay",
-      goTo: "/hay"
-    },
-    {
-      linkName: "Straw",
-      goTo: "/straw"
+      linkName: "Feed/Bedding",
+      goTo: "/feed-bedding"
     },
     {
       linkName: "Agritourism",

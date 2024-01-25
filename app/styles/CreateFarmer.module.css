@@ -10,3 +10,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.button {
+  background: ghostwhite;
+  border-radius: 25px;
+  color: black;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+.button:hover {
+  background: ghostwhite;
+  border-radius: 25px;
+  color: #eab308;
+  padding: 0.5rem;
+  font-weight: 500;
+}

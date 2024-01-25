@@ -1,18 +1,18 @@
 [
     {
         "linkName": "Alfalfa Hay",
-        "directTo": "/hay/alfalfa-hay"
+        "directTo": "/feed-bedding/hay/alfalfa-hay"
     },
     {
         "linkName": "Alfalfa / Grass Hay",
-        "directTo": "/hay/alfalfa-grass-hay"
+        "directTo": "/feed-bedding/hay/alfalfa-grass-hay"
     },
     {
         "linkName": "Grass Hay",
-        "directTo": "/hay/grass-hay"
+        "directTo": "/feed-bedding/hay/grass-hay"
     },
     {
         "linkName": "Other Hay / Silage",
-        "directTo": "/hay/other"
+        "directTo": "/feed-bedding/hay/other"
     }
 ]

@@ -12,6 +12,10 @@
         "directTo": "/farm-services/farrier"
     },
     {
+        "linkName": "Feed / Fertilizer",
+        "directTo": "/farm-services/feed-fertilizer"
+    },
+    {
         "linkName": "Boarding / Pasture",
         "directTo": "/farm-services/boarding-pasture"
     },

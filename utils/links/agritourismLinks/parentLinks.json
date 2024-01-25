@@ -1,22 +1,10 @@
 [
     {
-        "linkName": "Pumpkin Patch",
-        "directTo": "/farm-to-table"
+        "linkName": "Stores / Markets",
+        "directTo": "/agritourism/stores-markets"
     },
     {
-        "linkName": "Corn Maze",
-        "directTo": "/live-animals"
-    },
-    {
-        "linkName": "Hay",
-        "directTo": "/hay"
-    },
-    {
-        "linkName": "Straw",
-        "directTo": "/straw"
-    },
-    {
-        "linkName": "Farm Services",
-        "directTo": "/farm-services"
+        "linkName": "Farm Events",
+        "directTo": "/agritourism/farm-events"
     }
 ]

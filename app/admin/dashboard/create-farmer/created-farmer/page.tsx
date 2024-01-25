@@ -8,7 +8,7 @@ export default function Page() {
       <span>Farmer has been created!</span>
       <span>Thank You!</span>
 
-      <Link href="/admin/dashboard/create-farmer">Click to Create A Farmer</Link>
+      <Link href="/admin/dashboard/create-farmer" className={styles['button']}>Click to Create A Farmer</Link>
     </div>
   )
 }

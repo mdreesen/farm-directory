@@ -22,12 +22,8 @@ export default async function MobileNavigation() {
 
     },
     {
-      linkName: "Hay",
-      goTo: "/hay"
-    },
-    {
-      linkName: "Straw",
-      goTo: "/straw"
+      linkName: "Feed/Bedding",
+      goTo: "/feed-bedding"
     },
     {
       linkName: "Agritourism",

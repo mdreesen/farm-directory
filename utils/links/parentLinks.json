@@ -8,12 +8,8 @@
         "directTo": "/live-animals"
     },
     {
-        "linkName": "Hay",
-        "directTo": "/hay"
-    },
-    {
-        "linkName": "Straw",
-        "directTo": "/straw"
+        "linkName": "Feed/<br/>Bedding",
+        "directTo": "/feed-bedding"
     },
     {
         "linkName": "Agritourism",
