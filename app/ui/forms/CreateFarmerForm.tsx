@@ -211,45 +211,6 @@ export const CreateFarmerForm = () => {
         </div>
     );
 
-    const productOneFeed = formData?.product_one_title === 'Beef' && (
-        <>
-            <label>Product 1 Feed Type</label>
-            <select
-                name="product_one_feed"
-                value={formData?.product_one_feed.trim()}
-                onChange={handleChange}
-            >
-                <CategoryFeedType />
-            </select>
-        </>
-    );
-
-    const productTwoFeed = formData?.product_two_title === 'Beef' && (
-        <>
-            <label>Product 2 Feed Type</label>
-            <select
-                name="product_two_feed"
-                value={formData?.product_two_feed.trim()}
-                onChange={handleChange}
-            >
-                <CategoryFeedType />
-            </select>
-        </>
-    );
-
-    const productThreeFeed = formData?.product_three_title === 'Beef' && (
-        <>
-            <label>Product 3 Feed Type</label>
-            <select
-                name="product_three_feed"
-                value={formData?.product_three_feed.trim()}
-                onChange={handleChange}
-            >
-                <CategoryFeedType />
-            </select>
-        </>
-    );
-
     const productOneInfo = (
         <div className={styles['product']}>
             <h2>Product One Information</h2>
@@ -272,8 +233,6 @@ export const CreateFarmerForm = () => {
                 onChange={handleChange}
                 value={formData?.product_one_description}
             />
-
-            {productOneFeed}
         </div>
     );
 
@@ -297,8 +256,6 @@ export const CreateFarmerForm = () => {
                 onChange={handleChange}
                 value={formData?.product_two_description}
             />
-
-            {productTwoFeed}
         </div>
     );
 
@@ -322,9 +279,6 @@ export const CreateFarmerForm = () => {
                 onChange={handleChange}
                 value={formData?.product_three_description}
             />
-
-            {productThreeFeed}
-
         </div>
     );
 

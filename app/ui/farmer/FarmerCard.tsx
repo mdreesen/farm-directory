@@ -33,9 +33,9 @@ export default async function FarmerCard(farmerData: any) {
         <div className="mb-2 flex flex-col justify-center align-middle items-center">
             <div className="text-gray-600 font-bold text-l">Products</div>
             <p className="text-gray-700 text-base flex items-center gap-x-2 flex-col lg:flex-row md:flex-col">
-                <span>{data?.product_one_feed ? `${data?.product_one_feed} Finished ${data?.product_one_title}` : data?.product_one_title}</span>
-                <span>{data?.product_two_feed ? `${data?.product_two_feed} Finished ${data?.product_two_title}` : data?.product_two_title}</span>
-                <span>{data?.product_three_feed ? `${data?.product_three_feed} Finished ${data?.product_three_title}` : data?.product_three_title}</span>
+                <span>{data?.product_one_title}</span>
+                <span>{data?.product_two_title}</span>
+                <span>{data?.product_three_title}</span>
             </p>
         </div>
     )

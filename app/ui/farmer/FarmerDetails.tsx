@@ -39,7 +39,6 @@ export default async function FarmerDetails(data: any) {
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_one_title}</span>
-                    {farmerData?.product_one_feed && `Feed Type: ${farmerData?.product_one_feed}`}
                 </div>
                 <p>{farmerData?.product_one_available !== '' ? <span className="text-gray-700">{farmerData?.product_one_available}</span> : <span className="text-gray-700">Unavailable</span>}</p>
             </div>
@@ -52,7 +51,6 @@ export default async function FarmerDetails(data: any) {
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_two_title}</span>
-                    {farmerData?.product_two_feed && `Feed Type: ${farmerData?.product_two_feed}`}
                 </div>
                 <p>{farmerData?.product_two_available !== "" && <span className="text-gray-700">{farmerData?.product_two_available}</span>}</p>
             </div>
@@ -65,7 +63,6 @@ export default async function FarmerDetails(data: any) {
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_three_title}</span>
-                    {farmerData?.product_three_feed && `Feed Type: ${farmerData?.product_three_feed}`}
                 </div>
                 <p>{farmerData?.product_three_available !== '' && <span className="text-gray-700">{farmerData?.product_two_available}</span>}</p>
             </div>

@@ -62,6 +62,19 @@ export async function fetchUsers() {
     }
 };
 
+export async function validUsers() {
+    noStore()
+
+    try {
+        const users = await User.find();
+        const filter = users.filter(item => item.isAdmin === false);
+        return filter
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function fetchSingleUser(id: string) {
     noStore()
 

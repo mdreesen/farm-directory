@@ -3,7 +3,10 @@ export function Categories() {
 
   const farmToTable = (
     <>
-      <option value="Beef">Meat Beef</option>
+      <option value="Grain Finished Beef">Meat Grain Finished Beef</option>
+      <option value="Grass Finished Beef">Meat Grass Finished Beef</option>
+      <option value="Grain & Grass Finished Beef">Meat Grain & Grass Finished Beef</option>
+
       <option value="Bison/Yak">Meat Bison/Yak</option>
       <option value="Chicken">Meat Chicken</option>
       <option value="Goat">Meat Goat</option>
