@@ -5,8 +5,8 @@ export default async function CardContact() {
 
     const contact = await fetchContacts();
 
-    const Card = () => contact.map(item => (
-        <Link href={`/admin/dashboard/contact/${item?._id}`}>
+    const Card = () => contact.map((item, index) => (
+        <Link href={`/admin/dashboard/contact/${item?._id}`} key={`${item._id}-${index}`}>
             <div className="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3">
                 <div className="flex flex-col h-fit items-stretch pb-4 mb-6 transition-all duration-150 bg-white rounded-lg shadow-lg hover:shadow-2xl">
                     <div className="flex flex-wrap flex-col items-center flex-1 px-4 py-1 text-center mx-auto">
