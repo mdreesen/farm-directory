@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from '@/app/styles/Footer.module.css';
+import { currentYear } from '../lib/date';
 
 export function Footer() {
 
@@ -37,7 +38,7 @@ export function Footer() {
 
   return (
     <div className={styles['container']}>
-      <span>© 2024</span>
+      <span>© {currentYear()}</span>
       <div className={styles['right']}>
         <div>
           {routingLinks}

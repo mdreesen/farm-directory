@@ -20,22 +20,28 @@ export const formatDateToLocal = (
   return formatter.format(date);
 };
 
-export const generateYAxis = (data: any) => {
+export const generateYAxis = (data: any, currentYear: any) => {
   const monthsArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
+  function monthToDate(month: string) {
+    return data?.filter((item: any) => {
+      return item?.createdAt?.includes(month) && item?.createdAt?.includes(currentYear)
+    }).length
+  }
+
   // Filter by months
-  const januaryUsers = data?.filter((item: any) => item?.createdAt?.includes('Jan'))?.length;
-  const februaryUsers = data?.filter((item: any) => item?.createdAt?.includes('Feb'))?.length;
-  const marchUsers = data?.filter((item: any) => item?.createdAt?.includes('Mar'))?.length;
-  const aprilUsers = data?.filter((item: any) => item?.createdAt?.includes('Apr'))?.length;
-  const mayUsers = data?.filter((item: any) => item?.createdAt?.includes('May'))?.length;
-  const juneUsers = data?.filter((item: any) => item?.createdAt?.includes('Jun'))?.length;
-  const julyUsers = data?.filter((item: any) => item?.createdAt?.includes('Jul'))?.length;
-  const augustUsers = data?.filter((item: any) => item?.createdAt?.includes('Aug'))?.length;
-  const septemberUsers = data?.filter((item: any) => item?.createdAt?.includes('Sep'))?.length;
-  const octoberUsers = data?.filter((item: any) => item?.createdAt?.includes('Oct'))?.length;
-  const novemberUsers = data?.filter((item: any) => item?.createdAt?.includes('Nov'))?.length;
-  const decemberUsers = data?.filter((item: any) => item?.createdAt?.includes('Dec'))?.length;
+  const januaryUsers = monthToDate('Jan');
+  const februaryUsers = monthToDate('Feb');
+  const marchUsers = monthToDate('Mar');
+  const aprilUsers = monthToDate('Apr');
+  const mayUsers = monthToDate('May');
+  const juneUsers = monthToDate('Jun');
+  const julyUsers = monthToDate('Jul');
+  const augustUsers = monthToDate('Aug');
+  const septemberUsers = monthToDate('Sep');
+  const octoberUsers = monthToDate('Oct');
+  const novemberUsers = monthToDate('Nov');
+  const decemberUsers = monthToDate('Dec');
 
   return { monthsArr, januaryUsers, februaryUsers, marchUsers, aprilUsers, mayUsers, juneUsers, julyUsers, augustUsers, septemberUsers, octoberUsers, novemberUsers, decemberUsers };
 };
