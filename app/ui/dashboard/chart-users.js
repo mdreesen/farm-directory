@@ -1,6 +1,7 @@
 import { generateYAxis } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
+import { currentYear } from '@/app/lib/date';
 
 // Fetching farmers data
 import { validUsers } from '@/app/lib/data';
@@ -14,7 +15,7 @@ import { validUsers } from '@/app/lib/data';
 export default async function ChartFarmers() {
   const users = await validUsers();
 
-  const { januaryUsers, februaryUsers, marchUsers, aprilUsers, mayUsers, juneUsers, julyUsers, augustUsers, septemberUsers, octoberUsers, novemberUsers, decemberUsers } = generateYAxis(users);
+  const { januaryUsers, februaryUsers, marchUsers, aprilUsers, mayUsers, juneUsers, julyUsers, augustUsers, septemberUsers, octoberUsers, novemberUsers, decemberUsers } = generateYAxis(users, currentYear());
   if (!users || users.length === 0) {
     return <p className="mt-4 text-gray-400">No User Data Available.</p>;
   }
