@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
-
 import styles from '@/app/styles/Footer.module.css';
 
 export function Footer() {
@@ -12,7 +10,7 @@ export function Footer() {
         <div>
           <div className='text-gray-700 flex flex-col'>
             <Link href="/about">About</Link>
-            <Link href="/authentication/login">Login</Link>
+            {/* <Link href="/authentication/login">Login</Link> */}
           </div>
 
         </div>
