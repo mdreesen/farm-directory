@@ -39,7 +39,7 @@ export function Categories() {
       <option value="State Inspected Butchering">Services State Inspected Butchering</option>
       <option value="USDA Inspected Butchering">Services USDA Inspected Butchering</option>
       <option value="Farrier">Services Farrier</option>
-      <option value="Feed/Fertilizer">Services Feed/Fertilizer</option>
+      <option value="Seed/Fertilizer">Services Seed/Fertilizer</option>
       <option value="Hauling">Services Hauling</option>
       <option value="Vet/Medicine">Services Vet/Medicine</option>
       <option value="Sales Repair">Services Sales Repair</option>

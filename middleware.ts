@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
 
   // Define paths that are considered public (accessible without a token)
   // const isPublicPath = path === '/' || path === '/signup' || path === '/verifyemail'
-  const paths = path === '/admin' || '/admin/dashboard' || '/admin/dashboard/create-farmer' || '/admin/dashboard/create-farmer/created-farmer'
+  const paths = path === '/admin' || '/admin/dashboard' || '/admin/dashboard/create-farmer' || '/admin/dashboard/create-farmer/created-farmer' || '/admin/dashboard/contact'
 
   // Get the token from the cookies
   const token = request.cookies.get(`${process.env.COOKIE_KEY}`)?.value || ''
@@ -34,6 +34,7 @@ export const config = {
     '/admin/dashboard',
     '/admin/dashboard/create-farmer',
     '/admin/dashboard/create-farmer/created-farmer',
+    '/admin/dashboard/contact',
     // '/profile',
     // '/login',
     // '/signup',

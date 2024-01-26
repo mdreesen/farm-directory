@@ -12,8 +12,8 @@
         "directTo": "/farm-services/farrier"
     },
     {
-        "linkName": "Feed / Fertilizer",
-        "directTo": "/farm-services/feed-fertilizer"
+        "linkName": "Seed / Fertilizer",
+        "directTo": "/farm-services/seed-fertilizer"
     },
     {
         "linkName": "Boarding / Pasture",

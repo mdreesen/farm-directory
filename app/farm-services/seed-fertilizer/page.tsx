@@ -10,7 +10,7 @@ import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 
 export default async function Page() {
   const farmers = await fetchFarmers();
-  const farmerCategory = await filterFarmerProducts(farmers, 'Feed/Fertilizer');
+  const farmerCategory = await filterFarmerProducts(farmers, 'Seed/Fertilizer');
   const categoryFarmers = farmerCategory?.map((item: Object, index: number) => <FarmerCard key={index} farmerData={item} />);
 
   if (farmerCategory?.length === 0) return <NoFarmer />

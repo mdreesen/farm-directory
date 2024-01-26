@@ -3,6 +3,7 @@ import {
   UserGroupIcon,
   HomeIcon,
   UserIcon,
+  InboxStackIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -14,7 +15,8 @@ import clsx from 'clsx';
 const links = [
   { name: 'Home', href: '/admin/dashboard', icon: HomeIcon },
   // { name: 'Customers', href: '/admin/dashboard/customers', icon: UserGroupIcon },
-  { name: "Create Farmer", href: '/admin/dashboard/create-farmer', icon: UserIcon}
+  { name: "Create Farmer", href: '/admin/dashboard/create-farmer', icon: UserIcon},
+  { name: "Contact", href: '/admin/dashboard/contact', icon: InboxStackIcon}
 ];
 
 export default function NavLinks() {
