@@ -10,9 +10,13 @@ import { Footer } from "@/app/ui/Footer";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Farm Directory',
-  description: 'Farm Directory',
-}
+  title: {
+    template: '%s | Farm Directory',
+    default: 'Farm Directory',
+  },
+  description: 'A place where users can find local farmers for products',
+  metadataBase: new URL('https://thefarmdirectory.com'),
+};
 
 export default function RootLayout({
   children,
