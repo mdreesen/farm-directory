@@ -32,8 +32,6 @@ export default async function FarmerDetails(data: any) {
         </div>
     );
 
-    console.log(farmerData)
-
     const productOne = farmerData?.product_one_show === 'true' && (
         <div className="mb-6">
             <div className="flex justify-between flex-wrap gap-2 w-full">

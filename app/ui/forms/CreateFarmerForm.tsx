@@ -28,17 +28,17 @@ export const CreateFarmerForm = () => {
         product_one_title: "",
         product_one_description: "",
         product_one_feed: "",
-        product_one_available: true,
+        product_one_available: 'Available',
         product_one_show: true,
         product_two_title: "",
         product_two_description: "",
         product_two_feed: "",
-        product_two_available: true,
+        product_two_available: 'Available',
         product_two_show: true,
         product_three_title: "",
         product_three_description: "",
         product_three_feed: "",
-        product_three_available: true,
+        product_three_available: 'Available',
         product_three_show: true
     };
 
