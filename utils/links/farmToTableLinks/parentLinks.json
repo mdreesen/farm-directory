@@ -20,7 +20,7 @@
         "directTo": "/farm-to-table/kitchen-goods"
     },
     {
-        "linkName": "Other Farm To Table",
+        "linkName": "Other",
         "directTo": "/farm-to-table/other"
     }
 ]
