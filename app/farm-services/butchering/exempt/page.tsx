@@ -7,6 +7,12 @@ import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Exempt Butchering Farm Services',
+}
+
 
 export default async function Page() {
   const farmers = await fetchFarmers();

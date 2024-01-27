@@ -2,6 +2,11 @@ import React from 'react';
 import { CategoryCard } from '@/app/ui/CategoryCard';
 import parentLinks from '@/utils/links/liveAnimalLinks/chickenLinks.json';
 import styles from '@/app/styles/Home.module.css';
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Chickens Live Animals',
+}
 
 
 export default function FarmToTable() {

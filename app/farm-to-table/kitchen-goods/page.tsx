@@ -6,6 +6,11 @@ import { filterFarmerProducts } from '@/app/lib/filterFarmers';
 import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Kitchen Goods Farm To Table',
+}
 
 
 export default async function Page() {

@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from '@/app/styles/About.module.css';
 import aboutText from "@/utils/aboutText.json";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About',
+}
 
 export default function about() {
 

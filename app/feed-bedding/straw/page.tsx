@@ -2,6 +2,11 @@ import React from 'react';
 import { CategoryCard } from '@/app/ui/CategoryCard';
 import parentLinks from '@/utils/links/feedBeddingLinks/strawLinks/straw.json';
 import styles from '@/app/styles/Home.module.css';
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Straw Feed & Bedding',
+}
 
 
 export default function FarmToTable() {

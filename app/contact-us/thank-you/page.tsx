@@ -1,5 +1,10 @@
 import Link from "next/link";
 import styles from "@/app/styles/CreateFarmer.module.css";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Thank You | Contact Us',
+}
 
 export default function Page() {
 
