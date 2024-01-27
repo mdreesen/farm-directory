@@ -5,7 +5,7 @@ import styles from '@/app/styles/Home.module.css';
 import { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Home | The Farm Directory',
 }
 
 export default function HomePage() {
