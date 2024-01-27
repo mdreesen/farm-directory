@@ -41,10 +41,10 @@ export default async function MobileNavigation() {
   const authenticate = auth ? (
     <LogoutButtonUser />
   ) : (
-<>
-<Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>
-<Link href={'/authentication/login'} className={styles['link']}>Login</Link>
-</>  );
+    <>
+      <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>
+      <Link href={'/authentication/login'} className={styles['link']}>Login</Link>
+    </>);
 
   const farmerProfile = auth?.isFarmer ? <a href={`/profile-farmer/${auth?.id}`} className={styles['link']}>Profile</a> : '';
 
@@ -54,12 +54,9 @@ export default async function MobileNavigation() {
         {links}
         {farmerProfile}
       </div>
-      <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
       <div className={styles['mobile-container-auth']}>
-      {authenticate}
-
+        {authenticate}
       </div>
-
     </div>
   );
 }

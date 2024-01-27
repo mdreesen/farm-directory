@@ -3,7 +3,6 @@
 import styles from '@/app/styles/toast/ToastApproved.module.css'
 
 export default function ToastApproved() {
-    // const data = itemData?.itemData;
 
     return (
         <div className={styles['container']}>

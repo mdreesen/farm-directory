@@ -1,8 +1,7 @@
 .container {
-  /* width: 100%; */
   position: fixed;
-  bottom: 65px;
-  left: 0;
+  bottom: 95px;
+  left: 12px;
   justify-content: center;
   display: flex;
 }
