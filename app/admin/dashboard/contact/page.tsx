@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default async function Page() {
 
   return (
-    <main className="flex flex-row flex-wrap mx-auto">
+    <main className="flex flex-col mx-auto">
       <CardContact/>
     </main>
   );
