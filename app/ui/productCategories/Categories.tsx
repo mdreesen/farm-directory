@@ -24,7 +24,9 @@ export function Categories() {
 
       <option value="Milk/Dairy">Milk/Dairy</option>
 
-      <option value="Vegetables">Vegetables</option>
+      <option value="Fruits/Vegetables">Fruits/Vegetables</option>
+
+      <option value="Other Farm To Table">Farm To Table Other</option>
     </>
   );
 

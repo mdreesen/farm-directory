@@ -12,11 +12,15 @@
         "directTo": "/farm-to-table/milk-dairy"
     },
     {
-        "linkName": "Vegetables",
-        "directTo": "/farm-to-table/vegetables"
+        "linkName": "Fruits/<br/>Vegetables",
+        "directTo": "/farm-to-table/fruits-vegetables"
     },
     {
         "linkName": "Kitchen Goods",
         "directTo": "/farm-to-table/kitchen-goods"
+    },
+    {
+        "linkName": "Other Farm To Table",
+        "directTo": "/farm-to-table/other"
     }
 ]
