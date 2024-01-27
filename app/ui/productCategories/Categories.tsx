@@ -46,6 +46,7 @@ export function Categories() {
       <option value="Vet/Medicine">Services Vet/Medicine</option>
       <option value="Sales Repair">Services Sales Repair</option>
       <option value="Training">Services Training</option>
+      <option value="Custom Farming">Services Custom Farming</option>
       <option value="Other Services">Services Other</option>
     </>
   );

@@ -38,7 +38,7 @@ export default async function FarmerDetails(data: any) {
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_one_title}</span>
                 </div>
-                <p>{farmerData?.product_one_available !== '' ? <span className="text-gray-700">{farmerData?.product_one_available}</span> : <span className="text-gray-700">Unavailable</span>}</p>
+                {farmerData?.product_one_title !== '' && farmerData?.product_one_available !== '' &&  <span className="text-gray-700">{farmerData?.product_one_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_one_description}</p>
         </div>
@@ -50,7 +50,7 @@ export default async function FarmerDetails(data: any) {
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_two_title}</span>
                 </div>
-                <p>{farmerData?.product_two_available !== "" && <span className="text-gray-700">{farmerData?.product_two_available}</span>}</p>
+                {farmerData?.product_two_title !== '' && farmerData?.product_two_available !== '' &&  <span className="text-gray-700">{farmerData?.product_two_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_two_description}</p>
         </div>
@@ -62,7 +62,7 @@ export default async function FarmerDetails(data: any) {
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_three_title}</span>
                 </div>
-                <p>{farmerData?.product_three_available !== '' && <span className="text-gray-700">{farmerData?.product_two_available}</span>}</p>
+                {farmerData?.product_three_title !== '' && farmerData?.product_three_available !== '' &&  <span className="text-gray-700">{farmerData?.product_three_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_three_description}</p>
         </div>
