@@ -3,9 +3,14 @@ import styles from '@/app/styles/FarmerCard.module.css';
 import Link from 'next/link';
 import Image from 'next/image'
 import WrapperFarmerCard from '@/app/WrapperFarmerCard';
+import { DeleteButton } from '../dashboard/deleteButton';
+import { loggedInUserData } from '@/app/lib/cookieData';
+
 
 export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
+    const parse = await JSON.parse(JSON.stringify(data));
+    const auth = await loggedInUserData();
 
     const farmLogo = (
         <Image
@@ -62,6 +67,7 @@ export default async function FarmerCard(farmerData: any) {
                         {farmerInfo}
                     </div>
                 </div>
+                {auth?.isAdmin && <DeleteButton data={parse}  />}
             </div>
         </WrapperFarmerCard>
     );

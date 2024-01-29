@@ -17,7 +17,6 @@ export default async function Page() {
     return (
         <div className={styles['container']}>
             <Suspense fallback={<div>...loading</div>}>
-
                 <UpdateFarmerForm data={parse} />
             </Suspense>
         </div>
