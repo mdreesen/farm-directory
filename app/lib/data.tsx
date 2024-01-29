@@ -116,3 +116,15 @@ export async function fetchSingleContact(id: string) {
         return error
     }
 };
+
+export async function deleteSingleFarmer(id: string) {
+    noStore()
+
+    try {
+        const data = await Farmer.findByIdAndDelete({ _id: id });
+        return data
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};

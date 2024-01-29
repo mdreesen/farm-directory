@@ -30,3 +30,15 @@ export async function PUT(req: any, { params }: any) {
         return NextResponse.json({ message: "Error", error }, { status: 500 })
     }
 };
+
+export async function DELETE(req: any, { params }: any) {
+    try {
+        const {id} = params;
+        await Farmer.findByIdAndDelete(id);
+
+        return NextResponse.json({ message: "Farmer Deleted" }, { status: 200 });
+
+    } catch(error) {
+        return NextResponse.json({ message: "Error", error }, { status: 500 })
+    }
+};

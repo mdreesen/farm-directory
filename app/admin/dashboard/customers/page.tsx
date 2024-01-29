@@ -1,26 +1,14 @@
-// import { fetchFilteredCustomers } from '@/app/lib/data';
-// import CustomersTable from '@/app/ui/customers/table';
-import { Metadata } from 'next';
+import { Suspense } from 'react';
+import CardsFarmer from '@/app/ui/dashboard/cardsFarmers';
+import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 
-export const metadata: Metadata = {
-  title: 'Customers',
-};
-
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) {
-  const query = searchParams?.query || '';
-
-  // const customers = await fetchFilteredCustomers(query);
+export default async function Page() {
 
   return (
     <main>
-      {/* <CustomersTable customers={customers} /> */}
+      <Suspense fallback={<CardsSkeleton />}>
+        <CardsFarmer />
+      </Suspense>
     </main>
   );
 }
