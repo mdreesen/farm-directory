@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Farm Directory',
+    template: '%s | The Farm Directory',
     default: 'The Farm Directory',
   },
   description: 'Connecting farms to communities',

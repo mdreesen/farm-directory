@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Farm Directory',
+    template: '%s | The Farm Directory',
     default: 'Home | The Farm Directory',
   },
   description: 'Connecting farms to communities',
