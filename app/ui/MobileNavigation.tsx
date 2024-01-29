@@ -46,12 +46,16 @@ export default async function MobileNavigation() {
       <Link href={'/authentication/login'} className={styles['link']}>Login</Link>
     </>);
 
+  const admin = auth?.isAdmin ? <a href={`/admin/dashboard`} className={styles['link']}>Dashboard</a> : '';
+
+
   const farmerProfile = auth?.isFarmer ? <a href={`/profile-farmer/${auth?.id}`} className={styles['link']}>Profile</a> : '';
 
   return (
     <div>
       <div className={styles['mobile-container']}>
         {links}
+        {admin}
         {farmerProfile}
       </div>
       <div className={styles['mobile-container-auth']}>

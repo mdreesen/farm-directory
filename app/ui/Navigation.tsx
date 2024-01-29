@@ -42,12 +42,15 @@ export default async function Navigation() {
     <Link href={'/authentication/signup'} className={styles['link']}>Signup</Link>
   );
 
+  const admin = auth?.isAdmin ? <a href={`/admin/dashboard`} className={styles['link']}>Dashboard</a> : '';
+
   const farmerProfile = auth?.isFarmer ? <a href={`/profile-farmer/${auth?.id}`} className={styles['link']}>Profile</a> : '';
 
 
   return (
     <div className={styles['container']}>
       {links}
+      {admin}
       {farmerProfile}
       {authenticate}
     </div>
