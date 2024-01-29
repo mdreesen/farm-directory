@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
-import Head from 'next/head';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import Navigation from "@/app/ui/Navigation";
 import MobileNavigation from './ui/MobileNavigation';
@@ -46,6 +46,7 @@ export default function RootLayout({
         <MobileNavigation />
         {children}
         <Analytics />
+        <SpeedInsights />
         <Footer />
       </body>
     </html>
