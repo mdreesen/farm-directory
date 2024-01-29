@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
+import Head from 'next/head';
 
 import Navigation from "@/app/ui/Navigation";
 import MobileNavigation from './ui/MobileNavigation';
@@ -37,6 +38,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <Head>
+        <title>The Farm Directory</title>
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <meta name="google" content="notranslate" key="notranslate" />
+        <meta name="google-site-verification" content="hEmogV9ZodUsj8jMDwJg4yjV_0a55BqvcqulRHxVpZY" />
+      </Head>
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
         <Navigation />
         <MobileNavigation />
