@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  verification: {
+    google: 'hEmogV9ZodUsj8jMDwJg4yjV_0a55BqvcqulRHxVpZY',
+  }
 };
 
 export default function RootLayout({
@@ -38,12 +41,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <title>The Farm Directory</title>
-        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
-        <meta name="google" content="notranslate" key="notranslate" />
-        <meta name="google-site-verification" content="hEmogV9ZodUsj8jMDwJg4yjV_0a55BqvcqulRHxVpZY" />
-      </Head>
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
         <Navigation />
         <MobileNavigation />
