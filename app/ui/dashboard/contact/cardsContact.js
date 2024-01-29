@@ -5,6 +5,8 @@ export default async function CardContact() {
 
     const contact = await fetchContacts();
 
+    if (contact.length === 0) return <h2>No Contacts Available</h2>
+
     const Card = () => contact.map((item, index) => (
         <Link href={`/admin/dashboard/contact/${item?._id}`} key={`${item._id}-${index}`}>
             <div className="transition-all duration-150 flex w-full px-4 py-6 justify-center">

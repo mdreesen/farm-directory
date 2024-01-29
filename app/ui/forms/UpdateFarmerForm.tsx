@@ -144,7 +144,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>State</label>
             <select
                 name="address_state"
-                value={formData?.address_state.trim()}
+                value={formData?.address_state?.trim()}
                 onChange={handleChange}
                 required
             >
@@ -170,7 +170,7 @@ export const UpdateFarmerForm = (data: any) => {
                 name="phone"
                 type="text"
                 onChange={handleChange}
-                value={formData?.phone.trim()}
+                value={formData?.phone?.trim()}
                 required
             />
             <FormValidation data={formData?.phone} />
@@ -182,7 +182,7 @@ export const UpdateFarmerForm = (data: any) => {
                 name="email"
                 type="text"
                 onChange={handleChange}
-                value={formData?.email.trim()}
+                value={formData?.email?.trim()}
                 required
             />
             <FormValidation data={formData?.email} />
@@ -200,7 +200,7 @@ export const UpdateFarmerForm = (data: any) => {
                 name="website"
                 type="text"
                 onChange={handleChange}
-                value={formData?.website.trim()}
+                value={formData?.website?.trim()}
             />
 
             <label>Facebook Link</label>
@@ -209,7 +209,7 @@ export const UpdateFarmerForm = (data: any) => {
                 name="facebook"
                 type="text"
                 onChange={handleChange}
-                value={formData?.facebook.trim()}
+                value={formData?.facebook?.trim()}
             />
 
             <label>Instagram Link</label>
@@ -218,7 +218,7 @@ export const UpdateFarmerForm = (data: any) => {
                 name="instagram"
                 type="text"
                 onChange={handleChange}
-                value={formData?.instagram.trim()}
+                value={formData?.instagram?.trim()}
             />
         </div>
     );
@@ -228,7 +228,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>Product 1 Feed Type</label>
             <select
                 name="product_one_feed"
-                value={formData?.product_one_feed.trim()}
+                value={formData?.product_one_feed?.trim()}
                 onChange={handleChange}
             >
                 <CategoryFeedType />
@@ -241,7 +241,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>Product 2 Feed Type</label>
             <select
                 name="product_two_feed"
-                value={formData?.product_two_feed.trim()}
+                value={formData?.product_two_feed?.trim()}
                 onChange={handleChange}
             >
                 <CategoryFeedType />
@@ -254,7 +254,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>Product 3 Feed Type</label>
             <select
                 name="product_three_feed"
-                value={formData?.product_three_feed.trim()}
+                value={formData?.product_three_feed?.trim()}
                 onChange={handleChange}
             >
                 <CategoryFeedType />
@@ -268,7 +268,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>Product 1</label>
             <select
                 name="product_one_title"
-                value={formData?.product_one_title.trim()}
+                value={formData?.product_one_title?.trim()}
                 onChange={handleChange}
                 required
             >
@@ -313,7 +313,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>Product 2</label>
             <select
                 name="product_two_title"
-                value={formData?.product_two_title.trim()}
+                value={formData?.product_two_title?.trim()}
                 onChange={handleChange}
             >
                 <Categories />
@@ -356,7 +356,7 @@ export const UpdateFarmerForm = (data: any) => {
             <label>Product 3</label>
             <select
                 name="product_three_title"
-                value={formData?.product_three_title.trim()}
+                value={formData?.product_three_title?.trim()}
                 onChange={handleChange}
             >
                 <Categories />
