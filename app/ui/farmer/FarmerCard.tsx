@@ -13,15 +13,16 @@ export default async function FarmerCard(farmerData: any) {
     const auth = await loggedInUserData();
 
     const farmLogo = (
-        <Image
-            className={`${styles['image']} w-10 h-10 rounded-full mr-4`}
-            src={"/images/logos/logoThree.jpg"}
-            width={500}
-            height={500}
-            priority={true}
-            object-fit="cover"
-            alt="Picture of the author"
-        />
+        // <Image
+        //     className={`${styles['image']} w-10 h-10 rounded-full mr-4`}
+        //     src={"/images/logos/logoThree.jpg"}
+        //     width={500}
+        //     height={500}
+        //     priority={true}
+        //     object-fit="cover"
+        //     alt="Picture of the author"
+        // />
+        <h2 className="flex justify-center items-center text-gray-900 font-bold mb-2">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
@@ -51,7 +52,7 @@ export default async function FarmerCard(farmerData: any) {
             <div className={`${styles['card']} max-w-sm lg:max-w-full lg:flex justify-center`}>
                 {farmLogo}
                 <div className="border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-[32rem]">
-                    <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div>
+                    {/* <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div> */}
                     {farmerDetail}
                     <div className='flex w-full justify-center mb-2'>
                         <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>
