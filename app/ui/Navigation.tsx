@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from '@/app/styles/Navigation.module.css';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
 import {loggedInUserData} from '@/app/lib/cookieData';
+import LocationButton from './buttons/locationButton';
 
 export default async function Navigation() {
   const auth = await loggedInUserData();
@@ -53,6 +54,7 @@ export default async function Navigation() {
       {admin}
       {farmerProfile}
       {authenticate}
+      <LocationButton />
     </div>
   );
 }

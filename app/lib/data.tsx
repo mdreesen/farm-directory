@@ -5,8 +5,8 @@ import { unstable_noStore as noStore } from 'next/cache';
 import { revalidatePath } from 'next/cache';
 
 export async function fetchFarmers() {
-    noStore()
-    
+    noStore();
+
     try {
         const farmers = await Farmer.find()
         return farmers
