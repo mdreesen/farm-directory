@@ -35,6 +35,7 @@ export const config = {
     '/admin/dashboard/create-farmer',
     '/admin/dashboard/create-farmer/created-farmer',
     '/admin/dashboard/contact',
+    '/admin/dashboard/customers',
     // '/profile',
     // '/login',
     // '/signup',

@@ -1,48 +1,6 @@
-export async function filterGrainBeefFarmer(farmer: any) {
-    const category = ['Grain'];
-    const filtering = farmer && farmer.filter((item: any) => {
-        switch (true) {
-            case item?.product_one_feed?.includes(category):
-                return item;
-                break
+import Farmer from '@/app/(models)/Farmer';
 
-            case item?.product_two_feed?.includes(category):
-                return item
-                break
-
-            case item?.product_three_feed?.includes(category):
-                return item;
-                break
-            default:
-                return
-        };
-    });
-    return filtering
-};
-
-export async function filterGrassBeefFarmer(farmer: any) {
-    const category = ['Grass'];
-    const filtering = farmer && farmer.filter((item: any) => {
-        switch (true) {
-            case item?.product_one_feed?.includes(category):
-                return item;
-                break
-
-            case item?.product_two_feed?.includes(category):
-                return item
-                break
-
-            case item?.product_three_feed?.includes(category):
-                return item;
-                break
-            default:
-                return
-        };
-    })
-    return filtering
-};
-
-export async function filterFarmerProducts(farmer: any, productTitle: string) {
+export async function filterFarmerProducts(farmer: any, productTitle: string, query: string) {
     const category = [productTitle];
     const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {
@@ -61,5 +19,25 @@ export async function filterFarmerProducts(farmer: any, productTitle: string) {
                 return
         };
     });
-    return filtering
+
+    try {
+        const farmers = await Farmer.find(
+            {
+                $text: {
+                    $search: query,
+                },
+                // fuzzy:{
+                //     maxEdits: 4
+                //   }
+            }
+        )
+        console.log(farmers)
+
+        const content = farmers.length > 0 ? farmers : filtering;
+        console.log(content)
+        return content
+    } catch (error) {
+        console.log(error)
+        return error
+    }
 };

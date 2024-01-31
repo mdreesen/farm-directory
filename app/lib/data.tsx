@@ -2,13 +2,31 @@ import Farmer from '@/app/(models)/Farmer';
 import User from '@/app/(models)/User';
 import Contact from '@/app/(models)/Contact';
 import { unstable_noStore as noStore } from 'next/cache';
-import { revalidatePath } from 'next/cache';
 
 export async function fetchFarmers() {
     noStore();
 
     try {
         const farmers = await Farmer.find()
+        return farmers
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
+export async function searchFarmers(query: any) {
+    noStore();
+
+    try {
+        const farmers = await Farmer.find(
+            {
+                $text: {
+                    $search: query,
+                },
+            }
+        )
+
         return farmers
     } catch (error) {
         console.log(error)
@@ -96,7 +114,7 @@ export async function isFarmer(data: any) {
 
 export async function fetchContacts() {
     noStore()
-    
+
     try {
         const data = await Contact.find()
         return data

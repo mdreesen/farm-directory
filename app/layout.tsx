@@ -1,14 +1,18 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
-import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
+// Style Sheets and styles
+import './globals.css';
+import 'radar-sdk-js/dist/radar.css';
+const inter = Inter({ subsets: ['latin'] })
+
+// Components
 import Navigation from "@/app/ui/Navigation";
 import MobileNavigation from './ui/MobileNavigation';
 import { Footer } from "@/app/ui/Footer";
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
