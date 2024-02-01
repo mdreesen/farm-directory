@@ -22,12 +22,12 @@ export default async function Page({
 }) {
   const query = searchParams?.query || '';
 
-  const totalPages = await searchFarmers(query);
+  // const totalPages = await searchFarmers(query);
 
 
   const farmers = await fetchFarmers();
   const farmerCategory = await filterFarmerProducts(farmers, 'Chicken Eggs', query);
-  const search = totalPages ? totalPages : farmerCategory
+  // const search = totalPages ? totalPages : farmerCategory
 
   const categoryFarmers = farmerCategory?.map((item: Object, index: number) => <FarmerCard key={index} farmerData={item} />);
 

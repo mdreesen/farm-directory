@@ -25,10 +25,9 @@ export async function filterFarmerProducts(farmer: any, productTitle: string, qu
             {
                 $text: {
                     $search: query,
+                    $caseSensitive: false,
+                    $diacriticSensitive: false
                 },
-                // fuzzy:{
-                //     maxEdits: 4
-                //   }
             }
         )
         console.log(farmers)
