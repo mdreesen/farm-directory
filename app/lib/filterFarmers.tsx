@@ -1,6 +1,6 @@
 import Farmer from '@/app/(models)/Farmer';
 
-export async function filterFarmerProducts(farmer: any, productTitle: string, query: string) {
+export async function filterFarmerProducts(farmer: any, productTitle: string) {
     const category = [productTitle];
     const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {
@@ -20,23 +20,25 @@ export async function filterFarmerProducts(farmer: any, productTitle: string, qu
         };
     });
 
-    try {
-        const farmers = await Farmer.find(
-            {
-                $text: {
-                    $search: query,
-                    $caseSensitive: false,
-                    $diacriticSensitive: false
-                },
-            }
-        )
-        console.log(farmers)
+    return filtering;
 
-        const content = farmers.length > 0 ? farmers : filtering;
-        console.log(content)
-        return content
-    } catch (error) {
-        console.log(error)
-        return error
-    }
+    // try {
+    //     const farmers = await Farmer.find(
+    //         {
+    //             $text: {
+    //                 $search: query,
+    //                 $caseSensitive: false,
+    //                 $diacriticSensitive: false
+    //             },
+    //         }
+    //     )
+    //     console.log(farmers)
+
+    //     const content = farmers.length > 0 ? farmers : filtering;
+    //     console.log(content)
+    //     return filtering
+    // } catch (error) {
+    //     console.log(error)
+    //     return error
+    // }
 };
