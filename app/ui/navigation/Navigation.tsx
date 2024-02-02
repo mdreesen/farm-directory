@@ -54,6 +54,7 @@ export default async function Navigation() {
       {admin}
       {farmerProfile}
       {authenticate}
+      <LocationButton/>
     </div>
   );
 }
