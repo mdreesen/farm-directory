@@ -28,10 +28,7 @@ export default async function FarmerCard(farmerData: any) {
     const farmerInfo = (
         <div className="text-sm">
             <p className="text-gray-900 leading-none mb-1">{data?.first_name} {data?.last_name}</p>
-            <div>
-                <span className="text-gray-600">Created</span>
-                <p className="text-gray-600">{data?.createdAt}</p>
-            </div>
+            <p className="text-gray-600">{data?.address_state}</p>
         </div>
     );
 
@@ -68,7 +65,7 @@ export default async function FarmerCard(farmerData: any) {
                         {farmerInfo}
                     </div>
                 </div>
-                {auth?.isAdmin && <DeleteButton data={parse}  />}
+                {auth?.isAdmin && <DeleteButton data={parse} />}
             </div>
         </WrapperFarmerCard>
     );
