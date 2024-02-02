@@ -3,7 +3,7 @@ import { fetchFarmers } from '@/app/lib/data';
 import { filterFarmerProducts } from '@/app/lib/filterFarmers';
 import FarmerCard from "@/app/ui/farmer/FarmerCard";
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
-import Search from '@/app/ui/Search';
+import Search from '@/app/ui/search/Search';
 
 
 export default async function CategoryPage({

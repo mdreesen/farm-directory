@@ -29,7 +29,7 @@ export function Footer() {
   const routingLinks = (
     <div>
       <div className='text-gray-700 flex flex-col items-center'>
-        <Link href="/about">About</Link>
+        <Link href="/about">About Us</Link>
         <Link href="/contact-us">Contact Us</Link>
       </div>
 

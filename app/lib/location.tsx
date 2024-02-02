@@ -36,3 +36,9 @@ export async function getLocation() {
     console.log('Current location', location);
     console.log('Watch location', watchLocation);
 };
+
+
+export async function getZip(data: string) {
+
+    console.log(data);
+};

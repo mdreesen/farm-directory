@@ -1,5 +1,5 @@
 import React from 'react';
-import { CategoryCard } from '@/app/ui/CategoryCard';
+import { CategoryCard } from '@/app/ui/category/CategoryCard';
 import parentLinks from '@/utils/links/farmEquipmentLinks/parentLinks.json';
 import styles from '@/app/styles/Home.module.css';
 import { Metadata } from 'next'

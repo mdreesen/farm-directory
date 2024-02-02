@@ -10,8 +10,8 @@ import 'radar-sdk-js/dist/radar.css';
 const inter = Inter({ subsets: ['latin'] })
 
 // Components
-import Navigation from "@/app/ui/Navigation";
-import MobileNavigation from './ui/MobileNavigation';
+import Navigation from "@/app/ui/navigation/Navigation";
+import MobileNavigation from './ui/navigation/MobileNavigation';
 import { Footer } from "@/app/ui/Footer";
 
 export const metadata: Metadata = {

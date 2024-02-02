@@ -18,8 +18,6 @@ export async function fetchFarmers() {
 export async function searchFarmers(query: any) {
     noStore();
 
-    console.log(query)
-
     try {
         const farmers = await Farmer.find(
             {
@@ -30,7 +28,6 @@ export async function searchFarmers(query: any) {
                 },
             }
         )
-        console.log(farmers)
         return farmers
     } catch (error) {
         console.log(error)

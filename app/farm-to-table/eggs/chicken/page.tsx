@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 // Importing Components
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
-import CategoryPage from '@/app/ui/CategoryPage';
+import CategoryPage from '@/app/ui/category/CategoryPage';
 
 export const metadata: Metadata = {
   title: 'Chicken Eggs Farm To Table',

@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import styles from '@/app/styles/Farmer.module.css';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import { Metadata } from 'next'
-import CategoryPage from '@/app/ui/CategoryPage';
+import CategoryPage from '@/app/ui/category/CategoryPage';
 
 export const metadata: Metadata = {
   title: 'Grain Finished Beef Farm To Table',
