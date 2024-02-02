@@ -58,7 +58,7 @@ export default async function MobileNavigation() {
         {admin}
         {farmerProfile}
       </div>
-      <div className={styles['mobile-container-auth']}>
+      <div className={`${styles['mobile-container-auth']} justify-center`}>
         {authenticate}
       </div>
     </div>

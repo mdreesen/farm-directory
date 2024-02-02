@@ -21,7 +21,7 @@ export default function LogoutButtonUser() {
 
   return (
     <a href='/'>
-      <div className={styles['link']}>
+      <div className={`${styles['link']}`}>
         <button onClick={handleLogout} >
           <div >Logout</div>
         </button>
