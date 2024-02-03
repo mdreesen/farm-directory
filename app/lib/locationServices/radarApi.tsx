@@ -1,9 +1,9 @@
-export async function radarReverseCoordinates() {
+export async function radarReverseCoordinates(latitude: string, longitude: string) {
     // For the Lat and Long formatting in params:
     // latitude,longitude
 
     try {
-        const res = await fetch('https://api.radar.io/v1/geocode/reverse?coordinates=48.1952952,-114.3080368', {
+        const res = await fetch(`https://api.radar.io/v1/geocode/reverse?coordinates=${latitude},${longitude}`, {
             method: "GET",
             headers: {
                 'Authorization': 'prj_test_pk_8e63651fe1018faea3061e36c07f050b465922da',

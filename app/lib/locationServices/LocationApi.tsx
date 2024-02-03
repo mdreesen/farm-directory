@@ -1,4 +1,3 @@
-import { radarReverseCoordinates } from '@/app/lib/radarApi';
 let reqCount = 0;
 
 export async function getLocation() {
@@ -31,26 +30,12 @@ export async function getLocation() {
     const location = navigator.geolocation.getCurrentPosition(success, error);
     const watchLocation = navigator.geolocation.watchPosition(success);
     console.log('Navigator Data', navigator)
-    console.log('Permissions', permissions);
+    // console.log('Permissions', permissions);
 
     console.log('Permissions Granted:', permissions?.state === 'granted');
     console.log('Permissions Denied:', permissions?.state === 'denied');
 
     console.log('Current location', location);
     console.log('Watch location', watchLocation);
-    return location
-};
-
-
-export async function getZip(data: string) {
-
-    console.log(data);
-};
-
-export async function userLocation() {
-    const location = await getLocation();
-    const findLocation = await radarReverseCoordinates();
-
-    console.log('Find User Coords', location);
-    console.log('Find User Location', findLocation)
+    return  { location, watchLocation }
 };

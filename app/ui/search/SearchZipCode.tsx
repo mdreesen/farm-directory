@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useRouter, usePathname } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
-import { getZip } from '@/app/lib/location';
+import { searchNearbyFarmers } from '@/app/lib/search/SearchNearbyFarmers';
 
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
@@ -15,6 +15,9 @@ export default function SearchZipCode() {
   const { replace } = useRouter();
 
   const handleSearch = async () => {
+    const searchFarmers = await searchNearbyFarmers();
+    console.log(searchFarmers)
+
 
     // const zipCode = await getZip();
 
@@ -26,6 +29,7 @@ export default function SearchZipCode() {
       <input
         type="submit"
         value="Filter By Zip"
+        onSubmit={handleSearch}
 
         onChange={(e) => {
           handleSearch()

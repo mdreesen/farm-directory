@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import CardsFarmers from '@/app/ui/dashboard/cardsFarmers';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import Search from '@/app/ui/search/Search';
-import { searchFarmers } from '@/app/lib/data';
+import { searchFarmers } from '@/app/lib/search/SearchFarmers';
 
 export default async function Page({
   searchParams,
