@@ -1,5 +1,5 @@
 import FarmerCard from '@/app/ui/farmer/FarmerCard';
-import { fetchFarmers } from '@/app/lib/data';
+import { fetchFarmers } from '@/app/lib/farmerSearch/data';
 import styles from '@/app/styles/Farmer.module.css';
 
 

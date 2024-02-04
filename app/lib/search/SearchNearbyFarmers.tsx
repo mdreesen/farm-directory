@@ -4,23 +4,9 @@ import Contact from '@/app/(models)/Contact';
 import { unstable_noStore as noStore } from 'next/cache';
 import { Location } from '@/app/lib/locationServices/Location';
 
-export async function searchNearbyFarmers() {
+export async function searchNearbyFarmers(data: any) {
     noStore();
 
-    console.log(Location())
-    // try {
-    //     const farmers = await Farmer.find(
-    //         {
-    //             $text: {
-    //                 $search: query,
-    //                 $caseSensitive: false,
-    //                 $diacriticSensitive: false
-    //             },
-    //         }
-    //     )
-    //     return farmers
-    // } catch (error) {
-    //     console.log(error)
-    //     return error
-    // }
+    console.log('YUMMY YUMMY ADDRESS TUMMY', data)
+
 };

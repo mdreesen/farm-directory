@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import { fetchSingleFarmer } from '@/app/lib/data';
+import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
 import FarmerUpdate from '../buttons/farmerUpdate';
 
 export default async function FarmerDetails(data: any) {

@@ -2,6 +2,7 @@ import Farmer from '@/app/(models)/Farmer';
 
 export async function filterFarmerProducts(farmer: any, productTitle: string) {
     const category = [productTitle];
+    // console.log('lkjsdfljsfljsdf', farmer)
     const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {
             case item?.product_one_title?.includes(category):
@@ -21,24 +22,4 @@ export async function filterFarmerProducts(farmer: any, productTitle: string) {
     });
 
     return filtering;
-
-    // try {
-    //     const farmers = await Farmer.find(
-    //         {
-    //             $text: {
-    //                 $search: query,
-    //                 $caseSensitive: false,
-    //                 $diacriticSensitive: false
-    //             },
-    //         }
-    //     )
-    //     console.log(farmers)
-
-    //     const content = farmers.length > 0 ? farmers : filtering;
-    //     console.log(content)
-    //     return filtering
-    // } catch (error) {
-    //     console.log(error)
-    //     return error
-    // }
 };

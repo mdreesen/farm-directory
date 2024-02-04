@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { fetchContacts } from '@/app/lib/data';
+import { fetchContacts } from '@/app/lib/farmerSearch/data';
 
 export default async function CardContact() {
 

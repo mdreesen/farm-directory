@@ -16,3 +16,41 @@ export async function radarReverseCoordinates(latitude: string, longitude: strin
         return error
     }
 };
+
+export async function radarIPCoordinates() {
+    // For the Lat and Long formatting in params:
+    // latitude,longitude
+
+    try {
+        const res = await fetch(`https://api.radar.io/v1/geocode/ip`, {
+            method: "GET",
+            headers: {
+                'Authorization': 'prj_test_pk_8e63651fe1018faea3061e36c07f050b465922da',
+                "Content-Type": "application/json"
+            },
+        })
+        return res.json();
+    } catch (error) {
+        console.log(error);
+        return error
+    }
+};
+
+export async function radarForwardCoordinates() {
+    
+
+    try {
+        const res = await fetch(`https://api.radar.io/v1/geocode/forward?query=20+jay+st+brooklyn+ny`, {
+            method: "GET",
+            headers: {
+                'Authorization': 'prj_test_pk_8e63651fe1018faea3061e36c07f050b465922da',
+                "Content-Type": "application/json"
+            },
+        });
+        const result = res.json();
+        return res.json();
+    } catch (error) {
+        console.log(error);
+        return error
+    }
+};

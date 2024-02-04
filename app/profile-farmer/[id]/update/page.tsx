@@ -3,7 +3,7 @@ import styles from '@/app/styles/FarmerDetails.module.css';
 import { UpdateFarmerForm } from '@/app/ui/forms/UpdateFarmerForm';
 import { Suspense } from 'react';
 
-import { fetchSingleFarmerByEmail } from '@/app/lib/data';
+import { fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function Page() {

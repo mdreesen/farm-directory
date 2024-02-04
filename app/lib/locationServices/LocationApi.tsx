@@ -39,3 +39,15 @@ export async function getLocation() {
     console.log('Watch location', watchLocation);
     return  { location, watchLocation }
 };
+
+
+export async function ipifyAPI() {
+    try {
+        const res = await fetch('http://ip.jsontest.com/');
+        return res.json()
+    } catch(error) {
+        console.log(error);
+        return  error;
+    }
+
+};
