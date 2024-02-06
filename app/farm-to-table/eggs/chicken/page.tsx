@@ -10,13 +10,21 @@ export const metadata: Metadata = {
   title: 'Chicken Eggs Farm To Table',
 }
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || '';
 
   return (
     <>
       <div className={styles['container']}>
         <Suspense fallback={<CardsSkeleton />}>
-          <CategoryPage categoryName={'Chicken Eggs'} />
+          <CategoryPage categoryName={'Chicken Eggs'} query={query ?? ''} />
         </Suspense>
       </div>
     </>

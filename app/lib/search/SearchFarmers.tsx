@@ -6,6 +6,8 @@ import { unstable_noStore as noStore } from 'next/cache';
 export async function searchFarmers(query: any) {
     noStore();
 
+    const allFarmers = await Farmer.find();
+
     try {
         const farmers = await Farmer.find(
             {
@@ -16,7 +18,7 @@ export async function searchFarmers(query: any) {
                 },
             }
         )
-        return farmers
+        return farmers.length > 0 ? farmers : allFarmers
     } catch (error) {
         console.log(error)
         return error

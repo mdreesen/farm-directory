@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import CardsFarmers from '@/app/ui/dashboard/cardsFarmers';
+import CardsFarmers from '@/app/ui/cardsFarmers';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import Search from '@/app/ui/search/Search';
 import { searchFarmers } from '@/app/lib/search/SearchFarmers';
