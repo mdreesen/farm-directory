@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 // Importing Components
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import CategoryPage from '@/app/ui/category/CategoryPage';
+import SearchFilter from '@/app/ui/search/SearchFilter';
 
 export const metadata: Metadata = {
   title: 'Chicken Eggs Farm To Table',
@@ -18,13 +19,14 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query || '';
+  const query = searchParams?.query;
 
   return (
     <>
       <div className={styles['container']}>
+        <SearchFilter />
         <Suspense fallback={<CardsSkeleton />}>
-          <CategoryPage categoryName={'Chicken Eggs'} query={query ?? ''} />
+          <CategoryPage categoryName={'Chicken Eggs'} query={query} />
         </Suspense>
       </div>
     </>

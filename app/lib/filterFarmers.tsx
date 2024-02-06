@@ -19,13 +19,13 @@ export async function filterFarmerProducts(farmer: any, productTitle: string) {
         };
     });
 
-    return filtering;
+    return filtering ?? [];
+    return []
 };
 
 
 
 export async function filterFarmerByLocationProducts(farmer: any, productTitle: string) {
-    console.log(farmer)
     const filtering = await filterFarmerProducts(farmer, productTitle);
 
     try {

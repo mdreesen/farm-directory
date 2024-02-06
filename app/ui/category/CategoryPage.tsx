@@ -2,7 +2,6 @@ import { filterFarmerProducts } from '@/app/lib/filterFarmers';
 import { searchFarmers } from '@/app/lib/search/SearchFarmers';
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
 import CardsFarmers from '../cardsFarmers';
-import CustomSearch from '../search/CustomSearch';
 
 export default async function CategoryPage({
     categoryName,
@@ -12,17 +11,14 @@ export default async function CategoryPage({
     query?: string
 }) {
 
-    const searchForFarmers = await searchFarmers(query);
+    const searchForFarmers = await searchFarmers(query) ?? [];
 
-    const farmerCategory = await filterFarmerProducts(searchForFarmers, categoryName);
+    const farmerCategory = await filterFarmerProducts(searchForFarmers, categoryName) ?? [];
 
     if (farmerCategory?.length === 0) return <NoFarmer />
 
     return (
         <>
-            <div className='px-8'>
-                <CustomSearch />
-            </div>
             <CardsFarmers searchFarmer={farmerCategory} />
         </>
     )
