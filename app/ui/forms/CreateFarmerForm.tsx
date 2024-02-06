@@ -170,7 +170,7 @@ export const CreateFarmerForm = () => {
                 name="email"
                 type="text"
                 onChange={handleChange}
-                value={formData?.email.trim()}
+                value={formData?.email.trim().toLowerCase()}
                 required
             />
             <FormValidation data={formData?.email} />
