@@ -1,8 +1,4 @@
-'use client';
-import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from 'next/navigation';
-import { useDebouncedCallback } from 'use-debounce';
-import { searchNearbyFarmers } from '@/app/lib/search/SearchNearbyFarmers';
+'use client'
 
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
@@ -10,13 +6,11 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 export default function SearchZipCode() {
 
   // URLSearchParams is a Web API that provides utility methods for manipulating the URL query parameters.
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  // const searchParams = useSearchParams();
+  // const pathname = usePathname();
+  // const { replace } = useRouter();
 
   const handleSearch = async () => {
-    const searchFarmers = await searchNearbyFarmers();
-    console.log(searchFarmers)
 
 
     // const zipCode = await getZip();
@@ -30,10 +24,6 @@ export default function SearchZipCode() {
         type="submit"
         value="Filter By Zip"
         onSubmit={handleSearch}
-
-        onChange={(e) => {
-          handleSearch()
-        }}
         // defaultValue={searchParams.get('query')?.toString()}
         className="peer block w-full border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
       />
