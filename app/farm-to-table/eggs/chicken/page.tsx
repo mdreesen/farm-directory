@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 // Importing Components
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import CategoryPage from '@/app/ui/category/CategoryPage';
-import SearchFilter from '@/app/ui/search/SearchFilter';
+import WrapperLocation from '@/app/WrapperSearch';
 
 export const metadata: Metadata = {
   title: 'Chicken Eggs Farm To Table',
@@ -19,15 +19,16 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query;
+  const query = searchParams?.query || 'all';
 
   return (
     <>
       <div className={styles['container']}>
-        <SearchFilter />
-        <Suspense fallback={<CardsSkeleton />}>
-          <CategoryPage categoryName={'Chicken Eggs'} query={query} />
-        </Suspense>
+        <WrapperLocation>
+          <Suspense fallback={<CardsSkeleton />}>
+            <CategoryPage categoryName={'Chicken Eggs'} query={query} />
+          </Suspense>
+        </WrapperLocation>
       </div>
     </>
   );
