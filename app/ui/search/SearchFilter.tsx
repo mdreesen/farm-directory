@@ -30,7 +30,6 @@ export default function SearchFilter() {
         const { value, checked, name } = e.target;
         const queryValue = checked ? value : 'all';
         setIsFilterUsed(checked)
-        console.log(queryValue)
 
 
         const checkingBoxes = !value ? false : true
