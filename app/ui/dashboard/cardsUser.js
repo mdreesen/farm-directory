@@ -3,7 +3,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 
-import { fetchUsers } from '@/app/lib/data';
+import { fetchUsers } from '@/app/lib/farmerSearch/data';
 
 export default async function CardsUser() {
 

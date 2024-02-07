@@ -5,19 +5,30 @@ import { Metadata } from 'next';
 // Importing Components
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import CategoryPage from '@/app/ui/category/CategoryPage';
+import WrapperLocation from '@/app/WrapperSearch';
 
 export const metadata: Metadata = {
   title: 'Chicken Eggs Farm To Table',
 }
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || 'all';
 
   return (
     <>
       <div className={styles['container']}>
-        <Suspense fallback={<CardsSkeleton />}>
-          <CategoryPage categoryName={'Chicken Eggs'} />
-        </Suspense>
+        <WrapperLocation>
+          <Suspense fallback={<CardsSkeleton />}>
+            <CategoryPage categoryName={'Chicken Eggs'} query={query} />
+          </Suspense>
+        </WrapperLocation>
       </div>
     </>
   );

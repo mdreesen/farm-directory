@@ -14,6 +14,8 @@ export async function getLocation() {
         console.log('Request Count', reqCount);
         console.log('Permissions Granted: ', permissions?.state === 'granted');
 
+        return {latitude, longitude}
+
     };
     const error = () => {
         console.log('Cannot find position...insert shrug here...');
@@ -28,17 +30,24 @@ export async function getLocation() {
     const location = navigator.geolocation.getCurrentPosition(success, error);
     const watchLocation = navigator.geolocation.watchPosition(success);
     console.log('Navigator Data', navigator)
-    console.log('Permissions', permissions);
+    // console.log('Permissions', permissions);
 
     console.log('Permissions Granted:', permissions?.state === 'granted');
     console.log('Permissions Denied:', permissions?.state === 'denied');
 
     console.log('Current location', location);
     console.log('Watch location', watchLocation);
+    return  { location, watchLocation }
 };
 
 
-export async function getZip(data: string) {
+export async function ipifyAPI() {
+    try {
+        const res = await fetch('http://ip.jsontest.com/');
+        return res.json()
+    } catch(error) {
+        console.log(error);
+        return  error;
+    }
 
-    console.log(data);
 };

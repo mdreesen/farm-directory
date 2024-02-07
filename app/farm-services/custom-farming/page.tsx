@@ -4,19 +4,30 @@ import styles from '@/app/styles/Farmer.module.css';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import { Metadata } from 'next'
 import CategoryPage from '@/app/ui/category/CategoryPage';
+import WrapperLocation from '@/app/WrapperSearch';
 
 export const metadata: Metadata = {
   title: 'Custom Farming Farm Services',
 }
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || 'all';
 
   return (
     <>
       <div className={styles['container']}>
-        <Suspense fallback={<CardsSkeleton />}>
-          <CategoryPage categoryName={'Custom Farming'} />
-        </Suspense>
+        <WrapperLocation>
+          <Suspense fallback={<CardsSkeleton />}>
+            <CategoryPage categoryName={'Custom Farming'} query={query} />
+          </Suspense>
+        </WrapperLocation>
       </div>
     </>
   );

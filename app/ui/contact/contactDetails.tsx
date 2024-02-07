@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import { fetchSingleContact } from '@/app/lib/data';
+import { fetchSingleContact } from '@/app/lib/farmerSearch/data';
 
 export default async function contactDetails(data: any) {
     const contact = await fetchSingleContact(data?.data?.id);

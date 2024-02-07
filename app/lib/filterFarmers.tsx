@@ -1,4 +1,3 @@
-import Farmer from '@/app/(models)/Farmer';
 
 export async function filterFarmerProducts(farmer: any, productTitle: string) {
     const category = [productTitle];
@@ -20,25 +19,24 @@ export async function filterFarmerProducts(farmer: any, productTitle: string) {
         };
     });
 
-    return filtering;
+    return filtering ?? [];
+    return []
+};
 
-    // try {
-    //     const farmers = await Farmer.find(
-    //         {
-    //             $text: {
-    //                 $search: query,
-    //                 $caseSensitive: false,
-    //                 $diacriticSensitive: false
-    //             },
-    //         }
-    //     )
-    //     console.log(farmers)
 
-    //     const content = farmers.length > 0 ? farmers : filtering;
-    //     console.log(content)
-    //     return filtering
-    // } catch (error) {
-    //     console.log(error)
-    //     return error
-    // }
+
+export async function filterFarmerByLocationProducts(farmer: any, productTitle: string) {
+    const filtering = await filterFarmerProducts(farmer, productTitle);
+
+    try {
+        if (typeof window !== 'undefined') {
+            // Perform localStorage action
+          }
+        const filterByState = localStorage.getItem("state") ?? filtering;
+        const isFilteringByState = filtering?.filter((item: { address_state: string | null; }) => item?.address_state === filterByState);
+        return isFilteringByState ?? [];
+
+    } catch(error) {
+        return error
+    }
 };

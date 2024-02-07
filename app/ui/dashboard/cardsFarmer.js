@@ -3,7 +3,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 
-import { fetchFarmers } from '@/app/lib/data';
+import { fetchFarmers } from '@/app/lib/farmerSearch/data';
 
 export default async function CardsFarmer() {
 

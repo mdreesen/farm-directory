@@ -5,7 +5,7 @@ import { lusitana } from '@/app/ui/fonts';
 // import { LatestInvoice } from '@/app/lib/definitions';
 
 // Fetch Invoices data
-import { fetchFarmers } from '@/app/lib/data';
+import { fetchFarmers } from '@/app/lib/farmerSearch/data';
 
 export default async function LatestFarmers() {
   const latestFarmers = await fetchFarmers();

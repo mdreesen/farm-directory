@@ -15,26 +15,6 @@ export async function fetchFarmers() {
     }
 };
 
-export async function searchFarmers(query: any) {
-    noStore();
-
-    try {
-        const farmers = await Farmer.find(
-            {
-                $text: {
-                    $search: query,
-                    $caseSensitive: false,
-                    $diacriticSensitive: false
-                },
-            }
-        )
-        return farmers
-    } catch (error) {
-        console.log(error)
-        return error
-    }
-};
-
 export async function fetchSingleFarmer(id: string) {
     noStore()
 

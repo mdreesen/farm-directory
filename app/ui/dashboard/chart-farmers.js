@@ -5,7 +5,7 @@ import { currentYear } from '@/app/lib/date';
 
 
 // Fetching farmers data
-import { fetchFarmers } from '@/app/lib/data';
+import { fetchFarmers } from '@/app/lib/farmerSearch/data';
 import { ReactElement, JSXElementConstructor, ReactNode, PromiseLikeOfReactNode, Key } from 'react';
 
 // This component is representational only.

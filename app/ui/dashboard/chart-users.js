@@ -4,7 +4,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { currentYear } from '@/app/lib/date';
 
 // Fetching farmers data
-import { validUsers } from '@/app/lib/data';
+import { validUsers } from '@/app/lib/farmerSearch/data';
 
 // This component is representational only.
 // For data visualization UI, check out:

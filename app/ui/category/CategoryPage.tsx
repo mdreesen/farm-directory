@@ -1,32 +1,26 @@
-import styles from '@/app/styles/Farmer.module.css';
-import { fetchFarmers } from '@/app/lib/data';
 import { filterFarmerProducts } from '@/app/lib/filterFarmers';
-import FarmerCard from "@/app/ui/farmer/FarmerCard";
+import { searchFarmers } from '@/app/lib/search/SearchFarmers';
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
-import Search from '@/app/ui/search/Search';
-
+import CardsFarmers from '../cardsFarmers';
 
 export default async function CategoryPage({
-    searchParams,
-    categoryName
+    categoryName,
+    query
 }: {
-    searchParams?: {
-        query?: string;
-        page?: string;
-    };
-    categoryName: string
+    categoryName: string,
+    query?: string
 }) {
-    const farmers = await fetchFarmers();
-    const query = searchParams?.query || '';
-    // const totalPages = await searchFarmers(query);
 
-    // const search = totalPages ? totalPages : farmerCategory
+    const searchForFarmers = await searchFarmers(query) ?? [];
 
+    const farmerCategory = await filterFarmerProducts(searchForFarmers, categoryName) ?? [];
 
-    const farmerCategory = await filterFarmerProducts(farmers, categoryName);
-    const categoryFarmers = farmerCategory?.map((item: Object, index: number) => <FarmerCard key={index} farmerData={item} />);
     if (farmerCategory?.length === 0) return <NoFarmer />
 
-    return categoryFarmers
+    return (
+        <>
+            <CardsFarmers searchFarmer={farmerCategory} />
+        </>
+    )
 }
 
