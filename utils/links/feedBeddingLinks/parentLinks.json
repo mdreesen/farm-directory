@@ -4,6 +4,10 @@
         "directTo": "/feed-bedding/hay"
     },
     {
+        "linkName": "Pellets /<br/>Cubes",
+        "directTo": "/feed-bedding/pellets-cubes"
+    },
+    {
         "linkName": "Straw",
         "directTo": "/feed-bedding/straw"
     }

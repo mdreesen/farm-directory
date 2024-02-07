@@ -21,10 +21,13 @@ export function Categories() {
       <option value="Other Eggs">Eggs Other</option>
 
       <option value="Kitchen Goods">Kitchen Goods</option>
-
+      <option value="Honey">Honey</option>
       <option value="Milk/Dairy">Milk/Dairy</option>
 
-      <option value="Fruits/Vegetables">Fruits/Vegetables</option>
+      <option value="Hops">Hops</option>
+      <option value="Winery">Winery</option>
+
+      <option value="Vegetables/CSA">Vegetables/CSA</option>
 
       <option value="Other Farm To Table">Farm To Table Other</option>
     </>
@@ -51,22 +54,20 @@ export function Categories() {
     </>
   );
 
-  const hay = (
+  const feedBedding = (
     <>
-      <option value="Alfalfa/Grass Hay">Hay Alfalfa/Grass</option>
-      <option value="Alfalfa Hay">Hay Alfalfa</option>
-      <option value="Grass Hay">Hay Grass</option>
-      <option value="Other Hay">Hay Other</option>
-    </>
-  );
+      <option value="Alfalfa/Grass Hay">Feed/Bedding Alfalfa/Grass</option>
+      <option value="Alfalfa Hay">Feed/Bedding Alfalfa</option>
+      <option value="Grass Hay">Feed/Bedding Grass</option>
+      <option value="Other Hay">Feed/Bedding Other</option>
 
-  const straw = (
-    <>
-      <option value="Barley Straw">Straw Barley</option>
-      <option value="Wheat Straw">Straw Wheat</option>
-      <option value="Other Straw">Straw Other</option>
+      <option value="Pellets/Cubes">Feed/Bedding Pellets/Cubes</option>
+
+      <option value="Barley Straw">Feed/Bedding Barley</option>
+      <option value="Wheat Straw">Feed/Bedding Wheat</option>
+      <option value="Other Straw">Feed/Bedding Other</option>
     </>
-  );
+  )
 
   const liveAnimals = (
     <>
@@ -86,20 +87,31 @@ export function Categories() {
 
   const agritourism = (
     <>
-      <option value="Stores/Markets">Agritourism Stores/Markets</option>
+      <option value="You Pick">Agritourism You Pick</option>
       <option value="Farm Events">Agritourism Farm Events</option>
+      <option value="Flowers">Agritourism Flowers</option>
+      <option value="Tasting Rooms">Agritourism Tasting Rooms</option>
+      <option value="Farm Venues For Rent">Agritourism Farm Venues For Rent</option>
+    </>
+  );
+
+  const stores = (
+    <>
+      <option value="Farm Stands">Stores Farm Stands</option>
+      <option value="Farm Stores">Stores Farm Stores</option>
+      <option value="Farmers Markets">Stores Farmers Markets</option>
     </>
   );
 
   return (
     <>
       <option value={""}>Please Select Product</option>
-      {hay}
       {liveAnimals}
       {farmToTable}
       {farmServices}
-      {straw}
+      {feedBedding}
       {agritourism}
+      {stores}
     </>
   );
 }

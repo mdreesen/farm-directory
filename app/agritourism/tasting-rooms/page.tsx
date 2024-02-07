@@ -7,7 +7,7 @@ import CategoryPage from '@/app/ui/category/CategoryPage';
 import WrapperLocation from '@/app/WrapperSearch';
 
 export const metadata: Metadata = {
-  title: 'Stores | Markets Agritourism',
+  title: 'Tasting Rooms | Agritourism',
 }
 
 export default async function Page({
@@ -25,7 +25,7 @@ export default async function Page({
       <div className={styles['container']}>
         <WrapperLocation>
           <Suspense fallback={<CardsSkeleton />}>
-            <CategoryPage categoryName={'Stores/Markets'} query={query} />
+            <CategoryPage categoryName={'Tasting Rooms'} query={query} />
           </Suspense>
         </WrapperLocation>
       </div>
