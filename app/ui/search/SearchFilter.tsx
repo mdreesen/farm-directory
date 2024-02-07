@@ -19,7 +19,7 @@ export default function SearchFilter() {
     const [isZipStorageItem, setIsZipStorageItem] = useState('');
     const [isCityStorageItem, setIsCityStorageItem] = useState('');
     const [isFilterUsed, setIsFilterUsed] = useState();
-
+    const [isChecked, setChecked] = useState(Boolean);
 
     const searchParams = useSearchParams();
     const pathname = usePathname();
@@ -31,6 +31,10 @@ export default function SearchFilter() {
         const queryValue = checked ? value : 'all';
         setIsFilterUsed(checked)
         console.log(queryValue)
+
+
+        const checkingBoxes = !value ? false : true
+        setChecked(checkingBoxes);
 
         // Setting Params for searching
         const params = new URLSearchParams(searchParams);
@@ -62,7 +66,6 @@ export default function SearchFilter() {
 
     // Using useEffect here for localStorage items
     useEffect(() => {
-
         // Get the value from local storage if it exists
         const stateStorageItem = localStorage.getItem("state") ?? "";
         const zipStorageItem = localStorage.getItem("postalCode") ?? "";
@@ -70,21 +73,22 @@ export default function SearchFilter() {
 
         setIsStateStorageItem(stateStorageItem);
         setIsZipStorageItem(zipStorageItem);
-        setIsCityStorageItem(cityStorageItem)
+        setIsCityStorageItem(cityStorageItem);
+
     }, []);
 
     const searchFilterData = [
-        { 'name': 'State', 'id': 'state', 'type': 'checkbox', 'onChange': handleChange, 'value': isStateStorageItem },
-        { 'name': 'Zip Code', 'id': 'zip_code', 'type': 'checkbox', 'onChange': handleChange, 'value': isZipStorageItem },
-        { 'name': 'City', 'id': 'city', 'type': 'checkbox', 'onChange': handleChange, 'value': isCityStorageItem },
+        { 'title': 'State', 'name': 'option', 'id': 'state', 'type': 'checkbox', 'onChange': handleChange, 'value': isStateStorageItem },
+        { 'title': 'Zip Code', 'name': 'option', 'id': 'zip_code', 'type': 'checkbox', 'onChange': handleChange, 'value': isZipStorageItem },
+        { 'title': 'City', 'name': 'option', 'id': 'city', 'type': 'checkbox', 'onChange': handleChange, 'value': isCityStorageItem },
     ]
 
     const searchFilterElement = searchFilterData.map((item, index) => (
-        <li className="flex items-center" key={`${item?.name}-${index}`}>
-            <input id={item?.id} type={item?.type} name={item?.id} onChange={item?.onChange} value={item?.value} className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
-
+        <li className="flex items-center" key={`${item?.title}-${index}`}>
+            <input id={item?.id} type={item?.type} name={item?.name} onChange={item?.onChange} value={item?.value} className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
+ 
             <span className="ml-2 text-sm font-medium text-gray-900">
-                {item?.name}
+                {item?.title}
             </span>
         </li>
     ));
@@ -92,7 +96,7 @@ export default function SearchFilter() {
     return (
         <div className="flex flex-col items-center justify-center p-4">
             <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center`} type="button" onClick={handleDropdown}>
-                {isFilterUsed ? <span className='text-2xl text-red-500'>☑ </span> : ''} Filter category by
+                {isFilterUsed ? <span className='absolute -ml-5 text-2xl text-red-500'>☑ </span> : ''} Filter category by
                 <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
