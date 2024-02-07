@@ -1,12 +1,13 @@
 import { radarReverseCoordinates } from "./radarApi";
 
 export async function Location() {
+    console.log('Getting ready')
 
     const success = async (position: any) => {
         const { latitude, longitude } = position?.coords;
-        const localStorageState = localStorage.getItem("state");
+        const localStorageLocationEnabled = localStorage.getItem("Location Enabled");
 
-        if (!localStorageState) {
+        if (!localStorageLocationEnabled) {
             const userLocation = await radarReverseCoordinates(latitude, longitude);
 
             const isUserLocation = userLocation?.addresses?.find((address: any) => address);
@@ -15,11 +16,13 @@ export async function Location() {
             localStorage?.setItem('county', county);
             localStorage?.setItem('postalCode', postalCode);
             localStorage?.setItem('state', state);
+            localStorage?.setItem('Location Enabled', 'true');
         }
     };
 
     const error = () => {
         console.log('Cannot find position...insert shrug here...');
+        localStorage?.setItem('Location Enabled', 'false');
         return 'Cannot find position'
     };
 
