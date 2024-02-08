@@ -24,8 +24,7 @@ export default async function Page({
     <>
       <div className={styles['container']}>
         <WrapperLocation>
-          <Search/>
-            <CategoryPage categoryName={'Chicken Eggs'} query={query} />
+          <CategoryPage categoryName={'Chicken Eggs'} query={query} />
         </WrapperLocation>
       </div>
     </>

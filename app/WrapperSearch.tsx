@@ -5,6 +5,7 @@ import styles from '@/app/styles/Page.module.css';
 
 // Importing Components
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
+import Search from './ui/search/Search';
 
 export default async function RootLayout({
     children,
@@ -15,6 +16,7 @@ export default async function RootLayout({
 
     return (
         <div className={styles['container']}>
+            <SearchFilter />
             <Suspense fallback={<CardsSkeleton />}>
                 {children}
             </Suspense>
