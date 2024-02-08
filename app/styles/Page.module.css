@@ -1,10 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  /* row-gap: 4rem; */
   padding: 8% 0;
   min-height: 100vh;
   align-items: center;
+  row-gap: 1rem;
 }
 
 .no-data {
@@ -16,9 +16,9 @@
   .container {
     display: flex;
     flex-direction: column;
-    /* row-gap: 4rem; */
-    padding: 2rem 0 7rem 0;
+    padding: 2rem 0 10rem 0;
     min-height: 100vh;
     align-items: center;
+    row-gap: 1rem;
   }
 }

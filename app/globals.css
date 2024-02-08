@@ -75,7 +75,7 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   text-align: center;
-  color: white;
+  color: ghostwhite;
 }
 
 p {
@@ -102,7 +102,7 @@ body {
 }
 
 label {
-  color: white;
+  color: ghostwhite;
   padding-top: 1rem;
 }
 
@@ -110,7 +110,7 @@ input {
   background: transparent;
   border-style: none;
   border-bottom: solid;
-  color: white;
+  color: ghostwhite;
 }
 
 @media only screen and (max-width: 630px) {

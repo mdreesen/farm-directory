@@ -22,7 +22,7 @@ export default async function FarmerCard(farmerData: any) {
         //     object-fit="cover"
         //     alt="Picture of the author"
         // />
-        <h2 className="flex w-[14rem] justify-center items-center text-gray-900 font-bold p-4">{data?.farm_name}</h2>
+        <h2 className="flex w-[14rem] lg:w-full lg:h-32 text-yellow-400 font-extrabold justify-center items-center text-white font-bold p-4">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
@@ -46,9 +46,9 @@ export default async function FarmerCard(farmerData: any) {
 
     return (
         <WrapperFarmerCard>
-            <div className={`${styles['card']} max-w-sm lg:max-w-full lg:flex justify-center`}>
+            <div className={`${styles['card']} flex flex-col max-w-sm lg:max-w-full justify-center`}>
                 {farmLogo}
-                <div className="border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal lg:w-[32rem]">
+                <div className={`${styles['details']} rounded-lg border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b p-4 flex flex-col justify-between leading-normal lg:w-[32rem]`}>
                     {/* <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div> */}
                     {farmerDetail}
                     <div className='flex w-full justify-center mb-2'>
