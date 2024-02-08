@@ -22,7 +22,7 @@ export default async function FarmerCard(farmerData: any) {
         //     object-fit="cover"
         //     alt="Picture of the author"
         // />
-        <h2 className="flex w-[14rem] lg:w-full lg:h-32 text-yellow-400 justify-center items-center text-white font-bold p-4">{data?.farm_name}</h2>
+        <h2 className="flex w-[14rem] lg:w-full lg:h-32 text-yellow-400 justify-center items-center text-white p-4">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
