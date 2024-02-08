@@ -1,4 +1,5 @@
 import SearchFilter from '@/app/ui/search/SearchFilter';
+import styles from '@/app/styles/Page.module.css'
 
 export default async function RootLayout({
     children,
@@ -8,9 +9,9 @@ export default async function RootLayout({
 }) {
 
     return (
-        <>
+        <div className={styles['container']}>
             <SearchFilter />
             {children}
-        </>
+        </div>
     );
 };
