@@ -92,8 +92,9 @@
   }
 
   .closed {
-    transition-delay: 3s;
+    transition-delay: 2s;
 display: hidden;
     z-index: 0;
+    width: 5px;
   }
 }
