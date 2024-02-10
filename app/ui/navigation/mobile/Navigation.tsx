@@ -13,39 +13,40 @@ const variants = {
   }
 };
 
-const itemIds = [
-  {
-    linkName: "Home",
-    goTo: "/"
-  },
-  {
-    linkName: "Farm To Table",
-    goTo: "/farm-to-table"
-  },
-  {
-    linkName: "Live Animals",
-    goTo: "/live-animals"
-
-  },
-  {
-    linkName: "Feed/Bedding",
-    goTo: "/feed-bedding"
-  },
-  {
-    linkName: "Agritourism",
-    goTo: "/agritourism"
-  },
-  {
-    linkName: "Farm Services",
-    goTo: "/farm-services"
-  },
-  {
-    linkName: "Sign Up",
-    goTo: "/authentication/signup"
-  },
-]
-
 export const Navigation = (toggleOpen: any) => {
+
+  const itemIds = [
+    {
+      linkName: "Home",
+      goTo: "/"
+    },
+    {
+      linkName: "Farm To Table",
+      goTo: "/farm-to-table"
+    },
+    {
+      linkName: "Live Animals",
+      goTo: "/live-animals"
+  
+    },
+    {
+      linkName: "Feed/Bedding",
+      goTo: "/feed-bedding"
+    },
+    {
+      linkName: "Agritourism",
+      goTo: "/agritourism"
+    },
+    {
+      linkName: "Farm Services",
+      goTo: "/farm-services"
+    },
+    {
+      linkName: "Sign Up",
+      goTo: "/authentication/signup"
+    },
+  ]
+
   const items = itemIds.map((data, i) => <MenuItem isOpen={toggleOpen} data={data} i={i} key={i} />)
 
   return (
