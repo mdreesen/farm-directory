@@ -33,7 +33,7 @@ export const MobileNavigation = () => {
   const { height } = useDimensions(containerRef);
 
   const background = <motion.div className={`${styles["background"]}`} variants={sidebar} />;
-  const navigation = <div onClick={() => toggleOpen()} className={`${!isOpen ? 'display: hidden' : ''}`}><Navigation isOpen={toggleOpen} /></div>
+  const navigation = <div onClick={() => toggleOpen()} className={`${!isOpen ? `${styles['closed']}` : ''}`}><Navigation isOpen={toggleOpen} /></div>
 
   return (
     <motion.nav
@@ -45,7 +45,7 @@ export const MobileNavigation = () => {
     >
       {background}
       {navigation}
-      <MenuToggle toggle={() => toggleOpen()} />
+      <MenuToggle toggle={() => toggleOpen()}  />
     </motion.nav>
   );
 };

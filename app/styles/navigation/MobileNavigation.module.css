@@ -93,8 +93,15 @@
 
   .closed {
     transition-delay: 2s;
-display: hidden;
     z-index: 0;
     width: 5px;
+  }
+
+  .closed > .ul {
+    transition: opacity 1s ease-out;
+    transition-delay: 2s;
+    z-index: 0;
+    width: 0px;
+    display: none;
   }
 }

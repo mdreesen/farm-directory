@@ -13,7 +13,10 @@ export default function LogoutButtonUser() {
       cache: 'no-store',
     });
 
-    if (!res.ok) throw new Error("Failed to update Farmer");
+    const result = await res.json();
+    console.log(result)
+
+    if (!res.ok) throw new Error("Failed to logout");
     router.refresh();
     router.push('/')
   };
@@ -22,7 +25,7 @@ export default function LogoutButtonUser() {
   return (
     <a href='/'>
       <div className={`${styles['link']}`}>
-        <button onClick={handleLogout} >
+        <button onClick={handleLogout}>
           <div >Logout</div>
         </button>
       </div>

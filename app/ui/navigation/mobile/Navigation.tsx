@@ -38,7 +38,11 @@ const itemIds = [
   {
     linkName: "Farm Services",
     goTo: "/farm-services"
-  }
+  },
+  {
+    linkName: "Sign Up",
+    goTo: "/authentication/signup"
+  },
 ]
 
 export const Navigation = (toggleOpen: any) => {
