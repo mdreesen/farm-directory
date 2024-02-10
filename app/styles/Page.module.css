@@ -1,10 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 8% 0;
+  /* padding: 8% 0; */
   min-height: 100vh;
   align-items: center;
   row-gap: 1rem;
+  z-index: 1010;
 }
 
 .no-data {
@@ -14,11 +15,6 @@
 
 @media only screen and (max-width: 630px) {
   .container {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 0 10rem 0;
-    min-height: 100vh;
-    align-items: center;
-    row-gap: 1rem;
+    padding: 4rem 0;
   }
 }

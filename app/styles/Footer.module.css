@@ -5,6 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+  z-index: 20;
 
   /* bottom: 0;
   position: absolute; */
@@ -17,7 +19,7 @@
   align-items: center;
 }
 
-@media only screen and (max-width: 630px) {
+/* @media only screen and (max-width: 630px) {
   .container {
     height: 5rem;
     width: 100%;
@@ -28,4 +30,4 @@
     position: relative;
     top: -103px;
   }
-}
+} */

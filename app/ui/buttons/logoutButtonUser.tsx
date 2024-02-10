@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from "next/navigation";
-import styles from '@/app/styles/Navigation.module.css';
+import styles from '@/app/styles/navigation/Navigation.module.css';
 
 
 export default function LogoutButtonUser() {

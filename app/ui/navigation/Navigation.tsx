@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '@/app/styles/Navigation.module.css';
+import styles from '@/app/styles/navigation/Navigation.module.css';
 import LogoutButtonUser from '@/app/ui/buttons/logoutButtonUser';
 import {loggedInUserData} from '@/app/lib/cookieData';
 

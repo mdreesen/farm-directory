@@ -5,7 +5,6 @@ import styles from '@/app/styles/Page.module.css';
 
 // Importing Components
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
-import Search from './ui/search/Search';
 
 export default async function RootLayout({
     children,

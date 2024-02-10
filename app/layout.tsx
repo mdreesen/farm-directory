@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 // Components
 import Navigation from "@/app/ui/navigation/Navigation";
-import MobileNavigation from './ui/navigation/MobileNavigation';
+import { MobileNavigation } from './ui/navigation/mobile/MobileNavigation';
 import { Footer } from "@/app/ui/Footer";
 
 export const metadata: Metadata = {
