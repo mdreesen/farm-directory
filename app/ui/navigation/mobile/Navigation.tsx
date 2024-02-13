@@ -3,6 +3,10 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import styles from '@/app/styles/navigation/MobileNavigation.module.css';
+import { getSession, useSession } from "next-auth/react";
+
+import loggedOutLinks from '../loggedOutLinks.json';
+import loggedInLinks from '../loggedInLinks.json';
 
 const variants = {
   open: {
@@ -14,40 +18,15 @@ const variants = {
 };
 
 export const Navigation = (toggleOpen: any) => {
+  // const isSession = await getSession()
+  // console.log(isSession)
 
-  const itemIds = [
-    {
-      linkName: "Home",
-      goTo: "/"
-    },
-    {
-      linkName: "Farm To Table",
-      goTo: "/farm-to-table"
-    },
-    {
-      linkName: "Live Animals",
-      goTo: "/live-animals"
-  
-    },
-    {
-      linkName: "Feed/Bedding",
-      goTo: "/feed-bedding"
-    },
-    {
-      linkName: "Agritourism",
-      goTo: "/agritourism"
-    },
-    {
-      linkName: "Farm Services",
-      goTo: "/farm-services"
-    },
-    {
-      linkName: "Sign Up",
-      goTo: "/authentication/signup"
-    },
-  ]
+  const { data: session, status } = useSession();
+  console.log('session user', session, status)
 
-  const items = itemIds.map((data, i) => <MenuItem isOpen={toggleOpen} data={data} i={i} key={i} />)
+  const itemIds = session ? loggedInLinks : loggedOutLinks;
+
+  const items = itemIds.map((data, i) => <MenuItem isOpen={toggleOpen} data={data} i={i} key={i} />);
 
   return (
     <motion.ul className={styles['ul']} variants={variants}>

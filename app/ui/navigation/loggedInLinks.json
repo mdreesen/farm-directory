@@ -1,0 +1,31 @@
+[
+    {
+      "linkName": "Home",
+      "goTo": "/"
+    },
+    {
+      "linkName": "Farm To Table",
+      "goTo": "/farm-to-table"
+    },
+    {
+      "linkName": "Live Animals",
+      "goTo": "/live-animals"
+  
+    },
+    {
+      "linkName": "Feed/Bedding",
+      "goTo": "/feed-bedding"
+    },
+    {
+      "linkName": "Agritourism",
+      "goTo": "/agritourism"
+    },
+    {
+      "linkName": "Farm Services",
+      "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Sign Out",
+      "goTo": "/"
+    }
+  ]
