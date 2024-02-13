@@ -25,10 +25,6 @@
       "goTo": "/farm-services"
     },
     {
-      "linkName": "Dashboard",
-      "goTo": "/admin/dashboard"
-    },
-    {
       "linkName": "Sign Out",
       "goTo": "/"
     }

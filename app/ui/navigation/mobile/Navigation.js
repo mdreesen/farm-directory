@@ -20,7 +20,6 @@ const variants = {
 
 export const Navigation = (toggleOpen) => {
   const { data: session, status } = useSession();
-  console.log('session user', session, session?.user?.isAdmin)
 
   // const itemIds = session ? loggedInLinks : loggedOutLinks;
   const navItems = () => {
