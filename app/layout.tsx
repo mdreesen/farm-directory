@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { getServerSession } from "next-auth"
+import { getServerSession } from 'next-auth';
 
-import SessionProvider from '@/app/lib/session/SessionProvider';
+import Provider from '@/app/lib/session/SessionProvider';
 
 
 // Style Sheets and styles
@@ -51,14 +51,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <SessionProvider session={session}>
+        <Provider session={session}>
           <Navigation />
           <MobileNavigation />
           {children}
           <Analytics />
           <SpeedInsights />
           <Footer />
-        </SessionProvider>
+        </Provider>
       </body>
     </html>
   )
