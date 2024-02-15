@@ -6,19 +6,24 @@ import { useSession, signOut } from "next-auth/react"
 import loggedOutLinks from './loggedOutLinks.json';
 import loggedInLinks from './loggedInLinks.json';
 import adminLinks from './adminLinks.json';
+import farmerLinks from './farmerLinks.json';
 
 export default function Navigation() {
   const { data: session, status } = useSession();
 
   const navItems = () => {
     switch(true) {
+      case session?.user?.isAdmin:
+        return loggedInLinks
+        break;
+
+    case session?.user?.isFarmer:
+      return farmerLinks
+      break;
+  
       case session?.user?.id:
         return loggedInLinks;
         break
-
-      case session?.user?.isAdmin:
-        return adminLinks
-        break;
 
       default:
         return loggedOutLinks
@@ -33,6 +38,7 @@ export default function Navigation() {
   return (
     <div className={styles['container']}>
       {links}
+      {session?.user?.isFarmer && <Link href={`/profile-farmer/${session?.user?.id?.toString()}`} className={styles['link']}>Profile</Link>}
     </div>
   );
 }

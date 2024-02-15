@@ -51,7 +51,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <Provider session={session}>
+        <Provider session={session} refetchInterval={5 * 60}>
           <Navigation />
           <MobileNavigation />
           {children}

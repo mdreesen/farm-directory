@@ -4,6 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import User from "@/app/(models)/User";
 import connect from "@/app/lib/db";
+import { cookies } from "next/headers";
 
 
 export interface IUser {
@@ -62,6 +63,18 @@ export const authOptions: NextAuthOptions = {
       },
       session: async ({ session, token, user }: any) => {
           // Pass in custom attributes to the session
+          console.log(token)
+        cookies().set({
+          name: `${process.env.COOKIE_KEY}`,
+          value: token.id,
+          httpOnly: true,
+        })
+        cookies().set({
+          name: `${process.env.COOKIE_EMAIL}`,
+          value: token.email,
+          httpOnly: true,
+        })
+
           return {
             ...session,
             user: {

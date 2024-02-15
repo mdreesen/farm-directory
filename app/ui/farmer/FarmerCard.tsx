@@ -3,7 +3,6 @@ import styles from '@/app/styles/FarmerCard.module.css';
 import Link from 'next/link';
 import Image from 'next/image'
 import WrapperFarmerCard from '@/app/WrapperFarmerCard';
-import { DeleteButton } from '../dashboard/deleteButton';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
 
@@ -49,7 +48,6 @@ export default async function FarmerCard(farmerData: any) {
             <div className={`${styles['card']} flex flex-col max-w-sm lg:max-w-full justify-center`}>
                 {farmLogo}
                 <div className={`${styles['details']} rounded-lg border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b p-4 flex flex-col justify-between leading-normal lg:w-[32rem]`}>
-                    {/* <div className="flex justify-center text-gray-900 font-bold text-xl mb-2">{data?.farm_name}</div> */}
                     {farmerDetail}
                     <div className='flex w-full justify-center mb-2'>
                         <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>
@@ -65,7 +63,6 @@ export default async function FarmerCard(farmerData: any) {
                         {farmerInfo}
                     </div>
                 </div>
-                {auth?.isAdmin && <DeleteButton data={parse} />}
             </div>
         </WrapperFarmerCard>
     );

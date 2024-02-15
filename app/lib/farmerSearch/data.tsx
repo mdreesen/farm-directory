@@ -2,6 +2,7 @@ import Farmer from '@/app/(models)/Farmer';
 import User from '@/app/(models)/User';
 import Contact from '@/app/(models)/Contact';
 import { unstable_noStore as noStore } from 'next/cache';
+// import connect from "@/app/lib/db";
 
 export async function fetchFarmers() {
     noStore();
@@ -17,21 +18,23 @@ export async function fetchFarmers() {
 
 export async function fetchSingleFarmer(id: string) {
     noStore()
-
-    try {
-        const farmer = await Farmer.findOne({ _id: id });
-        return farmer
-    } catch (error) {
-        console.log(error)
-        return error
+    if (id) {
+        try {
+            const farmer = await Farmer.findOne({ _id: id });
+            return farmer
+        } catch (error) {
+            console.log(error)
+            return error
+        }
     }
 };
 
-export async function fetchSingleFarmerByEmail(email: string) {
+export async function fetchSingleFarmerByEmail(email: any) {
     noStore()
 
     try {
-        const farmer = await Farmer.findOne({ email: email });
+        console.log('email', typeof email)
+        const farmer = await Farmer?.findOne({ email: email });
         return farmer ?? {}
     } catch (error) {
         console.log(error)

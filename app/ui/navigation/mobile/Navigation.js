@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import loggedOutLinks from '../loggedOutLinks.json';
 import loggedInLinks from '../loggedInLinks.json';
 import adminLinks from '../adminLinks.json';
+import farmerLinks from '../farmerLinks.json';
 
 const variants = {
   open: {
@@ -21,16 +22,19 @@ const variants = {
 export const Navigation = (toggleOpen) => {
   const { data: session, status } = useSession();
 
-  // const itemIds = session ? loggedInLinks : loggedOutLinks;
   const navItems = () => {
     switch(true) {
+      case session?.user?.isAdmin:
+        return loggedInLinks
+        break;
+
+    case session?.user?.isFarmer:
+      return farmerLinks
+      break;
+  
       case session?.user?.id:
         return loggedInLinks;
         break
-
-      case session?.user?.isAdmin:
-        return adminLinks
-        break;
 
       default:
         return loggedOutLinks
