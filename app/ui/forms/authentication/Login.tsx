@@ -56,11 +56,6 @@ export default function Login() {
         router.refresh();
         router.push('/');
 
-
-        if (user?.isAdmin === true) {
-            return router.push("/admin/dashboard");
-        }
-
         setTimeout(() => {
             setEnableToast(false);
         }, 6000);

@@ -1,34 +1,30 @@
 'use client';
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from '@/app/styles/navigation/Navigation.module.css';
+import {deleteToken} from '@/app/lib/serverData';
+import ToastApprovedLogin from "@/app/ui/toast/ToastApprovedLogin";
 
 
 export default function LogoutButtonUser() {
   const router = useRouter();
 
-  const handleLogout = async () => {
+  const [isLoading, setIsLoading] = React.useState(false);
 
-    const res = await fetch("/api/Authentication/logout", {
-      method: "GET",
-      cache: 'no-store',
-    });
+  const handler = async () => {
+    const isLoggingOut = await deleteToken();
+    isLoggingOut;
+    setIsLoading(true);
 
-    const result = await res.json();
-    console.log(result)
-
-    if (!res.ok) throw new Error("Failed to logout");
     router.refresh();
-    router.push('/')
-  };
+  }
 
 
   return (
-    <a href='/'>
       <div className={`${styles['link']}`}>
-        <button onClick={handleLogout}>
-          <div >Logout</div>
+        <button >
+          {isLoading ? <span>Logging Out</span> : <div onClick={handler}>Logout</div>}
         </button>
       </div>
-    </a>
   );
 };

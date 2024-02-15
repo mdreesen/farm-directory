@@ -11,7 +11,7 @@ export async function GET() {
         )
         response.cookies.set(`${process.env.COOKIE_KEY}`, "",
         { httpOnly: true, expires: new Date(0)
-        })
+        });
 
         return response;
         

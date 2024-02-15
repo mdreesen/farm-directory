@@ -7,8 +7,8 @@ import { cookies } from 'next/headers'
 // };
   
 export async function deleteToken() {
-    const cookiesList = cookies();
     // const data = cookiesList.get(`${process.env.COOKIE_KEY}`);
+    const deleteCookie = cookies().delete(`${process.env.COOKIE_KEY}`);
 
-    return cookies().delete(`${process.env.COOKIE_KEY}`)
+    return deleteCookie
   }
