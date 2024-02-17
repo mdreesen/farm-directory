@@ -63,7 +63,7 @@ export const authOptions: NextAuthOptions = {
       },
       session: async ({ session, token, user }: any) => {
           // Pass in custom attributes to the session
-          console.log(token)
+          // console.log(token)
         cookies().set({
           name: `${process.env.COOKIE_KEY}`,
           value: token.id,
