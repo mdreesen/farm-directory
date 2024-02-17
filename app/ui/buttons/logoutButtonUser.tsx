@@ -14,7 +14,7 @@ export default function LogoutButtonUser() {
     });
 
     const result = await res.json();
-    console.log(result)
+    // console.log(result)
 
     if (!res.ok) throw new Error("Failed to logout");
     router.refresh();

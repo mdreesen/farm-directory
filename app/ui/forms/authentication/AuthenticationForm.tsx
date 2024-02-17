@@ -63,11 +63,10 @@ export function AuthenticationForm() {
             body: JSON.stringify({ formData }),
         });
 
-        const signUpUserData = await signUpUser.json();
         signUpUser;
 
         router.refresh();
-        router.push("/authentication/login");
+        router.push("/api/auth/signin");
     };
 
     return (

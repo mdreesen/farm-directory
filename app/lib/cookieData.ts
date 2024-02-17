@@ -1,24 +1,8 @@
-import { cookies } from 'next/headers';
-import { jwtDecode } from "jwt-decode";
+'use client'
+import { useSession } from "next-auth/react";
 
-interface JwtPayload {
-    id: string;
-    email: string | undefined,
-    isFarmer: boolean,
-    isAdmin: boolean,
-    iat: number,
-    exp: number
-}
 
-export async function isLoggedIn() {
-    const cookiesList = cookies();
-
-    return cookiesList.has(`${process.env.COOKIE_KEY}`);
-};
-
-export async function loggedInUserData() {
-    const cookiesList = cookies();
-    const data = cookiesList.get(`${process.env.COOKIE_KEY}`);
-    const decode = data && jwtDecode(data?.value ?? '') as JwtPayload;
-    return decode
+export function LoggedInUserData() {
+    const { data: session, status } = useSession();
+    return session
 }
