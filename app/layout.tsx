@@ -6,7 +6,6 @@ import { getServerSession } from 'next-auth';
 
 import Provider from '@/app/lib/session/SessionProvider';
 
-
 // Style Sheets and styles
 import './globals.css';
 import 'radar-sdk-js/dist/radar.css';
