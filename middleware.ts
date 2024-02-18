@@ -10,18 +10,6 @@ export function middleware(request: NextRequest) {
 
   // Get the token from the cookies
   const token = request.cookies.get(`${process.env.COOKIE_KEY}`)?.value || ''
-
-  // Redirect logic based on the path and token presence
-  if(!paths && token) {
-
- // If trying to access a public path with a token, redirect to the home page
-    return NextResponse.redirect(new URL('/', request.nextUrl))
-  }
-
-// If trying to access a protected path without a token, redirect to the login page
-  if (paths && !token) {
-    return NextResponse.redirect(new URL('/authentication/login', request.nextUrl))
-  }
     
 }
 
@@ -30,12 +18,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // '/',
-    '/admin',
-    '/admin/dashboard',
-    '/admin/dashboard/create-farmer',
-    '/admin/dashboard/create-farmer/created-farmer',
-    '/admin/dashboard/contact',
-    '/admin/dashboard/customers',
     // '/profile',
     // '/login',
     // '/signup',
