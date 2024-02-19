@@ -22,7 +22,7 @@ export default function LogoutButtonUser() {
 
   return (
         <button >
-          {isLoading ? <span>Logging Out</span> : <div onClick={handler}>Logout</div>}
+          {!isLoading && <div onClick={handler}>Logout</div>}
         </button>
   );
 };
