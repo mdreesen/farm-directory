@@ -21,10 +21,8 @@ export default function LogoutButtonUser() {
 
 
   return (
-      <div className={`${styles['link']}`}>
         <button >
           {isLoading ? <span>Logging Out</span> : <div onClick={handler}>Logout</div>}
         </button>
-      </div>
   );
 };

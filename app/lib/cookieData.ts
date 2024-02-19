@@ -19,6 +19,9 @@ export async function isLoggedIn() {
 export async function loggedInUserData() {
     const cookiesList = cookies();
     const data = cookiesList.get(`${process.env.COOKIE_KEY}`);
-    const decode = data && jwtDecode(data?.value ?? '') as JwtPayload;
-    return decode
+    if (data) {
+        const decode = data && jwtDecode(data?.value ?? '') as JwtPayload;
+        return decode
+    }
+    return
 }

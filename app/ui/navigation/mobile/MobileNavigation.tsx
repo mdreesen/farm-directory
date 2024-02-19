@@ -28,13 +28,13 @@ const sidebar = {
   }
 };
 
-export const MobileNavigation = () => {
+export const MobileNavigation = (auth: any) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
   const background = <motion.div className={`${styles["background"]} ${!isOpen ? `${styles['closed-background']}` : ''}`} variants={sidebar} />;
-  const navigation = <div onClick={() => toggleOpen()} className={`${!isOpen ? `${styles['closed']}` : ''}`}><Navigation isOpen={toggleOpen} /></div>
+  const navigation = <div onClick={() => toggleOpen()} className={`${!isOpen ? `${styles['closed']}` : ''}`}><Navigation auth={auth?.auth} isOpen={toggleOpen} /></div>
 
   return (
     <motion.nav

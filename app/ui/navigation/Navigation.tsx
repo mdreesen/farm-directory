@@ -11,8 +11,6 @@ import farmerLinks from './farmerLinks.json';
 export default async function Navigation() {
   const auth = await loggedInUserData();
 
-  console.log(auth)
-
   const navItems = () => {
     switch(true) {
       case auth?.isAdmin:
