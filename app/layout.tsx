@@ -2,9 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { getServerSession } from 'next-auth';
-
-import Provider from '@/app/lib/session/SessionProvider';
+import { CookiesProvider } from 'next-client-cookies/server';
+import { loggedInUserData } from '@/app/lib/cookieData';
 
 // Style Sheets and styles
 import './globals.css';
@@ -45,19 +44,17 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const session = await getServerSession()
+  const auth = await loggedInUserData();
 
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <Provider session={session} refetchInterval={5 * 60}>
-          <Navigation />
-          <MobileNavigation />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-          <Footer />
-        </Provider>
+        <Navigation />
+        <MobileNavigation auth={auth} />
+        {children}
+        <Analytics />
+        <SpeedInsights />
+        <Footer />
       </body>
     </html>
   )

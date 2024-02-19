@@ -29,6 +29,6 @@
     },
     {
         "linkName": "Sign In",
-        "goTo": "/api/auth/signin"
+        "goTo": "/authentication/login"
     }
 ]

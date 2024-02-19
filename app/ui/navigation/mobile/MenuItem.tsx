@@ -1,9 +1,8 @@
 'use client'
 import styles from '@/app/styles/navigation/MobileNavigation.module.css';
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useSession, signOut } from "next-auth/react"
-
+import { motion, useCycle } from "framer-motion";
+import LogoutButtonUser from '../../buttons/logoutButtonUser';
 
 const variants = {
   open: {
@@ -26,8 +25,7 @@ const colors = ["#000000", "#BF5D30", "#61603C", "#7A402E", "#2F4D49", "#C2803A"
 
 
 
-export const MenuItem = ({ data, i }) => {
-  const { data: session } = useSession();
+export const MenuItem = ({ data, i }: any) => {
 
 
   const style = { border: `2px solid ${colors[i]}` };
@@ -39,7 +37,7 @@ export const MenuItem = ({ data, i }) => {
       whileTap={{ scale: 0.95 }}
     >
       <div className={styles["icon-placeholder"]} style={style} />
-      {data?.linkName === 'Sign Out' ? <Link className={styles["text-placeholder"]} href={data?.goTo} onClick={() => signOut()}>{data?.linkName}</Link> : <Link className={styles["text-placeholder"]} href={data?.goTo}>{data?.linkName}</Link>}
+      {data?.linkName === "Sign Out" ? <LogoutButtonUser/> : <Link className={styles["text-placeholder"]} href={data?.goTo}>{data?.linkName}</Link>}
     </motion.li>
   );
 };

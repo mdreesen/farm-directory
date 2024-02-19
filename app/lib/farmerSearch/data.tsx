@@ -1,11 +1,7 @@
-'use server'
 import Farmer from '@/app/(models)/Farmer';
 import User from '@/app/(models)/User';
 import Contact from '@/app/(models)/Contact';
 import { unstable_noStore as noStore } from 'next/cache';
-import { getServerSession } from 'next-auth';
-
-// import connect from "@/app/lib/db";
 
 export async function fetchFarmers() {
     noStore();
@@ -21,6 +17,7 @@ export async function fetchFarmers() {
 
 export async function fetchSingleFarmer(id: string) {
     noStore()
+
     try {
         const farmer = await Farmer.findOne({ _id: id });
         return farmer
@@ -30,15 +27,12 @@ export async function fetchSingleFarmer(id: string) {
     }
 };
 
-export async function fetchSingleFarmerByEmail() {
+export async function fetchSingleFarmerByEmail(email: string) {
     noStore()
-    const session = await getServerSession()
 
     try {
-        if (session?.user?.email !== '') {
-            const farmer = await Farmer?.findOne({ email: session?.user?.email });
-            return farmer ?? {}
-        }
+        const farmer = await Farmer.findOne({ email: email });
+        return farmer ?? {}
     } catch (error) {
         console.log(error)
         return error

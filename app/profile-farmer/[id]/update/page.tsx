@@ -2,14 +2,13 @@ import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { UpdateFarmerForm } from '@/app/ui/forms/UpdateFarmerForm';
 import { Suspense } from 'react';
-import { getServerSession } from 'next-auth';
-
 
 import { fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
+import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function Page() {
-    const session = await getServerSession()
-    const farmerUserData = await fetchSingleFarmerByEmail(session?.user?.email ?? '');
+    const auth = await loggedInUserData();
+    const farmerUserData = await fetchSingleFarmerByEmail(auth?.email ?? '');
 
     // Need to parse Data from server and pass to client
     const parse = await JSON.parse(JSON.stringify(farmerUserData));
