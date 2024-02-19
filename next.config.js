@@ -7,6 +7,9 @@ const nextConfig = {
     experimental: {
         taint: true,
     },
+    env: {
+        NEXT_PUBLIC_NEXTAUTH_URL: process.env.NEXT_PUBLIC_NEXTAUTH_URL
+     }
 }
 
 module.exports = nextConfig

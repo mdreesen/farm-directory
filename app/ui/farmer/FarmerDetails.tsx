@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
+import { fetchSingleFarmer, fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
 import FarmerUpdate from '../buttons/farmerUpdate';
 
 export default async function FarmerDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
+
     const farmerData = farmer;
+    const parse = await JSON.parse(JSON.stringify(farmerData));
+
 
 
     const farmerBasicInfo = (
@@ -93,7 +96,7 @@ export default async function FarmerDetails(data: any) {
     return (
         <div className={styles['container']}>
             <div className="rounded-lg">
-                <FarmerUpdate data={farmerData?.id}/>
+                <FarmerUpdate data={parse}/>
                 <div className="container mx-auto py-8">
                     <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4 relative z-20">
                         <div className="col-span-4 sm:col-span-3">

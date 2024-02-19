@@ -5,7 +5,7 @@ import {loggedInUserData} from '@/app/lib/cookieData';
 
 
 import loggedOutLinks from './loggedOutLinks.json';
-import loggedInLinks from './loggedInLinks.json';
+import loggedInLinks from './loggedInLinksDesktop.json';
 import farmerLinks from './farmerLinks.json';
 
 export default async function Navigation() {
@@ -45,4 +45,3 @@ export default async function Navigation() {
     </div>
   );
 }
-

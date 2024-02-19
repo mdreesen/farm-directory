@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { CookiesProvider } from 'next-client-cookies/server';
-import {loggedInUserData} from '@/app/lib/cookieData';
+import { loggedInUserData } from '@/app/lib/cookieData';
 
 // Style Sheets and styles
 import './globals.css';
@@ -49,14 +49,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <CookiesProvider>
-          <Navigation />
-          <MobileNavigation auth={auth} />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-          <Footer />
-        </CookiesProvider>
+        <Navigation />
+        <MobileNavigation auth={auth} />
+        {children}
+        <Analytics />
+        <SpeedInsights />
+        <Footer />
       </body>
     </html>
   )

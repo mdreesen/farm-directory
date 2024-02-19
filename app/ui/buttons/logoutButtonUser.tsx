@@ -21,7 +21,7 @@ export default function LogoutButtonUser() {
 
 
   return (
-        <button >
+        <button className={styles['link']}>
           {!isLoading && <div onClick={handler}>Logout</div>}
         </button>
   );
