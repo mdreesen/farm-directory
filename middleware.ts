@@ -30,13 +30,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // '/',
-    '/admin',
-    '/admin/dashboard',
-    '/admin/dashboard/create-farmer',
-    '/admin/dashboard/create-farmer/created-farmer',
-    '/admin/dashboard/contact',
-    '/admin/dashboard/customers',
-    // '/profile',
+    '/profile-farmer',
     // '/login',
     // '/signup',
     // '/verifyemail'
