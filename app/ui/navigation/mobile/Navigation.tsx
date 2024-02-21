@@ -21,15 +21,15 @@ export const Navigation = (auth: any, toggleOpen: any) => {
   const loggedIn = auth?.auth;
 
   const navItems = () => {
-    switch(true) {
+    switch (true) {
       case loggedIn?.isAdmin:
         return loggedInLinksMobile
         break;
 
-    case loggedIn?.isFarmer:
-      return farmerLinks
-      break;
-  
+      case loggedIn?.isFarmer:
+        return farmerLinks
+        break;
+
       case loggedIn !== undefined:
         return loggedInLinksMobile;
         break
