@@ -66,7 +66,7 @@ export function AuthenticationForm() {
         signUpUser;
 
         router.refresh();
-        router.push("/api/auth/signin");
+        router.push("/authentication/login");
     };
 
     return (

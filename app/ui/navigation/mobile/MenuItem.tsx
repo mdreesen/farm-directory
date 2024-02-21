@@ -1,7 +1,7 @@
 'use client'
 import styles from '@/app/styles/navigation/MobileNavigation.module.css';
 import Link from "next/link";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import LogoutButtonUser from '../../buttons/logoutButtonUser';
 
 const variants = {
@@ -23,10 +23,7 @@ const variants = {
 
 const colors = ["#000000", "#BF5D30", "#61603C", "#7A402E", "#2F4D49", "#C2803A", "#D1CDC4", "#D1CDC4"];
 
-
-
 export const MenuItem = ({ data, i }: any) => {
-
 
   const style = { border: `2px solid ${colors[i]}` };
   return (

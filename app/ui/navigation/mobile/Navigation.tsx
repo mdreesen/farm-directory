@@ -3,12 +3,10 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import styles from '@/app/styles/navigation/MobileNavigation.module.css';
-import LogoutButtonUser from '../../buttons/logoutButtonUser';
 
 import loggedOutLinks from '../loggedOutLinks.json';
-import loggedInLinks from '../loggedInLinks.json';
+import loggedInLinksMobile from '../loggedInLinksMobile.json';
 import farmerLinks from '../farmerLinks.json';
-
 
 const variants = {
   open: {
@@ -25,15 +23,15 @@ export const Navigation = (auth: any, toggleOpen: any) => {
   const navItems = () => {
     switch(true) {
       case loggedIn?.isAdmin:
-        return loggedInLinks
+        return loggedInLinksMobile
         break;
 
     case loggedIn?.isFarmer:
       return farmerLinks
       break;
   
-      case loggedIn?.id:
-        return loggedInLinks;
+      case loggedIn !== undefined:
+        return loggedInLinksMobile;
         break
 
       default:
@@ -41,7 +39,7 @@ export const Navigation = (auth: any, toggleOpen: any) => {
     }
   }
 
-  const items = navItems().map((data, i) => <MenuItem isOpen={toggleOpen} data={data} i={i} key={i} />)
+  const items = navItems().map((data, i) => <MenuItem isOpen={toggleOpen} data={data} i={i} key={i} />);
 
   return (
     <motion.ul className={styles['ul']} variants={variants}>
