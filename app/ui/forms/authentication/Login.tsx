@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import WrapperAuthentication from '@/app/WrapperAuthentication';
+import WrapperAuthentication from '@/app/wrappers/WrapperAuthentication';
 import ToastApprovedLogin from "@/app/ui/toast/ToastApprovedLogin";
 
 

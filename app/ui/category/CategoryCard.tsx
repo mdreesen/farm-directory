@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '@/app/styles/CategoryCard.module.css';
-import WrapperNavCard from '@/app/WrapperNavCard'
+import WrapperNavCard from '@/app/wrappers/WrapperNavCard'
 
 export function CategoryCard(itemData: any) {
     const data = itemData?.itemData;

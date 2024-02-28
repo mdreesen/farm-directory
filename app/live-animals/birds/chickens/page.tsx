@@ -6,6 +6,7 @@ import { Metadata } from 'next'
  
 export const metadata: Metadata = {
   title: 'Chickens Live Animals',
+  description: 'Live chickens, live animals Farm Directory',
 }
 
 

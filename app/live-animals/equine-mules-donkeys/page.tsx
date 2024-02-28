@@ -3,10 +3,11 @@ import styles from '@/app/styles/Farmer.module.css';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import { Metadata } from 'next'
 import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperLocation from '@/app/WrapperSearch';
+import WrapperLocation from '@/app/wrappers/WrapperSearch';
 
 export const metadata: Metadata = {
   title: 'Equine | Mules | Donkeys Live Animals',
+  description: 'Live equines, mules, donkeys, live animals Farm Directory',
 }
 
 export default async function Page({

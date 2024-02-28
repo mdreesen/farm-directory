@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Thank You | Contact Us',
+  description: 'Contact us, thank you Farm Directory',
 }
 
 export default function Page() {

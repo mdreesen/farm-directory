@@ -2,11 +2,12 @@ import React from 'react';
 import { CategoryCard } from '@/app/ui/category/CategoryCard';
 import parentLinks from '@/utils/links/farmToTableLinks/vineyardsOrchardsLinks.json';
 import styles from '@/app/styles/Home.module.css';
-import PageWrapper from '@/app/WrapperNavCard';
+import PageWrapper from '@/app/wrappers/WrapperNavCard';
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Farm To Table',
+  title: 'Vineyards & Orchards Farm To Table',
+  description: 'Vineyards & Orchards, farm to table Farm Directory',
 }
 
 

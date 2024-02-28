@@ -3,10 +3,11 @@ import styles from '@/app/styles/Farmer.module.css';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import { Metadata } from 'next'
 import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperLocation from '@/app/WrapperSearch';
+import WrapperLocation from '@/app/wrappers/WrapperSearch';
 
 export const metadata: Metadata = {
   title: 'Alfalfa Grass Hay Feed & Bedding',
+  description: 'Alfalfa Grass Hay, feed and bedding Farm Directory',
 }
 
 export default async function Page({

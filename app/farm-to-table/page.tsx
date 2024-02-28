@@ -2,7 +2,7 @@ import React from 'react';
 import { CategoryCard } from '@/app/ui/category/CategoryCard';
 import parentLinks from '@/utils/links/farmToTableLinks/parentLinks.json';
 import styles from '@/app/styles/Home.module.css';
-import PageWrapper from '../WrapperNavCard';
+import PageWrapper from '../wrappers/WrapperNavCard';
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

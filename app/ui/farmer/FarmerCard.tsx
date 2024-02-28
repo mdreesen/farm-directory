@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '@/app/styles/FarmerCard.module.css';
 import Link from 'next/link';
 import Image from 'next/image'
-import WrapperFarmerCard from '@/app/WrapperFarmerCard';
+import WrapperFarmerCard from '@/app/wrappers/WrapperFarmerCard';
 
 
 export default async function FarmerCard(farmerData: any) {

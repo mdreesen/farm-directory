@@ -6,6 +6,7 @@ import { Metadata } from 'next'
  
 export const metadata: Metadata = {
   title: 'Straw Feed & Bedding',
+  description: 'Straw, feed and bedding Farm Directory',
 }
 
 

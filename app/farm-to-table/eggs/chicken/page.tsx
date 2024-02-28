@@ -3,11 +3,12 @@ import { Metadata } from 'next';
 
 // Importing Components
 import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperLocation from '@/app/WrapperSearch';
+import WrapperLocation from '@/app/wrappers/WrapperSearch';
 import Search from '@/app/ui/search/SearchFilter'
 
 export const metadata: Metadata = {
   title: 'Chicken Eggs Farm To Table',
+  description: 'Chicken eggs, farm to table Farm Directory',
 }
 
 export default async function Page({

@@ -4,10 +4,11 @@ import styles from '@/app/styles/Farmer.module.css';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import { Metadata } from 'next'
 import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperLocation from '@/app/WrapperSearch';
+import WrapperLocation from '@/app/wrappers/WrapperSearch';
 
 export const metadata: Metadata = {
   title: 'Seed | Fertilizer Farm Services',
+  description: 'Seed fertilizer, farm services Farm Directory',
 }
 
 export default async function Page({

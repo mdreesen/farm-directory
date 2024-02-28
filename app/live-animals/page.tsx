@@ -6,6 +6,7 @@ import { Metadata } from 'next'
  
 export const metadata: Metadata = {
   title: 'Live Animals',
+  description: 'Live animals Farm Directory',
 }
 
 export default function Page() {
