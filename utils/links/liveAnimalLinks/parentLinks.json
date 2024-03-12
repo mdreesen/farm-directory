@@ -1,14 +1,14 @@
 [
     {
-        "linkName": "Livestock / Cattle",
+        "linkName": "Livestock & Cattle",
         "directTo": "/live-animals/livestock-cattle"
     },
     {
-        "linkName": "Equine / Mules / Donkeys",
+        "linkName": "Equine, Mules, Donkeys",
         "directTo": "/live-animals/equine-mules-donkeys"
     },
     {
-        "linkName": "Pigs / Hogs / Piglets",
+        "linkName": "Pigs, Hogs, Piglets",
         "directTo": "/live-animals/pigs-hogs-piglets"
     },
     {

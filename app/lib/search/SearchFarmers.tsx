@@ -15,7 +15,7 @@ export async function searchFarmers(query: any) {
                     "index": "prioritySearchOne",
                     "text": {
                         "query": query,
-                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name"]
+                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "product_one_title", "product_two_title", "product_three_title"]
                     },
                 }
             }
