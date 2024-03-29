@@ -1,7 +1,7 @@
 .card {
   background-color: ghostwhite;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  background: transparent;
+  /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
+  background: rgb(255 255 255 / var(--tw-bg-opacity));
   border-radius: 15px;
   z-index: 20;
   /* backdrop-filter: brightness(0.8); */
@@ -15,17 +15,13 @@
   align-self: center;
 }
 
-.details {
-  border-radius: 15px;
-}
-
 @media only screen and (max-width: 1023px) {
   .card {
     width: 16rem;
   }
 
   .image {
-    color: transparent;
+    background: rgb(255 255 255 / var(--tw-bg-opacity));
     object-fit: cover;
     height: 100%;
     width: 100%;

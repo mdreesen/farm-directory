@@ -31,17 +31,6 @@ export default async function Navigation() {
     }
   };
 
-  const logo = (
-    <Image
-      className={`${styles['image']}`}
-      src={"/images/logos/logo.webp"}
-      width={100}
-      height={146}
-      priority={true}
-      alt="Picture of the author"
-    />
-  )
-
   const links = navItems().map((items: any, index: number) => <Link href={items?.goTo} key={`${items?.linkName}-${index}`} className={styles['link']}>{items?.linkName}</Link>);
 
   const authenticate = auth && <LogoutButtonUser />
@@ -51,12 +40,11 @@ export default async function Navigation() {
 
   return (
     <div className={styles['container']}>
-      <section>
+      {/* <section> */}
         {links}
         {farmerProfile}
         {authenticate}
-      </section>
-      <section>{logo}</section>
+      {/* </section> */}
     </div>
   );
 }

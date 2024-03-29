@@ -47,13 +47,14 @@ a {
   text-decoration: none;
   font-family: sans-serif;
   font-weight: 300;
+  color: #7A3A30;
 }
 
 a:hover {
   scroll-behavior: smooth;
   text-decoration: none;
   font-family: sans-serif;
-  color: #eab308;
+  border-bottom-style: 1px solid;
 }
 
 main {
@@ -98,7 +99,7 @@ html,
 body {
   scroll-behavior: smooth;
 
-  background: --theme-tan;
+  background: linear-gradient(90deg, rgba(232,227,209,1) 0%, rgba(238,235,224,1) 50%);
   min-height: 100svh;
 }
 
@@ -116,9 +117,7 @@ input {
 
 @media only screen and (max-width: 630px) {
   main {
-    background: #16222a; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #16222a, #3a6073);
+    background: linear-gradient(90deg, rgba(232,227,209,1) 0%, rgba(238,235,224,1) 50%);
     padding: 6rem 0 10rem 0;
     min-height: 100svh;
   }

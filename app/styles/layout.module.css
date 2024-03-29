@@ -1,0 +1,19 @@
+.mobileNav {
+  display: none;
+}
+
+.desktopNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 630px) {
+  .mobileNav {
+    display: flex;
+    justify-content: center;
+  }
+  .desktopNav {
+    display: none;
+  }
+}
