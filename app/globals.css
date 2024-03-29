@@ -30,6 +30,10 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --theme-red: #7A3A30;
+  --theme-tan: #B78C69;
+  --theme-cream: #E8E3D1;
 }
 
 * {
@@ -43,19 +47,18 @@ a {
   text-decoration: none;
   font-family: sans-serif;
   font-weight: 300;
+  color: #7A3A30;
 }
 
 a:hover {
   scroll-behavior: smooth;
   text-decoration: none;
   font-family: sans-serif;
-  color: #eab308;
+  border-bottom-style: 1px solid;
 }
 
 main {
-  background: #16222a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #16222a, #3a6073);
+  background: linear-gradient(90deg, rgba(232,227,209,1) 0%, rgba(238,235,224,1) 50%);
   padding: 6rem 0;
   min-height: 100svh;
 }
@@ -75,7 +78,7 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   text-align: center;
-  color: ghostwhite;
+  color: #E8E3D1;
 }
 
 p {
@@ -96,13 +99,12 @@ html,
 body {
   scroll-behavior: smooth;
 
-  background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #16222a, #3a6073);
+  background: linear-gradient(90deg, rgba(232,227,209,1) 0%, rgba(238,235,224,1) 50%);
   min-height: 100svh;
 }
 
 label {
-  color: ghostwhite;
+  color: #E8E3D1;
   padding-top: 1rem;
 }
 
@@ -110,14 +112,12 @@ input {
   background: transparent;
   border-style: none;
   border-bottom: solid;
-  color: ghostwhite;
+  color: #E8E3D1;
 }
 
 @media only screen and (max-width: 630px) {
   main {
-    background: #16222a; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #16222a, #3a6073); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #16222a, #3a6073);
+    background: linear-gradient(90deg, rgba(232,227,209,1) 0%, rgba(238,235,224,1) 50%);
     padding: 6rem 0 10rem 0;
     min-height: 100svh;
   }

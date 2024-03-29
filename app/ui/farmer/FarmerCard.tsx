@@ -18,7 +18,7 @@ export default async function FarmerCard(farmerData: any) {
         //     object-fit="cover"
         //     alt="Picture of the author"
         // />
-        <h2 className="flex w-[14rem] font-light lg:w-full lg:h-32 text-yellow-500 justify-center items-center text-white p-4">{data?.farm_name}</h2>
+        <h2 className="flex w-[14rem] font-light lg:w-full lg:h-32 text-yellow-500 justify-center items-center text-white p-4 bg-white">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
@@ -44,7 +44,7 @@ export default async function FarmerCard(farmerData: any) {
         <WrapperFarmerCard>
             <div className={`${styles['card']} flex flex-col max-w-sm lg:max-w-full justify-center`}>
                 {farmLogo}
-                <div className={`${styles['details']} rounded-lg border-r border-b border-l lg:border-l-0 lg:border-t bg-white rounded-b p-4 flex flex-col justify-between leading-normal lg:w-[32rem]`}>
+                <div className={`${styles['details']} border-r border-b border-l lg:border-l-0 lg:border-t bg-white p-4 flex flex-col justify-between leading-normal lg:w-[32rem]`}>
                     {farmerDetail}
                     <div className='flex w-full justify-center mb-2'>
                         <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>
