@@ -47,28 +47,27 @@
     font-size: .7rem;
     background: ghostwhite;
     padding: 1rem;
-    }
+  }
 
-    .mobile-container-auth {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      height: 38px;
-      align-content: center;
-      align-items: center;
-      position: fixed;
-      z-index: 9999;
-      -webkit-backdrop-filter: blur(200px);
-      backdrop-filter: blur(200px);
-      bottom: 0;
-      font-size: .7rem;
-      background: ghostwhite;
-      border-top: solid;
-      column-gap: 8rem;
-      }
+  .mobile-container-auth {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 38px;
+    align-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    -webkit-backdrop-filter: blur(200px);
+    backdrop-filter: blur(200px);
+    bottom: 0;
+    font-size: .7rem;
+    background: ghostwhite;
+    border-top: solid;
+    column-gap: 8rem;
+  }
 
-    .link {
-      color: black;
-      /* font-weight: 500; */
-    }
+  .link {
+    color: #7A3A30;
+  }
 }

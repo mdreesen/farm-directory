@@ -1,9 +1,5 @@
 [
     {
-        "linkName": "Home",
-        "goTo": "/"
-    },
-    {
         "linkName": "Farm To Table",
         "goTo": "/farm-to-table"
     },

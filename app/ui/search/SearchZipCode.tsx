@@ -5,15 +5,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 export default function SearchZipCode() {
 
-  // URLSearchParams is a Web API that provides utility methods for manipulating the URL query parameters.
-  // const searchParams = useSearchParams();
-  // const pathname = usePathname();
-  // const { replace } = useRouter();
-
   const handleSearch = async () => {
-
-
-    // const zipCode = await getZip();
 
   }
 

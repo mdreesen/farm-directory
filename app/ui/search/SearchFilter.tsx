@@ -94,7 +94,7 @@ export default function SearchFilter() {
 
     return (
         <div className="flex flex-col items-center justify-center p-4">
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center`} type="button" onClick={handleDropdown}>
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-[#7A3A30] bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center`} type="button" onClick={handleDropdown}>
                 {isFilterUsed ? <span className='absolute -ml-5 text-2xl text-red-500'>☑ </span> : ''} Filter category by
                 <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
