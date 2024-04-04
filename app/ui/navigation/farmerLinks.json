@@ -21,6 +21,10 @@
       "goTo": "/farm-services"
     },
     {
+      "linkName": "Profile",
+      "goTo": "/profile-farmer"
+    },
+    {
       "linkName": "Sign Out",
       "goTo": "/"
     }
