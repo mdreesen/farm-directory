@@ -19,4 +19,18 @@
   justify-content: center;
 }
 
-@media only screen and (max-width: 630px) {}
+@media only screen and (max-width: 630px) {
+  .container-image {
+    width: 6rem;
+  }
+
+  .title {
+    font-size: .8rem;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .container-image {
+    width: 5rem;
+  }
+}

@@ -70,11 +70,11 @@ export default async function RootLayout({
   const mobileHeader = (
     <div className={`${styles['mobileNav']}`}>
       <MobileNavigation auth={auth} />
-      <div className='w-[16rem]'>
+      <div className={`${styles['logo']}`}>
         <Link href="/">
           <Image
             priority={true}
-            className="w-100 h-100 rounded-full mr-4"
+            className="w-100 h-100"
             src="/images/logos/logo.webp"
             width={1236}
             height={531}

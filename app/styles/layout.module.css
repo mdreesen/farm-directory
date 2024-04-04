@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.logo {
+  width: 16rem;
+}
+
 @media only screen and (max-width: 630px) {
   .mobileNav {
     display: flex;
@@ -16,5 +20,11 @@
   }
   .desktopNav {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .logo {
+    width: 10rem;
   }
 }
