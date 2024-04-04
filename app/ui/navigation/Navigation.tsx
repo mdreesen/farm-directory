@@ -40,11 +40,9 @@ export default async function Navigation() {
 
   return (
     <div className={styles['container']}>
-      {/* <section> */}
         {links}
         {farmerProfile}
         {authenticate}
-      {/* </section> */}
     </div>
   );
 }

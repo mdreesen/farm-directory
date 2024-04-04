@@ -55,6 +55,7 @@ export default async function RootLayout({
       <div className='w-[16rem] mt-14'>
         <Link href="/">
           <Image
+            priority={true}
             className="w-100 h-100 rounded-full mr-4"
             src="/images/logos/logo.webp"
             width={1236}
@@ -72,6 +73,7 @@ export default async function RootLayout({
       <div className='w-[16rem]'>
         <Link href="/">
           <Image
+            priority={true}
             className="w-100 h-100 rounded-full mr-4"
             src="/images/logos/logo.webp"
             width={1236}
