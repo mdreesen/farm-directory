@@ -10,11 +10,13 @@
 }
 
 .container-text {
+  display: flex;
   background-color: ghostwhite;
   width: 8rem;
   height: 8rem;
   border-radius: 25px;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 630px) {}

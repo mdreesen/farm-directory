@@ -9,7 +9,7 @@ export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
 
     const farmLogo = (
-        <h2 className="flex w-[14rem] font-light lg:w-full lg:h-32 text-[#7A3A30] justify-center items-center p-4 bg-white">{data?.farm_name}</h2>
+        <h2 className="flex w-[full] font-light lg:w-full lg:h-32 text-[#7A3A30] justify-center items-center p-4 bg-white">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
