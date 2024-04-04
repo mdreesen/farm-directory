@@ -21,16 +21,20 @@
 
 @media only screen and (max-width: 630px) {
   .container-image {
+    width: 7rem;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .container-image {
+    width: 5rem;
+  }
+
+  .container-image {
     width: 6rem;
   }
 
   .title {
     font-size: .8rem;
-  }
-}
-
-@media only screen and (max-width: 430px) {
-  .container-image {
-    width: 5rem;
   }
 }

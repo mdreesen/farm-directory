@@ -21,10 +21,14 @@
   .desktopNav {
     display: none;
   }
+
+  .logo {
+    width: 15rem;
+  }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 280px) {
   .logo {
-    width: 12rem;
+    width: 10rem;
   }
 }

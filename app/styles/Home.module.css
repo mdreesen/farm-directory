@@ -23,10 +23,10 @@
   } */
 }
 
-@media only screen and (max-width: 430px) {
-  /* .main {
+@media only screen and (max-width: 280px) {
+  .main {
     column-gap: 2rem;
     row-gap: 2rem;
     padding: 2rem;
-  } */
+  } 
 }
