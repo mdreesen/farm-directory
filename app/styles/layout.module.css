@@ -12,6 +12,7 @@
   .mobileNav {
     display: flex;
     justify-content: center;
+    height: 10vh;
   }
   .desktopNav {
     display: none;

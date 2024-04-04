@@ -23,8 +23,13 @@ const variants = {
 
 const colors = ["#000000", "#BF5D30", "#61603C", "#7A402E", "#2F4D49", "#C2803A", "#D1CDC4", "#D1CDC4"];
 
-export const MenuItem = ({ data, i }: any) => {
-
+export const MenuItem = ({ data, i, isLoggedIn }: any) => {
+// console.log('kjsdfkljsdf', isLoggedIn);
+const Links = () => {
+  if (data?.linkName) return <Link className={styles["text-placeholder"]} href={data?.goTo}>{data?.linkName}</Link>
+  else if (data?.linkName === "Sign Out") return <LogoutButtonUser/>;
+  else if (data?.linkName === "Profile") return <a href={`${data?.goTo}/${isLoggedIn?.id}`} className={styles['link']}>Profile</a>
+}
   const style = { border: `2px solid ${colors[i]}` };
   return (
     <motion.li
@@ -34,7 +39,7 @@ export const MenuItem = ({ data, i }: any) => {
       whileTap={{ scale: 0.95 }}
     >
       <div className={styles["icon-placeholder"]} style={style} />
-      {data?.linkName === "Sign Out" ? <LogoutButtonUser/> : <Link className={styles["text-placeholder"]} href={data?.goTo}>{data?.linkName}</Link>}
+      {Links()}
     </motion.li>
   );
 };

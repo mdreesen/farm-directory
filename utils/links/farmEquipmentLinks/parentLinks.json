@@ -1,46 +1,57 @@
 [
     {
         "linkName": "Custom Farming",
-        "directTo": "/farm-services/custom-farming"
+        "directTo": "/farm-services/custom-farming",
+        "icon": "Custom_farming.webp"
     },
     {
-        "linkName": "Vet / Medicine",
-        "directTo": "/farm-services/medical"
+        "linkName": "Vet & Medicine",
+        "directTo": "/farm-services/medical",
+        "icon": "Vet_and_Medicine.webp"
     },
     {
         "linkName": "Farrier",
-        "directTo": "/farm-services/farrier"
+        "directTo": "/farm-services/farrier",
+        "icon": "Farrier.webp"
     },
     {
-        "linkName": "Seed / Fertilizer",
-        "directTo": "/farm-services/seed-fertilizer"
+        "linkName": "Seed & Fertilizer",
+        "directTo": "/farm-services/seed-fertilizer",
+        "icon": "Seed_and_Fertilizer.webp"
     },
     {
-        "linkName": "Boarding / Pasture",
-        "directTo": "/farm-services/boarding-pasture"
+        "linkName": "Boarding & Pasture",
+        "directTo": "/farm-services/boarding-pasture",
+        "icon": "Boarding_and_Pasture.webp"
     },
     {
         "linkName": "Training",
-        "directTo": "/farm-services/training"
+        "directTo": "/farm-services/training",
+        "icon": "Training.webp"
     },
     {
         "linkName": "Hauling",
-        "directTo": "/farm-services/hauling"
+        "directTo": "/farm-services/hauling",
+        "icon": "Hauling.webp"
     },
     {
         "linkName": "Butchering",
-        "directTo": "/farm-services/butchering"
+        "directTo": "/farm-services/butchering",
+        "icon": "Butchering.webp"
     },
     {
         "linkName": "Fencing",
-        "directTo": "/farm-services/fencing"
+        "directTo": "/farm-services/fencing",
+        "icon": "Fencing.webp"
     },
     {
-        "linkName": "Equipment Sales / Repair",
-        "directTo": "/farm-services/sales-repair"
+        "linkName": "Equipment Sales &<br/>Repair",
+        "directTo": "/farm-services/sales-repair",
+        "icon": "Equipment_sales_and_repair.webp"
     },
     {
         "linkName": "Other",
-        "directTo": "/farm-services/other"
+        "directTo": "/farm-services/other",
+        "icon": "Other_Farm_Services.webp"
     }
 ]

@@ -6,7 +6,7 @@ import styles from '@/app/styles/navigation/MobileNavigation.module.css';
 
 import loggedOutLinks from '../loggedOutLinks.json';
 import loggedInLinksMobile from '../loggedInLinksMobile.json';
-import farmerLinks from '../farmerLinks.json';
+// import farmerLinks from '../farmerLinks.json';
 
 const variants = {
   open: {
@@ -19,6 +19,38 @@ const variants = {
 
 export const Navigation = (auth: any, toggleOpen: any) => {
   const loggedIn = auth?.auth;
+
+  const farmerLinks = [
+    {
+      "linkName": "Farm To Table",
+      "goTo": "/farm-to-table"
+    },
+    {
+      "linkName": "Live Animals",
+      "goTo": "/live-animals"
+  
+    },
+    {
+      "linkName": "Feed/Bedding",
+      "goTo": "/feed-bedding"
+    },
+    {
+      "linkName": "Agritourism",
+      "goTo": "/agritourism"
+    },
+    {
+      "linkName": "Farm Services",
+      "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Profile",
+      "goTo": `/profile-farmer/${loggedIn?.id}`
+    },
+    {
+      "linkName": "Sign Out",
+      "goTo": "/"
+    }
+  ]
 
   const navItems = () => {
     switch (true) {
@@ -39,7 +71,7 @@ export const Navigation = (auth: any, toggleOpen: any) => {
     }
   }
 
-  const items = navItems().map((data, i) => <MenuItem isOpen={toggleOpen} data={data} i={i} key={i} />);
+  const items = navItems().map((data, i) => <MenuItem isLoggedIn={loggedIn} isOpen={toggleOpen} data={data} i={i} key={i} />);
 
   return (
     <motion.ul className={styles['ul']} variants={variants}>
