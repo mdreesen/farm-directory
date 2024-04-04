@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { CookiesProvider } from 'next-client-cookies/server';
 import { loggedInUserData } from '@/app/lib/cookieData';
 import styles from '@/app/styles/layout.module.css';
 
@@ -71,7 +70,7 @@ export default async function RootLayout({
     <div className={`${styles['mobileNav']}`}>
       <MobileNavigation auth={auth} />
       <div className='w-[16rem]'>
-      <Link href="/">
+        <Link href="/">
           <Image
             className="w-100 h-100 rounded-full mr-4"
             src="/images/logos/logo.webp"

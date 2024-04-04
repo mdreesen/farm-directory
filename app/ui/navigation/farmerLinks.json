@@ -19,5 +19,9 @@
     {
       "linkName": "Farm Services",
       "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Sign Out",
+      "goTo": "/"
     }
   ]
