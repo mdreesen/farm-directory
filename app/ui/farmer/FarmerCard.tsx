@@ -9,16 +9,7 @@ export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
 
     const farmLogo = (
-        // <Image
-        //     className={`${styles['image']} w-10 h-10 rounded-full mr-4`}
-        //     src={"/images/logos/logoThree.jpg"}
-        //     width={500}
-        //     height={500}
-        //     priority={true}
-        //     object-fit="cover"
-        //     alt="Picture of the author"
-        // />
-        <h2 className="flex w-[14rem] font-light lg:w-full lg:h-32 text-yellow-500 justify-center items-center text-white p-4 bg-white">{data?.farm_name}</h2>
+        <h2 className="flex w-[14rem] font-light lg:w-full lg:h-32 text-[#7A3A30] justify-center items-center p-4 bg-white">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
