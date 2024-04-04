@@ -15,8 +15,8 @@
         "icon": "Feed_and_Bedding.webp"
     },
     {
-        "linkName": "Agritourism",
-        "directTo": "/agritourism",
+        "linkName": "Farm Events &<br/>Agritourism",
+        "directTo": "/farmevents-agritourism",
         "icon": "Farm_Events_and_Agritourism.webp"
     },
     {

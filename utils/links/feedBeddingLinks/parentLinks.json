@@ -1,14 +1,17 @@
 [
     {
         "linkName": "Hay",
-        "directTo": "/feed-bedding/hay"
+        "directTo": "/feed-bedding/hay",
+        "icon": "Hay.webp"
     },
     {
-        "linkName": "Pellets /<br/>Cubes",
-        "directTo": "/feed-bedding/pellets-cubes"
+        "linkName": "Bagged Feed",
+        "directTo": "/feed-bedding/pellets-cubes",
+        "icon": "Bagged_feed.webp"
     },
     {
         "linkName": "Straw",
-        "directTo": "/feed-bedding/straw"
+        "directTo": "/feed-bedding/straw",
+        "icon": "Straw.webp"
     }
 ]

@@ -10,7 +10,7 @@
         "icon": "Eggs.webp"
     },
     {
-        "linkName": "Milk/Dairy",
+        "linkName": "Milk & Dairy",
         "directTo": "/farm-to-table/milk-dairy",
         "icon": "Milk_and_Dairy.webp"
     },
