@@ -32,6 +32,7 @@ const farmerSchema = new Schema(
         product_three_feed: String,
         product_three_available: String,
         product_three_show: String,
+        products: Array,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

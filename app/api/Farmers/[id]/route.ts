@@ -27,6 +27,14 @@ export async function PUT(req: any, { params }: any) {
             ...farmerData
         });
 
+        if (farmerData?.product_title) {
+            await Farmer.updateOne(
+                { id },
+                { $addToSet: {products: { ...farmerData } } }
+            );
+
+        }
+
         return NextResponse.json({ message: "Farmer Updated" }, { status: 200 });
 
     } catch (error) {
