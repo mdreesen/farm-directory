@@ -11,9 +11,13 @@ import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
 import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
+// Importing data
+import {fetchSingleFarmer} from '@/app/lib/products';
+
 
 export const UpdateFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
+
 
     const startData = {
         product_title: '',
@@ -43,7 +47,7 @@ export const UpdateFarmerProductsForm = (data: any) => {
         e.preventDefault();
         setIsLoading(true)
 
-        const res = await fetch(`/api/Farmers/${farmerData?._id}`, {
+        const res = await fetch(`/api/Farmers/${farmerData?._id}/products`, {
             method: "PUT",
             cache: 'no-store',
             body: JSON.stringify({ formData }),
