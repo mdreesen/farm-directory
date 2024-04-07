@@ -1,6 +1,6 @@
 [
     {
-        "linkName": "Chicks and Chickens",
+        "linkName": "Chicks & Chickens",
         "directTo": "/live-animals/birds/chickens"
     },
     {
@@ -8,7 +8,7 @@
         "directTo": "/live-animals/birds/turkeys"
     },
     {
-        "linkName": "Ducks and Ducklings",
+        "linkName": "Ducks & Ducklings",
         "directTo": "/live-animals/birds/ducks"
     },
     {
