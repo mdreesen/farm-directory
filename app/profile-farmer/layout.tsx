@@ -17,7 +17,7 @@ export default async function RootLayout({
                 <Link href={`/profile-farmer/${auth?.id}`}>Profile</Link>
                 <Link href={`/profile-farmer/${auth?.id}/information`}>Update Information</Link>
                 <Link href={`/profile-farmer/${auth?.id}/make-products`}>Make Products</Link>
-                <Link href={`/profile-farmer/${auth?.id}/products`}>All Products</Link>
+                <Link href={`/profile-farmer/products`}>All Products</Link>
             </div>
             {children}
         </div>

@@ -1,21 +1,30 @@
 import React from 'react';
+import Link from 'next/link';
 // import styles from '@/app/styles/NoFarmer.module.css';
 
 export function FarmerProducts(data: any) {
 
-    const productData = data?.data;
+    const farmer = data?.data;
+    const eachProduct = data?.data?.products;
+    console.log(farmer);
 
-    const productInformation = productData?.product_show === 'true' && (
-        <div className="mb-6">
+    const products = eachProduct?.map((item: any, index: number) => (
+        <div key={`${item.product_title}-${index}`} className="mb-12 mt-12">
             <div className="flex justify-between flex-wrap gap-2 w-full">
                 <div className="flex flex-col">
-                    <span className="text-gray-700 font-bold">{productData?.product_title}</span>
+                    <span className="text-gray-700 font-bold">{item?.product_title}</span>
                 </div>
-                {productData?.product_available !== '' && <span className="text-gray-700">{productData?.product_available}</span>}
+                {item?.product_available !== '' && <span className="text-gray-700">{item?.product_available}</span>}
             </div>
-            <p className="mt-2">{productData?.product_description}</p>
-        </div>
-    );
+            <p className="mt-2">{item?.product_description}</p>
 
-    return productInformation;
+            <div className='flex justify-center'>
+            <Link href={`/profile-farmer/products/${item?.id}`}>Update Product</Link>
+            </div>
+        </div>
+    ))
+
+    return (
+        <div>{products}</div>
+    );
 };

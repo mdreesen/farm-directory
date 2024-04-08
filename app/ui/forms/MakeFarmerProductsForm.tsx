@@ -1,6 +1,9 @@
 "use client"
 import React, { useState } from "react";
 
+// @ts-ignore
+import { v4 } from "uuid";
+
 import { useRouter } from "next/navigation";
 import styles from '@/app/styles/Form.module.css';
 import ToastApproved from "@/app/ui/toast/ToastApproved";
@@ -12,12 +15,12 @@ import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
 import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
-export const UpdateFarmerProductsForm = (data: any) => {
+export const MakeFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
 
 
     const startData = {
-        id: '',
+        id: v4(),
         product_title: '',
         product_description: '',
         product_feed: '',
