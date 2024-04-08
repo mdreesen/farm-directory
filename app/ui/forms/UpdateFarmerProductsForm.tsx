@@ -14,6 +14,7 @@ import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 export const UpdateFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
+    console.log(farmerData)
 
 
     const startData = {
