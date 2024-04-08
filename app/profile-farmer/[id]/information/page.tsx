@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { UpdateFarmerForm } from '@/app/ui/forms/UpdateFarmerForm';
-import { UpdateFarmerProductsForm } from '@/app/ui/forms/UpdateFarmerProductsForm';
 import { Suspense } from 'react';
 
 import { fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
@@ -19,7 +18,7 @@ export default async function Page() {
     return (
         <div className={styles['container-update']}>
             <Suspense fallback={<div>...loading</div>}>
-                <UpdateFarmerProductsForm data={parse} />
+                <UpdateFarmerForm data={parse} />
             </Suspense>
         </div>
     )

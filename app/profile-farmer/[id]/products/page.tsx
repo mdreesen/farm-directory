@@ -1,8 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import { UpdateFarmerForm } from '@/app/ui/forms/UpdateFarmerForm';
-import { UpdateFarmerProductsForm } from '@/app/ui/forms/UpdateFarmerProductsForm';
+import { FarmerProducts } from '@/app/ui/farmer/FarmerProducts';
 import { Suspense } from 'react';
 
 import { fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
@@ -15,11 +13,12 @@ export default async function Page() {
     // Need to parse Data from server and pass to client
     const parse = await JSON.parse(JSON.stringify(farmerUserData));
 
+    const products = parse?.products?.map((item: any) => <FarmerProducts data={item} />)
 
     return (
         <div className={styles['container-update']}>
             <Suspense fallback={<div>...loading</div>}>
-                <UpdateFarmerProductsForm data={parse} />
+                {products}
             </Suspense>
         </div>
     )
