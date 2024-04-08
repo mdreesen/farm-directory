@@ -13,12 +13,25 @@ export default async function Page() {
     // Need to parse Data from server and pass to client
     const parse = await JSON.parse(JSON.stringify(farmerUserData));
 
-    const products = parse?.products?.map((item: any) => <FarmerProducts data={item} />)
+    const products = parse?.products?.map((item: any, index: number) => <FarmerProducts key={`${item?.product_title}-${index}`} data={item} />)
 
     return (
         <div className={styles['container-update']}>
             <Suspense fallback={<div>...loading</div>}>
-                {products}
+                <div className={styles['container']}>
+                    <div className="rounded-lg">
+                        <div className="container mx-auto py-16">
+                            <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4 relative z-20">
+                                <div className="col-span-4 sm:col-span-9">
+                                    <div className="bg-white shadow rounded-lg p-6">
+                                        <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Products</h2>
+                                        {products}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </Suspense>
         </div>
     )

@@ -1,11 +1,15 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
+import { FarmerProducts } from './FarmerProducts';
 
 export default async function FarmerDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
 
     const farmerData = farmer;
+
+    // Going forward with products, this will be the only line we need
+    const farmerProducts = farmerData?.products?.map((item: any, index: number) => <FarmerProducts key={`${item?.product_title}-${index}`} data={item} />);
 
     const farmerBasicInfo = (
         <div className="flex flex-col items-center">
@@ -37,7 +41,7 @@ export default async function FarmerDetails(data: any) {
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_one_title}</span>
                 </div>
-                {farmerData?.product_one_title !== '' && farmerData?.product_one_available !== '' &&  <span className="text-gray-700">{farmerData?.product_one_available}</span>}
+                {farmerData?.product_one_title !== '' && farmerData?.product_one_available !== '' && <span className="text-gray-700">{farmerData?.product_one_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_one_description}</p>
         </div>
@@ -49,7 +53,7 @@ export default async function FarmerDetails(data: any) {
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_two_title}</span>
                 </div>
-                {farmerData?.product_two_title !== '' && farmerData?.product_two_available !== '' &&  <span className="text-gray-700">{farmerData?.product_two_available}</span>}
+                {farmerData?.product_two_title !== '' && farmerData?.product_two_available !== '' && <span className="text-gray-700">{farmerData?.product_two_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_two_description}</p>
         </div>
@@ -61,7 +65,7 @@ export default async function FarmerDetails(data: any) {
                 <div className="flex flex-col">
                     <span className="text-gray-700 font-bold">{farmerData?.product_three_title}</span>
                 </div>
-                {farmerData?.product_three_title !== '' && farmerData?.product_three_available !== '' &&  <span className="text-gray-700">{farmerData?.product_three_available}</span>}
+                {farmerData?.product_three_title !== '' && farmerData?.product_three_available !== '' && <span className="text-gray-700">{farmerData?.product_three_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_three_description}</p>
         </div>
@@ -109,6 +113,7 @@ export default async function FarmerDetails(data: any) {
                                 {productOne}
                                 {productTwo}
                                 {productThree}
+                                {farmerProducts}
 
                                 {farmerData?.facebook !== "" && farmerData?.instagram !== "" && <h3 className="font-semibold text-center mt-3 -mb-2">Find me on</h3>}
                                 {socialLinks}
