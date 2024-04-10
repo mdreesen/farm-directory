@@ -7,23 +7,21 @@ import ToastApproved from "@/app/ui/toast/ToastApproved";
 
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
-import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType';
 import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
 import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
-export const UpdateFarmerProductsForm = (data: any) => {
+export function UpdateFarmerProductsForm(data: any) {
     const farmerData = data?.data;
+
     console.log(farmerData)
 
-
     const startData = {
-        id: '',
-        product_title: '',
-        product_description: '',
-        product_feed: '',
-        product_available: 'Available',
-        product_show: 'true',
+        _id: farmerData?._id,
+        product_title: farmerData?.product_title,
+        product_description: farmerData?.product_description,
+        product_available: farmerData?.product_available,
+        product_show: farmerData?.product_show,
     };
 
     const [formData, setFormData] = useState(startData);
@@ -46,7 +44,7 @@ export const UpdateFarmerProductsForm = (data: any) => {
         e.preventDefault();
         setIsLoading(true)
 
-        const res = await fetch(`/api/Farmers/${farmerData?._id}/products`, {
+        const res = await fetch(`/api/Products/${farmerData?._id}/product`, {
             method: "PUT",
             cache: 'no-store',
             body: JSON.stringify({ formData }),
@@ -63,19 +61,6 @@ export const UpdateFarmerProductsForm = (data: any) => {
 
         router.refresh();
     };
-
-    const productOneFeed = formData?.product_title === 'Beef' && (
-        <>
-            <label>Product Feed Type</label>
-            <select
-                name="product_feed"
-                value={formData?.product_feed?.trim()}
-                onChange={handleChange}
-            >
-                <CategoryFeedType />
-            </select>
-        </>
-    );
 
     const productOneInfo = (
         <div className={styles['product']}>
@@ -99,8 +84,6 @@ export const UpdateFarmerProductsForm = (data: any) => {
                 onChange={handleChange}
                 value={formData?.product_description}
             />
-
-            {productOneFeed}
 
             <label>Do you want your product to show?</label>
             <select

@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from "react";
+const mongoose = require('mongoose')
 
 // @ts-ignore
 import { v4 } from "uuid";
@@ -18,12 +19,10 @@ import { FormValidation } from "@/app/ui/forms/FormValidation";
 export const MakeFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
 
-
     const startData = {
-        id: v4(),
+        _id: new mongoose.Types.ObjectId(),
         product_title: '',
         product_description: '',
-        product_feed: '',
         product_available: 'Available',
         product_show: 'true',
     };
@@ -66,19 +65,6 @@ export const MakeFarmerProductsForm = (data: any) => {
         router.refresh();
     };
 
-    const productOneFeed = formData?.product_title === 'Beef' && (
-        <>
-            <label>Product Feed Type</label>
-            <select
-                name="product_feed"
-                value={formData?.product_feed?.trim()}
-                onChange={handleChange}
-            >
-                <CategoryFeedType />
-            </select>
-        </>
-    );
-
     const productOneInfo = (
         <div className={styles['product']}>
             <h2>Product Information</h2>
@@ -101,8 +87,6 @@ export const MakeFarmerProductsForm = (data: any) => {
                 onChange={handleChange}
                 value={formData?.product_description}
             />
-
-            {productOneFeed}
 
             <label>Do you want your product to show?</label>
             <select

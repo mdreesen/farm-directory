@@ -4,9 +4,7 @@ import Link from 'next/link';
 
 export function FarmerProducts(data: any) {
 
-    const farmer = data?.data;
     const eachProduct = data?.data?.products;
-    console.log(farmer);
 
     const products = eachProduct?.map((item: any, index: number) => (
         <div key={`${item.product_title}-${index}`} className="mb-12 mt-12">
@@ -19,7 +17,7 @@ export function FarmerProducts(data: any) {
             <p className="mt-2">{item?.product_description}</p>
 
             <div className='flex justify-center'>
-            <Link href={`/profile-farmer/products/${item?.id}`}>Update Product</Link>
+            <Link href={`/profile-farmer/products/${item?._id}`}>Update Product</Link>
             </div>
         </div>
     ))

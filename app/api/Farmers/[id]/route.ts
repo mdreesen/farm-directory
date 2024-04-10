@@ -16,7 +16,6 @@ export async function GET(req: any, { params }: any) {
     }
 };
 
-// Get Single Farmer By ID
 export async function PUT(req: any, { params }: any) {
     try {
         const { id } = params;

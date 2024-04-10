@@ -24,7 +24,7 @@ const variants = {
 const colors = ["#000000", "#BF5D30", "#61603C", "#7A402E", "#2F4D49", "#C2803A", "#D1CDC4", "#D1CDC4"];
 
 export const MenuItem = ({ data, i, isLoggedIn }: any) => {
-// console.log('kjsdfkljsdf', isLoggedIn);
+
 const Links = () => {
   if (data?.linkName !== 'Sign Out') return <Link className={styles["text-placeholder"]} href={data?.goTo}>{data?.linkName}</Link>
   else if (data?.linkName === "Sign Out") return <LogoutButtonUser/>;
