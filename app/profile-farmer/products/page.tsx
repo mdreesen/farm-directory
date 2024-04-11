@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import FarmerDetails from '@/app/ui/farmerProfile/FarmerDetails'
+import FarmerProductDetails from '@/app/ui/farmerProfile/FarmerProductDetails'
 import LoadingCircle from '@/app/ui/loading/loadingCircle';
 import { Suspense } from 'react';
 
@@ -14,7 +14,7 @@ export default async function Page() {
     return (
         <div className={styles['container-update']}>
             <Suspense fallback={<LoadingCircle />}>
-                <FarmerDetails data={farmerUserData} />
+                <FarmerProductDetails data={farmerUserData} />
             </Suspense>
         </div>
     )
