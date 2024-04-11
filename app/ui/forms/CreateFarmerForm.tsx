@@ -290,7 +290,7 @@ export const CreateFarmerForm = () => {
                 {productOneInfo}
                 {productTwoInfo}
                 {productThreeInfo}
-                {isLoading ? <span className="text-yellow-500 flex justify-center">Submitted, Now Loading...</span> : (
+                {isLoading ? <span className="text-[#7A3A30] flex justify-center">Submitted, Now Loading...</span> : (
                     <input
                         className={styles['submitBtn']}
                         type="submit"

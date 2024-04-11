@@ -1,5 +1,9 @@
 "use client"
 import React, { useState } from "react";
+const mongoose = require('mongoose')
+
+// @ts-ignore
+import { v4 } from "uuid";
 
 import { useRouter } from "next/navigation";
 import styles from '@/app/styles/Form.module.css';
@@ -7,19 +11,20 @@ import ToastApproved from "@/app/ui/toast/ToastApproved";
 
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
+import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType';
 import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
 import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 
-export function UpdateFarmerProductsForm(data: any) {
+export const MakeFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
 
     const startData = {
-        _id: farmerData?._id,
-        product_title: farmerData?.product_title,
-        product_description: farmerData?.product_description,
-        product_available: farmerData?.product_available,
-        product_show: farmerData?.product_show,
+        _id: new mongoose.Types.ObjectId(),
+        product_title: '',
+        product_description: '',
+        product_available: 'Available',
+        product_show: 'true',
     };
 
     const [formData, setFormData] = useState(startData);
@@ -42,7 +47,7 @@ export function UpdateFarmerProductsForm(data: any) {
         e.preventDefault();
         setIsLoading(true)
 
-        const res = await fetch(`/api/Products/${farmerData?._id}/product`, {
+        const res = await fetch(`/api/Farmers/${farmerData?._id}/products`, {
             method: "PUT",
             cache: 'no-store',
             body: JSON.stringify({ formData }),
