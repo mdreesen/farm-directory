@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
@@ -18,6 +19,10 @@ export default async function FarmerDetails(data: any) {
                 {farmerData?.product_one_title !== '' && farmerData?.product_one_available !== '' && <span className="text-gray-700">{farmerData?.product_one_available}</span>}
             </div>
             <p className="mt-2">{farmerData?.product_one_description}</p>
+
+            <div className='flex justify-center'>
+                {/* <Link href={`/profile-farmer/products/${item?._id}`}>Update Product</Link> */}
+            </div>
         </div>
     );
 

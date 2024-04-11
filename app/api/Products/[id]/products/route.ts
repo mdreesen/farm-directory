@@ -11,7 +11,7 @@ export async function PUT(req: any, { params }: any) {
         const body = await req.json();
         const productData = body?.formData;
 
-        const farmer = await Farmer.findOneAndUpdate({ _id: id }, { $push: { products: productData } }, { new: true });
+        const farmer = await Farmer.findOneAndUpdate({ _id: id }, { $addToSet: { products: productData } }, { new: true });
 
         return NextResponse.json({ message: "Products Updated" }, { status: 200 });
 

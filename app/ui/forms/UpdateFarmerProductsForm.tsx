@@ -14,8 +14,6 @@ import { FormValidation } from "@/app/ui/forms/FormValidation";
 export function UpdateFarmerProductsForm(data: any) {
     const farmerData = data?.data;
 
-    console.log(farmerData)
-
     const startData = {
         _id: farmerData?._id,
         product_title: farmerData?.product_title,
@@ -109,7 +107,7 @@ export function UpdateFarmerProductsForm(data: any) {
         <>
             <form className={styles['container']} method="post" onSubmit={handleSubmit}>
                 {productOneInfo}
-                {isLoading ? <span className="text-yellow-500 flex justify-center">Submitted, Now Loading...</span> : (
+                {isLoading ? <span className="text-[#7A3A30] flex justify-center">Submitted, Now Loading...</span> : (
                     <input
                         className={styles['submitBtn']}
                         type="submit"

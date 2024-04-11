@@ -17,7 +17,7 @@ export function FarmerProducts(data: any) {
             <p className="mt-2">{item?.product_description}</p>
 
             <div className='flex justify-center'>
-            <Link href={`/profile-farmer/products/${item?._id}`}>Update Product</Link>
+                <Link href={`/profile-farmer/products/${item?._id}`}>Update Product</Link>
             </div>
         </div>
     ))
