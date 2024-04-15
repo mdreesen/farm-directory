@@ -13,7 +13,6 @@ export default async function Page() {
   return (
     <div className={styles['container']}>
       <FarmerInfoDetails data={farmerUserData} />
-      <FarmerProductDetails data={farmerUserData} />
     </div>
   );
 }

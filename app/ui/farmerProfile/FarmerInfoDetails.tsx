@@ -1,11 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
+
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
+import { FarmerProducts } from '@/app/ui/farmer/FarmerProducts';
 
 export default async function FarmerInfoDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
 
-    const farmerData = farmer;
+    const farmerData = JSON.parse(JSON.stringify(farmer));
+
 
     const farmerBasicInfo = (
         <div className="flex flex-col items-center">
@@ -66,6 +70,12 @@ export default async function FarmerInfoDetails(data: any) {
                                 <hr className="my-6 border-t border-gray-300" />
                                 {farmerAddress}
                                 {socialLinks}
+                            </div>
+                        </div>
+                        <div className="col-span-4 sm:col-span-9">
+                            <div className="bg-white shadow rounded-lg p-6">
+                                <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Products</h2>
+                                <FarmerProducts data={farmerData} />
                             </div>
                         </div>
                     </div>
