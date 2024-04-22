@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
-import { FarmerProducts } from '@/app/ui/farmer/FarmerProducts';
 import { FarmerProfileProducts } from '@/app/ui/farmerProfile/FarmerProfileProducts';
 
 export default async function FarmerProductDetails(data: any) {
