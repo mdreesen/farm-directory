@@ -13,7 +13,6 @@ export default async function FarmerDetails(data: any) {
 
     const farmerBasicInfo = (
         <div className="flex flex-col items-center">
-            {/* <img src="https://randomuser.me/api/portraits/men/94.jpg" className="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" /> */}
             <h1 className="text-xl font-bold">{farmerData?.farm_name}</h1>
             <p className="text-gray-700">{farmerData?.first_name} {farmerData?.last_name}</p>
             <div className="mt-6 flex flex-col gap-4 justify-center">

@@ -1,8 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 
-export async function FarmerProducts(data: any) {
+export function FarmerProfileProducts(data: any) {
 
-    const eachProduct = data?.data?.products ?? [data?.data];
+    const eachProduct = data?.data?.products;
 
     const products = eachProduct?.map((item: any, index: number) => (
         <div key={`${item.product_title}-${index}`} className="mb-12 mt-12">
@@ -13,6 +14,10 @@ export async function FarmerProducts(data: any) {
                 {item?.product_available !== '' && <span className="text-gray-700">{item?.product_available}</span>}
             </div>
             <p className="mt-2">{item?.product_description}</p>
+
+            <div className='flex justify-center'>
+                <Link href={`/profile-farmer/products/${item?._id}`}>Update Product</Link>
+            </div>
         </div>
     ))
 

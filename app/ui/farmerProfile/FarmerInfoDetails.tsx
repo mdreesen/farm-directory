@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
 import { FarmerProducts } from '@/app/ui/farmer/FarmerProducts';
+import { FarmerProfileProducts } from '@/app/ui/farmerProfile/FarmerProfileProducts';
 
 export default async function FarmerInfoDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
@@ -75,7 +76,7 @@ export default async function FarmerInfoDetails(data: any) {
                         <div className="col-span-4 sm:col-span-9">
                             <div className="bg-white shadow rounded-lg p-6">
                                 <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Products</h2>
-                                <FarmerProducts data={farmerData} />
+                                <FarmerProfileProducts data={farmerData} />
                             </div>
                         </div>
                     </div>
