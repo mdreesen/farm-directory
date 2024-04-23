@@ -10,10 +10,17 @@ export async function PUT(req: any, { params }: any) {
         const { id } = params;
         const body = await req.json();
         const productData = body?.formData;
+        console.log(id)
 
-        const farmer = await Farmer.findOneAndUpdate({ _id: id }, { $addToSet: { products: productData } }, { new: true });
+        const farmerProduct = await Farmer.findByIdAndUpdate(
+            // Grabbing the product with the ID
+            { 'products._id': productData },
+            // Go into the orders and setting new values
+            { $pull: { 'products': { _id: id } } },
+            { new: true }
+        );
 
-        return NextResponse.json({ message: "Products Updated" }, { status: 200 });
+        return NextResponse.json({ message: "Product Deleted" }, { status: 200 });
 
     } catch (error) {
         return NextResponse.json({ message: "Error", error }, { status: 500 })

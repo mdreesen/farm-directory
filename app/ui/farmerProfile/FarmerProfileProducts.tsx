@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import DeleteProductButton from '@/app/ui/buttons/farmer-profile/DeleteProductButton';
 
 export function FarmerProfileProducts(data: any) {
 
@@ -17,6 +18,7 @@ export function FarmerProfileProducts(data: any) {
 
             <div className='flex justify-center'>
                 <Link href={`/profile-farmer/products/${item?._id}`}>Update Product</Link>
+                <DeleteProductButton data={data} id={item?._id}/>
             </div>
         </div>
     ))

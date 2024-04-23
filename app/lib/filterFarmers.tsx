@@ -2,7 +2,6 @@
 export async function filterFarmerProducts(farmer: any, productTitle: string) {
 
     const category = [productTitle];
-    // console.log(farmer, category);
 
     const filtering = farmer && farmer.filter((item: any) => {
         switch (true) {

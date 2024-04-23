@@ -43,7 +43,7 @@ export function UpdateFarmerProductsForm(data: any) {
         setIsLoading(true)
 
         const res = await fetch(`/api/Products/${farmerData?._id}/product`, {
-            method: "PUT",
+            method: "PATCH",
             cache: 'no-store',
             body: JSON.stringify({ formData }),
         });

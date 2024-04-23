@@ -16,9 +16,9 @@ export default async function FarmerDetails(data: any) {
             <h1 className="text-xl font-bold">{farmerData?.farm_name}</h1>
             <p className="text-gray-700">{farmerData?.first_name} {farmerData?.last_name}</p>
             <div className="mt-6 flex flex-col gap-4 justify-center">
-                {farmerData?.email !== "" && <a href={`mailto:${farmerData?.email}`} className="bg-blue-500 text-center hover:bg-blue-600 text-white py-2 px-4 rounded">Email</a>}
-                {farmerData?.phone !== "" && <a href={`tel:${farmerData?.phone}`} className="bg-blue-500 text-center hover:bg-blue-600 text-white py-2 px-4 rounded">Call</a>}
-                {farmerData?.website !== "" && <a href={farmerData?.website} className="bg-blue-500 text-center hover:bg-blue-600 text-white py-2 px-4 rounded">Website</a>}
+                {farmerData?.email !== "" && <a href={`mailto:${farmerData?.email}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Email</a>}
+                {farmerData?.phone !== "" && <a href={`tel:${farmerData?.phone}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Call</a>}
+                {farmerData?.website !== "" && <a href={farmerData?.website} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
             </div>
         </div>
     );

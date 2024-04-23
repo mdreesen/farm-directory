@@ -6,7 +6,6 @@ import { unstable_noStore as noStore } from 'next/cache';
 
 export async function searchFarmers(query: any) {
     noStore();
-    const allFarmers = await Farmer.find();
 
     try {
         const farmers = await Farmer.aggregate([
@@ -21,7 +20,6 @@ export async function searchFarmers(query: any) {
             }
         ]);
 
-        console.log(farmers)
         return farmers;
     } catch (error) {
         console.log(error)
@@ -31,7 +29,6 @@ export async function searchFarmers(query: any) {
 
 export async function searchProducts(query: string) {
     noStore();
-    console.log(query)
 
     try {
         const farmers = await Farmer.aggregate([
@@ -47,7 +44,6 @@ export async function searchProducts(query: string) {
         ]);
 
         const filter = farmers?.map(farmer => farmer?.products.filter((item: any) => item?.product_title === query ? farmers : {}));
-        // console.log('filter', filter.flat(Infinity))
         return filter.flat(Infinity) ?? [];
     } catch (error) {
         console.log(error)

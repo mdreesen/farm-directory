@@ -6,7 +6,6 @@ export async function fetchSingleFarmer(productData: any) {
 
     try {
         const updateProducts = await Farmer?.insertMany(productData);
-        console.log(updateProducts);
 
         return updateProducts
     } catch (error) {
