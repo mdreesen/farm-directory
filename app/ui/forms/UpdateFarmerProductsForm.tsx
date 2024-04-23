@@ -10,8 +10,9 @@ import { Categories } from '@/app/ui/productCategories/Categories';
 import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
 import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
 import { FormValidation } from "@/app/ui/forms/FormValidation";
+import DeleteProductButton from "../buttons/farmer-profile/DeleteProductButton";
 
-export function UpdateFarmerProductsForm(data: any) {
+export function UpdateFarmerProductsForm(data: any, farmerId: string) {
     const farmerData = data?.data;
 
     const startData = {
@@ -111,9 +112,11 @@ export function UpdateFarmerProductsForm(data: any) {
                     <input
                         className={styles['submitBtn']}
                         type="submit"
-                        value="Update"
+                        value="Update Product"
                     />
                 )}
+            <DeleteProductButton data={farmerData} farmerId={farmerId}/>
+
             </form>
             {enableToast && <ToastApproved />}
         </>

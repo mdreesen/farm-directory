@@ -12,13 +12,14 @@ export default async function Page(searchParams: any) {
     const auth = await loggedInUserData();
     const farmerUserData = await fetchSingleFarmerByEmail(auth?.email ?? '');
     const parse = await JSON.parse(JSON.stringify(farmerUserData));
+    console.log(parse?._id)
 
     const productIdParam = searchParams?.params?.id;
 
     const filterProduct = parse?.products?.filter((item: any) => item?._id === productIdParam);
 
     const eachProduct = filterProduct?.map((item: any) => (
-        <UpdateFarmerProductsForm key={item?._id} data={item} />
+        <UpdateFarmerProductsForm key={item?._id} data={item} farmerId={parse?._id} />
     ))
 
     return (

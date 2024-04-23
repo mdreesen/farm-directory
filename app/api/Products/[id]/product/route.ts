@@ -26,19 +26,21 @@ export async function PATCH(req: any, { params }: any) {
     }
 };
 
-export async function DELETE(req: any, { params }: any) {
+export async function PUT(req: any, { params }: any) {
     try {
         const { id } = params;
         const body = await req.json();
-        // const productData = body?.formData;
+        const productData = body?.formData;
+        console.log('api', productData)
 
-        const farmerProduct = await Farmer.findOneAndUpdate(
-            { _id: id },
+        const result = await Farmer.findOneAndUpdate(
+            { 'products._id': id }, 
             { $pull: { products: { _id: id } }},
-            { new: true }
-        );
+            { new: true });
 
-        return NextResponse.json({ message: "Products Updated" }, { status: 200 });
+            console.log(result)
+
+        return NextResponse.json({ message: "Product Deleted" }, { status: 200 });
 
     } catch (error) {
         return NextResponse.json({ message: "Error", error }, { status: 500 })
