@@ -114,7 +114,7 @@ export const MakeFarmerProductsForm = (data: any) => {
                     <input
                         className={styles['submitBtn']}
                         type="submit"
-                        value="Update"
+                        value="Add Product"
                     />
                 )}
             </form>
