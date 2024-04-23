@@ -13,13 +13,11 @@ export async function PATCH(req: any, { params }: any) {
         const { id } = params;
         const body = await req.json();
         const productData = body?.formData;
-        console.log(productData)
 
         const result = await Farmer.findOneAndUpdate(
             { 'products._id': id }, 
             { $set: { 'products.$': body?.formData }},
             { new: true });
-            console.log(result)
 
         return NextResponse.json({ message: "Products Updated" }, { status: 200 });
 

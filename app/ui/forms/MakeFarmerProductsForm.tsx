@@ -17,10 +17,8 @@ import { FormValidation } from "@/app/ui/forms/FormValidation";
 
 export const MakeFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
-    console.log(data)
 
     const startData = {
-        _id: new mongoose.Types.ObjectId(),
         product_title: '',
         product_description: '',
         product_available: 'Available',

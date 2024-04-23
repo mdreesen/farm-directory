@@ -10,7 +10,6 @@ export async function PUT(req: any, { params }: any) {
         const { id } = params;
         const body = await req.json();
         const productData = body?.formData;
-        console.log(id)
 
         const farmerProduct = await Farmer.findByIdAndUpdate(
             // Grabbing the product with the ID
