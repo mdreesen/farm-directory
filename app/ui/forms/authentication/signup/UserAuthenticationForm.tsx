@@ -11,7 +11,6 @@ export function UserAuthenticationForm() {
         password: "",
         validate_password: "",
         isFarmer: false,
-        isAdmin: false,
     };
 
     const [formData, setFormData] = useState(startData);
@@ -74,9 +73,8 @@ export function UserAuthenticationForm() {
             <div className="flex flex-col items-center justify-start mx-auto md:h-screen lg:py-0">
                 <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                            I am looking for farm products
-                        </h1>
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl" dangerouslySetInnerHTML={{ __html: "I'm looking for farm products" }} />
+
                         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
