@@ -12,7 +12,6 @@ export default async function Page(searchParams: any) {
     const auth = await loggedInUserData();
     const farmerUserData = await fetchSingleFarmerByEmail(auth?.email ?? '');
     const parse = await JSON.parse(JSON.stringify(farmerUserData));
-    console.log(parse?._id)
 
     const productIdParam = searchParams?.params?.id;
 

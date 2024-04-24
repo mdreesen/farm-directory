@@ -31,14 +31,11 @@ export async function PUT(req: any, { params }: any) {
         const { id } = params;
         const body = await req.json();
         const productData = body?.formData;
-        console.log('api', productData)
 
         const result = await Farmer.findOneAndUpdate(
             { 'products._id': id }, 
             { $pull: { products: { _id: id } }},
             { new: true });
-
-            console.log(result)
 
         return NextResponse.json({ message: "Product Deleted" }, { status: 200 });
 
