@@ -115,7 +115,7 @@ export function UpdateFarmerProductsForm(data: any, farmerId: string) {
                         value="Update Product"
                     />
                 )}
-            <DeleteProductButton data={farmerData} farmerId={farmerId}/>
+            <DeleteProductButton data={farmerData} />
 
             </form>
             {enableToast && <ToastApproved />}

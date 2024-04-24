@@ -30,7 +30,7 @@ export default function DeleteProductButton(data: any, farmerId: string) {
     }, 6000);
 
 
-    router.push(`/profile-farmer/${farmerId}`);
+    router.push(`/profile-farmer/${formData?.farmerId}`);
     router.refresh();
   };
 

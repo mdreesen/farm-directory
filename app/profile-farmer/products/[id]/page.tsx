@@ -17,9 +17,12 @@ export default async function Page(searchParams: any) {
 
     const filterProduct = parse?.products?.filter((item: any) => item?._id === productIdParam);
 
-    const eachProduct = filterProduct?.map((item: any) => (
-        <UpdateFarmerProductsForm key={item?._id} data={item} farmerId={parse?._id} />
-    ))
+
+    const eachProduct = filterProduct?.map((item: any) => {
+        const makeData = {...item, farmerId: parse?._id}
+
+        return <UpdateFarmerProductsForm key={item?._id} data={makeData} farmerId={parse?._id} />
+})
 
     return (
         <div className={styles['container-update']}>
