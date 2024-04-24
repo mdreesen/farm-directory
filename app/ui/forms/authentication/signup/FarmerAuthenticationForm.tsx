@@ -85,8 +85,6 @@ export function FarmerAuthenticationForm() {
         router.push("/authentication/login");
     };
 
-    console.log(isChecked)
-
     return (
         <section>
             <div className="flex flex-col items-center justify-start mx-auto md:h-screen lg:py-0">
