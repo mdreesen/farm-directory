@@ -59,10 +59,10 @@ export function Footer() {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white text-start">Follow us</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="https://www.instagram.com/thefarmdirectory/?igsh=M2F5dW1iaDA3Ym9u" className="hover:underline text-gray-900">Instagram</a>
+                  <a href="https://www.instagram.com/thefarmdirectory/?igsh=M2F5dW1iaDA3Ym9u" className="hover:underline text-gray-900 dark:text-white">Instagram</a>
                 </li>
                 <li>
-                  <a href="https://www.facebook.com/thefarmdirectory" className="hover:underline text-gray-900">Facebook</a>
+                  <a href="https://www.facebook.com/thefarmdirectory" className="hover:underline text-gray-900 dark:text-white">Facebook</a>
                 </li>
               </ul>
             </div>
@@ -70,7 +70,7 @@ export function Footer() {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white text-start">Legal</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li>
-                  <a href="/terms-conditions" className="hover:underline text-gray-900">Terms & Conditions</a>
+                  <a href="/terms-conditions" className="hover:underline text-gray-900 dark:text-white">Terms & Conditions</a>
                 </li>
               </ul>
             </div>
