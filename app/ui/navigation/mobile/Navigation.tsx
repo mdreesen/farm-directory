@@ -35,8 +35,8 @@ export const Navigation = (auth: any, toggleOpen: any) => {
       "goTo": "/feed-bedding"
     },
     {
-      "linkName": "Agritourism",
-      "goTo": "/agritourism"
+      "linkName": "Farm Events & Agritourism",
+      "goTo": "/farmevents-agritourism"
     },
     {
       "linkName": "Farm Services",
