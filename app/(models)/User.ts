@@ -9,6 +9,7 @@ const userSchema = new Schema(
         password: String,
         isFarmer: Boolean,
         isAdmin: Boolean,
+        agree_to_legal: Boolean,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

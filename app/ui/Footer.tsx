@@ -38,10 +38,11 @@ export function Footer() {
 
   return (
     <div className={styles['container']}>
-      <span>© {currentYear()}</span>
       <div className={styles['right']}>
         <div>
           {routingLinks}
+          <span className={styles['legal']}>© {currentYear()} Montana Agricola, LLC</span>
+
         </div>
         {socialLinks}
       </div>

@@ -16,10 +16,14 @@ export function UserAuthenticationForm() {
     const [formData, setFormData] = useState(startData);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isError, setError] = useState<string>("");
+    const [isChecked, setChecked] = useState();
 
     const handleChange = (e: any) => {
         const value = e.target.value
         const name = e.target.name
+
+        const { checked } = e.target;
+        setChecked(checked);
 
         setFormData((prevState) => ({
             ...prevState,
@@ -87,6 +91,12 @@ export function UserAuthenticationForm() {
                             <div>
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Validate password</label>
                                 <input type="password" name="validate_password" id="validate_password" value={formData?.validate_password.trim()} onChange={handleChange} placeholder="You know what to do" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
+                            </div>
+
+                            <div className="flex items-center mb-4">
+                                <input id="agree_to_legal" type="checkbox" name="agree_to_legal" value={isChecked} onChange={handleChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required />
+                                <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
+                                <Link className="text-sm ms-1" href='/terms-conditions'>Terms & Conditions</Link>
                             </div>
 
                             {isLoading ? <span className="text-yellow-500 flex justify-center">Signing in...</span> : (

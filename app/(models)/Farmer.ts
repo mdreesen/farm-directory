@@ -27,6 +27,7 @@ const farmerSchema = new Schema(
         website: String,
         facebook: String,
         instagram: String,
+        agree_to_legal: Boolean,
         products: [productSchema],
         createdAt: String,
         updatedAt: String
