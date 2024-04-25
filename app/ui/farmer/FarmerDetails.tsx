@@ -18,8 +18,8 @@ export default async function FarmerDetails(data: any) {
             <div className="mt-6 flex flex-col gap-4 justify-center">
                 {farmerData?.email !== "" && <a href={`mailto:${farmerData?.email}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Email</a>}
                 {farmerData?.phone !== "" && <a href={`tel:${farmerData?.phone}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Call</a>}
-                {farmerData?.website !== "" && <a href={farmerData?.website} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
-            </div>
+                {farmerData?.website !== "" && <a href={`http://${farmerData?.website}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
+            </div>`
         </div>
     );
 
@@ -31,42 +31,6 @@ export default async function FarmerDetails(data: any) {
                 <li className="mb-2">{farmerData?.address_city}, {farmerData?.address_state}</li>
                 <li className="mb-2">{farmerData?.address_zip}</li>
             </ul>
-        </div>
-    );
-
-    const productOne = farmerData?.product_one_show === 'true' && (
-        <div className="mb-6">
-            <div className="flex justify-between flex-wrap gap-2 w-full">
-                <div className="flex flex-col">
-                    <span className="text-gray-700 font-bold">{farmerData?.product_one_title}</span>
-                </div>
-                {farmerData?.product_one_title !== '' && farmerData?.product_one_available !== '' && <span className="text-gray-700">{farmerData?.product_one_available}</span>}
-            </div>
-            <p className="mt-2">{farmerData?.product_one_description}</p>
-        </div>
-    );
-
-    const productTwo = farmerData?.product_two_show === 'true' && (
-        <div className="mb-6">
-            <div className="flex justify-between flex-wrap gap-2 w-full">
-                <div className="flex flex-col">
-                    <span className="text-gray-700 font-bold">{farmerData?.product_two_title}</span>
-                </div>
-                {farmerData?.product_two_title !== '' && farmerData?.product_two_available !== '' && <span className="text-gray-700">{farmerData?.product_two_available}</span>}
-            </div>
-            <p className="mt-2">{farmerData?.product_two_description}</p>
-        </div>
-    );
-
-    const productThree = farmerData?.product_three_show === 'true' && (
-        <div className="mb-6">
-            <div className="flex justify-between flex-wrap gap-2 w-full">
-                <div className="flex flex-col">
-                    <span className="text-gray-700 font-bold">{farmerData?.product_three_title}</span>
-                </div>
-                {farmerData?.product_three_title !== '' && farmerData?.product_three_available !== '' && <span className="text-gray-700">{farmerData?.product_three_available}</span>}
-            </div>
-            <p className="mt-2">{farmerData?.product_three_description}</p>
         </div>
     );
 
@@ -109,9 +73,6 @@ export default async function FarmerDetails(data: any) {
                         <div className="col-span-4 sm:col-span-9">
                             <div className="bg-white shadow rounded-lg p-6">
                                 <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Products</h2>
-                                {productOne}
-                                {productTwo}
-                                {productThree}
                                 {farmerProducts}
 
                                 {farmerData?.facebook !== "" && farmerData?.instagram !== "" && <h3 className="font-semibold text-center mt-3 -mb-2">Find me on</h3>}
