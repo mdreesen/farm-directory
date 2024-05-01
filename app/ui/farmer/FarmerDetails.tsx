@@ -9,7 +9,7 @@ export default async function FarmerDetails(data: any) {
     const farmerData = farmer;
 
     // Going forward with products, this will be the only line we need
-    const farmerProducts = farmerData?.products?.map((item: any, index: number) => <FarmerProducts key={`${item?.product_title}-${index}`} data={item} />);
+    const farmerProducts = farmerData?.products?.map((item: any, index: number) => item?.product_show === 'true' && <FarmerProducts key={`${item?.product_title}-${index}`} data={item} />);
 
     const farmerBasicInfo = (
         <div className="flex flex-col items-center">
@@ -18,7 +18,7 @@ export default async function FarmerDetails(data: any) {
             <div className="mt-6 flex flex-col gap-4 justify-center">
                 {farmerData?.email !== "" && <a href={`mailto:${farmerData?.email}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Email</a>}
                 {farmerData?.phone !== "" && <a href={`tel:${farmerData?.phone}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Call</a>}
-                {farmerData?.website !== "" && <a href={`http://${farmerData?.website}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
+                {farmerData?.website !== "" && <a href={`${'http' || 'https'}://${farmerData?.website}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
             </div>`
         </div>
     );
