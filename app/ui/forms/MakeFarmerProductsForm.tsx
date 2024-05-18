@@ -60,6 +60,8 @@ export const MakeFarmerProductsForm = (data: any) => {
             setEnableToast(false);
         }, 6000);
 
+        setFormData(startData)
+
         router.refresh();
     };
 

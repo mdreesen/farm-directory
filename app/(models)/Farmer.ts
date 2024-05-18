@@ -28,6 +28,7 @@ const farmerSchema = new Schema(
         facebook: String,
         instagram: String,
         agree_to_legal: Boolean,
+        agree_to_privacy_policy: Boolean,
         products: [productSchema],
         createdAt: String,
         updatedAt: String

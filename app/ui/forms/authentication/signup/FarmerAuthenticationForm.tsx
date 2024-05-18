@@ -13,7 +13,8 @@ export function FarmerAuthenticationForm() {
         validate_password: "",
         address_zip: "",
         isFarmer: true,
-        agree_to_legal: true
+        agree_to_legal: true,
+        agree_to_privacy_policy: true
     };
 
     const [formData, setFormData] = useState(startData);
@@ -118,6 +119,12 @@ export function FarmerAuthenticationForm() {
                                 <input id="agree_to_legal" type="checkbox" name="agree_to_legal" value={isChecked && formData?.agree_to_legal === true} onChange={handleChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required />
                                 <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
                                 <Link className="text-sm ms-1" href='/terms-conditions'>Terms & Conditions</Link>
+                            </div>
+                            
+                            <div className="flex items-center mb-4">
+                                <input id="agree_to_privacy_policy" type="checkbox" name="agree_to_privacy_policy" value={isChecked && formData?.agree_to_privacy_policy === true} onChange={handleChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required />
+                                <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
+                                <a className="text-sm ms-1" href="https://app.termly.io/document/privacy-policy/f960c6b4-e8b6-4a86-894a-0144bbe3b639">Privacy Policy</a>
                             </div>
 
                             {isLoading ? <span className="text-yellow-500 flex justify-center">Making user...</span> : (

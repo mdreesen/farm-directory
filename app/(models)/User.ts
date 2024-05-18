@@ -10,6 +10,7 @@ const userSchema = new Schema(
         isFarmer: Boolean,
         isAdmin: Boolean,
         agree_to_legal: Boolean,
+        agree_to_privacy_policy: Boolean,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { PowerIcon } from '@heroicons/react/24/outline';
 
-// import { signOut } from '@/auth';
 import { useRouter } from "next/navigation";
 
 export default function LogoutButton() {

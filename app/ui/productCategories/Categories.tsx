@@ -63,9 +63,9 @@ export function Categories() {
 
       <option value="Pellets/Cubes">Feed/Bedding Pellets/Cubes</option>
 
-      <option value="Barley Straw">Feed/Bedding Barley</option>
-      <option value="Wheat Straw">Feed/Bedding Wheat</option>
-      <option value="Other Straw">Feed/Bedding Other</option>
+      <option value="Barley Straw">Feed/Bedding Barley Straw</option>
+      <option value="Wheat Straw">Feed/Bedding Wheat Straw</option>
+      <option value="Other Straw">Feed/Bedding Other Straw</option>
     </>
   )
 

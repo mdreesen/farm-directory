@@ -37,6 +37,9 @@ export function Footer() {
                 <li>
                   <a href="/terms-conditions" className="hover:underline text-gray-900 dark:text-white">Terms & Conditions</a>
                 </li>
+                <li>
+                  <a href="https://app.termly.io/document/privacy-policy/f960c6b4-e8b6-4a86-894a-0144bbe3b639" className="hover:underline text-gray-900 dark:text-white">Privacy Policy</a>
+                </li>
               </ul>
             </div>
           </div>
