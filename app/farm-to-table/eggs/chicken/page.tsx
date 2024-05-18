@@ -19,13 +19,12 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query || 'all';
 
   return (
     <>
       <div className={styles['container']}>
         <WrapperLocation>
-          <CategoryPage categoryName={'Chicken Eggs'} query={query} />
+          <CategoryPage categoryName={'Chicken Eggs'} />
         </WrapperLocation>
       </div>
     </>

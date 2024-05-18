@@ -1,5 +1,6 @@
 import React from 'react';
-import FarmerDetails from '@/app/ui/farmer/FarmerDetails';
+import FarmerInfoDetails from '@/app/ui/farmerProfile/FarmerInfoDetails';
+import FarmerProductDetails from '@/app/ui/farmerProfile/FarmerProductDetails';
 import styles from '@/app/styles/FarmerProfile.module.css';
 
 import { fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
@@ -11,7 +12,7 @@ export default async function Page() {
 
   return (
     <div className={styles['container']}>
-      <FarmerDetails data={farmerUserData} />
+      <FarmerInfoDetails data={farmerUserData} />
     </div>
   );
 }

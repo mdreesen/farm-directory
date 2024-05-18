@@ -1,10 +1,5 @@
 [
     {
-        "linkName": "Custom Farming",
-        "directTo": "/farm-services/custom-farming",
-        "icon": "Custom_farming.webp"
-    },
-    {
         "linkName": "Vet & Medicine",
         "directTo": "/farm-services/medical",
         "icon": "Vet_and_Medicine.webp"

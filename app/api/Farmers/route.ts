@@ -16,8 +16,8 @@ export async function GET() {
 export async function POST(req: any) {
     try {
         const body = await req.json();
-        const farmerData = body.formData;
-        await Farmer.create(farmerData);
+        const { email, first_name, address_zip, agree_to_legal, agree_to_privacy_policy } = body.formData;
+        await Farmer.create({ email, first_name, address_zip, agree_to_legal: true, agree_to_privacy_policy: true });
 
         return NextResponse.json({ message: "Farmer Created" }, { status: 201 })
     } catch (error) {

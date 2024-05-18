@@ -69,36 +69,49 @@ export default function Login() {
         <WrapperAuthentication />
     ) : (
         <div className="w-full bg-white rounded-lg shadow">
-                <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                        Sign into your account
-                    </h1>
-                    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
-                        <div>
-                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                            <input type="email" name="email" id="email" value={formData?.email} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@domain.com" required />
-                        </div>
-                        <div>
-                            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
-                            <input type="password" name="password" id="password" value={formData?.password} onChange={handleChange} placeholder="Enter Password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
-                        </div>
-                        {isLoading ? <span className="text-yellow-500 flex justify-center">Signing in...</span> : (
-                            <button type="submit" className="w-full font-medium text-gray-900 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
-                        )}
+            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                    Sign into your account
+                </h1>
+                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
+                    <div>
+                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                        <input type="email" name="email" id="email" value={formData?.email} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@domain.com" required />
+                    </div>
+                    <div>
+                        <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                        <input type="password" name="password" id="password" value={formData?.password} onChange={handleChange} placeholder="Enter Password" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required />
+                    </div>
 
-                        {isError && <span style={{ color: 'red' }}>{isError}</span>}
-                        <p className="text-sm font-light text-gray-500">
-                            Don’t have an account yet? <Link href="/authentication/signup" className="font-medium text-primary-600 hover:underline">Sign up</Link>
-                        </p>
-                    </form>
-                </div>
+                    <div className="flex items-center mb-4">
+                        <input id="agree_to_legal" type="checkbox" name="agree_to_legal" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required />
+                        <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
+                        <Link className="text-sm ms-1" href='/terms-conditions'>Terms & Conditions</Link>
+                    </div>
+
+                    <div className="flex items-center mb-4">
+                        <input id="agree_to_privacy_policy" type="checkbox" name="agree_to_privacy_policy" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required />
+                        <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
+                        <a className="text-sm ms-1" href="https://app.termly.io/document/privacy-policy/f960c6b4-e8b6-4a86-894a-0144bbe3b639">Privacy Policy</a>
+                    </div>
+
+                    {isLoading ? <span className="text-yellow-500 flex justify-center">Signing in...</span> : (
+                        <button type="submit" className="w-full font-medium text-gray-900 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                    )}
+
+                    {isError && <span style={{ color: 'red' }}>{isError}</span>}
+                    <p className="text-sm font-light text-gray-500">
+                        Don’t have an account yet? <Link href="/authentication/signup" className="font-medium text-primary-600 hover:underline">Sign up</Link>
+                    </p>
+                </form>
             </div>
+        </div>
     )
 
     return (
         <div className="flex flex-col items-center justify-start mx-auto md:h-screen lg:py-0">
             {content}
-            {enableToast && <ToastApprovedLogin/>}
+            {enableToast && <ToastApprovedLogin />}
         </div>
     )
 

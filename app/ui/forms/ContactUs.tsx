@@ -78,7 +78,7 @@ export const ContactUs = () => {
                     {subject}
                     {message}
 
-                    {isLoading ? <span className="text-yellow-500 flex justify-center">Submitted, Now Loading...</span> : (
+                    {isLoading ? <span className="text-[#7A3A30] flex justify-center">Submitted, Now Loading...</span> : (
                         <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
                     )}
                 </form>

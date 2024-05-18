@@ -16,11 +16,11 @@ export async function POST(req: any) {
 
         // If farmer is found, set "isFarmer" boolean to true
         if (farmer) {
-            await User.create({ email, password: hashPassword, isFarmer: true, isAdmin });
+            await User.create({ email, password: hashPassword, isFarmer: true, agree_to_legal: true, agree_to_privacy_policy: true });
             return NextResponse.json({ message: "Farmer User Created" }, { status: 201 })
         }
 
-        await User.create({ email, password: hashPassword, isFarmer, isAdmin });
+        await User.create({ email, password: hashPassword, isFarmer, isAdmin, agree_to_legal: true, agree_to_privacy_policy: true });
 
         return NextResponse.json({ message: "User Created" }, { status: 201 })
     } catch (error) {

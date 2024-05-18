@@ -8,6 +8,8 @@ import WrapperFarmerCard from '@/app/wrappers/WrapperFarmerCard';
 export default async function FarmerCard(farmerData: any) {
     const data = farmerData?.farmerData;
 
+    const products = data?.products?.map((item: any, index: number) =>  item?.product_show === 'true' && <span key={`${item?.product_title}-${index}`}>{item?.product_title}</span>)
+
     const farmLogo = (
         <h2 className="flex w-[full] font-light lg:w-full lg:h-32 text-[#7A3A30] justify-center items-center p-4 bg-white">{data?.farm_name}</h2>
     );
@@ -19,13 +21,11 @@ export default async function FarmerCard(farmerData: any) {
         </div>
     );
 
-    const farmerDetail = (
+    const farmerDetail = data?.products?.length > 0 && (
         <div className="mb-2 flex flex-col justify-center align-middle items-center">
             <div className="text-gray-600 font-bold text-l">Products</div>
             <p className="text-gray-700 text-base flex items-center gap-x-2 flex-col lg:flex-row md:flex-col">
-                <span>{data?.product_one_title}</span>
-                <span>{data?.product_two_title}</span>
-                <span>{data?.product_three_title}</span>
+            {products}
             </p>
         </div>
     )

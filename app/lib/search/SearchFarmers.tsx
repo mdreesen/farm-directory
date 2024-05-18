@@ -6,21 +6,45 @@ import { unstable_noStore as noStore } from 'next/cache';
 
 export async function searchFarmers(query: any) {
     noStore();
-    const allFarmers = await Farmer.find();
 
     try {
         const farmers = await Farmer.aggregate([
             {
                 $search: {
-                    "index": "prioritySearchOne",
+                    "index": "farmerSearch",
                     "text": {
                         "query": query,
-                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "product_one_title", "product_two_title", "product_three_title"]
+                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "products.product_title", "products.product_description", "products.product_available"]
                     },
                 }
             }
         ]);
-        return farmers.length > 0 ? farmers : allFarmers
+
+        return farmers;
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
+export async function searchProducts(query: string) {
+    noStore();
+
+    try {
+        const farmers = await Farmer.aggregate([
+            {
+                $search: {
+                    "index": "farmerSearch",
+                    "text": {
+                        "query": query,
+                        "path": "products.product_title"
+                    },
+                }
+            }
+        ]);
+
+        const filter = farmers?.map(farmer => farmer?.products.filter((item: any) => item?.product_title === query ? farmers : {}));
+        return filter.flat(Infinity) ?? [];
     } catch (error) {
         console.log(error)
         return error

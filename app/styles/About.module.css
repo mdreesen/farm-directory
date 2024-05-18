@@ -4,6 +4,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 8rem 2rem;
-  color: ghostwhite;
+  color: black;
   row-gap: 5rem;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 25px;
+}
+
+.termsConditions{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  background-color: white;
+  padding: 1rem;
 }

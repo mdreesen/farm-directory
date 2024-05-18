@@ -3,6 +3,16 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(`${process.env.MONGO_URI}`);
 mongoose.Promise = global.Promise;
 
+const productSchema = new Schema(
+    {
+        product_title: String || undefined,
+        product_description: String || undefined,
+        product_available: String || undefined,
+        product_show: String || undefined,
+        createdAt: String || undefined,
+        updatedAt: String || undefined
+    }, {timestamps: false});
+
 const farmerSchema = new Schema(
     {
         first_name: String,
@@ -17,22 +27,9 @@ const farmerSchema = new Schema(
         website: String,
         facebook: String,
         instagram: String,
-        product_one_title: String,
-        product_one_description: String,
-        product_one_feed: String,
-        product_one_available: String,
-        product_one_show: String,
-        product_two_title: String,
-        product_two_description: String,
-        product_two_feed: String,
-        product_two_available: String,
-        product_two_show: String,
-        product_three_title: String,
-        product_three_description: String,
-        product_three_feed: String,
-        product_three_available: String,
-        product_three_show: String,
-        products: Array,
+        agree_to_legal: Boolean,
+        agree_to_privacy_policy: Boolean,
+        products: [productSchema],
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

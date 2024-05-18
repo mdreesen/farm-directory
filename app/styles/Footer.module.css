@@ -8,9 +8,6 @@
   position: relative;
   z-index: 20;
   color: #7A3A30;
-
-  /* bottom: 0;
-  position: absolute; */
 }
 
 .right {
@@ -18,17 +15,11 @@
   -moz-column-gap: 2rem;
   column-gap: 2rem;
   align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }
 
-/* @media only screen and (max-width: 630px) {
-  .container {
-    height: 5rem;
-    width: 100%;
-    background-color: ghostwhite;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    top: -103px;
-  }
-} */
+.legal {
+  font-size: .8rem;
+}
+
