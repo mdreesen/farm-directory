@@ -24,7 +24,7 @@ export default async function FarmerCard(farmerData: any) {
     const farmerDetail = data?.products?.length > 0 && (
         <div className="mb-2 flex flex-col justify-center align-middle items-center">
             <div className="text-gray-600 font-bold text-l">Products</div>
-            <p className="text-gray-700 text-base flex items-center gap-x-2 flex-col lg:flex-row md:flex-col">
+            <p className="text-gray-700 text-base flex items-center gap-x-2 flex-col lg:flex-row md:flex-col text-center">
             {products}
             </p>
         </div>

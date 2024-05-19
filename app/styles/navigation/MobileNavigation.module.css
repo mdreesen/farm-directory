@@ -26,6 +26,7 @@
   border-radius: 50%;
   background: transparent;
   text-align: -webkit-center;
+  text-align: -moz-center;
   z-index: 3030;
 }
 
