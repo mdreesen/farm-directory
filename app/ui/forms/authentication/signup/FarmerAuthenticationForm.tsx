@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import styles from '@/app/styles/authentication/Auth.module.css';
 
 export function FarmerAuthenticationForm() {
     const router = useRouter();
@@ -87,7 +88,7 @@ export function FarmerAuthenticationForm() {
     };
 
     return (
-        <section>
+        <div className={styles['container']}>
             <div className="flex flex-col items-center justify-start mx-auto md:h-screen lg:py-0">
                 <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -139,6 +140,6 @@ export function FarmerAuthenticationForm() {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 };

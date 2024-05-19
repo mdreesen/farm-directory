@@ -62,12 +62,6 @@ main {
   min-height: 90svh;
 }
 
-section {
-  padding: 6% 4%;
-  min-height: 100vh;
-  display: flex;
-}
-
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 4rem;
