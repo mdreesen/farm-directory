@@ -6,6 +6,8 @@ import { Suspense } from 'react';
 import { fetchSingleFarmerByEmail } from '@/app/lib/farmerSearch/data';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
+import LoadingCircle from '@/app/ui/loading/loadingCircle';
+
 export default async function Page() {
     const auth = await loggedInUserData();
     const farmerUserData = await fetchSingleFarmerByEmail(auth?.email ?? '');
@@ -16,7 +18,7 @@ export default async function Page() {
 
     return (
         <div className={styles['container-update']}>
-            <Suspense fallback={<div>...loading</div>}>
+            <Suspense fallback={<LoadingCircle/>}>
                 <MakeFarmerProductsForm data={parse} />
             </Suspense>
         </div>
