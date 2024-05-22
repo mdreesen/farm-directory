@@ -11,7 +11,7 @@ export default async function FarmerCard(farmerData: any) {
     const products = data?.products?.map((item: any, index: number) =>  item?.product_show === 'true' && <span key={`${item?.product_title}-${index}`}>{item?.product_title}</span>)
 
     const farmLogo = (
-        <h2 className="flex w-[full] font-light lg:w-full lg:h-32 text-[#7A3A30] justify-center items-center p-4 bg-white">{data?.farm_name}</h2>
+        <h2 className="flex w-[full] font-light lg:w-full lg:h-32 text-[#7A3A30] justify-center items-center p-4 bg-[#F8F8FF]">{data?.farm_name}</h2>
     );
 
     const farmerInfo = (
@@ -35,7 +35,7 @@ export default async function FarmerCard(farmerData: any) {
         <WrapperFarmerCard>
             <div className={`${styles['card']} flex flex-col max-w-sm lg:max-w-full justify-center`}>
                 {farmLogo}
-                <div className={`${styles['details']} border-r border-b border-l lg:border-l-0 lg:border-t bg-white p-4 flex flex-col justify-between leading-normal lg:w-[32rem]`}>
+                <div className={`${styles['details']} border-r border-b border-l lg:border-l-0 lg:border-t bg-[#F8F8FF] p-4 flex flex-col justify-between leading-normal lg:w-[32rem]`}>
                     {farmerDetail}
                     <div className='flex w-full justify-center mb-2'>
                         <Link href={`/farmer/details/${data?._id}`}><button className="rounded-md border p-2 hover:bg-yellow-500 text-gray-700">Details</button></Link>

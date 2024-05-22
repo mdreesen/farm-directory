@@ -1,5 +1,3 @@
-import { filterFarmerProducts } from '@/app/lib/filterFarmers';
-import { searchProducts } from '@/app/lib/search/SearchFarmers';
 import { searchFarmers } from '@/app/lib/search/SearchFarmers';
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
 import CardsFarmers from '../cardsFarmers';
