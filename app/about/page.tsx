@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '@/app/styles/About.module.css';
-import aboutText from "@/utils/aboutText.json";
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -9,15 +8,6 @@ export const metadata: Metadata = {
 }
 
 export default function about() {
-
-    const about = aboutText?.map((item: any, index: number) => {
-        return (
-            <div key={`${item?.title}: ${index}`}>
-                <h2>{item?.title ?? ''}</h2>
-                <p>{item?.description ?? ''}</p>
-            </div>
-        )
-    });
 
     return (
         <div className={styles['main']}>
@@ -33,7 +23,7 @@ export default function about() {
 
                 1.  Go to the sign up page, and whether you're a farmer or a consumer looking for local products, please give us a try.  <a href="/authentication/signup">Link here to sign up page</a><br />
                 2.  Give us a like, follow, and share on Facebook <a href='https://www.facebook.com/Thefarmdirectory'>www.facebook.com/Thefarmdirectory</a><br />
-                3.  Subscribe to our email list here (link to email list)<br />
+                3.  Subscribe to our email<br />
                 4.  If you're a farmer, let us know what would be helpful as far as features, usability, etc!  Email me directly at <a href='mailto:kenny@thefarmdirectory.com'>kenny@thefarmdirectory.com!</a><br />
             </p>
 
