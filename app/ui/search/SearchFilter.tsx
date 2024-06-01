@@ -102,7 +102,7 @@ export default function SearchFilter() {
             </button>
 
             { /* Dropdown menu */}
-            <div id="dropdown" className={`z-10 ${!openDropdown && 'hidden'} w-56 p-3 bg-white rounded-lg shadow`}>
+            <div id="dropdown" className={`z-10 ${!openDropdown && 'hidden'} w-56 p-3 bg-[#F8F8FF] rounded-lg shadow`}>
                 <LocationMessage />
                 <EnableLocationService />
                 <h6 className="mb-3 text-sm font-medium text-gray-900">

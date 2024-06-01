@@ -17,7 +17,6 @@ export function CategoryCard(itemData: any) {
                     src={`/images/icons/navigation/${data?.icon}`}
                     width={500}
                     height={500}
-                    priority={true}
                     object-fit="cover"
                     alt={`Navigate to ${data?.linkName}`}
                 />

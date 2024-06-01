@@ -5,7 +5,6 @@ import styles from '@/app/styles/Form.module.css';
 
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
-import { CategoryFeedType } from '@/app/ui/productCategories/CategoryFeedType';
 import { StatePicker } from "@/app/ui/statePicker";
 import { FormValidation } from "@/app/ui/forms/FormValidation";
 

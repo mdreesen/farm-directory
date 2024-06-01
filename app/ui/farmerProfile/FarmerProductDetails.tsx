@@ -11,11 +11,11 @@ export default async function FarmerProductDetails(data: any) {
     const farmerData = JSON.parse(JSON.stringify(farmer));
 
     return (
-        <div className={styles['container']}>
+        <div>
             <div className="rounded-lg">
                 <div className="container mx-auto py-16">
                     <div className="col-span-4 sm:col-span-9">
-                        <div className="bg-white shadow rounded-lg p-6">
+                        <div className="bg-[#F8F8FF] shadow rounded-lg p-6">
                             <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Products</h2>
                             <FarmerProfileProducts data={farmerData} />
                         </div>
