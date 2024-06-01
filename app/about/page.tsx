@@ -11,7 +11,7 @@ export default function about() {
 
     return (
         <div className={styles['main']}>
-            <h2>About Us</h2>
+            <h2 className={styles['title']}>About Us</h2>
 
             <p>TheFarmDirectory.com was envisioned by a fourth generation farmer in northwest Montana.  Frustrated by big tech blocking or rejecting my ads for grass fed beef, I came up with the idea that farmers should have their own social media independent site to list their products and farm-related services.</p>
 
