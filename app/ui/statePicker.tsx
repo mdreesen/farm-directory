@@ -60,7 +60,7 @@ export function StatePicker() {
     const eligibleStates = (
       <>
         <option value="">Please Select State</option>
-        <option value="Montana">Montana</option>
+        {allStates}
       </>
     );
   
