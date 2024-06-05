@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 // Importing Categories
-import { FormValidation } from "@/app/ui/forms/FormValidation";
+import { FormValidation } from "@/app/ui/validations/FormValidation";
 
 export const ContactUs = () => {
 

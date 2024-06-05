@@ -13,7 +13,7 @@ import ToastApproved from "@/app/ui/toast/ToastApproved";
 import { Categories } from '@/app/ui/productCategories/Categories';
 import { CategoryShow } from '@/app/ui/productCategories/CategoryShow';
 import { CategoryAvailable } from '@/app/ui/productCategories/CategoryAvailable';
-import { FormValidation } from "@/app/ui/forms/FormValidation";
+import { FormValidation } from "@/app/ui/validations/FormValidation";
 
 export const MakeFarmerProductsForm = (data: any) => {
     const farmerData = data?.data;
