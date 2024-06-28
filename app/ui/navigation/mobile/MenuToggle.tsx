@@ -14,7 +14,7 @@ const Path = (props: React.JSX.IntrinsicAttributes & SVGMotionProps<SVGPathEleme
 );
 
 export const MenuToggle = ({ toggle }: any) => (
-  <button className={styles['button']} onClick={toggle}>
+  <button type='button' aria-label="Mobile navigation button" className={styles['button']} onClick={toggle}>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{
