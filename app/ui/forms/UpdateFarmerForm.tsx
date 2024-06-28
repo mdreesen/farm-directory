@@ -6,7 +6,7 @@ import ToastApproved from "@/app/ui/toast/ToastApproved";
 
 // Importing Categories
 import { StatePicker } from "@/app/ui/statePicker";
-import { FormValidation } from "@/app/ui/forms/FormValidation";
+import { FormValidation, SocialLinkValidation } from "@/app/ui/validations/FormValidation";
 
 
 export const UpdateFarmerForm = (data: any) => {
@@ -33,6 +33,13 @@ export const UpdateFarmerForm = (data: any) => {
 
     const router = useRouter();
 
+    const handleSocialURLS = (data: any) => {
+
+        if(!data) return '';
+
+        return data?.includes('https') ? data?.toLowerCase().trim() : 'https://' + data?.toLowerCase().trim()
+    }
+
     const handleChange = (e: any) => {
         const value = e.target.value
         const name = e.target.name
@@ -52,6 +59,8 @@ export const UpdateFarmerForm = (data: any) => {
             cache: 'no-store',
             body: JSON.stringify({ formData }),
         });
+
+        console.log(farmerData)
 
         if (!res.ok) throw new Error("Failed to update Farmer");
 
@@ -175,14 +184,17 @@ export const UpdateFarmerForm = (data: any) => {
         <div className={styles['basicInfo']}>
 
             <h2>Social Information</h2>
+
             <label>Website Link</label>
             <input
                 id="website"
                 name="website"
                 type="text"
                 onChange={handleChange}
-                value={formData?.website?.trim()}
+                placeholder={'https://yourwebsite.com'}
+                value={handleSocialURLS(formData?.website)}
             />
+            <SocialLinkValidation data={formData?.website} />
 
             <label>Facebook Link</label>
             <input
@@ -190,8 +202,10 @@ export const UpdateFarmerForm = (data: any) => {
                 name="facebook"
                 type="text"
                 onChange={handleChange}
-                value={formData?.facebook?.trim()}
+                placeholder={'https://yourfacebook.com'}
+                value={handleSocialURLS(formData?.facebook)}
             />
+            <SocialLinkValidation data={formData?.facebook} />
 
             <label>Instagram Link</label>
             <input
@@ -199,8 +213,10 @@ export const UpdateFarmerForm = (data: any) => {
                 name="instagram"
                 type="text"
                 onChange={handleChange}
-                value={formData?.instagram?.trim()}
+                placeholder={'https://yourinstagram.com'}
+                value={handleSocialURLS(formData?.instagram)}
             />
+            <SocialLinkValidation data={formData?.instagram} />
         </div>
     );
 

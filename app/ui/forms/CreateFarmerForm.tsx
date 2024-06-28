@@ -6,7 +6,7 @@ import styles from '@/app/styles/Form.module.css';
 // Importing Categories
 import { Categories } from '@/app/ui/productCategories/Categories';
 import { StatePicker } from "@/app/ui/statePicker";
-import { FormValidation } from "@/app/ui/forms/FormValidation";
+import { FormValidation } from "@/app/ui/validations/FormValidation";
 
 
 export const CreateFarmerForm = () => {
@@ -196,7 +196,7 @@ export const CreateFarmerForm = () => {
                 name="facebook"
                 type="text"
                 onChange={handleChange}
-                value={formData?.facebook.trim()}
+                value={formData?.facebook.trim().toLowerCase()}
             />
 
             <label>Instagram Link</label>
@@ -205,7 +205,7 @@ export const CreateFarmerForm = () => {
                 name="instagram"
                 type="text"
                 onChange={handleChange}
-                value={formData?.instagram.trim()}
+                value={formData?.instagram.trim().toLowerCase()}
             />
         </div>
     );

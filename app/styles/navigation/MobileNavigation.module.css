@@ -82,7 +82,7 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 815px) {
   .nav {
     display: block;
     position: fixed;
