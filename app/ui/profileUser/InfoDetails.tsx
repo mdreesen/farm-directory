@@ -5,7 +5,7 @@ import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
 import { FarmerProfileProducts } from '@/app/ui/profileFarmer/FarmerProfileProducts';
 
-export default async function FarmerInfoDetails(data: any) {
+export default async function InfoDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
 
     const farmerData = JSON.parse(JSON.stringify(farmer));

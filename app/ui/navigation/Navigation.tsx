@@ -12,6 +12,34 @@ import farmerLinks from './farmerLinks.json';
 export default async function Navigation() {
   const auth = await loggedInUserData();
 
+  const userLinks = [
+    {
+      "linkName": "Farm To Table",
+      "goTo": "/farm-to-table"
+    },
+    {
+      "linkName": "Live Animals",
+      "goTo": "/live-animals"
+  
+    },
+    {
+      "linkName": "Feed/Bedding",
+      "goTo": "/feed-bedding"
+    },
+    {
+      "linkName": "Farm Events & Agritourism",
+      "goTo": "/farmevents-agritourism"
+    },
+    {
+      "linkName": "Farm Services",
+      "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Profile",
+      "goTo": `/profile-user/${auth?.id}`
+    }
+  ];
+
   const navItems = () => {
     switch (true) {
       case auth?.isAdmin:
@@ -23,7 +51,7 @@ export default async function Navigation() {
         break;
 
       case auth !== undefined:
-        return loggedInLinks;
+        return userLinks;
         break
 
       default:

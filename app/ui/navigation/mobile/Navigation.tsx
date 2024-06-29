@@ -50,7 +50,39 @@ export const Navigation = (auth: any, toggleOpen: any) => {
       "linkName": "Sign Out",
       "goTo": "/"
     }
-  ]
+  ];
+
+  const userLinks = [
+    {
+      "linkName": "Farm To Table",
+      "goTo": "/farm-to-table"
+    },
+    {
+      "linkName": "Live Animals",
+      "goTo": "/live-animals"
+  
+    },
+    {
+      "linkName": "Feed/Bedding",
+      "goTo": "/feed-bedding"
+    },
+    {
+      "linkName": "Farm Events & Agritourism",
+      "goTo": "/farmevents-agritourism"
+    },
+    {
+      "linkName": "Farm Services",
+      "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Profile",
+      "goTo": `/profile-user/${loggedIn?.id}`
+    },
+    {
+      "linkName": "Sign Out",
+      "goTo": "/"
+    }
+  ];
 
   const navItems = () => {
     switch (true) {
@@ -63,7 +95,7 @@ export const Navigation = (auth: any, toggleOpen: any) => {
         break;
 
       case loggedIn !== undefined:
-        return loggedInLinksMobile;
+        return userLinks;
         break
 
       default:

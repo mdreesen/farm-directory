@@ -88,6 +88,18 @@ export async function fetchSingleUser(id: string) {
     }
 };
 
+export async function fetchSingleUserByEmail(email: string) {
+    noStore()
+
+    try {
+        const data = await User.findOne({ email: email });
+        return data ?? {}
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function isFarmer(data: any) {
     console.log(data);
     return data
