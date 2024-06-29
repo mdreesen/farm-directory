@@ -54,7 +54,6 @@ export function UserAuthenticationForm() {
 
             const address = radarServices?.addresses?.find((item: object) => item);
 
-
             const findingExistingUser = await fetch("/api/Authentication/existing", {
                 method: "POST",
                 headers: {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from '@/app/styles/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
-import { FarmerProfileProducts } from '@/app/ui/farmerProfile/FarmerProfileProducts';
+import { FarmerProfileProducts } from '@/app/ui/profileFarmer/FarmerProfileProducts';
 
 export default async function FarmerProductDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);

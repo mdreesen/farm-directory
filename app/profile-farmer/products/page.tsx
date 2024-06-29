@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/app/styles/FarmerDetails.module.css';
-import FarmerProductDetails from '@/app/ui/farmerProfile/FarmerProductDetails'
+import FarmerProductDetails from '@/app/ui/profileFarmer/FarmerProductDetails'
 import LoadingCircle from '@/app/ui/loading/loadingCircle';
 import { Suspense } from 'react';
 

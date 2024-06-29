@@ -9,7 +9,7 @@ export async function POST(req: any) {
     try {
         const body = await req.json();
 
-        const { city, postalCode, state, county, latitude, longitude} = body;
+        const { number, street, city, postalCode, state, county, latitude, longitude, formattedAddress} = body;
         const { email, password, isFarmer, isAdmin } = body.formData;
         const farmer = await Farmer.findOne({ email })
 
@@ -22,7 +22,7 @@ export async function POST(req: any) {
             return NextResponse.json({ message: "Farmer User Created" }, { status: 201 })
         }
 
-        await User.create({ email, password: hashPassword, isFarmer, isAdmin, city, postalCode, state, county, latitude, longitude, agree_to_legal: true, agree_to_privacy_policy: true });
+        await User.create({ email, password: hashPassword, isFarmer, isAdmin, houseNumber: number, street, city, postalCode, state, county, latitude, longitude, formattedAddress, agree_to_legal: true, agree_to_privacy_policy: true });
 
         return NextResponse.json({ message: "User Created" }, { status: 201 })
     } catch (error) {
