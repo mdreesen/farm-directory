@@ -14,10 +14,6 @@ export default async function CategoryPage({
 
     if (searchForFarmers.length === 0) return <NoFarmer />
 
-    return (
-        <>
-            <CardsFarmers searchFarmer={searchForFarmers} />
-        </>
-    )
+    return <CardsFarmers searchFarmer={searchForFarmers} />
 }
 

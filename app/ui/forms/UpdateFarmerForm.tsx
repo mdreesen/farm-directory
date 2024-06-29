@@ -60,7 +60,6 @@ export const UpdateFarmerForm = (data: any) => {
             body: JSON.stringify({ formData }),
         });
 
-        console.log(farmerData)
 
         if (!res.ok) throw new Error("Failed to update Farmer");
 
