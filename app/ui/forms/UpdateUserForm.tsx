@@ -11,7 +11,6 @@ import { FormValidation } from "@/app/ui/validations/FormValidation";
 
 export const UpdateUserForm = (data: any) => {
     const userData = data?.data;
-    console.log(userData)
 
     const startData = {
         first_name: userData?.first_name,
