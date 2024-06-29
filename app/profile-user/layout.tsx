@@ -14,7 +14,8 @@ export default async function RootLayout({
     return (
         <div className={styles['profile-links']}>
             <div className={styles['update-links']}>
-                <Link href={`/profile-farmer/${auth?.id}`}>Profile</Link>
+                <Link href={`/profile-user/${auth?.id}`}>Profile</Link>
+                <Link href={`/profile-user/${auth?.id}/update`}>Update Profile</Link>
             </div>
             {children}
         </div>

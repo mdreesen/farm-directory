@@ -5,7 +5,10 @@ mongoose.Promise = global.Promise;
 
 const userSchema = new Schema(
     {
+        first_name: String,
+        last_name: String,
         email: String,
+        phone: String,
         password: String,
         isFarmer: Boolean,
         isAdmin: Boolean,
