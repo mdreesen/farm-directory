@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styles from '@/app/styles/FarmerDetails.module.css';
+import styles from '@/app/styles/farmer/FarmerDetails.module.css';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function RootLayout({

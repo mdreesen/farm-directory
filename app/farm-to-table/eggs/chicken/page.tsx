@@ -1,4 +1,4 @@
-import styles from '@/app/styles/Farmer.module.css';
+import styles from '@/app/styles/farmer/Farmer.module.css';
 import { Metadata } from 'next';
 
 // Importing Components

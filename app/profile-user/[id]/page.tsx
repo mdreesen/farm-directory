@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoDetails from '@/app/ui/profileUser/InfoDetails';
-import styles from '@/app/styles/FarmerProfile.module.css';
+import styles from '@/app/styles/farmer/FarmerProfile.module.css';
 
 import { fetchSingleUserByEmail } from '@/app/lib/farmerSearch/data';
 import { loggedInUserData } from '@/app/lib/cookieData';

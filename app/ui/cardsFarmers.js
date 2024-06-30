@@ -1,5 +1,5 @@
 import FarmerCard from '@/app/ui/farmer/FarmerCard';
-import styles from '@/app/styles/Farmer.module.css';
+import styles from '@/app/styles/farmer/Farmer.module.css';
 
 export default async function CardsFarmers(searchFarmer) {
 

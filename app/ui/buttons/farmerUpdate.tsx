@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/app/styles/FarmerDetails.module.css';
+import styles from '@/app/styles/farmer/FarmerDetails.module.css';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function FarmerUpdate(data: any) {

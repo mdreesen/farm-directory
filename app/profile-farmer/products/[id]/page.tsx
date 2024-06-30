@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/app/styles/FarmerDetails.module.css';
+import styles from '@/app/styles/farmer/FarmerDetails.module.css';
 import LoadingCircle from '@/app/ui/loading/loadingCircle';
 import { Suspense } from 'react';
 

@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import styles from '@/app/styles/Farmer.module.css';
+import styles from '@/app/styles/farmer/Farmer.module.css';
 import { CardsSkeleton } from '@/app/ui/loading/skeletons';
 import { Metadata } from 'next'
 import CategoryPage from '@/app/ui/category/CategoryPage';
