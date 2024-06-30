@@ -4,7 +4,7 @@ import styles from '@/app/styles/farmer/FarmerDetails.module.css';
 import { UpdateUserForm } from '@/app/ui/forms/UpdateUserForm';
 import { Suspense } from 'react';
 
-import { fetchSingleUserByEmail } from '@/app/lib/farmerSearch/data';
+import { fetchSingleUserByEmail } from '@/app/lib/dataUser/data';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function Page() {

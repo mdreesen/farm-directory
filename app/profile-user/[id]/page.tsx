@@ -2,7 +2,7 @@ import React from 'react';
 import InfoDetails from '@/app/ui/profileUser/InfoDetails';
 import styles from '@/app/styles/farmer/FarmerProfile.module.css';
 
-import { fetchSingleUserByEmail } from '@/app/lib/farmerSearch/data';
+import { fetchSingleUserByEmail } from '@/app/lib/dataUser/data';
 import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function Page() {

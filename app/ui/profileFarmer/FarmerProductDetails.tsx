@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import styles from '@/app/styles/farmer/FarmerDetails.module.css';
-import { fetchSingleFarmer } from '@/app/lib/farmerSearch/data';
+import { fetchSingleFarmer } from '@/app/lib/dataFarmer/data';
 import { FarmerProfileProducts } from '@/app/ui/profileFarmer/FarmerProfileProducts';
 
 export default async function FarmerProductDetails(data: any) {
