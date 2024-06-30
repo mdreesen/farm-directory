@@ -17,7 +17,7 @@ export default async function Page({
     page?: string;
   };
 }) {
-  const query = searchParams?.query || 'all';
+  const query = searchParams?.query;
 
   return (
     <>

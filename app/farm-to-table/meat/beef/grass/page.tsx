@@ -21,7 +21,7 @@ export default async function Page({
 }) {
   const beefProducts = 'Grass Finished Beef' || 'Grain & Grass Finished Beef';
 
-  const query = searchParams?.query || 'all';
+  const query = searchParams?.query;
 
   return (
     <>

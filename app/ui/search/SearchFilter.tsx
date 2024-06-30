@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import LocationMessage from '@/app/ui/messages/LocationMessage';
 import EnableLocationService from '@/app/ui/buttons/enableLocationService';
 import Search from './Search';
+import styles from '@/app/styles/search/Search.module.css';
 
 export default function SearchFilter() {
 
@@ -82,27 +83,31 @@ export default function SearchFilter() {
         { 'title': 'City', 'name': 'option', 'id': 'city', 'type': 'checkbox', 'onChange': handleChange, 'value': isCityStorageItem },
     ]
 
-    const searchFilterElement = searchFilterData.map((item, index) => (
-        <li className="flex items-center" key={`${item?.title}-${index}`}>
-            <input id={item?.id} type={item?.type} name={item?.name} onChange={item?.onChange} value={item?.value} className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
- 
-            <span className="ml-2 text-sm font-medium text-gray-900">
-                {item?.title}
-            </span>
-        </li>
-    ));
+    // const searchFilterElement = searchFilterData.map((item, index) => (
+    //     <li className="flex items-center" key={`${item?.title}-${index}`}>
+    //         <input id={item?.id} type={item?.type} name={item?.name} onChange={item?.onChange} value={item?.value} className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2" />
+
+    //         <span className="ml-2 text-sm font-medium text-gray-900">
+    //             {item?.title}
+    //         </span>
+    //     </li>
+    // ));
 
     return (
-        <div className="flex flex-col items-center justify-center p-4">
-            <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-[#7A3A30] bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center`} type="button" onClick={handleDropdown}>
+        <div className={`flex flex-col items-center justify-center p-4 ${styles['container']}`}>
+            {/* <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-[#7A3A30] bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center`} type="button" onClick={handleDropdown}>
                 {isFilterUsed ? <span className='absolute -ml-5 text-2xl text-red-500'>☑ </span> : ''} Filter category by
                 <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-            </button>
+            </button> */}
+
+            <div className='text-gray-900'>
+                <Search placeholder={'Search for farmers...'} />
+            </div>
 
             { /* Dropdown menu */}
-            <div id="dropdown" className={`z-10 ${!openDropdown && 'hidden'} w-56 p-3 bg-[#F8F8FF] rounded-lg shadow`}>
+            {/* <div id="dropdown" className={`z-10 ${!openDropdown && 'hidden'} w-56 p-3 bg-[#F8F8FF] rounded-lg shadow`}>
                 <LocationMessage />
                 <EnableLocationService />
                 <h6 className="mb-3 text-sm font-medium text-gray-900">
@@ -118,7 +123,7 @@ export default function SearchFilter() {
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-red-500 bg-grey-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center`} type="button" onClick={handleClose}>
                     Close
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 }
