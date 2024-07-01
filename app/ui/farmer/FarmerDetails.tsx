@@ -2,11 +2,17 @@ import React from 'react';
 import styles from '@/app/styles/farmer/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/dataFarmer/data';
 import { FarmerProducts } from './FarmerProducts';
+import FarmerMap from '@/app/ui/maps/FarmerMap'
 
 export default async function FarmerDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
 
     const farmerData = farmer;
+
+    const farmerLocation = {
+        longitude: farmer.longitude,
+        latitude: farmer.latitude
+    }
 
     const showInstagram = farmerData.facebook && farmerData?.facebook !== "";
     const showFacebook = farmerData.instagram && farmerData?.instagram !== "";
@@ -59,6 +65,12 @@ export default async function FarmerDetails(data: any) {
         </div>
     );
 
+    const map = farmerData?.geometry && (
+        <div className='flex w-full justify-center'>
+            <FarmerMap data={farmerLocation} />
+        </div>
+    )
+
     return (
         <div className={styles['container']}>
             <div className="rounded-lg">
@@ -73,6 +85,7 @@ export default async function FarmerDetails(data: any) {
                                 {farmerAddress}
                             </div>
                         </div>
+
                         <div className="col-span-4 sm:col-span-9">
                             <div className="bg-[#F8F8FF] shadow rounded-lg p-6">
                                 <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Products</h2>
@@ -84,6 +97,7 @@ export default async function FarmerDetails(data: any) {
                         </div>
                     </div>
                 </div>
+                {map}
             </div>
         </div>
     )
