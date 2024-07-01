@@ -58,7 +58,7 @@ export default async function FarmerCard(farmerData: any) {
                         {farmerInfo}
                     </div>
 
-                    {favorite.length === 1 ? <ButtonFilledHeart farmerData={data} userData={parse} /> : <ButtonHeart farmerData={data} userData={parse} />}
+                    {favorite?.length === 1 ? <ButtonFilledHeart farmerData={data} userData={parse} /> : <ButtonHeart farmerData={data} userData={parse} />}
                 </div>
             </div>
         </WrapperFarmerCard>
