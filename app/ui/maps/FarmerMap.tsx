@@ -1,11 +1,13 @@
 'use client'
 import React from 'react';
 import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
+import styles from '@/app/styles/map/Map.module.css';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
-  borderRadius: '10px'
+  width: '100%',
+  height: '100%',
+  borderRadius: '10px',
+  padding: "10.5rem"
 };
 
 function FarmerMap(data: any) {
@@ -39,7 +41,7 @@ function FarmerMap(data: any) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={17}
+        zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{
@@ -47,8 +49,8 @@ function FarmerMap(data: any) {
           mapTypeControl: false
         }}
       >
-        <MarkerF position={center}></MarkerF>
         { /* Child components, such as markers, info windows, etc. */ }
+        <MarkerF position={center}></MarkerF>
         <></>
       </GoogleMap>
   ) : <></>

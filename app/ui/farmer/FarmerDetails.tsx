@@ -66,7 +66,7 @@ export default async function FarmerDetails(data: any) {
     );
 
     const map = farmerData?.geometry && (
-        <div className='flex w-full justify-center'>
+        <div className='flex w-full justify-center p-4'>
             <FarmerMap data={farmerLocation} />
         </div>
     )
