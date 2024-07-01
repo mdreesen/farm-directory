@@ -7,6 +7,7 @@ import ToastApproved from "@/app/ui/toast/ToastApproved";
 // Importing Categories
 import { StatePicker } from "@/app/ui/statePicker";
 import { FormValidation, SocialLinkValidation } from "@/app/ui/validations/FormValidation";
+import { radarForwardCoordinates } from "@/app/lib/locationServices/radarApi";
 
 
 export const UpdateFarmerForm = (data: any) => {
@@ -30,6 +31,7 @@ export const UpdateFarmerForm = (data: any) => {
     const [formData, setFormData] = useState(startData);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [enableToast, setEnableToast] = useState<boolean>(false);
+    const [isLatitude, setLatLong] = useState({});
 
     const router = useRouter();
 
@@ -52,12 +54,22 @@ export const UpdateFarmerForm = (data: any) => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        setIsLoading(true)
+        setIsLoading(true);
+
+        const farmerLocation = {
+            road: formData?.address_road,
+            city: formData?.address_city,
+            state: formData?.address_state,
+            postalCode: formData?.address_zip
+        }
+        const radarServices = await radarForwardCoordinates(farmerLocation);
+
+        const address = radarServices.addresses.find((address: any) => address);
 
         const res = await fetch(`/api/Farmers/${farmerData?._id}`, {
             method: "PUT",
             cache: 'no-store',
-            body: JSON.stringify({ formData }),
+            body: JSON.stringify({ formData, ...address }),
         });
 
 

@@ -22,8 +22,14 @@ export async function PUT(req: any, { params }: any) {
         const body = await req.json();
         const farmerData = body?.formData;
 
+        const { latitude, longitude, distance, geometry } = body;
+
         const farmer = await Farmer.findByIdAndUpdate(id, {
-            ...farmerData
+            ...farmerData,
+            latitude: latitude,
+            longitude: longitude,
+            distance: distance,
+            geometry: geometry
         });
 
         return NextResponse.json({ message: "Farmer Updated" }, { status: 200 });

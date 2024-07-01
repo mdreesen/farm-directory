@@ -31,6 +31,10 @@ const farmerSchema = new Schema(
         agree_to_privacy_policy: Boolean,
         products: [productSchema],
         favorites: Array,
+        latitude: String,
+        longitude: String,
+        distance: Number,
+        geometry: Object,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

@@ -27,7 +27,6 @@ export function UserAuthenticationForm() {
     const locationState = useGeolocation();
     const loading = locationState?.loading;
 
-
     const handleChange = (e: any) => {
         const value = e.target.value
         const name = e.target.name
@@ -50,7 +49,7 @@ export function UserAuthenticationForm() {
         if (!loading) {
             const latitude = locationState?.latitude?.toString() ?? '';
             const longitude = locationState?.longitude?.toString() ?? '';
-            const radarServices = await radarReverseCoordinates(latitude, longitude)
+            const radarServices = await radarReverseCoordinates(latitude, longitude);
 
             const address = radarServices?.addresses?.find((item: object) => item);
 
