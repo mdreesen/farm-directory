@@ -17,7 +17,7 @@ export default async function InfoDetails(data: any) {
                     <div className="">
                         <div className="col-span-4 sm:col-span-9">
                             <div className={`bg-[#F8F8FF] shadow rounded-lg p-6 ${styles['container-info']}`}>
-                                <div>
+                                <div className={styles['container-info']}>
                                     <h2 className="text-gray-700 font-bold text-xl font-bold mt-6 mb-4">Your Information</h2>
                                     <span>{userData.first_name && `First Name: ${userData.first_name}`}</span>
                                     <span>{userData.last_name && `Last Name: ${userData.last_name}`}</span>
