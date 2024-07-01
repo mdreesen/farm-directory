@@ -4,7 +4,6 @@ import { NextResponse } from 'next/server';
 // This video may be a good example for Mongo Queries
 // https://www.youtube.com/watch?v=XRXjJRJ03_A&ab_channel=MongoDB
 
-// Get Single Farmer By ID
 export async function PUT(req: any, { params }: any) {
     try {
         const { id } = params;

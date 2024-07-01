@@ -21,6 +21,7 @@ const userSchema = new Schema(
         latitude: String,
         longitude: String,
         formattedAddress: String,
+        favoriteFarmers: Array,
         agree_to_legal: Boolean,
         agree_to_privacy_policy: Boolean,
         createdAt: String,
