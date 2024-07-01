@@ -44,7 +44,7 @@ export default function ButtonFilledHeart(data: any) {
     <div onClick={handleSubmit} className="flex p-4 flex-col justify-center text-center items-center">
 
       {heartFilled}
-      <span>Is Favorite</span>
+      <span>Saved</span>
     </div>
   )
 };
