@@ -55,9 +55,7 @@ export default async function FarmerDetails(data: any) {
         <div className="flex flex-col">
             <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">Address</span>
             <ul>
-                <li className="mb-2">{farmerData?.address_road}</li>
-                <li className="mb-2">{farmerData?.address_city}, {farmerData?.address_state}</li>
-                <li className="mb-2">{farmerData?.address_zip}</li>
+             <a href={`https://maps.google.com/?q=${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}>{`${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}</a>
             </ul>
         </div>
     );
