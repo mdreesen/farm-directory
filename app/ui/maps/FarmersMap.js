@@ -1,9 +1,7 @@
 'use client'
 import React from 'react';
 import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
-import styles from '@/app/styles/map/Map.module.css';
 import { useGeolocation } from "@uidotdev/usehooks";
-import { equal } from 'assert';
 
 const containerStyle = {
   width: '100%',
@@ -61,7 +59,7 @@ function FarmersMap(data) {
     }}
   >
     { /* Child components, such as markers, info windows, etc. */ }
-    {/* <MarkerF position={center}></MarkerF> */}
+    <MarkerF position={center}></MarkerF>
     {farmersMarker}
     <></>
   </GoogleMap>
