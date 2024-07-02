@@ -54,6 +54,7 @@ export default async function FarmerDetails(data: any) {
 
     const farmerAddress = (
         <div className="flex flex-col text-center">
+            <hr className="my-6 border-t border-gray-300" />
             <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">Address</span>
             <ul>
                 <a href={`https://maps.google.com/?q=${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}>{`${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}</a>
@@ -63,6 +64,7 @@ export default async function FarmerDetails(data: any) {
 
     const socialLinks = showAllSocialMedia && (
         <div className="flex flex-col text-center">
+            <hr className="my-6 border-t border-gray-300" />
             <h3>Follow me on Social Media</h3>
             <div className="flex justify-center items-center gap-6 my-6 text-center">
                 {showFacebook && (
@@ -99,14 +101,9 @@ export default async function FarmerDetails(data: any) {
                     <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4 relative z-20">
                         <div className="col-span-4 sm:col-span-3">
                             <div className="bg-[#F8F8FF] shadow rounded-lg p-6">
-
                                 {farmerBasicInfo}
-
-                                <hr className="my-6 border-t border-gray-300" />
                                 {socialLinks}
-                                <hr className="my-6 border-t border-gray-300" />
                                 {farmerAddress}
-
                             </div>
                         </div>
 
