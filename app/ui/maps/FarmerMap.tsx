@@ -41,7 +41,7 @@ function FarmerMap(data: any) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={1}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{
