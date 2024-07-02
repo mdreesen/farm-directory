@@ -126,7 +126,7 @@ export function UserAuthenticationForm() {
                                 <a className="text-sm ms-1" href="https://app.termly.io/document/privacy-policy/f960c6b4-e8b6-4a86-894a-0144bbe3b639">Privacy Policy</a>
                             </div>
 
-                            {isLoading ? <span className="text-yellow-500 flex justify-center">Signing in...</span> : (
+                            {isLoading ? <span className="text-[#7A3A30] flex justify-center">Signing in...</span> : (
                                 <button type="submit" className="w-full font-medium text-gray-900 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
                             )}
 
