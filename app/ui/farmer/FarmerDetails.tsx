@@ -7,6 +7,7 @@ import FarmerMap from '@/app/ui/maps/FarmerMap';
 import ShareFacebook from '@/app/ui/buttons/socials/ShareFacebook';
 import ShareTwitter from '../buttons/socials/ShareTwitter';
 import ShareEmail from '../buttons/socials/ShareEmail';
+import SharePinterest from '../buttons/socials/SharePinterest';
 
 export default async function FarmerDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
@@ -27,6 +28,7 @@ export default async function FarmerDetails(data: any) {
             <h3>Share this farmer</h3>
             <div className='flex justify-around'>
             <ShareFacebook data={parse._id}/>
+            <SharePinterest data={parse._id}/>
             <ShareTwitter data={parse._id} />
             <ShareEmail data={parse._id} />
             </div>
