@@ -2,10 +2,15 @@ import React from 'react';
 import styles from '@/app/styles/farmer/FarmerDetails.module.css';
 import { fetchSingleFarmer } from '@/app/lib/dataFarmer/data';
 import { FarmerProducts } from './FarmerProducts';
-import FarmerMap from '@/app/ui/maps/FarmerMap'
+import FarmerMap from '@/app/ui/maps/FarmerMap';
+
+import ShareFacebook from '@/app/ui/buttons/socials/ShareFacebook';
+import ShareTwitter from '../buttons/socials/ShareTwitter';
+import ShareEmail from '../buttons/socials/ShareEmail';
 
 export default async function FarmerDetails(data: any) {
     const farmer = await fetchSingleFarmer(data?.data?.id);
+    const parse = await JSON.parse(JSON.stringify(farmer));
 
     const farmerData = farmer;
 
@@ -16,6 +21,17 @@ export default async function FarmerDetails(data: any) {
 
     const showInstagram = farmerData.facebook && farmerData?.facebook !== "";
     const showFacebook = farmerData.instagram && farmerData?.instagram !== "";
+
+    const socialShare = (
+        <div>
+            <h3>Share this farmer</h3>
+            <div className='flex justify-around'>
+            <ShareFacebook data={parse._id}/>
+            <ShareTwitter data={parse._id} />
+            <ShareEmail data={parse._id} />
+            </div>
+        </div>
+    )
 
     // Going forward with products, this will be the only line we need
     const farmerProducts = farmerData?.products?.map((item: any, index: number) => item?.product_show === 'true' && <FarmerProducts key={`${item?.product_title}-${index}`} data={item} />);
@@ -29,6 +45,7 @@ export default async function FarmerDetails(data: any) {
                 {farmerData?.phone !== "" && <a href={`tel:${farmerData?.phone}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Call</a>}
                 {farmerData?.website !== "" && <a href={`${'http' || 'https'}://${farmerData?.website}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
             </div>`
+            {socialShare}
         </div>
     );
 
