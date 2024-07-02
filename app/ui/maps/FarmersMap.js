@@ -7,9 +7,8 @@ import { equal } from 'assert';
 
 const containerStyle = {
   width: '100%',
-  height: '100%',
+  height: '600px',
   borderRadius: '10px',
-  padding: "10.5rem"
 };
 
 function FarmersMap(data) {

@@ -123,7 +123,7 @@ export const UpdateUserForm = (data: any) => {
 
             <label>State</label>
             <select
-                name="address_state"
+                name="state"
                 value={formData?.state?.trim()}
                 onChange={handleChange}
                 required
