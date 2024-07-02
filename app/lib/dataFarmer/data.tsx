@@ -53,3 +53,27 @@ export async function isFarmer(data: any) {
     console.log(data);
     return data
 };
+
+export async function fetchFarmersCoordinates() {
+    noStore();
+
+    try {
+        const farmers = await Farmer.find();
+
+        let farmerCoordinates = [] as any;
+
+        farmers.map((item: any) => {
+            const { latitude, longitude } = item;
+
+            const lat = Number(latitude);
+            const lng = Number(longitude)
+
+            if (latitude && longitude) return farmerCoordinates.push({ lat: lat, lng: lng }); 
+          });
+
+        return farmerCoordinates
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};

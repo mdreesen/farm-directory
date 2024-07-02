@@ -11,7 +11,7 @@ const containerStyle = {
 };
 
 function FarmerMap(data: any) {
-  const locationData =  data.data;
+  const locationData = data.data;
 
   const center = {
     lat: Number(locationData.latitude),

@@ -28,7 +28,7 @@ export const Navigation = (auth: any, toggleOpen: any) => {
     {
       "linkName": "Live Animals",
       "goTo": "/live-animals"
-  
+
     },
     {
       "linkName": "Feed/Bedding",
@@ -41,6 +41,10 @@ export const Navigation = (auth: any, toggleOpen: any) => {
     {
       "linkName": "Farm Services",
       "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Map",
+      "goTo": "/map-farmers"
     },
     {
       "linkName": "Profile",
@@ -60,7 +64,7 @@ export const Navigation = (auth: any, toggleOpen: any) => {
     {
       "linkName": "Live Animals",
       "goTo": "/live-animals"
-  
+
     },
     {
       "linkName": "Feed/Bedding",
@@ -73,6 +77,10 @@ export const Navigation = (auth: any, toggleOpen: any) => {
     {
       "linkName": "Farm Services",
       "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Map",
+      "goTo": "/map-farmers"
     },
     {
       "linkName": "Profile",

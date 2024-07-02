@@ -20,7 +20,7 @@ export default async function Navigation() {
     {
       "linkName": "Live Animals",
       "goTo": "/live-animals"
-  
+
     },
     {
       "linkName": "Feed/Bedding",
@@ -33,6 +33,10 @@ export default async function Navigation() {
     {
       "linkName": "Farm Services",
       "goTo": "/farm-services"
+    },
+    {
+      "linkName": "Map",
+      "goTo": "/map-farmers"
     },
     {
       "linkName": "Profile",
@@ -68,9 +72,9 @@ export default async function Navigation() {
 
   return (
     <div className={styles['container']}>
-        {links}
-        {farmerProfile}
-        {authenticate}
+      {links}
+      {farmerProfile}
+      {authenticate}
     </div>
   );
 }

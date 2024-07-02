@@ -24,6 +24,10 @@
     "goTo": "/farm-services"
   },
   {
+    "linkName": "Map",
+    "goTo": "/map-farmers"
+  },
+  {
     "linkName": "Sign Out",
     "goTo": "/"
   }
