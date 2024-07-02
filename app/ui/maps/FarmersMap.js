@@ -61,7 +61,7 @@ function FarmersMap(data) {
     }}
   >
     { /* Child components, such as markers, info windows, etc. */ }
-    <MarkerF position={center}></MarkerF>
+    {/* <MarkerF position={center}></MarkerF> */}
     {farmersMarker}
     <></>
   </GoogleMap>
