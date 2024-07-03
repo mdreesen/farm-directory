@@ -16,3 +16,8 @@
   justify-content: center;
   height: 75vh;
 }
+
+.contact-us {
+  text-decoration-line: underline;
+  font-weight: 500;
+}
