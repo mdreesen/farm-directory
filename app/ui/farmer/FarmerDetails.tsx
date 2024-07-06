@@ -46,7 +46,7 @@ export default async function FarmerDetails(data: any) {
             <div className="mt-6 flex flex-col gap-4 justify-center">
                 {farmerData?.email !== "" && <a href={`mailto:${farmerData?.email}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Email</a>}
                 {farmerData?.phone !== "" && <a href={`tel:${farmerData?.phone}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Call</a>}
-                {farmerData?.website !== "" && <a href={`${farmerData?.website}`} className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
+                {farmerData?.website !== "" && <a href={`${farmerData?.website}`} target="_blank" className="bg-[#7A3A30] text-center text-white py-2 px-4 rounded">Website</a>}
             </div>`
             {socialShare}
         </div>
@@ -57,7 +57,7 @@ export default async function FarmerDetails(data: any) {
             <hr className="my-6 border-t border-gray-300" />
             <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">Address</span>
             <ul>
-                <a href={`https://maps.google.com/?q=${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}>{`${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}</a>
+                <a href={`https://maps.google.com/?q=${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`} target="_blank">{`${farmerData?.address_road} ${farmerData?.address_city}, ${farmerData?.address_state} ${farmerData?.address_zip}`}</a>
             </ul>
         </div>
     );
