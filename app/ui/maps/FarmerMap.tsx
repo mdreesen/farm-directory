@@ -46,7 +46,8 @@ function FarmerMap(data: any) {
         onUnmount={onUnmount}
         options={{
           streetViewControl: false,
-          mapTypeControl: false
+          mapTypeControl: false,
+          center: center
         }}
       >
         { /* Child components, such as markers, info windows, etc. */ }

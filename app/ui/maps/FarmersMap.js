@@ -30,7 +30,7 @@ function FarmersMap(data) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
-
+    
     setMap(map)
   }, []);
 
@@ -55,7 +55,8 @@ function FarmersMap(data) {
     onUnmount={onUnmount}
     options={{
       streetViewControl: false,
-      mapTypeControl: false
+      mapTypeControl: false,
+      center: center
     }}
   >
     { /* Child components, such as markers, info windows, etc. */ }

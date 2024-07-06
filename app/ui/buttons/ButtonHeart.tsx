@@ -10,6 +10,8 @@ export default function ButtonHeart(data: any) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [enableToast, setEnableToast] = useState<boolean>(false);
 
+  const showSaveFarmer = data?.userData?._id && data?.userData?.isFarmer === false;
+
   const router = useRouter();
 
   const handleSubmit = async (e: any) => {
@@ -34,7 +36,7 @@ export default function ButtonHeart(data: any) {
     router.refresh();
   };
 
-  return data?.userData?._id && (
+  return showSaveFarmer && (
     <div onClick={handleSubmit} className="flex p-4 flex-col justify-center text-center items-center">
 
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 cursor-pointer">

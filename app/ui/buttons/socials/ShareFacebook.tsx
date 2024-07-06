@@ -7,7 +7,7 @@ import {
 // https://www.npmjs.com/package/next-share
 
 
-export default async function ShareFacebook(data: any) {
+export default function ShareFacebook(data: any) {
     return (
         <FacebookShareButton
             url={`https://thefarmdirectory.com/farmer/details/${data.data}`}

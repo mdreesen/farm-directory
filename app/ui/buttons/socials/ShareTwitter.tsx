@@ -7,7 +7,7 @@ import {
 // https://www.npmjs.com/package/next-share
 
 
-export default async function ShareTwitter(data: any) {
+export default function ShareTwitter(data: any) {
     return (
         <TwitterShareButton
             url={`https://thefarmdirectory.com/farmer/details/${data.data}`}

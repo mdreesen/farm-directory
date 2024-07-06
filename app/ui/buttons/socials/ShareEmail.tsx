@@ -7,7 +7,7 @@ import {
 // https://www.npmjs.com/package/next-share
 
 
-export default async function ShareEmail(data: any) {
+export default function ShareEmail(data: any) {
 
     return (
         <EmailShareButton
