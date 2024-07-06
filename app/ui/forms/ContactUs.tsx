@@ -69,7 +69,7 @@ export const ContactUs = () => {
     );
 
     return (
-        <div className="bg-[#F8F8FF]">
+        <div className="bg-[#F8F8FF] rounded-[15px]">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">Contact Us</h2>
                 <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">Got a technical issue? Got good criticism? Just need to talk? Message us here!</p>
@@ -79,7 +79,7 @@ export const ContactUs = () => {
                     {message}
 
                     {isLoading ? <span className="text-[#7A3A30] flex justify-center">Submitted, Now Loading...</span> : (
-                        <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-500 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
+                        <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#7A3A30] sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300">Send message</button>
                     )}
                 </form>
             </div>

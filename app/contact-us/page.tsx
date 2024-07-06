@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/app/styles/Home.module.css';
+import styles from '@/app/styles/contact/Contact.module.css';
 import { ContactUs } from '@/app/ui/forms/ContactUs';
 import { Metadata } from 'next'
 
