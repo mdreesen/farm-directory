@@ -1,6 +1,7 @@
 import { searchFarmers } from '@/app/lib/search/SearchFarmers';
 import { NoFarmer } from '@/app/ui/farmer/NoFarmer';
 import CardsFarmers from '../cardsFarmers';
+import { loggedInUserData } from '@/app/lib/cookieData';
 
 export default async function CategoryPage({
     categoryName,
@@ -14,10 +15,6 @@ export default async function CategoryPage({
 
     if (searchForFarmers.length === 0) return <NoFarmer />
 
-    return (
-        <>
-            <CardsFarmers searchFarmer={searchForFarmers} />
-        </>
-    )
+    return <CardsFarmers searchFarmer={searchForFarmers} />
 }
 

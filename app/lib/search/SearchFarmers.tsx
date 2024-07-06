@@ -4,6 +4,29 @@ import { unstable_noStore as noStore } from 'next/cache';
 // This does a very good job in Search Indexes for Mongo
 // https://www.youtube.com/watch?v=o2ss2LJNZVE&t=22s&ab_channel=MongoDB
 
+export async function searchFarmersLoggedIn(query: any, user: any) {
+    noStore();
+
+    try {
+        const farmers = await Farmer.aggregate([
+            {
+                $search: {
+                    "index": "farmerSearch",
+                    "text": {
+                        "query": query,
+                        "path": ["address_zip", "address_city", "address_state"]
+                    }
+                }
+            }
+        ]);
+
+        return farmers.filter(item => item.address_zip.includes(user.postalCode));
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function searchFarmers(query: any) {
     noStore();
 

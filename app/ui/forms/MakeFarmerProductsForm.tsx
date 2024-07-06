@@ -1,9 +1,5 @@
 "use client"
 import React, { useState } from "react";
-const mongoose = require('mongoose')
-
-// @ts-ignore
-import { v4 } from "uuid";
 
 import { useRouter } from "next/navigation";
 import styles from '@/app/styles/Form.module.css';

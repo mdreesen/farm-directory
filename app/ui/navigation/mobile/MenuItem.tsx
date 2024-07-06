@@ -21,7 +21,7 @@ const variants = {
   }
 };
 
-const colors = ["#000000", "#BF5D30", "#61603C", "#7A402E", "#2F4D49", "#C2803A", "#D1CDC4", "#D1CDC4"];
+const colors = ["#000000", "#BF5D30", "#61603C", "#7A402E", "#2F4D49", "#C2803A", "#688557", "#D1CDC4", "#D1CDC4"];
 
 export const MenuItem = ({ data, i, isLoggedIn }: any) => {
 

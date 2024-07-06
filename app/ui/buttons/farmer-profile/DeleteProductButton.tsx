@@ -38,7 +38,7 @@ export default function DeleteProductButton(data: any, farmerId: string) {
 
   return (
     <div className='w-full justify-center flex'>
-      {isLoading ? <span className="text-yellow-500 flex justify-center">Logging Out...</span> : (
+      {isLoading ? <span className="text-[#7A3A30] flex justify-center">Logging Out...</span> : (
         <button onClick={handleSubmit} className={styles['deleteBtn']}>
           <div>Delete Product</div>
         </button>

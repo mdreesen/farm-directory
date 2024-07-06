@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from '@/app/styles/authentication/Auth.module.css';
+import { radarReverseCoordinates } from "@/app/lib/locationServices/radarApi";
+import { useGeolocation } from "@uidotdev/usehooks";
 
 
 export function UserAuthenticationForm() {
@@ -14,13 +16,16 @@ export function UserAuthenticationForm() {
         validate_password: "",
         isFarmer: false,
         agree_to_legal: true,
-        agree_to_privacy_policy: true
+        agree_to_privacy_policy: true,
     };
 
     const [formData, setFormData] = useState(startData);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isError, setError] = useState<string>("");
     const [isChecked, setChecked] = useState();
+
+    const locationState = useGeolocation();
+    const loading = locationState?.loading;
 
     const handleChange = (e: any) => {
         const value = e.target.value
@@ -35,45 +40,57 @@ export function UserAuthenticationForm() {
         }));
     };
 
+
+
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         setIsLoading(true);
 
-        const findingExistingUser = await fetch("/api/Authentication/existing", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ formData })
-        });
+        if (!loading) {
+            const latitude = locationState?.latitude?.toString() ?? '';
+            const longitude = locationState?.longitude?.toString() ?? '';
+            const radarServices = await radarReverseCoordinates(latitude, longitude);
 
-        const existingUser = await findingExistingUser.json();
+            const address = radarServices?.addresses?.find((item: object) => item);
 
-        if (existingUser?.user) {
-            setIsLoading(false);
-            setError("User already exists");
-            throw new Error("User already exists");
+            const findingExistingUser = await fetch("/api/Authentication/existing", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ formData })
+            });
+
+            const existingUser = await findingExistingUser.json();
+
+            if (existingUser?.user) {
+                setIsLoading(false);
+                setError("User already exists");
+                throw new Error("User already exists");
+            };
+    
+            if (formData?.validate_password !== formData?.password) {
+                setIsLoading(false);
+                setError("Thought you knew...passwords need to match");
+                throw new Error("Passwords need to match");
+            };
+    
+            const signUpUser = await fetch("/api/Authentication/signup", {
+                method: "POST",
+                cache: 'no-store',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ formData, ...address }),
+            });
+    
+            signUpUser;
+    
+            router.refresh();
+            router.push("/authentication/login");
         };
 
-        if (formData?.validate_password !== formData?.password) {
-            setIsLoading(false);
-            setError("Thought you knew...passwords need to match");
-            throw new Error("Passwords need to match");
-        };
 
-        const signUpUser = await fetch("/api/Authentication/signup", {
-            method: "POST",
-            cache: 'no-store',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ formData }),
-        });
-
-        signUpUser;
-
-        router.refresh();
-        router.push("/authentication/login");
     };
 
     return (
@@ -109,7 +126,7 @@ export function UserAuthenticationForm() {
                                 <a className="text-sm ms-1" href="https://app.termly.io/document/privacy-policy/f960c6b4-e8b6-4a86-894a-0144bbe3b639">Privacy Policy</a>
                             </div>
 
-                            {isLoading ? <span className="text-yellow-500 flex justify-center">Signing in...</span> : (
+                            {isLoading ? <span className="text-[#7A3A30] flex justify-center">Signing in...</span> : (
                                 <button type="submit" className="w-full font-medium text-gray-900 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
                             )}
 

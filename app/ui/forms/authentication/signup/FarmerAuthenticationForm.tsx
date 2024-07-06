@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from '@/app/styles/authentication/Auth.module.css';
+import { useGeolocation } from "@uidotdev/usehooks";
+import { radarReverseCoordinates } from "@/app/lib/locationServices/radarApi";
 
 export function FarmerAuthenticationForm() {
     const router = useRouter();
@@ -23,6 +25,9 @@ export function FarmerAuthenticationForm() {
     const [isError, setError] = useState<string>("");
     const [isChecked, setChecked] = useState();
 
+    const locationState = useGeolocation();
+    const loading = locationState?.loading;
+
     const handleChange = (e: any) => {
         const value = e.target.value
         const name = e.target.name
@@ -40,51 +45,59 @@ export function FarmerAuthenticationForm() {
         e.preventDefault();
         setIsLoading(true);
 
-        const findingExistingUser = await fetch("/api/Authentication/existing", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ formData })
-        });
+        if (!loading) {
+            const latitude = locationState?.latitude?.toString() ?? '';
+            const longitude = locationState?.longitude?.toString() ?? '';
+            const radarServices = await radarReverseCoordinates(latitude, longitude);
 
-        const existingUser = await findingExistingUser.json();
+            const address = radarServices?.addresses?.find((item: object) => item);
+            
+            const findingExistingUser = await fetch("/api/Authentication/existing", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ formData })
+            });
 
-        if (existingUser?.user) {
-            setIsLoading(false);
-            setError("User already exists");
-            throw new Error("User already exists");
-        };
+            const existingUser = await findingExistingUser.json();
 
-
-        if (formData?.validate_password !== formData?.password) {
-            setIsLoading(false);
-            setError("Thought you knew...passwords need to match");
-            throw new Error("Passwords need to match");
-        };
-
-        const res = await fetch("/api/Farmers", {
-            method: "POST",
-            cache: 'no-store',
-            body: JSON.stringify({ formData }),
-        });
+            if (existingUser?.user) {
+                setIsLoading(false);
+                setError("User already exists");
+                throw new Error("User already exists");
+            };
 
 
-        const signUpUser = await fetch("/api/Authentication/signup", {
-            method: "POST",
-            cache: 'no-store',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ formData }),
-        });
+            if (formData?.validate_password !== formData?.password) {
+                setIsLoading(false);
+                setError("Thought you knew...passwords need to match");
+                throw new Error("Passwords need to match");
+            };
 
-        // Sign up initiate here
-        res;
-        signUpUser;
+            const res = await fetch("/api/Farmers", {
+                method: "POST",
+                cache: 'no-store',
+                body: JSON.stringify({ formData, ...address }),
+            });
 
-        router.refresh();
-        router.push("/authentication/login");
+
+            const signUpUser = await fetch("/api/Authentication/signup", {
+                method: "POST",
+                cache: 'no-store',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ formData, ...address }),
+            });
+
+            // Sign up initiate here
+            res;
+            signUpUser;
+
+            router.refresh();
+            router.push("/authentication/login");
+        }
     };
 
     return (
@@ -121,14 +134,14 @@ export function FarmerAuthenticationForm() {
                                 <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
                                 <Link className="text-sm ms-1" href='/terms-conditions'>Terms & Conditions</Link>
                             </div>
-                            
+
                             <div className="flex items-center mb-4">
                                 <input id="agree_to_privacy_policy" type="checkbox" name="agree_to_privacy_policy" value={isChecked && formData?.agree_to_privacy_policy === true} onChange={handleChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required />
                                 <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to </span>
                                 <a className="text-sm ms-1" href="https://app.termly.io/document/privacy-policy/f960c6b4-e8b6-4a86-894a-0144bbe3b639">Privacy Policy</a>
                             </div>
 
-                            {isLoading ? <span className="text-yellow-500 flex justify-center">Making user...</span> : (
+                            {isLoading ? <span className="text-[#7A3A30] flex justify-center">Making user...</span> : (
                                 <button type="submit" className="w-full font-medium text-gray-900 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
                             )}
 

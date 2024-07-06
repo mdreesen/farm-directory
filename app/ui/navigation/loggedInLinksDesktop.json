@@ -22,5 +22,9 @@
   {
     "linkName": "Farm Services",
     "goTo": "/farm-services"
+  },
+  {
+    "linkName": "Map",
+    "goTo": "/map-farmers"
   }
 ]
