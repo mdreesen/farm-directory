@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
 
-  const cardMapping = parentLinks?.map((item) => <CategoryCard itemData={item} key={item} />);
+  const cardMapping = parentLinks?.map((item, index) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
 
   return (
     <>
