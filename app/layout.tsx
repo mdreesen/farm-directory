@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from "next";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -18,15 +18,13 @@ import Navigation from "@/app/ui/navigation/Navigation";
 import { MobileNavigation } from './ui/navigation/mobile/MobileNavigation';
 import { Footer } from "@/app/ui/Footer";
 
+const APP_NAME = "The Farm Directory";
+const APP_DEFAULT_TITLE = "The Farm Directory";
+const APP_TITLE_TEMPLATE = "%s | The Farm Directory";
+const APP_DESCRIPTION = 'Connecting farms to communities';
+
 export const metadata: Metadata = {
-  title: {
-    template: '%s | The Farm Directory',
-    default: 'The Farm Directory',
-  },
-  description: 'Connecting farms to communities',
-  metadataBase: new URL('https://thefarmdirectory.com'),
-  generator: 'Next.js',
-  applicationName: 'The Farm Directory',
+  applicationName: APP_NAME,
   referrer: 'origin-when-cross-origin',
   keywords: ['Farm', 'Directory', 'The Farm Directory', 'Farmers'],
   authors: [{ name: 'Michael' }],
@@ -38,7 +36,40 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'hEmogV9ZodUsj8jMDwJg4yjV_0a55BqvcqulRHxVpZY',
-  }
+  },
+  title: {
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
+  },
+  description: APP_DESCRIPTION,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
+  },
+  openGraph: {
+    type: "website",
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default async function RootLayout({
