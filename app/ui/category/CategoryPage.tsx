@@ -11,7 +11,7 @@ export default async function CategoryPage({
     query?: string
 }) {
 
-    const searchForFarmers: any = await searchFarmers(categoryName) ?? [];
+    const searchForFarmers: any = await searchFarmers(query ?? categoryName) ?? [];
 
     if (searchForFarmers.length === 0) return <NoFarmer />
 
