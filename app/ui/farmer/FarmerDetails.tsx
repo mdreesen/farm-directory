@@ -65,7 +65,7 @@ export default async function FarmerDetails(data: any) {
     const socialLinks = showAllSocialMedia && (
         <div className="flex flex-col text-center">
             <hr className="my-6 border-t border-gray-300" />
-            <h3>Follow me on Social Media</h3>
+            <h3>Follow on Social Media</h3>
             <div className="flex justify-center items-center gap-6 my-6 text-center">
                 {showFacebook && (
                     <a className="text-gray-700 hover:text-[#7A3A30]" aria-label="Visit TrendyMinds Facebook" href={farmerData?.facebook} target="_blank">
