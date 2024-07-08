@@ -6,7 +6,7 @@
     },
     {
         "linkName": "Events",
-        "directTo": "/farmevents-agritourism/farm-events",
+        "directTo": "/farmevents-agritourism/events",
         "icon": "Events.webp"
     },
     {
