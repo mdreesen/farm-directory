@@ -35,9 +35,9 @@ export async function searchFarmers(query: any) {
             {
                 $search: {
                     "index": "farmerSearch",
-                    "text": {
+                    "phrase": {
                         "query": query,
-                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "products.product_title"]
+                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "products.product_title", "products.product_description", "products.product_available"]
                     },
                 }
             }
