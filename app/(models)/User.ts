@@ -24,6 +24,8 @@ const userSchema = new Schema(
         favoriteFarmers: Array,
         agree_to_legal: Boolean,
         agree_to_privacy_policy: Boolean,
+        resetPasswordToken: String,
+        resetPasswordTokenExpirationDate: Date,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });
