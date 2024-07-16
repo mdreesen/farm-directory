@@ -46,9 +46,11 @@ export default function Login() {
 
         const user = await loggingIn.json();
 
+        console.log('logging user', user)
+
         if (!loggingIn.ok) {
             setIsLoading(false);
-            setError("Try again...finding the developer who made this...");
+            setError(user.error ?? "Try again...finding the developer who made this...");
             throw new Error("Failed to login user");
         };
 
