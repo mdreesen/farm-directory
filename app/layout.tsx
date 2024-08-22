@@ -1,12 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import Image from 'next/image';
-import Link from 'next/link';
 
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { loggedInUserData } from '@/app/lib/cookieData';
-import styles from '@/app/styles/layout.module.css';
 
 // Style Sheets and styles
 import './globals.css';
@@ -15,7 +11,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 // Components
 import Navigation from "@/app/ui/navigation/Navigation";
-import { MobileNavigation } from './ui/navigation/mobile/MobileNavigation';
 import { Footer } from "@/app/ui/Footer";
 
 const APP_NAME = "The Farm Directory";
@@ -78,49 +73,10 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const auth = await loggedInUserData();
-
-  const desktopHeader = (
-    <div className={`${styles['desktopNav']}`}>
-      <Navigation />
-      <div className='w-[16rem] mt-14'>
-        <Link href="/">
-          <Image
-            priority={true}
-            className="w-100 h-100 rounded-full mr-4"
-            src="/images/logos/logo.webp"
-            width={1236}
-            height={531}
-            alt="Picture of barn and silo with The Farm Directory.com text"
-          />
-        </Link>
-      </div>
-    </div>
-  );
-
-  const mobileHeader = (
-    <div className={`${styles['mobileNav']}`}>
-      <MobileNavigation auth={auth} />
-      <div className={`${styles['logo']}`}>
-        <Link href="/">
-          <Image
-            priority={true}
-            className="w-100 h-100"
-            src="/images/logos/logo.webp"
-            width={1236}
-            height={531}
-            alt="Picture of barn and silo with The Farm Directory.com text"
-          />
-        </Link>
-      </div>
-    </div>
-  );
-
   return (
     <html lang="en">
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        {desktopHeader}
-        {mobileHeader}
+      <Navigation />
         {children}
         <Analytics />
         <SpeedInsights />

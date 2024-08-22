@@ -1,6 +1,6 @@
-.mobileNav {
+/* .mobileNav {
   display: none;
-}
+} */
 
 .desktopNav {
   display: flex;
@@ -13,14 +13,14 @@
 }
 
 @media only screen and (max-width: 815px) {
-  .mobileNav {
+  /* .mobileNav {
     display: flex;
     justify-content: center;
     height: 14vh;
   }
   .desktopNav {
     display: none;
-  }
+  } */
 
   .logo {
     width: 15rem;
