@@ -1,23 +1,47 @@
-import React from 'react';
-import { CategoryCard } from '@/app/ui/category/CategoryCard'
-import parentLinks from '@/utils/links/parentLinks.json';
-import styles from '@/app/styles/Home.module.css';
-import { Metadata } from 'next';
+"use client";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
+export default function Home() {
+  const { status } = useSession();
+  const router = useRouter();
+  console.log(useSession())
 
-export const metadata: Metadata = {
-  title: 'Home | The Farm Directory',
-}
+  const showSession = () => {
+    if (status === "authenticated") {
+      return (
+        <button
+          className="border border-solid border-black rounded"
+          onClick={() => {
+            signOut({ redirect: false }).then(() => {
+              router.push("/");
+            });
 
-export default function HomePage() {
-
-  const cardMapping = parentLinks?.map((item: object, index: number) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
-
+          }}
+        >
+          Sign Out
+        </button>
+      )
+    } else if (status === "loading") {
+      return (
+        <span className="text-[#888] text-sm mt-7">Loading...</span>
+      )
+    } else {
+      return (
+        <Link
+          href="/authentication/login"
+          className="border border-solid border-black rounded"
+        >
+          Sign In
+        </Link>
+      )
+    }
+  }
   return (
-    <>
-      <main className={styles.main}>
-        {cardMapping}
-      </main>
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <h1 className="text-xl">Home</h1>
+      {showSession()}
+    </main>
   );
 }
