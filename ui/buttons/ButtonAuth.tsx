@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function ButtonAuth() {
   const { status } = useSession();
   const router = useRouter();
-  console.log(useSession())
+  console.log(useSession());
 
   const showSession = () => {
     if (status === "authenticated") {

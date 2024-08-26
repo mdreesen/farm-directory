@@ -20,7 +20,6 @@ export const authOptions: NextAuthOptions = {
                 }).select("+password");
 
                 if (!user) throw new Error("Wrong Email");
-
                 const passwordMatch = await bcrypt.compare(
                     credentials!.password,
                     user.password
@@ -33,5 +32,27 @@ export const authOptions: NextAuthOptions = {
     ],
     session: {
         strategy: "jwt",
-    }
+    },
+    callbacks: {
+        async session({ session, token, user }) {
+            if (token?.user) {
+                session.user = token.user;
+            }
+            return {
+                ...session,
+                ...user
+            };
+        },
+        async jwt({ token, user, account, profile }) {
+            console.log('token', token);
+            console.log('JWT User', user);
+            console.log('jwt profile', profile);
+            console.log('jwt account', account);
+
+            return {
+                ...token,
+                ...user
+            }
+        }
+    },
 };
