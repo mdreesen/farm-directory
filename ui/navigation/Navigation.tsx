@@ -19,7 +19,7 @@ export default function Navigation() {
                     <img
                         alt=""
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        className="h-8 w-8 rounded-full"
+                        className="h-10 w-10 rounded-full"
                     />
                 </MenuButton>
             </div>
@@ -52,13 +52,15 @@ export default function Navigation() {
                 <div className="flex h-16 items-center justify-between">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <Image
-                                className="h-8 w-auto"
-                                src="/images/logos/logo.webp"
-                                alt="Company The Farm Directory Logo"
-                                width={360}
-                                height={74}
-                            />
+                            <Link href="/">
+                                <Image
+                                    className="h-12 w-auto"
+                                    src="/images/logos/logo.webp"
+                                    alt="Company The Farm Directory Logo"
+                                    width={360}
+                                    height={74}
+                                />
+                            </Link>
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
