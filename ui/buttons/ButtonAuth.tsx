@@ -12,7 +12,7 @@ export default function ButtonAuth() {
     if (status === "authenticated") {
       return (
         <button
-          className="border border-solid border-black rounded"
+          className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
           onClick={() => {
             signOut({ redirect: false }).then(() => {
               router.push("/");
@@ -31,7 +31,7 @@ export default function ButtonAuth() {
       return (
         <Link
           href="/authentication/login"
-          className="border border-solid border-black rounded"
+          className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
         >
           Sign In
         </Link>
