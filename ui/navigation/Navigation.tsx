@@ -1,12 +1,16 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import ButtonAuth from '@/ui/buttons/ButtonAuth';
+import { useSession } from "next-auth/react";
 
 export default function Navigation() {
 
-    const profileUser = (
+    const { status } = useSession();
+
+    const profileUser = status === 'authenticated' ? (
         <Menu as="div" className="relative ml-3">
             <div>
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -34,16 +38,16 @@ export default function Navigation() {
                     </a>
                 </MenuItem>
                 <MenuItem>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                        Sign out
-                    </a>
+                    <div>
+                        <ButtonAuth />
+                    </div>
                 </MenuItem>
             </MenuItems>
         </Menu>
-    );
+    ) : <ButtonAuth />;
 
     return (
-        <Disclosure as="nav" className={'fixed w-full'}>
+        <Disclosure as="nav" className={'fixed w-full z-10'}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     <div className="flex items-center">
@@ -73,7 +77,6 @@ export default function Navigation() {
 
                             {/* Profile dropdown */}
                             {profileUser}
-                            <ButtonAuth />
                         </div>
                     </div>
                     <div className="-mr-2 flex sm:hidden">
