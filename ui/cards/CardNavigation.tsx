@@ -1,12 +1,11 @@
 import Image from "next/image";
-import route from '@/routes/routes.json';
 import Link from "next/link";
 
-export default function CardNavigation() {
+export default function CardNavigation(route: any) {
 
     return (
         <ul role="list" className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-2 lg:grid-cols-4 xl:gap-x-8">
-            {route.map((item) => (
+            {route.route.map((item: any) => (
                 <li key={item.linkName} className="relative">
                     <Link href={item.directTo}>
                         <div className="flex flex-col justify-center items-center text-center group block w-[150px] overflow-hidden rounded-lg bg-transparent">
