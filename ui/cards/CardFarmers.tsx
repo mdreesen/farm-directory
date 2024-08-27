@@ -1,10 +1,10 @@
 import { Key } from 'react';
+import Link from 'next/link';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid';
 import { fetchFarmers } from '@/actions/farmer';
 
 export default async function CardFarmer() {
   const farmers = await fetchFarmers() as any;
-  // console.log(farmers);
 
   return (
     <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-20">
@@ -21,9 +21,11 @@ export default async function CardFarmer() {
               {/* <Link href=''><dd className="text-sm text-gray-500">Details</dd></Link> */}
               <dt className="sr-only">Role</dt>
               <dd className="mt-3">
+                <Link href={`/details/farmer/${item._id}`}>
                 <span className="inline-flex items-center rounded-full bg-[#7A3A30] px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-green-600/20">
                   Details
                 </span>
+                </Link>
               </dd>
             </dl>
           </div>
