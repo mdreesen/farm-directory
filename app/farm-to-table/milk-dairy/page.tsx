@@ -1,35 +1,14 @@
-import { Suspense } from 'react';
-import styles from '@/app/styles/farmer/Farmer.module.css';
-import { CardsSkeleton } from '@/app/ui/loading/skeletons';
-import { Metadata } from 'next'
-import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperLocation from '@/app/wrappers/WrapperSearch';
+import CardNavigation from '@/ui/cards/CardNavigation';
 
-export const metadata: Metadata = {
-  title: 'Dairy | Milk Farm To Table',
-  description: 'Milk & Dairy, farm to table Farm Directory',
-}
+// Navigation
+import route from '@/routes/farmToTable/routes.json';
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) {
-  const query = searchParams?.query;
-
+export default function page() {
   return (
-    <>
-      <div className={styles['container']}>
-        <WrapperLocation>
-          <Suspense fallback={<CardsSkeleton />}>
-            <CategoryPage categoryName={'Milk/Dairy'} query={query} />
-          </Suspense>
-        </WrapperLocation>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex justify-center items-center w-full place-items-center">
+        <CardNavigation route={route} />
       </div>
-    </>
+    </main>
   );
 }
-
