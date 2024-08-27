@@ -34,25 +34,19 @@ export const authOptions: NextAuthOptions = {
         strategy: "jwt",
     },
     callbacks: {
-        async session({ session, token, user }) {
-            if (token?.user) {
-                session.user = token.user;
-            }
-            return {
-                ...session,
-                ...user
-            };
-        },
-        async jwt({ token, user, account, profile }) {
-            console.log('token', token);
-            console.log('JWT User', user);
-            console.log('jwt profile', profile);
-            console.log('jwt account', account);
+        async session({ session }) {
+
+            const userData = await User.findOne({ email: session.user?.email });
 
             return {
-                ...token,
-                ...user
-            }
+                ...session,
+                user: {
+                    ...userData
+                }
+            };
+        },
+        async jwt({ token }) {
+            return token
         }
     },
 };
