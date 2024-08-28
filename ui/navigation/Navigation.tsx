@@ -61,8 +61,7 @@ export default function Navigation() {
                     />
                 </div> */}
                 <div className="ml-3">
-                    <div className="text-base font-medium text-white">Tom Cook</div>
-                    <div className="text-sm font-medium text-gray-400">tom@example.com</div>
+                    <div className="text-sm font-medium text-gray-400">{data?.user.email}</div>
                 </div>
                 {/* Notifications */}
                 {/* <button
@@ -81,20 +80,6 @@ export default function Navigation() {
                 <div>
                     <ButtonAuth />
                 </div>
-                {/* <DisclosureButton
-                    as="a"
-                    href="#"
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                >
-                    Settings
-                </DisclosureButton> */}
-                {/* <DisclosureButton
-                    as="a"
-                    href="#"
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                >
-                    Sign out
-                </DisclosureButton> */}
             </div>
         </div>
         ) : <ButtonAuth />;
@@ -155,20 +140,6 @@ export default function Navigation() {
                     <Link href="/map" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
                         Map
                     </Link>
-                    {/* <DisclosureButton
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    >
-                        Projects
-                    </DisclosureButton> */}
-                    {/* <DisclosureButton
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    >
-                        Calendar
-                    </DisclosureButton> */}
                 </div>
                 {profileUserMobile}
             </DisclosurePanel>
