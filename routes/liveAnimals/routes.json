@@ -1,42 +1,32 @@
 [
     {
-        "linkName": "Farm to Table",
-        "directTo": "/farm-to-table",
-        "icon": "Farm_to_Table.webp"
+        "linkName": "Livestock & Cattle",
+        "directTo": "/live-animals/livestock-cattle",
+        "icon": "Livestock_and_cattle.webp"
     },
     {
-        "linkName": "Live Animals",
-        "directTo": "/live-animals",
-        "icon": "Live_Animals.webp"
+        "linkName": "Equine & Mules<br/>& Donkeys",
+        "directTo": "/live-animals/equine-mules-donkeys",
+        "icon": "Equine.webp"
     },
     {
-        "linkName": "Feed & Bedding",
-        "directTo": "/feed-bedding",
-        "icon": "Feed_and_Bedding.webp"
+        "linkName": "Pigs & Hogs<br/>& Piglets",
+        "directTo": "/live-animals/pigs-hogs-piglets",
+        "icon": "Pigs.webp"
     },
     {
-        "linkName": "Farm Events &<br/>Agritourism",
-        "directTo": "/farmevents-agritourism",
-        "icon": "Farm_Events_and_Agritourism.webp"
+        "linkName": "Birds",
+        "directTo": "/live-animals/birds",
+        "icon": "Birds.webp"
     },
     {
-        "linkName": "Stores",
-        "directTo": "/stores",
-        "icon": "Farm_stands_and_stores.webp"
+        "linkName": "Small Ruminants",
+        "directTo": "/live-animals/goat-sheep-ruminants",
+        "icon": "Small_Ruminants.webp"
     },
     {
-        "linkName": "Farm Services",
-        "directTo": "/farm-services",
-        "icon": "Farm_Services.webp"
-    },
-    {
-        "linkName": "Flowers",
-        "directTo": "/flowers",
-        "icon": "Flowers.webp"
-    },
-    {
-        "linkName": "Custom Farming",
-        "directTo": "/custom-farming",
-        "icon": "Custom_farming.webp"
+        "linkName": "Other",
+        "directTo": "/live-animals/other",
+        "icon": "Other_Live_Animals.webp"
     }
 ]

@@ -1,42 +1,22 @@
 [
     {
-        "linkName": "Farm to Table",
-        "directTo": "/farm-to-table",
-        "icon": "Farm_to_Table.webp"
+        "linkName": "You Pick",
+        "directTo": "/farmevents-agritourism/you-pick",
+        "icon": "You_pick.webp"
     },
     {
-        "linkName": "Live Animals",
-        "directTo": "/live-animals",
-        "icon": "Live_Animals.webp"
+        "linkName": "Events",
+        "directTo": "/farmevents-agritourism/events",
+        "icon": "Events.webp"
     },
     {
-        "linkName": "Feed & Bedding",
-        "directTo": "/feed-bedding",
-        "icon": "Feed_and_Bedding.webp"
+        "linkName": "Tasting Rooms",
+        "directTo": "/farmevents-agritourism/tasting-rooms",
+        "icon": "Tasting_Rooms.webp"
     },
     {
-        "linkName": "Farm Events &<br/>Agritourism",
-        "directTo": "/farmevents-agritourism",
-        "icon": "Farm_Events_and_Agritourism.webp"
-    },
-    {
-        "linkName": "Stores",
-        "directTo": "/stores",
-        "icon": "Farm_stands_and_stores.webp"
-    },
-    {
-        "linkName": "Farm Services",
-        "directTo": "/farm-services",
-        "icon": "Farm_Services.webp"
-    },
-    {
-        "linkName": "Flowers",
-        "directTo": "/flowers",
-        "icon": "Flowers.webp"
-    },
-    {
-        "linkName": "Custom Farming",
-        "directTo": "/custom-farming",
-        "icon": "Custom_farming.webp"
+        "linkName": "Farm Venues<br/>For Rent",
+        "directTo": "/farmevents-agritourism/farm-venues-for-rent",
+        "icon": "Farm_Venue_For_Rent.webp"
     }
 ]
