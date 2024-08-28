@@ -74,7 +74,7 @@ export default function Navigation() {
                 </button> */}
             </div>
             <div className="mt-3 space-y-1 px-2">
-                <Link href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                <Link href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 text-white">
                     Your Profile
                 </Link>
                 <div>

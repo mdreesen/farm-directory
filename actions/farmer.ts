@@ -13,6 +13,16 @@ export async function fetchFarmers() {
     }
 };
 
+export async function fetchSingleFarmerById(id: string) {
+    try {
+        const farmer = await Farmer.findOne({ _id: id });
+        return farmer ?? {}
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function searchFarmers(query: any, user: any) {
 
     try {
