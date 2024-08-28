@@ -1,11 +1,8 @@
-import { useParams } from 'next/navigation';
 import { fetchSingleFarmerById } from '@/actions/farmer';
 
 export default async function page({ params }: { params: { id: string } }) {
   const id = params.id;
-  console.log(id);
   const farmer = await fetchSingleFarmerById(id) as any;
-  console.log(farmer)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
