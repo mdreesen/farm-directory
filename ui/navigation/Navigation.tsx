@@ -12,7 +12,8 @@ export default function Navigation() {
 
     const useProfile = `/profile/${data?.user?.isFarmer ? 'farmer' : 'user'}/${data?.user?._id}`;
 
-    const profileUser = status === 'authenticated' ? (
+    // Desktop authenticated user
+    const profileUserDesktop = status === 'authenticated' ? (
         <Menu as="div" className="relative ml-3">
             <div>
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -48,6 +49,56 @@ export default function Navigation() {
         </Menu>
     ) : <ButtonAuth />;
 
+        // Mobile authenticated user
+        const profileUserMobile = status === 'authenticated' ? (
+            <div className="border-t border-gray-700 pb-3 pt-4">
+            <div className="flex items-center px-5">
+                {/* <div className="flex-shrink-0">
+                    <img
+                        alt=""
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        className="h-10 w-10 rounded-full"
+                    />
+                </div> */}
+                <div className="ml-3">
+                    <div className="text-base font-medium text-white">Tom Cook</div>
+                    <div className="text-sm font-medium text-gray-400">tom@example.com</div>
+                </div>
+                {/* Notifications */}
+                {/* <button
+                    type="button"
+                    className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                    <span className="absolute -inset-1.5" />
+                    <span className="sr-only">View notifications</span>
+                    <BellIcon aria-hidden="true" className="h-6 w-6" />
+                </button> */}
+            </div>
+            <div className="mt-3 space-y-1 px-2">
+                <Link href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                    Your Profile
+                </Link>
+                <div>
+                    <ButtonAuth />
+                </div>
+                {/* <DisclosureButton
+                    as="a"
+                    href="#"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                >
+                    Settings
+                </DisclosureButton> */}
+                {/* <DisclosureButton
+                    as="a"
+                    href="#"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                >
+                    Sign out
+                </DisclosureButton> */}
+            </div>
+        </div>
+        ) : <ButtonAuth />;
+
     return (
         <Disclosure as="nav" className={'fixed w-full z-10'}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -79,8 +130,8 @@ export default function Navigation() {
                     <div className="hidden sm:ml-6 sm:block">
                         <div className="flex items-center">
 
-                            {/* Profile dropdown */}
-                            {profileUser}
+                            {/* Profile dropdown for desktop */}
+                            {profileUserDesktop}
                         </div>
                     </div>
                     <div className="-mr-2 flex sm:hidden">
@@ -95,85 +146,31 @@ export default function Navigation() {
                 </div>
             </div>
 
-            <DisclosurePanel className="sm:hidden">
-                <div className="space-y-1 px-2 pb-3 pt-2">
+            <DisclosurePanel className="sm:hidden bg-gray-900 py-6">
+                <div className="flex flex-col space-y-1 px-2 pb-3 pt-4">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <DisclosureButton
-                        as="a"
-                        href="#"
-                        className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-                    >
-                        Dashboard
-                    </DisclosureButton>
-                    <DisclosureButton
-                        as="a"
-                        href="#"
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                    >
-                        Team
-                    </DisclosureButton>
-                    <DisclosureButton
+                    <Link href="/" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
+                        Categories
+                    </Link>
+                    <Link href="/map" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
+                        Map
+                    </Link>
+                    {/* <DisclosureButton
                         as="a"
                         href="#"
                         className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                         Projects
-                    </DisclosureButton>
-                    <DisclosureButton
+                    </DisclosureButton> */}
+                    {/* <DisclosureButton
                         as="a"
                         href="#"
                         className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                         Calendar
-                    </DisclosureButton>
+                    </DisclosureButton> */}
                 </div>
-                <div className="border-t border-gray-700 pb-3 pt-4">
-                    <div className="flex items-center px-5">
-                        <div className="flex-shrink-0">
-                            <img
-                                alt=""
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                className="h-10 w-10 rounded-full"
-                            />
-                        </div>
-                        <div className="ml-3">
-                            <div className="text-base font-medium text-white">Tom Cook</div>
-                            <div className="text-sm font-medium text-gray-400">tom@example.com</div>
-                        </div>
-                        {/* Notifications */}
-                        {/* <button
-                            type="button"
-                            className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                        >
-                            <span className="absolute -inset-1.5" />
-                            <span className="sr-only">View notifications</span>
-                            <BellIcon aria-hidden="true" className="h-6 w-6" />
-                        </button> */}
-                    </div>
-                    <div className="mt-3 space-y-1 px-2">
-                        <DisclosureButton
-                            as="a"
-                            href="#"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                        >
-                            Your Profile
-                        </DisclosureButton>
-                        <DisclosureButton
-                            as="a"
-                            href="#"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                        >
-                            Settings
-                        </DisclosureButton>
-                        <DisclosureButton
-                            as="a"
-                            href="#"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                        >
-                            Sign out
-                        </DisclosureButton>
-                    </div>
-                </div>
+                {profileUserMobile}
             </DisclosurePanel>
         </Disclosure>
     )
