@@ -49,32 +49,16 @@ export default function Navigation() {
         </Menu>
     ) : <ButtonAuth />;
 
-        // Mobile authenticated user
-        const profileUserMobile = status === 'authenticated' ? (
-            <div className="border-t border-gray-700 pb-3 pt-4">
+    // Mobile authenticated user
+    const profileUserMobile = status === 'authenticated' ? (
+        <div className="border-t border-gray-700 pb-3 pt-4">
             <div className="flex items-center px-5">
-                {/* <div className="flex-shrink-0">
-                    <img
-                        alt=""
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        className="h-10 w-10 rounded-full"
-                    />
-                </div> */}
                 <div className="ml-3">
                     <div className="text-sm font-medium text-gray-400">{data?.user.email}</div>
                 </div>
-                {/* Notifications */}
-                {/* <button
-                    type="button"
-                    className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon aria-hidden="true" className="h-6 w-6" />
-                </button> */}
             </div>
             <div className="mt-3 space-y-1 px-2">
-                <Link href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 text-white">
+                <Link href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 text-gray-700">
                     Your Profile
                 </Link>
                 <div>
@@ -82,10 +66,14 @@ export default function Navigation() {
                 </div>
             </div>
         </div>
-        ) : <ButtonAuth />;
+    ) : (
+        <div className="px-2">
+            <ButtonAuth />
+        </div>
+    );
 
     return (
-        <Disclosure as="nav" className={'fixed w-full z-10'}>
+        <Disclosure as="nav" className={'fixed w-full z-10 bg-white shadow-sm'}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     <div className="flex items-center">
@@ -102,11 +90,10 @@ export default function Navigation() {
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
-                                {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                                <Link href="/" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
+                                <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                                     Categories
                                 </Link>
-                                <Link href="/map" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
+                                <Link href="/map" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                                     Map
                                 </Link>
                             </div>
@@ -131,13 +118,12 @@ export default function Navigation() {
                 </div>
             </div>
 
-            <DisclosurePanel className="sm:hidden bg-gray-900 py-6">
+            <DisclosurePanel className="sm:hidden py-6">
                 <div className="flex flex-col space-y-1 px-2 pb-3 pt-4">
-                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Link href="/" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
+                    <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                         Categories
                     </Link>
-                    <Link href="/map" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">
+                    <Link href="/map" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                         Map
                     </Link>
                 </div>
