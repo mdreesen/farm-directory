@@ -1,7 +1,7 @@
 import CardNavigation from '@/ui/cards/CardNavigation';
 
 // Navigation
-import route from '@/routes/routes.json';
+import route from '@/utils/routes/routes.json';
 
 export default function Home() {
 

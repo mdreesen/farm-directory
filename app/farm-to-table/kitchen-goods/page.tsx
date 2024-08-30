@@ -1,7 +1,7 @@
 import CardNavigation from '@/ui/cards/CardNavigation';
 
 // Navigation
-import route from '@/routes/farmToTable/routes.json';
+import route from '@/utils/routes/farmToTable/routes.json';
 
 export default function page() {
   return (
