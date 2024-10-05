@@ -7,6 +7,8 @@ const productSchema = new Schema(
     {
         product_title: String || undefined,
         product_description: String || undefined,
+        product_image: String || undefined,
+        product_price: String || undefined,
         product_available: String || undefined,
         product_show: String || undefined,
         createdAt: String || undefined,

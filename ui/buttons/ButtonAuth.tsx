@@ -1,5 +1,6 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
+import LoadingScale from '@/ui/loaders/LoadingScale';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -25,7 +26,7 @@ export default function ButtonAuth() {
       )
     } else if (status === "loading") {
       return (
-        <span className="text-[#888] text-sm mt-7">Loading...</span>
+        <LoadingScale/>
       )
     } else {
       return (

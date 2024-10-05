@@ -1,17 +1,189 @@
-import { fetchSingleFarmerById } from '@/actions/farmer';
-import ProductMetricMenu from '@/ui/selectMenus/ProductMetricMenu';
-import ProductNameMenu from '@/ui/selectMenus/ProductNameMenu';
-import BooleanMenu from '@/ui/selectMenus/BooleanMenu';
-import ShowMenu from '@/ui/selectMenus/ShowMenu';
+"use client";
+import { FormEvent, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { fetchSingleFarmerById, UpdateFarmerProducts } from '@/actions/farmer';
+import farmerProducts from '@/utils/products/farmerProducts.json';
 
 
-export default async function page({ params }: { params: { id: string } }) {
+
+// import ProductMetricMenu from '@/ui/selectMenus/ProductMetricMenu';
+// import ProductNameMenu from '@/ui/selectMenus/ProductNameMenu';
+// import BooleanMenu from '@/ui/selectMenus/BooleanMenu';
+// import ShowMenu from '@/ui/selectMenus/ShowMenu';
+
+const availableOptions = [
+  {
+    id: 1,
+    name: 'Available',
+  },
+  {
+    id: 2,
+    name: 'Not Available',
+  }
+];
+
+const showOptions = [
+  {
+      id: 1,
+      name: 'Show To Public',
+  },
+  {
+      id: 2,
+      name: 'Do Not Show To Public',
+  }
+]
+
+
+export default function page({ params }: { params: { id: string } }) {
   const id = params.id;
-  const farmer = await fetchSingleFarmerById(id) as any;
+
+  const [error, setError] = useState<string>();
+  const [productSelected, setProductSelected] = useState(farmerProducts[0]);
+  const [availableSelected, setAvailableSelected] = useState(availableOptions[0]);
+  const [showSelected, setShowSelected] = useState(showOptions[0]);
+
+
+  const router = useRouter();
+  const ref = useRef(null);
+
+  const handleSubmit = async (formData: FormData) => {
+    const r = await UpdateFarmerProducts({
+      id: id,
+      product_title: productSelected.product_title,
+      product_image: productSelected.image,
+      product_description: formData.get("product_description"),
+      product_price: formData.get("product_price"),
+      product_available: availableSelected.name,
+      product_show: showSelected.name
+    });
+    // ref.current?.reset();
+    // if (r?.error) {
+    //   setError(r?.error);
+    //   return;
+    // } else {
+    //   return router.push(`/profile/farmer/${id}`);
+    // }
+    return router.push(`/profile/farmer/${id}`);
+
+  };
+
+  const ProductDropdown = () => (
+    <Listbox value={productSelected} onChange={setProductSelected}>
+      <Label className="block text-sm font-medium leading-6 text-gray-900">Product Name</Label>
+      <div className="relative">
+        <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+          <span className="flex items-center">
+            <span className="ml-3 block truncate">{productSelected.product_title}</span>
+          </span>
+          <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+            <ChevronUpDownIcon aria-hidden="true" className="h-5 w-5 text-gray-400" />
+          </span>
+        </ListboxButton>
+
+        <ListboxOptions
+          className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+        >
+          {farmerProducts.map((person, index) => (
+            <ListboxOption
+              key={index}
+              value={person}
+              className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+            >
+              <div className="flex items-center">
+                <span className="ml-3 block truncate font-normal group-data-[selected]:font-semibold">
+                  {person.product_title}
+                </span>
+              </div>
+
+              <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600 group-data-[focus]:text-white [.group:not([data-selected])_&]:hidden">
+                <CheckIcon aria-hidden="true" className="h-5 w-5" />
+              </span>
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </div>
+    </Listbox>
+  );
+
+  const AvailableDropdown = () => (
+    <Listbox value={availableSelected} onChange={setAvailableSelected}>
+      <div className="relative mt-2">
+        <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+          <span className="flex items-center">
+            <span className="ml-3 block truncate">{availableSelected.name}</span>
+          </span>
+          <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+            <ChevronUpDownIcon aria-hidden="true" className="h-5 w-5 text-gray-400" />
+          </span>
+        </ListboxButton>
+
+        <ListboxOptions
+          className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+        >
+          {availableOptions.map((item) => (
+            <ListboxOption
+              key={`item-${item.id}`}
+              value={item}
+              className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+            >
+              <div className="flex items-center">
+                <span className="ml-3 block truncate font-normal group-data-[selected]:font-semibold">
+                  {item.name}
+                </span>
+              </div>
+
+              <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600 group-data-[focus]:text-white [.group:not([data-selected])_&]:hidden">
+                <CheckIcon aria-hidden="true" className="h-5 w-5" />
+              </span>
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </div>
+    </Listbox>
+  );
+
+  const ShowDropdown = () => (
+    <Listbox value={showSelected} onChange={setShowSelected}>
+      <div className="relative mt-2">
+        <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+          <span className="flex items-center">
+            <span className="ml-3 block truncate">{showSelected.name}</span>
+          </span>
+          <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+            <ChevronUpDownIcon aria-hidden="true" className="h-5 w-5 text-gray-400" />
+          </span>
+        </ListboxButton>
+
+        <ListboxOptions
+          className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+        >
+          {showOptions.map((item) => (
+            <ListboxOption
+              key={`item-${item.id}`}
+              value={item}
+              className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-indigo-600 data-[focus]:text-white"
+            >
+              <div className="flex items-center">
+                <span className="ml-3 block truncate font-normal group-data-[selected]:font-semibold">
+                  {item.name}
+                </span>
+              </div>
+
+              <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600 group-data-[focus]:text-white [.group:not([data-selected])_&]:hidden">
+                <CheckIcon aria-hidden="true" className="h-5 w-5" />
+              </span>
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </div>
+    </Listbox>
+  );
 
   return (
     <div className="bg-white">
-      <form>
+      <form ref={ref} action={handleSubmit}>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-gray-900">Make your products</h2>
@@ -22,18 +194,18 @@ export default async function page({ params }: { params: { id: string } }) {
 
                 </label>
                 <div className="mt-2">
-                  <ProductNameMenu />
+                  <ProductDropdown />
                 </div>
               </div>
 
               <div className="col-span-full">
-                <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="product_description" className="block text-sm font-medium leading-6 text-gray-900">
                   Product Description
                 </label>
                 <div className="mt-2">
                   <textarea
-                    id="about"
-                    name="about"
+                    id="product_description"
+                    name="product_description"
                     rows={3}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue={''}
@@ -50,14 +222,14 @@ export default async function page({ params }: { params: { id: string } }) {
                 <div className="mt-2 flex">
                   <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                     <input
-                      id="price"
-                      name="price"
+                      id="product_price"
+                      name="product_price"
                       type="text"
                       placeholder="$1.00"
+                      defaultValue={'$'}
                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     />
                   </div>
-                  <ProductMetricMenu/>
                 </div>
               </div>
 
@@ -66,7 +238,7 @@ export default async function page({ params }: { params: { id: string } }) {
                   Is this product in stock or available?
                 </label>
                 <div className="mt-2">
-                  <ShowMenu />
+                  <AvailableDropdown/>
                 </div>
               </div>
 
@@ -75,7 +247,7 @@ export default async function page({ params }: { params: { id: string } }) {
                   Do you want to show this product to the public?
                 </label>
                 <div className="mt-2">
-                  <BooleanMenu />
+                  <ShowDropdown/>
                 </div>
               </div>
 
@@ -92,37 +264,6 @@ export default async function page({ params }: { params: { id: string } }) {
           </button>
         </div>
       </form>
-
-      <div className="relative flex justify-center items-center w-full place-items-center">
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:mx-0">
-              <h3 className="text-2xl font-bold tracking-tight text-gray-900">{`${farmer.farm_name}'s Products`}</h3>
-            </div>
-            <ul
-              role="list"
-              className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
-            >
-              {farmer.products.map((item: any) => (
-                <li key={item._id}>
-                  <img alt="" src={'/images/products/beef.webp'} className="mx-auto h-24 w-24 rounded-full" />
-                  <h3 className="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">
-                    {item.product_title}
-                  </h3>
-
-                  <p className="pt-2 text-base leading-6 text-gray-600">{item.product_description}</p>
-
-                  <p className="pt-2 text-base leading-7 tracking-tight text-gray-900 flex flex-col">
-                    <span>Product Availability</span>
-                    <span>{item.product_available}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-      </div>
     </div>
   )
 }

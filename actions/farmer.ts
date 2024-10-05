@@ -23,6 +23,32 @@ export async function fetchSingleFarmerById(id: string) {
     }
 };
 
+export async function UpdateFarmerProducts(values: any) {
+    const { id, product_title, product_description, product_image, product_price, product_available, product_show } = values;
+
+    try {
+        await connectDB();
+
+        const showingProduct = product_show === 'Show To Public' ? 'true' : 'false';
+
+        const product = {
+            product_title: product_title,
+            product_description: product_description,
+            product_image: product_image,
+            product_price: product_price,
+            product_available: product_available,
+            product_show: showingProduct
+        }
+
+        const farmer = await Farmer.findOneAndUpdate({ _id: id }, { $addToSet: { products: product } }, { new: true });
+
+
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function searchFarmers(query: any, user: any) {
 
     try {
