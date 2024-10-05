@@ -36,7 +36,7 @@ const showOptions = [
 ]
 
 
-export default function page({ params }: { params: { id: string } }) {
+export default function Page({ params }: { params: { id: string } }) {
   const id = params.id;
 
   const [error, setError] = useState<string>();
