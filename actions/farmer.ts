@@ -42,10 +42,9 @@ export async function UpdateFarmerProducts(values: any) {
 
         const farmer = await Farmer.findOneAndUpdate({ _id: id }, { $addToSet: { products: product } }, { new: true });
 
-
-    } catch (error) {
-        console.log(error)
-        return error
+    } catch (e) {
+        console.log(e)
+        return e
     }
 };
 

@@ -3,35 +3,28 @@ import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
-import { fetchSingleFarmerById, UpdateFarmerProducts } from '@/actions/farmer';
+import { UpdateFarmerProducts } from '@/actions/farmer';
 import farmerProducts from '@/utils/products/farmerProducts.json';
-
-
-
-// import ProductMetricMenu from '@/ui/selectMenus/ProductMetricMenu';
-// import ProductNameMenu from '@/ui/selectMenus/ProductNameMenu';
-// import BooleanMenu from '@/ui/selectMenus/BooleanMenu';
-// import ShowMenu from '@/ui/selectMenus/ShowMenu';
 
 const availableOptions = [
   {
     id: 1,
-    name: 'Available',
+    name: 'In Stock',
   },
   {
     id: 2,
-    name: 'Not Available',
+    name: 'Out of Stock',
   }
 ];
 
 const showOptions = [
   {
-      id: 1,
-      name: 'Show To Public',
+    id: 1,
+    name: 'Show To Public',
   },
   {
-      id: 2,
-      name: 'Do Not Show To Public',
+    id: 2,
+    name: 'Do Not Show To Public',
   }
 ]
 
@@ -49,23 +42,21 @@ export default function Page({ params }: { params: { id: string } }) {
   const ref = useRef(null);
 
   const handleSubmit = async (formData: FormData) => {
-    const r = await UpdateFarmerProducts({
-      id: id,
-      product_title: productSelected.product_title,
-      product_image: productSelected.image,
-      product_description: formData.get("product_description"),
-      product_price: formData.get("product_price"),
-      product_available: availableSelected.name,
-      product_show: showSelected.name
-    });
-    // ref.current?.reset();
-    // if (r?.error) {
-    //   setError(r?.error);
-    //   return;
-    // } else {
-    //   return router.push(`/profile/farmer/${id}`);
-    // }
-    return router.push(`/profile/farmer/${id}`);
+    try {
+      const r = await UpdateFarmerProducts({
+        id: id,
+        product_title: productSelected.product_title,
+        product_image: productSelected.image,
+        product_description: formData.get("product_description"),
+        product_price: formData.get("product_price"),
+        product_available: availableSelected.name,
+        product_show: showSelected.name
+      });
+      router.refresh
+      router.push(`/profile/farmer/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
 
   };
 
@@ -238,7 +229,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   Is this product in stock or available?
                 </label>
                 <div className="mt-2">
-                  <AvailableDropdown/>
+                  <AvailableDropdown />
                 </div>
               </div>
 
@@ -247,7 +238,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   Do you want to show this product to the public?
                 </label>
                 <div className="mt-2">
-                  <ShowDropdown/>
+                  <ShowDropdown />
                 </div>
               </div>
 

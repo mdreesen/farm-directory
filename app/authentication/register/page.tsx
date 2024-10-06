@@ -13,6 +13,8 @@ export default function Page() {
         const r = await register({
             email: formData.get("email"),
             password: formData.get("password"),
+            confirm_password: formData.get("confirm_password"),
+            privacy_policy: formData.get('privacy_policy'),
             name: formData.get("name")
         });
         ref.current?.reset();
@@ -68,6 +70,36 @@ export default function Page() {
                                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                                 />
                             </div>
+
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="confirm_password" className="block text-sm font-medium leading-6 text-black">
+                                    Confirm Password
+                                </label>
+                            </div>
+                            <div className="mt-2">
+                                <input
+                                    id="confirm_password"
+                                    name="confirm_password"
+                                    type="password"
+                                    required
+                                    autoComplete="current-password"
+                                    className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex h-6 items-center">
+                            <input
+                                id="privacy_policy"
+                                name="privacy_policy"
+                                required
+                                type="checkbox"
+                                aria-describedby="privacy-policy"
+                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            />
+                            <label htmlFor="confirm_password" className="block text-sm font-medium leading-6 text-black px-2">
+                                <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=f960c6b4-e8b6-4a86-894a-0144bbe3b639">Agree to Privacy Policy</a>
+                            </label>
                         </div>
 
                         <div>

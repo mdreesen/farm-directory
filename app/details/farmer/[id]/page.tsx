@@ -1,6 +1,6 @@
 import { fetchSingleFarmerById } from '@/actions/farmer';
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
   const farmer = await fetchSingleFarmerById(id) as any;
 
@@ -28,6 +28,8 @@ export default async function page({ params }: { params: { id: string } }) {
                   </h3>
 
                   <p className="pt-2 text-base leading-6 text-gray-600">{item.product_description}</p>
+
+                  <p className="pt-2 text-base leading-6 text-gray-600">{item.product_price}</p>
 
                   <p className="pt-2 text-base leading-7 tracking-tight text-gray-900 flex flex-col">
                     <span>Product Availability</span>

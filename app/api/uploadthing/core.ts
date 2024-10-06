@@ -1,7 +1,8 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { getServerSession } from "next-auth/next"
-import Farmer from "@/(models)/Farmer";
+import { updateUserProfileImg } from '@/actions/user';
+import User from "@/(models)/User";
 
 const f = createUploadthing();
 const auth = (req: Request) => ({ id: req }); // Fake auth function
@@ -13,7 +14,7 @@ export const ourFileRouter = {
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
       const session = await getServerSession();
-      const authUser = await Farmer.findOne({ email: session?.user.email });
+      const authUser = await User.findOne({ email: session?.user.email });
 
       // This code runs on your server before upload
       const user = await auth(authUser._id);
@@ -30,6 +31,13 @@ export const ourFileRouter = {
 
       console.log("file url", file.url);
 
+      const session = await getServerSession();
+      console.log('loading up image')
+      await updateUserProfileImg(file.url);
+
+      console.log('loading up image one more time?');
+      User.findOneAndUpdate({ email: session?.user.email }, { image: file.url }, { new: true });
+
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userId };
     }),
@@ -38,7 +46,6 @@ export const ourFileRouter = {
   profilePicture: f(["image"])
     .middleware(({ req }) => auth(req))
     .onUploadComplete((data) => console.log("file", data)),
-
 
 } satisfies FileRouter;
 
