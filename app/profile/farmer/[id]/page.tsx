@@ -5,12 +5,9 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page() {
 
-  const id = params.id;
-  const farmer = await fetchSingleFarmerById(id) as any;
-
-  console.log(farmer);
+  const farmer = await fetchSingleFarmerById() as any;
 
   return (
     <div>
@@ -25,7 +22,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <div className="flex items-center gap-x-3">
                   <h1 className="text-4xl flex flex-col gap-x-3 text-base leading-7">
                     <span className="font-semibold text-white text-4xl">Products</span>
-                    <span className="font-semibold text-white text-2xl">Number of Products - {farmer.products.length}</span>
+                    <span className="font-semibold text-white text-2xl">Number of Products {farmer.products.length}</span>
                   </h1>
                 </div>
               </div>

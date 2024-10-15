@@ -25,16 +25,16 @@ export async function updateUserProfileImg(img: any) {
         await connectDB();
 
         const session = await getServerSession();
+        const farmer = await Farmer.findOne({ email: session?.user.email });
+        const findImage = img[0];
 
-        const farmers = await Farmer.updateOne({
-            email: session?.user.email
-        });
+        // If found farmer with email, update user and farmer
+        if (farmer) {
+            await User.findOneAndUpdate({ email: session?.user.email }, { image: findImage }, { new: true });
+            await Farmer.findOneAndUpdate({ email: session?.user.email }, { image: findImage }, { new: true });
+        }
 
-        console.log('Uploading image to user', img);
-
-
-        const user = await User.findOneAndUpdate({ email: session?.user.email }, { image: img }, { new: true });
-
+        await User.findOneAndUpdate({ email: session?.user.email }, { image: findImage }, { new: true });
 
     } catch (error) {
         console.log(error);

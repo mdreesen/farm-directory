@@ -31,13 +31,6 @@ export const ourFileRouter = {
 
       console.log("file url", file.url);
 
-      const session = await getServerSession();
-      console.log('loading up image')
-      await updateUserProfileImg(file.url);
-
-      console.log('loading up image one more time?');
-      User.findOneAndUpdate({ email: session?.user.email }, { image: file.url }, { new: true });
-
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userId };
     }),

@@ -1,8 +1,8 @@
 import { fetchSingleFarmerById } from '@/actions/farmer';
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const id = params.id;
-  const farmer = await fetchSingleFarmerById(id) as any;
+export default async function Page() {
+
+  const farmer = await fetchSingleFarmerById() as any;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">

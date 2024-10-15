@@ -20,10 +20,12 @@ const farmerSchema = new Schema(
         first_name: String,
         last_name: String,
         farm_name: String,
+        farm_about: String,
         address_road: String,
         address_city: String,
         address_state: String,
         address_zip: String,
+        address_street: String,
         phone: String,
         email: String,
         website: String,
@@ -37,6 +39,7 @@ const farmerSchema = new Schema(
         longitude: String,
         distance: Number,
         geometry: Object,
+        image: Object,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

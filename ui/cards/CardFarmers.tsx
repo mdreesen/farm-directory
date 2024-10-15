@@ -1,6 +1,7 @@
 import { Key } from 'react';
+import Image from "next/image";
 import Link from 'next/link';
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid';
+import { EnvelopeIcon, PhoneIcon, UserCircleIcon } from '@heroicons/react/20/solid';
 import { fetchFarmers } from '@/actions/farmer';
 
 export default async function CardFarmer() {
@@ -13,8 +14,14 @@ export default async function CardFarmer() {
           key={item.email}
           className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow"
         >
-          <div className="flex flex-1 flex-col p-8">
-            <img alt="" src={'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'} className="mx-auto h-32 w-32 flex-shrink-0 rounded-full" />
+          <div className="flex flex-1 flex-col p-8 items-center">
+            {item?.image?.url ? <Image
+              alt=""
+              width={100}
+              height={100}
+              src={item?.image?.url as string}
+              className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+            /> : <UserCircleIcon aria-hidden="true" className="mx-auto h-32 w-32 text-gray-300" />}
             <h3 className="mt-6 text-md font-medium text-gray-900">{item.farm_name}</h3>
             <dl className="mt-1 flex flex-grow flex-col justify-between">
               <dt className="sr-only">Title</dt>
@@ -22,9 +29,9 @@ export default async function CardFarmer() {
               <dt className="sr-only">Role</dt>
               <dd className="mt-3">
                 <Link href={`/details/farmer/${item._id}`}>
-                <span className="inline-flex items-center rounded-full bg-[#7A3A30] px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-green-600/20">
-                  Details
-                </span>
+                  <span className="inline-flex items-center rounded-full bg-[#7A3A30] px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-green-600/20">
+                    Details
+                  </span>
                 </Link>
               </dd>
             </dl>

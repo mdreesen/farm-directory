@@ -1,6 +1,8 @@
 "use server"
 import { connectDB } from "@/lib/mongodb";
 import Farmer from "@/(models)/Farmer";
+import User from "@/(models)/User";
+import { getServerSession } from "next-auth";
 
 export async function fetchFarmers() {
     try {
@@ -13,13 +15,35 @@ export async function fetchFarmers() {
     }
 };
 
-export async function fetchSingleFarmerById(id: string) {
+export async function fetchSingleFarmerById() {
     try {
-        const farmer = await Farmer.findOne({ _id: id });
+        await connectDB();
+        const session = await getServerSession();
+
+        // Find user and farmer with associated emails
+        const user = await User.findOne({ email: session?.user.email });
+        const farmer = await Farmer.findOne({ email: user.email });
+
         return farmer ?? {}
     } catch (error) {
         console.log(error)
         return error
+    }
+};
+
+export async function UpdateFarmer(values: any) {
+    const { id } = values;
+
+    try {
+        await connectDB();
+
+        const farmer = await Farmer.findByIdAndUpdate(id, {
+            ...values
+        });
+
+    } catch (e) {
+        console.log(e)
+        return e
     }
 };
 

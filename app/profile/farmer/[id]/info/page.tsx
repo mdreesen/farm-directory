@@ -1,10 +1,48 @@
+'use client';
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import ButtonUploader from '@/ui/buttons/ButtonUploader';
 import { StatePicker } from '@/utils/statePicker';
+import { useSession } from "next-auth/react";
 
-export default function page() {
+
+import { UpdateFarmer } from '@/actions/farmer';
+
+export default function Page({ params }: { params: { id: string } }) {
+  const { data } = useSession();
+  const userData = data?.user;
+  const id = params.id;
+
+  const router = useRouter();
+  const ref = useRef(null);
+
+  const handleSubmit = async (formData: FormData) => {
+    try {
+      const r = await UpdateFarmer({
+        id: id,
+        farm_name: formData.get("farm_name"),
+        farm_about: formData.get("farm_about"),
+        first_name: formData.get("first_name"),
+        last_name: formData.get("last_name"),
+        email: formData.get("email"),
+        address_street: formData.get("address_street"),
+        address_city: formData.get("address_city"),
+        address_state: formData.get("address_state"),
+        address_zip: formData.get("address_zip"),
+
+      });
+      router.refresh
+      router.push(`/profile/farmer/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
   return (
-    <form className="bg-white">
+    <form className="bg-white" ref={ref} action={handleSubmit}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
@@ -20,11 +58,12 @@ export default function page() {
               <div className="mt-2">
                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
-                    id="username"
-                    name="username"
+                    id="farm_name"
+                    name="farm_name"
                     type="text"
                     placeholder="The Farm Directory"
-                    autoComplete="username"
+                    autoComplete="farm_name"
+                    defaultValue={`${userData?.farm_name}`}
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -37,12 +76,12 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <textarea
-                  id="about"
-                  name="about"
+                  id="farm_about"
+                  name="farm_about"
                   rows={3}
                   placeholder="Connecting farms to communities."
+                  defaultValue={`${userData?.farm_about}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
                 />
               </div>
               <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
@@ -53,7 +92,14 @@ export default function page() {
                 Photo
               </label>
               <div className="mt-2 flex items-center gap-x-3">
-                <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
+                {userData?.image.url ? <Image
+                  alt=""
+                  width={100}
+                  height={100}
+                  src={userData?.image?.url as string}
+                  className="h-12 w-12 rounded-full object-cover scale-75"
+                /> : <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
+                }
                 <ButtonUploader />
               </div>
             </div>
@@ -71,10 +117,11 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <input
-                  id="first-name"
-                  name="first-name"
+                  id="first_name"
+                  name="first_name"
                   type="text"
-                  autoComplete="given-name"
+                  autoComplete="first_name"
+                  defaultValue={`${userData?.first_name}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -86,10 +133,11 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <input
-                  id="last-name"
-                  name="last-name"
+                  id="last_name"
+                  name="last_name"
                   type="text"
-                  autoComplete="family-name"
+                  autoComplete="last_name"
+                  defaultValue={`${userData?.last_name}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -105,6 +153,7 @@ export default function page() {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  defaultValue={`${userData?.email}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -116,10 +165,11 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <input
-                  id="street-address"
-                  name="street-address"
+                  id="address_street"
+                  name="address_street"
                   type="text"
-                  autoComplete="street-address"
+                  autoComplete="address_street"
+                  defaultValue={`${userData?.address_street}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -131,10 +181,11 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <input
-                  id="city"
-                  name="city"
+                  id="address_city"
+                  name="address_city"
                   type="text"
-                  autoComplete="address-level2"
+                  autoComplete="address_city"
+                  defaultValue={`${userData?.address_city}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -146,9 +197,10 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <select
-                  id="state"
-                  name="state"
-                  autoComplete="state-name"
+                  id="address_state"
+                  name="address_state"
+                  autoComplete="address_state"
+                  defaultValue={`${userData?.address_state}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <StatePicker />
@@ -162,10 +214,11 @@ export default function page() {
               </label>
               <div className="mt-2">
                 <input
-                  id="postal-code"
-                  name="postal-code"
+                  id="address_zip"
+                  name="address_zip"
                   type="text"
-                  autoComplete="postal-code"
+                  autoComplete="address_zip"
+                  defaultValue={`${userData?.address_zip}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>

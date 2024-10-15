@@ -24,7 +24,7 @@ const userSchema = new Schema(
         favoriteFarmers: Array,
         agree_to_legal: Boolean,
         agree_to_privacy_policy: Boolean,
-        image: String,
+        image: Object,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });
