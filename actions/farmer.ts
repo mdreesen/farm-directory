@@ -15,6 +15,19 @@ export async function fetchFarmers() {
     }
 };
 
+export async function fetchFarmerDetails(id: string) {
+    try {
+        await connectDB();
+
+        const farmer = await Farmer.findOne({ _id: id });
+
+        return farmer ?? {}
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
 export async function fetchSingleFarmerById() {
     try {
         await connectDB();
