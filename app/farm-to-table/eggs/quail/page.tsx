@@ -1,13 +1,10 @@
-import CardNavigation from '@/ui/cards/CardNavigation';
+import CardFarmers from '@/ui/cards/CardFarmers';
 
-// Navigation
-import route from '@/utils/routes/farmToTable/eggs/routes.json';
-
-export default function page() {
+export default async function page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="relative flex justify-center items-center w-full place-items-center">
-        <CardNavigation route={route} />
+        <CardFarmers/>
       </div>
     </main>
   );

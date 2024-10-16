@@ -1,7 +1,7 @@
 import CardNavigation from '@/ui/cards/CardNavigation';
 
 // Navigation
-import route from '@/utils/routes/farmServices/routes.json';
+import route from '@/utils/routes/farmServices/boarding-pasture/routes.json';
 
 export default function page() {
   return (
