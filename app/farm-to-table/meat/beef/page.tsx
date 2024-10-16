@@ -1,7 +1,7 @@
 import CardNavigation from '@/ui/cards/CardNavigation';
 
 // Navigation
-import route from '@/utils/routes/farmToTable/meat/routes.json';
+import route from '@/utils/routes/farmToTable/meat/beef/routes.json';
 
 export default function page() {
   return (

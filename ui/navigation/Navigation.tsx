@@ -63,9 +63,9 @@ export default function Navigation() {
                 </div>
             </div>
             <div className="mt-3 space-y-1 px-2">
-                <Link href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 text-gray-700">
+                <a href={useProfile} className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 text-gray-700">
                     Your Profile
-                </Link>
+                </a>
                 <div>
                     <ButtonAuth />
                 </div>
@@ -125,12 +125,12 @@ export default function Navigation() {
 
             <DisclosurePanel className="sm:hidden py-6">
                 <div className="flex flex-col space-y-1 px-2 pb-3 pt-4">
-                    <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
+                    <a href="/" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                         Categories
-                    </Link>
-                    <Link href="/map" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
+                    </a>
+                    <a href="/map" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                         Map
-                    </Link>
+                    </a>
                 </div>
                 {profileUserMobile}
             </DisclosurePanel>
