@@ -7,7 +7,6 @@ import ButtonUploader from '@/ui/buttons/ButtonUploader';
 import { StatePicker } from '@/utils/statePicker';
 import { useSession } from "next-auth/react";
 
-
 import { UpdateFarmer } from '@/actions/farmer';
 
 export default function Page({ params }: { params: { id: string } }) {
