@@ -9,6 +9,7 @@
   /* column-gap: 3rem;
   row-gap: 3rem; */
   padding: 1rem;
+  min-height: 86vh;
 }
 
 @media only screen and (max-width: 280px) {

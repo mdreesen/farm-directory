@@ -20,11 +20,17 @@ export function Footer() {
             />
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-          <div>
+            <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white text-start">About</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li>
                   <a href="/about" className="hover:underline text-gray-900 dark:text-white">About Us</a>
+                </li>  
+                <li>
+                  <a href="/email-list" className="hover:underline text-gray-900 dark:text-white">Join our email list</a>
+                </li>              
+                <li>
+                  <a href="/contact-us" className="hover:underline text-gray-900 dark:text-white">Contact Us</a>
                 </li>
               </ul>
             </div>
