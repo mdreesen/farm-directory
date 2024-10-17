@@ -21,7 +21,7 @@ export default function Navigation() {
                 <MenuButton className="relative flex rounded-full bg-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
-                    {userData?.image.url ? <Image
+                    {userData?.image?.url ? <Image
                         alt=""
                         width={100}
                         height={100}

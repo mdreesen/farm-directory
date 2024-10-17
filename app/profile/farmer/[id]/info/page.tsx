@@ -62,7 +62,7 @@ export default function Page({ params }: { params: { id: string } }) {
                     type="text"
                     placeholder="The Farm Directory"
                     autoComplete="farm_name"
-                    defaultValue={`${userData?.farm_name}`}
+                    defaultValue={`${userData?.farm_name ?? ''}`}
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -79,7 +79,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="farm_about"
                   rows={3}
                   placeholder="Connecting farms to communities."
-                  defaultValue={`${userData?.farm_about}`}
+                  defaultValue={`${userData?.farm_about ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -91,7 +91,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 Photo
               </label>
               <div className="mt-2 flex items-center gap-x-3">
-                {userData?.image.url ? <Image
+                {userData?.image?.url ? <Image
                   alt=""
                   width={100}
                   height={100}
@@ -120,7 +120,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="first_name"
                   type="text"
                   autoComplete="first_name"
-                  defaultValue={`${userData?.first_name}`}
+                  defaultValue={`${userData?.first_name ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -136,7 +136,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="last_name"
                   type="text"
                   autoComplete="last_name"
-                  defaultValue={`${userData?.last_name}`}
+                  defaultValue={`${userData?.last_name ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -152,7 +152,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  defaultValue={`${userData?.email}`}
+                  defaultValue={`${userData?.email ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -168,7 +168,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="address_street"
                   type="text"
                   autoComplete="address_street"
-                  defaultValue={`${userData?.address_street}`}
+                  defaultValue={`${userData?.address_street ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -184,7 +184,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="address_city"
                   type="text"
                   autoComplete="address_city"
-                  defaultValue={`${userData?.address_city}`}
+                  defaultValue={`${userData?.address_city ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -199,7 +199,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   id="address_state"
                   name="address_state"
                   autoComplete="address_state"
-                  defaultValue={`${userData?.address_state}`}
+                  defaultValue={`${userData?.address_state ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <StatePicker />
@@ -217,7 +217,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="address_zip"
                   type="text"
                   autoComplete="address_zip"
-                  defaultValue={`${userData?.address_zip}`}
+                  defaultValue={`${userData?.address_zip ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
