@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 import ButtonUploader from '@/ui/buttons/ButtonUploader';
 import { StatePicker } from '@/utils/statePicker';
 import { useSession } from "next-auth/react";

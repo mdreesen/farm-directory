@@ -59,6 +59,14 @@ export default function Navigation() {
         <div className="border-t border-gray-700 pb-3 pt-4">
             <div className="flex items-center px-5">
                 <div className="ml-3">
+                    {userData?.image?.url ? <Image
+                        alt=""
+                        width={100}
+                        height={100}
+                        src={userData?.image?.url as string}
+                        className="h-12 w-12 rounded-full object-cover scale-75"
+                    /> : <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
+                    }
                     <div className="text-sm font-medium text-gray-400">{data?.user.email}</div>
                 </div>
             </div>
