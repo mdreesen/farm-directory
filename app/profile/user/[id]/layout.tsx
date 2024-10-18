@@ -1,4 +1,4 @@
-import NavigationProfileFarmer from '@/ui/navigation/NavigationProfileFarmer';
+import NavigationProfileUser from '@/ui/navigation/NavigationProfileUser';
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "@/app/api/uploadthing/core";
@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <>
       <div className="bg-white min-h-full pt-[4rem]">
-        <NavigationProfileFarmer />
+        <NavigationProfileUser />
 
         <div className="py-10">
           <header>
