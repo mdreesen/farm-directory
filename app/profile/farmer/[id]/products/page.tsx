@@ -3,8 +3,12 @@ import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
-import { UpdateFarmerProducts } from '@/actions/farmer';
+import { UpdateFarmerProducts, fetchSingleFarmerById } from '@/actions/farmer';
 import farmerProducts from '@/utils/products/farmerProducts.json';
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
 
 const availableOptions = [
   {
@@ -55,9 +59,9 @@ export default function Page({ params }: { params: { id: string } }) {
       router.refresh
       router.push(`/profile/farmer/${id}`);
     } catch (error) {
+      setError(error as string)
       console.log(error);
     }
-
   };
 
   const ProductDropdown = () => (
@@ -247,14 +251,12 @@ export default function Page({ params }: { params: { id: string } }) {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
+          <button type="submit" className="rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             Save
           </button>
         </div>
       </form>
+
     </div>
   )
 }

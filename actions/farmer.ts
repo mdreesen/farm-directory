@@ -85,6 +85,23 @@ export async function UpdateFarmerProducts(values: any) {
     }
 };
 
+export async function deleteFarmerProduct(values: any) {
+    const { id } = values;
+    console.log('action', id);
+    try {
+        await connectDB();
+
+        const farmer = await Farmer.findOneAndUpdate(
+            { 'products._id': id },
+            { $pull: { products: { _id: id } } },
+            { new: true });
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
 export async function searchFarmers(query: any, user: any) {
 
     try {

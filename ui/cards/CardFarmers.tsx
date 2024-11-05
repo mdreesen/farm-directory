@@ -1,4 +1,3 @@
-import { Key } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import { EnvelopeIcon, PhoneIcon, UserCircleIcon } from '@heroicons/react/20/solid';
@@ -9,9 +8,9 @@ export default async function CardFarmer() {
 
   return (
     <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-20">
-      {farmers.map((item: any) => (
+      {farmers.map((item: any, index: number) => (
         <li
-          key={item.email}
+          key={`${item.email}-${index}`}
           className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow"
         >
           <div className="flex flex-1 flex-col p-8 items-center">

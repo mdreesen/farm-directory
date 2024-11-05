@@ -1,5 +1,6 @@
 
 import { fetchSingleFarmerById } from '@/actions/farmer';
+import ButtonDeleteProduct from '@/ui/buttons/ButtonDeleteProduct';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -45,6 +46,8 @@ export default async function Page() {
                     <span className="text-lg font-semibold tracking-tight text-white">{item.product_show === 'true' ? 'Product is showing to public' : 'Product is hidden from public'}</span>
                     {item.unit ? <span className="text-sm text-gray-400">{item.unit}</span> : null}
                   </p>
+
+                  {item && <ButtonDeleteProduct data={JSON.parse(JSON.stringify(item._id))} />}
                 </div>
               ))}
             </div>
