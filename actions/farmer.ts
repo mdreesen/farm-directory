@@ -102,22 +102,22 @@ export async function deleteFarmerProduct(values: any) {
     }
 };
 
-export async function searchFarmers(query: any, user: any) {
+export async function searchFarmers(query: any) {
 
     try {
         const farmers = await Farmer.aggregate([
             {
                 $search: {
                     "index": "farmerSearch",
-                    "text": {
+                    "phrase": {
                         "query": query,
-                        "path": ["address_zip", "address_city", "address_state"]
-                    }
+                        "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "products.product_title", "products.product_description", "products.product_available"]
+                    },
                 }
             }
         ]);
 
-        return farmers.filter(item => item.address_zip.includes(user.postalCode));
+        return farmers;
     } catch (error) {
         console.log(error)
         return error
