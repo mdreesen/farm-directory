@@ -20,14 +20,12 @@ export async function updateUser(values: any) {
     }
 };
 
-export async function favoriteAFarmer(values: any) {
-    const { email } = values;
+export async function saveFarmer(values: any) {
+    const { _id, email } = values;
 
     try {
         await connectDB();
-
-        // const user = await User.findOneAndUpdate({ _id: id }, { $addToSet: { favoriteFarmers: farmerData } }, { new: true });
-
+        const user = await User.findOneAndUpdate({ _id: _id }, { $addToSet: { favoriteFarmers: values } }, { new: true });
     } catch (e) {
         console.log(e)
         return e

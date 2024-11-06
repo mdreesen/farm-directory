@@ -46,6 +46,7 @@ export async function fetchSingleFarmerById() {
 
 export async function UpdateFarmer(values: any) {
     const { id } = values;
+    console.log(values)
 
     try {
         await connectDB();

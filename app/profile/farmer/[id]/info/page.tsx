@@ -36,7 +36,6 @@ export default function Page({ params }: { params: { id: string } }) {
     } catch (error) {
       console.log(error);
     }
-    router.refresh
   };
 
   return (
@@ -134,7 +133,6 @@ export default function Page({ params }: { params: { id: string } }) {
                   id="last_name"
                   name="last_name"
                   type="text"
-                  autoComplete="last_name"
                   defaultValue={`${userData?.last_name ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -166,7 +164,6 @@ export default function Page({ params }: { params: { id: string } }) {
                   id="address_street"
                   name="address_street"
                   type="text"
-                  autoComplete="address_street"
                   defaultValue={`${userData?.address_street ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -182,7 +179,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   id="address_city"
                   name="address_city"
                   type="text"
-                  autoComplete="address_city"
+                  autoComplete="address"
                   defaultValue={`${userData?.address_city ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
