@@ -24,7 +24,7 @@ export default function NavigationProfile() {
         <div className="flex h-16 justify-between">
 
           {navigation.map((item) => status !== "loading" && (
-            <Link
+            <a
               key={item.name}
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
@@ -36,7 +36,7 @@ export default function NavigationProfile() {
               )}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
       </div>

@@ -4,19 +4,33 @@ import Farmer from "@/(models)/Farmer";
 import User from "@/(models)/User";
 import { getServerSession } from "next-auth/next"
 
-export async function updateUser() {
+export async function updateUser(values: any) {
+    const { email } = values;
+
     try {
         await connectDB();
 
-        const session = await getServerSession();
+        const user = await User.findOneAndUpdate({ email: email }, {
+            ...values
+        });
 
-        const farmers = await Farmer.updateOne({
-            email: session?.user.email
-        })
-        return farmers
-    } catch (error) {
-        console.log(error)
-        return error
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
+export async function favoriteAFarmer(values: any) {
+    const { email } = values;
+
+    try {
+        await connectDB();
+
+        // const user = await User.findOneAndUpdate({ _id: id }, { $addToSet: { favoriteFarmers: farmerData } }, { new: true });
+
+    } catch (e) {
+        console.log(e)
+        return e
     }
 };
 

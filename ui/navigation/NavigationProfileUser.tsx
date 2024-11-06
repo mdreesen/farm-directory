@@ -9,13 +9,11 @@ function classNames(...classes: string[]) {
 
 export default function NavigationProfileUser() {
   const { data, status } = useSession();
-
-  const useProfile = `/profile/${data?.user.isFarmer ? 'farmer' : 'user'}/${data?.user._id}`;
+  console.log(data)
 
   const navigation = [
-    { name: 'Dashboard', href: `/profile/farmer/${data?.user?._id}`, current: true },
-    { name: 'Products', href: `/profile/farmer/${data?.user?._id}/products`, current: false },
-    { name: 'Info', href: `/profile/farmer/${data?.user?._id}/info`, current: false },
+    { name: 'Dashboard', href: `/profile/user/${data?.user?._id}`, current: true },
+    { name: 'Info', href: `/profile/user/${data?.user?._id}/info`, current: false },
   ];
 
   return (
@@ -24,7 +22,7 @@ export default function NavigationProfileUser() {
         <div className="flex h-16 justify-between">
 
           {navigation.map((item) => status !== "loading" && (
-            <Link
+            <a
               key={item.name}
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
@@ -36,7 +34,7 @@ export default function NavigationProfileUser() {
               )}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
       </div>

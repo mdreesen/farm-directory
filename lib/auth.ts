@@ -11,7 +11,6 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       email: any;
-      id: string;
       name: string;
       _id: string;
       password: string;
@@ -106,7 +105,6 @@ declare module "next-auth" {
 
 declare module "next-auth/jwt" {
   interface JWT extends DefaultJWT {
-    id: string;
     username: string; // also my jwt will have the property, I can access this property within the JWT using the getToken() helper
     _id: string;
     email: string;
