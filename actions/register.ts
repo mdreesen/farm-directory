@@ -9,7 +9,6 @@ export const register = async (values: any) => {
     try {
         await connectDB();
         const userFound = await User.findOne({ email });
-console.log('isFarmer', isFarmer)
         if (confirm_password !== password) {
             return {
                 error: 'Passwords do not match'

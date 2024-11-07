@@ -30,6 +30,7 @@ const userSchema = new Schema(
         agree_to_legal: Boolean,
         agree_to_privacy_policy: Boolean,
         image: Object,
+        resetPasswordToken: String,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });
