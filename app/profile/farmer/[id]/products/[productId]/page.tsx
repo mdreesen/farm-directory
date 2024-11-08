@@ -186,7 +186,6 @@ export default function Page({ params }: { params: { id: string, productId: stri
                     placeholder="Grown without the use of synthetic chemicals, such as human-made pesticides and fertilizers, and does not contain genetically modified organisms (GMOs)."
                   />
                 </div>
-                <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
               </div>
 
               <div className="sm:col-span-4">
