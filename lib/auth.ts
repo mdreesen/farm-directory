@@ -1,13 +1,24 @@
 import { connectDB } from "@/lib/mongodb";
 import User from "@/(models)/User";
 import Farmer from "@/(models)/Farmer";
-import type { NextAuthOptions, DefaultSession, DefaultUser } from "next-auth";
+import type { NextAuthOptions, DefaultSession, DefaultUser, Product } from "next-auth";
 import credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 // import { type DefaultSession, type DefaultUser } from "next-auth";
 import { type DefaultJWT } from "next-auth/jwt";
 
 declare module "next-auth" {
+  interface Product extends DefaultUser {
+    product_title: String,
+    product_description: String,
+    product_image: String,
+    product_price: String,
+    product_available: String,
+    product_show: String,
+    createdAt: String,
+    updatedAt: String
+  }
+  
   interface Session extends DefaultSession {
     user: {
       email: any;
@@ -34,7 +45,7 @@ declare module "next-auth" {
       website: String,
       facebook: String,
       instagram: String,
-      products: [],
+      products: [Product],
       latitude: String,
       longitude: String,
       distance: Number,
@@ -54,8 +65,8 @@ declare module "next-auth" {
       resetPasswordToken: string,
       resetPasswordTokenExpirationDate: Date
     };
-
   }
+
   interface User extends DefaultUser {
     username: string; // the user will now have the property
     _id: string;
@@ -79,7 +90,7 @@ declare module "next-auth" {
     website: String,
     facebook: String,
     instagram: String,
-    products: [],
+    products: [Product],
     latitude: String,
     longitude: String,
     distance: Number,
@@ -127,7 +138,7 @@ declare module "next-auth/jwt" {
     website: String,
     facebook: String,
     instagram: String,
-    products: [],
+    products: [Product],
     latitude: String,
     longitude: String,
     distance: Number,

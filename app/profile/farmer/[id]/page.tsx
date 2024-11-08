@@ -10,10 +10,11 @@ export default async function Page() {
 
   const farmer = await fetchSingleFarmerById() as any;
 
+  const farmerId = JSON.parse(JSON.stringify(farmer._id));
+
   return (
     <div>
       <div>
-
         <main>
           <header>
 
@@ -48,6 +49,8 @@ export default async function Page() {
                   </p>
 
                   {item && <ButtonDeleteProduct data={JSON.parse(JSON.stringify(item._id))} />}
+
+                  <a href={`/profile/farmer/${farmerId}/products/${item.id}`} className="rounded-md m-4 bg-yellow-500	 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Update</a>
                 </div>
               ))}
             </div>

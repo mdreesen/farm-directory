@@ -4,6 +4,8 @@ import { nanoid } from "nanoid";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/(models)/User";
 
+// https://www.youtube.com/watch?v=vAfUyKpWj_M
+
 export const resetPassword = async (values: any) => {
     const { email } = values;
 
@@ -20,7 +22,12 @@ export const resetPassword = async (values: any) => {
         },
     });
 
-    const htmlBody = `<a href="${process.env.DOMAIN}/authentication/reset-password/${token}">Click here to reset password</a>`
+    const htmlBody = `
+    <div>
+        <h1>Welcome to The Farm Directory</h1>
+        <a href="${process.env.DOMAIN}/authentication/reset-password/${token}">Click here to reset password</a>
+    </div>
+    `;
 
     try {
         await connectDB();
@@ -35,7 +42,7 @@ export const resetPassword = async (values: any) => {
         const info = await transporter.sendMail({
             from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
             to: email, // list of receivers
-            subject: "Hello ✔", // Subject line
+            subject: "Reset your password", // Subject line
             text: "Hello world?", // plain text body
             html: htmlBody, // html body
         });

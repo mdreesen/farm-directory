@@ -1,13 +1,12 @@
 "use client";
 import { FormEvent, useState } from "react";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { resetPassword } from "@/actions/resetPassword";
 import Link from "next/link";
 
 export default function Page() {
-    const [error, setError] = useState("");
     const router = useRouter();
+    const [error, setError] = useState("");
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -17,6 +16,8 @@ export default function Page() {
             const res = await resetPassword({
                 email: formData.get("email"),
             });
+
+            router.push("/authentication/reset-password/check-email");
 
         } catch(error) {
             console.log(error)
@@ -30,6 +31,7 @@ export default function Page() {
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-black">
                         Forgot Password
                     </h2>
+                    <p className="mt-10 text-center font-bold leading-9 tracking-tight text-black">If you do not see the link in your email, try again.</p>
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

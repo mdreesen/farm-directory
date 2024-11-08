@@ -86,9 +86,37 @@ export async function UpdateFarmerProducts(values: any) {
     }
 };
 
+export async function UpdateFarmerProduct(values: any) {
+    const { productId, product_title, product_description, product_image, product_price, product_available, product_show } = values;
+
+    try {
+        await connectDB();
+
+        const showingProduct = product_show === 'Show To Public' ? 'true' : 'false';
+
+        const product = {
+            product_title: product_title,
+            product_description: product_description,
+            product_image: product_image ?? '',
+            product_price: product_price,
+            product_available: product_available,
+            product_show: showingProduct
+        }
+
+        const farmer = await Farmer.findOneAndUpdate(
+            { 'products._id': productId },
+            { $set: { 'products.$': { ...product } } },
+            { new: true });
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
 export async function deleteFarmerProduct(values: any) {
     const { id } = values;
-    console.log('action', id);
+
     try {
         await connectDB();
 
