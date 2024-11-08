@@ -26,8 +26,9 @@ export default async function CardFarmer(category: any) {
             <div className="flex flex-1 flex-col p-8 items-center">
               {item?.image?.url ? <Image
                 alt=""
-                width={100}
-                height={100}
+                width={200}
+                height={200}
+                style={{objectFit: "cover"}}
                 src={item?.image?.url as string}
                 className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
               /> : <UserCircleIcon aria-hidden="true" className="mx-auto h-32 w-32 text-gray-300" />}

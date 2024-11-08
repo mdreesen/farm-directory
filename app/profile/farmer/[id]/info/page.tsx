@@ -90,8 +90,9 @@ export default function Page({ params }: { params: { id: string } }) {
               <div className="mt-2 flex items-center gap-x-3">
                 {userData?.image?.url ? <Image
                   alt=""
-                  width={100}
-                  height={100}
+                  width={200}
+                  height={200}
+                  style={{objectFit: "cover"}}
                   src={userData?.image?.url as string}
                   className="h-12 w-12 rounded-full object-cover scale-75"
                 /> : <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />

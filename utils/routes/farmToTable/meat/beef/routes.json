@@ -1,10 +1,10 @@
 [
     {
         "linkName": "Grass Finished",
-        "directTo": "/farm-to-table/meat/beef/grain"
+        "directTo": "/farm-to-table/meat/beef/grass"
     },
     {
         "linkName": "Grain Finished",
-        "directTo": "/farm-to-table/meat/beef/grass"
+        "directTo": "/farm-to-table/meat/beef/grain"
     }
 ]
