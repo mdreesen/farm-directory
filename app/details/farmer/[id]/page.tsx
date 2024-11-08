@@ -1,12 +1,29 @@
 import { fetchFarmerDetails } from '@/actions/farmer';
-import { saveFarmer } from "@/actions/user";
-import ButtonSave from '@/ui/buttons/ButtonSave';
-
 
 export default async function Page({ params }: { params: { id: string } }) {
 
   const id = params.id;
   const farmer = await fetchFarmerDetails(id) as any;
+
+  const products = farmer.products.map((item: any) => {
+    return item.product_show === 'true' && (
+      <li key={item._id}>
+        <img alt="" src={'/images/products/beef.webp'} className="mx-auto h-24 w-24 rounded-full" />
+        <h3 className="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">
+          {item.product_title}
+        </h3>
+
+        <p className="pt-2 text-base leading-6 text-gray-600">{item.product_description}</p>
+
+        <p className="pt-2 text-base leading-6 text-gray-600">{item.product_price}</p>
+
+        <p className="pt-2 text-base leading-7 tracking-tight text-gray-900 flex flex-col">
+          <span>Product Availability</span>
+          <span>{item.product_available}</span>
+        </p>
+      </li>
+    );
+  })
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
@@ -22,23 +39,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               role="list"
               className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
             >
-              {farmer.products.map((item: any) => (
-                <li key={item._id}>
-                  <img alt="" src={'/images/products/beef.webp'} className="mx-auto h-24 w-24 rounded-full" />
-                  <h3 className="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">
-                    {item.product_title}
-                  </h3>
-
-                  <p className="pt-2 text-base leading-6 text-gray-600">{item.product_description}</p>
-
-                  <p className="pt-2 text-base leading-6 text-gray-600">{item.product_price}</p>
-
-                  <p className="pt-2 text-base leading-7 tracking-tight text-gray-900 flex flex-col">
-                    <span>Product Availability</span>
-                    <span>{item.product_available}</span>
-                  </p>
-                </li>
-              ))}
+              {products}
             </ul>
           </div>
         </div>
