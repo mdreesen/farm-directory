@@ -8,7 +8,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const products = farmer.products.map((item: any) => {
     return item.product_show === 'true' && (
       <li key={item._id}>
-        <img alt="" src={'/images/products/beef.webp'} className="mx-auto h-24 w-24 rounded-full" />
+        <img alt="" src={`/images/products/${item.product_image}`} className="mx-auto h-24 w-24 rounded-full" />
         <h3 className="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">
           {item.product_title}
         </h3>

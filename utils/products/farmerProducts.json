@@ -1,7 +1,7 @@
 [
     {
         "product_title": "Grain Finished Beef",
-        "image": "beef.webp"
+        "image": "beef-grain.webp"
     },
     {
         "product_title": "Grass Finished Beef",
@@ -9,74 +9,74 @@
     },
     {
         "product_title": "Grain & Grass Finished Beef",
-        "image": "beef.webp"
+        "image": "beef-grass-grain.webp"
     },
     {
         "product_title": "Bison or Yak Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-bison.webp"
     },
     {
         "product_title": "Chicken Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-chicken.webp"
     },
     {
         "product_title": "Goat Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-goat.webp"
     },
     {
         "product_title": "Pork Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-pork.webp"
     },
     {
         "product_title": "Sheep Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-sheep.webp"
     },
     {
         "product_title": "Turkey Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-turkey.webp"
     },
     {
         "product_title": "Other Meat",
-        "image": "Farm_to_Table.webp"
+        "image": "meat-other.webp"
     },
 
     {
         "product_title": "Chicken Eggs",
-        "image": "Farm_to_Table.webp"
+        "image": "eggs-chicken.webp"
     },
     {
         "product_title": "Duck Eggs",
-        "image": "Farm_to_Table.webp"
+        "image": "eggs-duck.webp"
     },
     {
         "product_title": "Quail Eggs",
-        "image": "Farm_to_Table.webp"
+        "image": "eggs-quail.webp"
     },
     {
         "product_title": "Other Eggs",
-        "image": "Farm_to_Table.webp"
+        "image": "eggs-other.webp"
     },
 
     {
         "product_title": "Kitchen Goods",
-        "image": "Farm_to_Table.webp"
+        "image": "kitchen-goods.webp"
     },
     {
         "product_title": "Honey",
-        "image": "Farm_to_Table.webp"
+        "image": "honey.webp"
     },
     {
         "product_title": "Dairy",
-        "image": "Farm_to_Table.webp"
+        "image": "dairy.webp"
     },
 
     {
         "product_title": "Hops",
-        "image": "Farm_to_Table.webp"
+        "image": "hops.webp"
     },
     {
         "product_title": "Winery",
-        "image": "Farm_to_Table.webp"
+        "image": "winery.webp"
     },
 
     {
