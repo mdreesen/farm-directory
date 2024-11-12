@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   })
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-white">
       <div className="relative flex justify-center items-center w-full place-items-center">
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
