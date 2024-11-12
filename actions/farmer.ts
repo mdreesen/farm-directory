@@ -3,6 +3,7 @@ import { connectDB } from "@/lib/mongodb";
 import Farmer from "@/(models)/Farmer";
 import User from "@/(models)/User";
 import { getServerSession } from "next-auth";
+import { radarForwardCoordinates } from "@/lib/radarApi";
 
 export async function fetchFarmers() {
     try {
@@ -45,14 +46,24 @@ export async function fetchSingleFarmerById() {
 };
 
 export async function UpdateFarmer(values: any) {
-    const { id } = values;
-    console.log(values)
+    const { id, address_road, address_city, address_state, address_zip } = values;
+
+    const farmerLocation = {
+        road: address_road,
+        city: address_city,
+        state: address_state,
+        postalCode: address_zip
+    };
+
+    const radarServices = await radarForwardCoordinates(farmerLocation);
+    const address = radarServices.addresses.find((address: any) => address);
 
     try {
         await connectDB();
 
         const farmer = await Farmer.findByIdAndUpdate(id, {
-            ...values
+            ...values,
+            ...address
         });
 
     } catch (e) {
@@ -147,6 +158,29 @@ export async function searchFarmers(query: any) {
         ]);
 
         return farmers;
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
+
+export async function fetchFarmersCoordinates() {
+
+    try {
+        const farmers = await Farmer.find();
+
+        let farmerCoordinates = [] as any;
+
+        farmers.map((item: any) => {
+            const { latitude, longitude } = item;
+
+            const lat = Number(latitude);
+            const lng = Number(longitude)
+
+            if (latitude && longitude) return farmerCoordinates.push({ lat: lat, lng: lng }); 
+          });
+
+        return farmerCoordinates
     } catch (error) {
         console.log(error)
         return error

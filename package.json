@@ -11,8 +11,10 @@
   "dependencies": {
     "@headlessui/react": "^0.0.0-insiders.49c081d",
     "@heroicons/react": "^2.1.5",
+    "@react-google-maps/api": "^2.20.3",
     "@types/bcryptjs": "^2.4.6",
     "@types/nodemailer": "^6.4.16",
+    "@uidotdev/usehooks": "^2.4.1",
     "@uploadthing/react": "^6.7.2",
     "bcryptjs": "^2.4.3",
     "mongoose": "^8.5.4",

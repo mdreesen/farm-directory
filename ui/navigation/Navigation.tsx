@@ -106,9 +106,9 @@ export default function Navigation() {
                                 <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                                     Categories
                                 </Link>
-                                <Link href="/map" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
+                                <a href="/map" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
                                     Map
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>
