@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import ButtonUploader from '@/ui/buttons/ButtonUploader';
@@ -17,6 +17,18 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const router = useRouter();
   const ref = useRef(null);
+
+  const [stateData, setStateData] = useState({ ...userData });
+
+  const handleChange = (e: any) => {
+    const value = e.target.value
+    const name = e.target.name
+
+    setStateData((prevState) => ({
+        ...prevState,
+        [name]: value
+    }));
+};
 
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -114,11 +126,10 @@ export default function Page({ params }: { params: { id: string } }) {
                 First name
               </label>
               <div className="mt-2">
-                <input
+              <input
                   id="first_name"
                   name="first_name"
                   type="text"
-                  autoComplete="first_name"
                   defaultValue={`${userData?.first_name ?? ''}`}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -195,8 +206,10 @@ export default function Page({ params }: { params: { id: string } }) {
                 <select
                   id="address_state"
                   name="address_state"
-                  autoComplete="address_state"
+                  autoComplete="state"
                   defaultValue={`${userData?.address_state ?? ''}`}
+                  onChange={handleChange}
+                  value={stateData.address_state as string ?? userData?.address_state?.trim() as string}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <StatePicker />

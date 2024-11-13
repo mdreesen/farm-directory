@@ -1,7 +1,6 @@
 'use client';
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Disclosure } from '@headlessui/react';
 import { useSession } from "next-auth/react";
-import Link from 'next/link';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -9,7 +8,6 @@ function classNames(...classes: string[]) {
 
 export default function NavigationProfileUser() {
   const { data, status } = useSession();
-  console.log(data)
 
   const navigation = [
     { name: 'Dashboard', href: `/profile/user/${data?.user?._id}`, current: true },

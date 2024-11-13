@@ -10,7 +10,7 @@ import { useSession } from "next-auth/react";
 export default function ButtonUploaderDelete() {
     const { data } = useSession();
     const userData = JSON.parse(JSON.stringify(data?.user));
-
+console.log(userData)
     const router = useRouter();
 
     const handleSubmit = async (e: any) => {
@@ -23,6 +23,8 @@ export default function ButtonUploaderDelete() {
                 image: userData.image,
             });
             router.refresh
+            router.push(`/profile/farmer/${userData._id}/info`);
+            console.log('push', `/profile/farmer/${userData._id}/info`)
         } catch (error) {
             console.log(error);
         }

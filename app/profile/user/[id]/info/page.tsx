@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { StatePicker } from '@/utils/statePicker';
 import { useSession } from "next-auth/react";
@@ -14,6 +14,18 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const router = useRouter();
   const ref = useRef(null);
+
+  const [stateData, setStateData] = useState({ ...userData });
+
+  const handleChange = (e: any) => {
+    const value = e.target.value
+    const name = e.target.name
+
+    setStateData((prevState) => ({
+        ...prevState,
+        [name]: value
+    }));
+};
 
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -135,6 +147,8 @@ export default function Page({ params }: { params: { id: string } }) {
                   name="address_state"
                   autoComplete="address_state"
                   defaultValue={`${userData?.address_state ?? ''}`}
+                  onChange={handleChange}
+                  value={stateData.address_state as string ?? userData?.address_state?.trim() as string}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <StatePicker />
