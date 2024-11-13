@@ -2,8 +2,9 @@
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { UserCircleIcon } from '@heroicons/react/24/solid';
 import ButtonUploader from '@/ui/buttons/ButtonUploader';
+import ButtonUploaderDelete from '@/ui/buttons/ButtonUploaderDelete';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 import { StatePicker } from '@/utils/statePicker';
 import { useSession } from "next-auth/react";
 
@@ -90,14 +91,14 @@ export default function Page({ params }: { params: { id: string } }) {
               <div className="mt-2 flex items-center gap-x-3">
                 {userData?.image?.url ? <Image
                   alt=""
-                  width={200}
-                  height={200}
+                  width={400}
+                  height={400}
                   style={{objectFit: "cover"}}
                   src={userData?.image?.url as string}
-                  className="h-12 w-12 rounded-full object-cover scale-75"
-                /> : <UserCircleIcon aria-hidden="true" className="h-12 w-12 text-gray-300" />
+                  className="h-28 w-28 rounded-full object-cover scale-75"
+                /> : <UserCircleIcon aria-hidden="true" className="h-28 w-28 text-gray-300" />
                 }
-                <ButtonUploader />
+                {userData?.image?.url ? <ButtonUploaderDelete/> : <ButtonUploader />}
               </div>
             </div>
           </div>
