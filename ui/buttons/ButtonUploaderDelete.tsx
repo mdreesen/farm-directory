@@ -13,7 +13,9 @@ export default function ButtonUploaderDelete() {
 
     const router = useRouter();
 
-    const handleSubmit = async (formData: FormData) => {
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+
         try {
             const r = await imageRemove({
                 email: userData?.email,
@@ -30,7 +32,7 @@ export default function ButtonUploaderDelete() {
             <button
              type="button" 
              className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-             onClick={() => handleSubmit}
+             onClick={handleSubmit}
              >
                 Remove Image
             </button>
