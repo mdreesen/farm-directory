@@ -9,6 +9,13 @@ export default function SearchFarmerFilter() {
     const { data } = useSession();
     const userData = data?.user;
 
+    const renderFilter =
+    userData?._id
+    userData?.address_city &&
+    userData?.address_street &&
+    userData?.address_state &&
+    userData?.address_zip;
+
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
@@ -39,8 +46,8 @@ export default function SearchFarmerFilter() {
         replace(`${pathname}?${params.toString()}`);
     };
 
-
-    return (
+    // Must be logged in to view filter and have address filled out
+    return renderFilter && (
         <Disclosure
             as="section"
             aria-labelledby="filter-heading"
