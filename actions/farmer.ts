@@ -142,22 +142,26 @@ export async function deleteFarmerProduct(values: any) {
     }
 };
 
-export async function searchFarmers(query: any) {
-
+export async function searchFarmers({ category, searchParams }: any) {
+    const { city, state, zip_code } = searchParams;
     try {
         const farmers = await Farmer.aggregate([
             {
                 $search: {
                     "index": "farmerSearch",
                     "phrase": {
-                        "query": query,
+                        "query": category,
                         "path": ["address_state", "address_city", "address_zip", "farm_name", "first_name", "last_name", "products.product_title", "products.product_description", "products.product_available"]
                     },
                 }
             }
         ]);
 
-        return farmers;
+        const filtering = farmers.filter((item, index) => {
+            return item.address_city === city || item.address_state === state || item.address_zip === zip_code;
+        });
+
+        return filtering.length > 0 ? filtering : farmers
     } catch (error) {
         console.log(error)
         return error

@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from 'next/link';
+import SearchFarmerFilter from "@/ui/filters/SearchFarmerFilter";
 import { EnvelopeIcon, PhoneIcon, UserCircleIcon } from '@heroicons/react/20/solid';
 import { searchFarmers } from '@/actions/farmer';
+import { useParams } from 'next/navigation';
 
-export default async function CardFarmer(category: any) {
-
-  const farmers = await searchFarmers(category.category) as any;
+export default async function CardFarmer({ category, searchParams }: any) {
+  const farmers = await searchFarmers({ category: category, searchParams: searchParams }) as any;
 
   const NoFarmer = () => (
     <div className="flex flex-col justify-center text-center gap-y-4 p-6">
@@ -15,27 +16,27 @@ export default async function CardFarmer(category: any) {
     </div>
   );
 
-  const Farmers = () => {
-    return (
+  const Farmers = async () => {
+
+    return farmers.length > 0 ? (
       <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-20">
         {farmers.map((item: any, index: number) => (
           <li
             key={`${item.email}-${index}`}
-            className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow"
+            className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow w-[261px]"
           >
             <div className="flex flex-1 flex-col p-8 items-center">
               {item?.image?.url ? <Image
                 alt=""
                 width={200}
                 height={200}
-                style={{objectFit: "cover"}}
+                style={{ objectFit: "cover" }}
                 src={item?.image?.url as string}
                 className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
               /> : <UserCircleIcon aria-hidden="true" className="mx-auto h-32 w-32 text-gray-300" />}
               <h3 className="mt-6 text-md font-medium text-gray-900">{item.farm_name}</h3>
               <dl className="mt-1 flex flex-grow flex-col justify-between">
                 <dt className="sr-only">Title</dt>
-                {/* <Link href=''><dd className="text-sm text-gray-500">Details</dd></Link> */}
                 <dt className="sr-only">Role</dt>
                 <dd className="mt-3">
                   <Link href={`/details/farmer/${item._id}`}>
@@ -71,8 +72,13 @@ export default async function CardFarmer(category: any) {
           </li>
         ))}
       </ul>
-    );
+    ) : <NoFarmer/>;
   }
 
-  return farmers.length >= 1 ? <Farmers/> : <NoFarmer/>;
+  return (
+    <div className="py-20">
+      {farmers.length > 0 && <SearchFarmerFilter/>}
+      <Farmers />
+    </div>
+  );
 }

@@ -1,10 +1,18 @@
 import CardFarmers from '@/ui/cards/CardFarmers';
 
-export default async function page() {
+
+export default async function Page(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="relative flex justify-center items-center w-full place-items-center">
-        <CardFarmers category="Farm Stores"/>
+        <CardFarmers category="Farm Stores" searchParams={searchParams} />
       </div>
     </main>
   );
