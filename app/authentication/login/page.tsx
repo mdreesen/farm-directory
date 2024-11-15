@@ -83,6 +83,8 @@ export default function Page() {
                                 Sign in
                             </button>
                         </div>
+
+                        {error && <div className="">{error}</div>}
                     </form>
 
                     <p className="mt-10 text-center text-sm text-gray-400">

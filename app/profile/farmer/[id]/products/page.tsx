@@ -259,6 +259,7 @@ console.log(sortProducts)
             Save
           </button>
         </div>
+        {error && <div className="">{error}</div>}
       </form>
 
     </div>

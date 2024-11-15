@@ -233,6 +233,7 @@ export default function Page({ params }: { params: { id: string, productId: stri
             Save
           </button>
         </div>
+        {error && <div className="">{error}</div>}
       </form>
 
     </div>
