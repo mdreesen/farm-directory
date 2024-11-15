@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
 
   const socials = (
-    <div className='mt-6 flex gap-x-6 lg:flex-col'>
+    <div className='mt-6 flex gap-x-6'>
       { /* Facebook */}
       {farmer.facebook && (
         <a href={farmer.facebook}>
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   );
 
   const share = (
-    <div className='mt-6 flex gap-x-6 lg:flex-col'>
+    <div className='mt-6 flex gap-x-6'>
       <ShareFacebook data={id} />
       <SharePinterest data={id} />
       <ShareTwitter data={id} />
