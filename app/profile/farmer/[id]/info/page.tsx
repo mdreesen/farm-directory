@@ -25,10 +25,10 @@ export default function Page({ params }: { params: { id: string } }) {
     const name = e.target.name
 
     setStateData((prevState) => ({
-        ...prevState,
-        [name]: value
+      ...prevState,
+      [name]: value
     }));
-};
+  };
 
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -38,6 +38,10 @@ export default function Page({ params }: { params: { id: string } }) {
         farm_about: formData.get("farm_about"),
         first_name: formData.get("first_name"),
         last_name: formData.get("last_name"),
+        website: formData.get("website"),
+        facebook: formData.get("facebook"),
+        instagram: formData.get("instagram"),
+        x_twitter: formData.get("x_twitter"),
         email: formData.get("email"),
         address_street: formData.get("address_street"),
         address_city: formData.get("address_city"),
@@ -105,12 +109,107 @@ export default function Page({ params }: { params: { id: string } }) {
                   alt=""
                   width={400}
                   height={400}
-                  style={{objectFit: "cover"}}
+                  style={{ objectFit: "cover" }}
                   src={userData?.image?.url as string}
                   className="h-28 w-28 rounded-full object-cover scale-75"
                 /> : <UserCircleIcon aria-hidden="true" className="h-28 w-28 text-gray-300" />
                 }
-                {userData?.image?.url ? <ButtonUploaderDelete/> : <ButtonUploader />}
+                {userData?.image?.url ? <ButtonUploaderDelete /> : <ButtonUploader />}
+              </div>
+            </div>
+
+            {/* Website */}
+            <div className="sm:col-span-4">
+              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                Website Link
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    placeholder="https://www.yourfarmwebsite.com"
+                    autoComplete="website"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Facebook */}
+            <div className="sm:col-span-4">
+              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                Facebook Link
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    id="facebook"
+                    name="facebook"
+                    type="text"
+                    placeholder="https://www.yourfacebook.com"
+                    autoComplete="facebook"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Instagram */}
+            <div className="sm:col-span-4">
+              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                Instagram Link
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    id="instagram"
+                    name="instagram"
+                    type="text"
+                    placeholder="https://www.yourinstagram.com"
+                    autoComplete="instagram"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* TickTok */}
+            <div className="sm:col-span-4">
+              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                TicTok Link
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    id="tictok"
+                    name="tictok"
+                    type="text"
+                    placeholder="https://www.yourtictok.com"
+                    autoComplete="x"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Twitter X */}
+            <div className="sm:col-span-4">
+              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                X Link
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    id="x_twitter"
+                    name="x_twitter"
+                    type="text"
+                    placeholder="https://www.yourx.com"
+                    autoComplete="x"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -126,7 +225,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 First name
               </label>
               <div className="mt-2">
-              <input
+                <input
                   id="first_name"
                   name="first_name"
                   type="text"

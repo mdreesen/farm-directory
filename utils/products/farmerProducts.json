@@ -220,11 +220,11 @@
     },
     {
         "product_title": "Live Turkeys",
-        "image": "live_anmials_turkeys.webp"
+        "image": "live_animals_turkeys.webp"
     },
     {
         "product_title": "Other Live Birds",
-        "image": "live_anmials_other_birds.webp"
+        "image": "live_animals_other_birds.webp"
     },
     {
         "product_title": "Live Equine, Mules, or Donkeys",
@@ -240,24 +240,24 @@
     },
     {
         "product_title": "Live Llama or Alpaca",
-        "image": "live_anmials_llama.webp"
+        "image": "live_animals_llama.webp"
     },
     {
         "product_title": "Live Pigs, Hogs, or Piglets",
-        "image": "Farm_to_Table.webp"
+        "image": "live_animals_pigs.webp"
     },
     {
         "product_title": "Other Live Animals",
-        "image": "Farm_to_Table.webp"
+        "image": "live_animals_other.webp"
     },
 
     {
         "product_title": "You Pick",
-        "image": "Farm_to_Table.webp"
+        "image": "you_pick.webp"
     },
     {
         "product_title": "Farm Events",
-        "image": "Farm_to_Table.webp"
+        "image": "farm_events_agritourism_events.webp"
     },
     {
         "product_title": "Flowers",
@@ -265,23 +265,23 @@
     },
     {
         "product_title": "Tasting Rooms",
-        "image": "Farm_to_Table.webp"
+        "image": "farm_events_agritourism_tasting_rooms.webp"
     },
     {
         "product_title": "Farm Venues For Rent",
-        "image": "Farm_to_Table.webp"
+        "image": "farm_events_agritourism_venues.webp"
     },
 
     {
         "product_title": "Farm Stands",
-        "image": "Farm_to_Table.webp"
+        "image": "farm_events_agritourism_stands.webp"
     },
     {
         "product_title": "Farm Stores",
-        "image": "Farm_to_Table.webp"
+        "image": "farm_events_agritourism_stores.webp"
     },
     {
         "product_title": "Farmers Markets",
-        "image": "Farm_to_Table.webp"
+        "image": "farm_events_agritourism_farmers_markets.webp"
     }
 ]

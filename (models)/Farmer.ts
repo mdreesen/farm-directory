@@ -31,6 +31,8 @@ const farmerSchema = new Schema(
         website: String,
         facebook: String,
         instagram: String,
+        tictok: String,
+        x_twitter: String,
         agree_to_legal: Boolean,
         agree_to_privacy_policy: Boolean,
         products: [productSchema],
