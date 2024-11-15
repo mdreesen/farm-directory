@@ -11,6 +11,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const hasSocialMedia = farmer.facebook || farmer.instagram || farmer.tictok || farmer.x_twitter;
   const hasProducts = farmer.products.length > 0;
+  const hasWebsite = farmer.website;
 
 
   const socials = (
@@ -106,6 +107,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{farmer.farm_name}</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">{farmer.farm_about ?? ''}</p>
+              {hasWebsite && <a className="text-[#7A3A30] underline" href={farmer.website}>Visit our website.</a> }
             </div>
 
             {/* Products */}
