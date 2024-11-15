@@ -26,8 +26,6 @@ export async function updateUserPassword(values: any) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // console.log(`token: ${token}, password: ${password}`);
-
     if (confirm_password !== password) {
         return {
             error: 'Passwords do not match'
@@ -47,12 +45,41 @@ export async function updateUserPassword(values: any) {
     }
 };
 
-export async function saveFarmer(values: any) {
-    const { _id, email } = values;
+export async function saveFarmer({ data }: any) {
+    const session = await getServerSession();
+    try {
+        await connectDB();
+        const user = await User.findOneAndUpdate({ email: session?.user.email }, { $addToSet: { favoriteFarmers: data } }, { new: true });
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
+export async function deleteSavedFarmer({ data }: any) {
+    try {
+        await connectDB();
+        const user = await User.findOneAndUpdate(
+            { 'favoriteFarmers._id': data._id }, 
+            { $pull: { favoriteFarmers: { _id: data._id } }},
+            { new: true });
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
+export async function isSavedFarmer(values: any) {
+    const { farmer } = values
+    const session = await getServerSession();
 
     try {
         await connectDB();
-        const user = await User.findOneAndUpdate({ _id: _id }, { $addToSet: { favoriteFarmers: values } }, { new: true });
+        const user = await User.findOne({ email: session?.user.email });
+        const saved = user.favoriteFarmers.filter((item: any) => item._id === farmer._id).length;
+
+        return saved >= 1 ? 'saved' : 'not_saved'
     } catch (e) {
         console.log(e)
         return e

@@ -25,7 +25,7 @@ export default function ButtonAuth() {
       )
     } else if (status === "loading") {
       return (
-        <LoadingScale/>
+        <LoadingScale value={20}/>
       )
     } else {
       return (

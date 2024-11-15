@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from 'next/link';
 import SearchFarmerFilter from "@/ui/filters/SearchFarmerFilter";
+import ButtonFavorites from "../buttons/saveFarmer/ButtonFavorites";
 import { EnvelopeIcon, PhoneIcon, UserCircleIcon } from '@heroicons/react/20/solid';
 import { searchFarmers } from '@/actions/farmer';
-import { useParams } from 'next/navigation';
 
 export default async function CardFarmer({ category, searchParams }: any) {
   const farmers = await searchFarmers({ category: category, searchParams: searchParams }) as any;
@@ -17,7 +17,6 @@ export default async function CardFarmer({ category, searchParams }: any) {
   );
 
   const Farmers = async () => {
-
     return farmers.length > 0 ? (
       <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-20">
         {farmers.map((item: any, index: number) => (
@@ -46,6 +45,7 @@ export default async function CardFarmer({ category, searchParams }: any) {
                   </Link>
                 </dd>
               </dl>
+              <ButtonFavorites farmer={JSON.parse(JSON.stringify(item))}/>
             </div>
             <div>
               <div className="-mt-px flex divide-x divide-gray-200">

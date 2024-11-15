@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from "next/navigation";
-import { UpdateFarmerProducts, deleteFarmerProduct } from '@/actions/farmer';
+import { deleteFarmerProduct } from '@/actions/farmer';
 
 
 export default function ButtonDeleteProduct(data: any) {
