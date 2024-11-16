@@ -3,6 +3,7 @@ import ShareFacebook from "@/ui/socialMedia/share/ShareFacebook";
 import SharePinterest from "@/ui/socialMedia/share/SharePinterest";
 import ShareTwitter from "@/ui/socialMedia/share/ShareTwitter";
 import ShareEmail from "@/ui/socialMedia/share/ShareEmail";
+import MapSingle from '@/lib/googleMapSingle';
 
 export default async function Page({ params }: { params: { id: string } }) {
 
@@ -12,6 +13,11 @@ export default async function Page({ params }: { params: { id: string } }) {
   const hasSocialMedia = farmer.facebook || farmer.instagram || farmer.tictok || farmer.x_twitter;
   const hasProducts = farmer.products.length > 0;
   const hasWebsite = farmer.website;
+
+  const farmerLocation = {
+    longitude: farmer.longitude,
+    latitude: farmer.latitude
+  }
 
 
   const socials = (
@@ -97,7 +103,23 @@ export default async function Page({ params }: { params: { id: string } }) {
         </p>
       </li>
     );
-  })
+  });
+
+  const address = (
+    <div className='mt-16'>
+      <h3 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-3xl">Locate</h3>
+      <ul role="list">
+        <a className="text-[#7A3A30] underline" href={`https://maps.google.com/?q=${farmer?.address_road} ${farmer?.address_city}, ${farmer?.address_state} ${farmer?.address_zip}`} target="_blank">{`${farmer?.address_road} ${farmer?.address_city}, ${farmer?.address_state} ${farmer?.address_zip}`}</a>
+
+        {farmerLocation && (
+          <div className='h-[30vh] content-center text-center bg-white'>
+            <MapSingle zoom={12} coordinates={farmerLocation} />
+          </div>
+        )}
+
+      </ul>
+    </div>
+  );
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-white">
@@ -107,7 +129,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{farmer.farm_name}</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">{farmer.farm_about ?? ''}</p>
-              {hasWebsite && <a className="text-[#7A3A30] underline" href={farmer.website}>Visit our website.</a> }
+              {hasWebsite && <a className="text-[#7A3A30] underline" href={farmer.website}>Visit our website.</a>}
             </div>
 
             {/* Products */}
@@ -127,11 +149,13 @@ export default async function Page({ params }: { params: { id: string } }) {
               </div>
             )}
 
+            {address}
+
 
             {/* Socials */}
             {hasSocialMedia && (
-              <div className='mt-16'>
-                <h3 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-3xl">Follow this farmer</h3>
+              <div className='mt-8'>
+                <h3 className="text-lg font-bold tracking-tight text-gray-900 sm:text-lg">Follow this farmer</h3>
                 <ul
                   role="list"
 
@@ -142,8 +166,8 @@ export default async function Page({ params }: { params: { id: string } }) {
             )}
 
             {/* Share Socials */}
-            <div className='mt-16'>
-              <h3 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-3xl">Share this farmer</h3>
+            <div className='mt-8'>
+              <h3 className="text-lg font-bold tracking-tight text-gray-900 sm:text-lg">Share this farmer</h3>
               <ul
                 role="list"
 
