@@ -4,6 +4,7 @@ import Farmer from "@/(models)/Farmer";
 import User from "@/(models)/User";
 import { getServerSession } from "next-auth/next";
 import bcrypt from "bcryptjs";
+import { revalidatePath } from 'next/cache'
 
 export async function updateUser(values: any) {
     const { email } = values;
@@ -50,6 +51,7 @@ export async function saveFarmer({ data }: any) {
     try {
         await connectDB();
         const user = await User.findOneAndUpdate({ email: session?.user.email }, { $addToSet: { favoriteFarmers: data } }, { new: true });
+        revalidatePath('/');
     } catch (e) {
         console.log(e)
         return e
@@ -63,6 +65,7 @@ export async function deleteSavedFarmer({ data }: any) {
             { 'favoriteFarmers._id': data._id }, 
             { $pull: { favoriteFarmers: { _id: data._id } }},
             { new: true });
+        revalidatePath('/');
 
     } catch (e) {
         console.log(e)
