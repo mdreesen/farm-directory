@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 import ButtonAuth from '@/ui/buttons/ButtonAuth';
 import { useSession } from "next-auth/react";
 
@@ -40,11 +40,6 @@ export default function Navigation() {
                         Your Profile
                     </Link>
                 </MenuItem>
-                {/* <MenuItem>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                        Settings
-                    </a>
-                </MenuItem> */}
                 <MenuItem>
                     <div>
                         <ButtonAuth />

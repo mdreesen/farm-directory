@@ -51,9 +51,7 @@ export default async function Page() {
                       <a key={`${item.email}-${index}`} className="flex justify-between items-center px-3 py-4 text-sm text-[#7A3A30] underline" href={`/details/farmer/${item._id}`}>
                         {item.farm_name}
                         <ButtonFavorites farmer={item}/>
-
                       </a>
-
                     </td>
                   </tr>
                 ))}

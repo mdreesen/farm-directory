@@ -45,7 +45,9 @@ export default async function CardFarmer({ category, searchParams }: any) {
                   </Link>
                 </dd>
               </dl>
-              <ButtonFavorites farmer={JSON.parse(JSON.stringify(item))}/>
+              <div className="mt-4">
+                <ButtonFavorites farmer={JSON.parse(JSON.stringify(item))} />
+              </div>
             </div>
             <div>
               <div className="-mt-px flex divide-x divide-gray-200">
@@ -72,12 +74,12 @@ export default async function CardFarmer({ category, searchParams }: any) {
           </li>
         ))}
       </ul>
-    ) : <NoFarmer/>;
+    ) : <NoFarmer />;
   }
 
   return (
     <div className="py-20">
-      {farmers.length > 0 && <SearchFarmerFilter/>}
+      {farmers.length > 0 && <SearchFarmerFilter />}
       <Farmers />
     </div>
   );
