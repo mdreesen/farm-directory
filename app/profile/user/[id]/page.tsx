@@ -1,33 +1,31 @@
-'use client';
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { fetchSingleUserById } from "@/actions/user";
+import ButtonFavorites from "@/ui/buttons/saveFarmer/ButtonFavorites";
 
-export default function Page({ params }: { params: { id: string } }) {
-  const id = params.id;
-  const { data, status } = useSession();
-  const userData = data?.user;
+export default async function Page() {
+  const user = await fetchSingleUserById();
 
   const hasAddress =
-    userData?.address_city &&
-    userData?.address_state &&
-    userData?.address_street &&
-    userData?.address_zip;
+    user?.address_city &&
+    user?.address_state &&
+    user?.address_street &&
+    user?.address_zip;
 
-  const formattedAddress = `${userData?.address_street} <br/>${userData?.address_city}, ${userData?.address_state} ${userData?.address_zip}`;
+  const formattedAddress = `${user?.address_street} <br/>${user?.address_city}, ${user?.address_state} ${user?.address_zip}`;
   const noAddressFound = (
     <div className="relative justify-center items-center w-full place-items-center">
       Welcome to The Farm Directory!
-      To find farmers in your location, go ahead and input your information in the info tab or <Link href={`/profile/user/${id}/info`} className="text-[#7A3A30] underline">click here</Link>
+      To find farmers in your location, go ahead and input your information in the info tab or <Link href={`/profile/user/${user._id}/info`} className="text-[#7A3A30] underline">click here</Link>
     </div>
   );
 
   const address = hasAddress ? <span dangerouslySetInnerHTML={{ __html: formattedAddress }} /> : noAddressFound;
 
-  const userSection = userData?.favoriteFarmers?.length ? (
+  const userSection = user?.favoriteFarmers?.length ? (
     <div className="px-4 sm:px-6 lg:px-8 mt-20">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h2 className="text-base font-semibold text-gray-900">Saved Farmers ({userData?.favoriteFarmers.length})</h2>
+          <h2 className="text-base font-semibold text-gray-900">Saved Farmers ({user?.favoriteFarmers.length})</h2>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         </div>
@@ -39,7 +37,7 @@ export default function Page({ params }: { params: { id: string } }) {
               <thead>
                 <tr>
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    {userData?.favoriteFarmers.length === 1 ? 'Farm' : 'Farms'} Saved
+                    {user?.favoriteFarmers.length === 1 ? 'Farm' : 'Farms'} Saved
                   </th>
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                     <span className="sr-only">Edit</span>
@@ -47,12 +45,15 @@ export default function Page({ params }: { params: { id: string } }) {
                 </tr>
               </thead>
               <tbody className="bg-white">
-                {userData?.favoriteFarmers.map((item: any, index: number) => (
+                {user?.favoriteFarmers.map((item: any, index: number) => (
                   <tr key={`${item.email}-${index}`} className="even:bg-gray-50">
-                    <td className="whitespace-nowrap px-3 py-4 text-sm">
-                      <a key={`${item.email}-${index}`} className="flex flex-col px-3 py-4 text-sm text-[#7A3A30] underline" href={`/details/farmer/${item._id}`}>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm justify-between">
+                      <a key={`${item.email}-${index}`} className="flex justify-between items-center px-3 py-4 text-sm text-[#7A3A30] underline" href={`/details/farmer/${item._id}`}>
                         {item.farm_name}
+                        <ButtonFavorites farmer={item}/>
+
                       </a>
+
                     </td>
                   </tr>
                 ))}
@@ -68,14 +69,14 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <div className="relative w-full">
-      {status === 'authenticated' && (
+      {
         <div>
           <h3 className="text-2xl font-bold leading-tight">Address</h3>
           {address}
 
           {userSection}
         </div>
-      )}
+      }
     </div>
   );
 }

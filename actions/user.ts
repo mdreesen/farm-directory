@@ -4,7 +4,22 @@ import Farmer from "@/(models)/Farmer";
 import User from "@/(models)/User";
 import { getServerSession } from "next-auth/next";
 import bcrypt from "bcryptjs";
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from 'next/cache';
+
+export async function fetchSingleUserById() {
+    try {
+        await connectDB();
+        const session = await getServerSession();
+
+        // Find user and farmer with associated emails
+        const user = await User.findOne({ email: session?.user.email });
+
+        return user ?? {}
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+};
 
 export async function updateUser(values: any) {
     const { email } = values;
