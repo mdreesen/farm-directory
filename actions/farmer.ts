@@ -99,7 +99,7 @@ export async function UpdateFarmerProducts(values: any) {
 
 export async function UpdateFarmerProduct(values: any) {
     const { productId, product_title, product_description, product_image, product_price, product_available, product_show } = values;
-
+console.log('product_image', product_image)
     try {
         await connectDB();
 
@@ -108,7 +108,7 @@ export async function UpdateFarmerProduct(values: any) {
         const product = {
             product_title: product_title,
             product_description: product_description,
-            product_image: product_image ?? '',
+            product_image: product_image,
             product_price: product_price,
             product_available: product_available,
             product_show: showingProduct

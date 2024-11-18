@@ -47,7 +47,6 @@ export default function Page({ params }: { params: { id: string } }) {
   // Sorting all products, these products are objects
   const sortProducts = farmerProducts.sort((a, b) => a.product_title.localeCompare(b.product_title));
 
-console.log(sortProducts)
   const handleSubmit = async (formData: FormData) => {
     try {
       const r = await UpdateFarmerProducts({

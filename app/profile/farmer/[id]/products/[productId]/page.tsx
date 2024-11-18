@@ -32,7 +32,6 @@ const showOptions = [
 export default function Page({ params }: { params: { id: string, productId: string } }) {
   const id = params.id;
   const productId = params.productId;
-  console.log(id, productId);
 
   const { data } = useSession();
   const userData = data?.user;
@@ -52,7 +51,7 @@ export default function Page({ params }: { params: { id: string, productId: stri
       const r = await UpdateFarmerProduct({
         productId: productId,
         product_title: findProduct?.product_title,
-        product_image: findProduct?.image,
+        product_image: findProduct?.product_image,
         product_description: formData.get("product_description"),
         product_price: formData.get("product_price"),
         product_available: availableSelected.name,
@@ -72,6 +71,7 @@ export default function Page({ params }: { params: { id: string, productId: stri
       <div className="relative">
         <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
           <span className="flex items-center">
+            <img alt="" src={`/images/products/${findProduct?.product_image}`} className="h-5 w-5 flex-shrink-0 rounded-full" />
             <span className="ml-3 block truncate">{findProduct?.product_title}</span>
           </span>
         </ListboxButton>

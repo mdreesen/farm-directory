@@ -21,8 +21,6 @@ export default function Page({ params }: { params: { id: string } }) {
     </div>
   );
 
-  const favorites = userData?.favoriteFarmers;
-
   const address = hasAddress ? <span dangerouslySetInnerHTML={{ __html: formattedAddress }} /> : noAddressFound;
 
   const userSection = userData?.favoriteFarmers?.length ? (
