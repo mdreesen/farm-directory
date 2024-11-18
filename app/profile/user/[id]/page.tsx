@@ -27,8 +27,7 @@ export default function Page({ params }: { params: { id: string } }) {
     <div className="px-4 sm:px-6 lg:px-8 mt-20">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h2 className="text-base font-semibold text-gray-900">Favorite Farmers</h2>
-          <span>{userData?.favoriteFarmers.length}</span>
+          <h2 className="text-base font-semibold text-gray-900">Saved Farmers ({userData?.favoriteFarmers.length})</h2>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         </div>
@@ -40,7 +39,7 @@ export default function Page({ params }: { params: { id: string } }) {
               <thead>
                 <tr>
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Farm
+                    {userData?.favoriteFarmers.length === 1 ? 'Farm' : 'Farms'} Saved
                   </th>
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                     <span className="sr-only">Edit</span>
@@ -51,9 +50,9 @@ export default function Page({ params }: { params: { id: string } }) {
                 {userData?.favoriteFarmers.map((item: any, index: number) => (
                   <tr key={`${item.email}-${index}`} className="even:bg-gray-50">
                     <td className="whitespace-nowrap px-3 py-4 text-sm">
-                      <Link key={`${item.email}-${index}`} className="flex flex-col px-3 py-4 text-sm text-[#7A3A30] underline" href={`/details/farmer/${item._id}`}>
+                      <a key={`${item.email}-${index}`} className="flex flex-col px-3 py-4 text-sm text-[#7A3A30] underline" href={`/details/farmer/${item._id}`}>
                         {item.farm_name}
-                      </Link>
+                      </a>
                     </td>
                   </tr>
                 ))}

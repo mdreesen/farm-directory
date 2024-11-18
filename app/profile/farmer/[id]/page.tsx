@@ -6,11 +6,6 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 };
 
-const people = [
-  { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-  // More people...
-]
-
 export default async function Page() {
 
   const farmer = await fetchSingleFarmerById() as any;
@@ -21,8 +16,7 @@ export default async function Page() {
     <div className="px-4 sm:px-6 lg:px-8 mt-20">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-base font-semibold text-gray-900">Favorite Users</h1>
-          <span>{farmer.favoriteUsers.length}</span>
+          <h1 className="text-base font-semibold text-gray-900">Favorite Users ({farmer.favoriteUsers.length})</h1>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         </div>
