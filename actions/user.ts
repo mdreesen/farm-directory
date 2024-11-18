@@ -46,11 +46,17 @@ export async function updateUserPassword(values: any) {
     }
 };
 
-export async function saveFarmer({ data }: any) {
+export async function saveFarmer(data: any) {
     const session = await getServerSession();
     try {
         await connectDB();
-        const user = await User.findOneAndUpdate({ email: session?.user.email }, { $addToSet: { favoriteFarmers: data } }, { new: true });
+
+        // Add saved farmer to user
+        const user = await User.findOneAndUpdate({ email: session?.user.email }, { $addToSet: { favoriteFarmers: data.farmer } }, { new: true });
+
+        // Added user to the saved farmer
+        const farmer = await Farmer.findOneAndUpdate({ email: data.farmer.email }, { $addToSet: { favoriteUsers: session?.user } }, { new: true });
+
         revalidatePath('/');
     } catch (e) {
         console.log(e)
@@ -58,13 +64,24 @@ export async function saveFarmer({ data }: any) {
     }
 };
 
-export async function deleteSavedFarmer({ data }: any) {
+export async function deleteSavedFarmer(data: any) {
+    const session = await getServerSession();
+
     try {
         await connectDB();
+
+        // Add pulling from user saved farmers
         const user = await User.findOneAndUpdate(
-            { 'favoriteFarmers._id': data._id }, 
-            { $pull: { favoriteFarmers: { _id: data._id } }},
+            { 'favoriteFarmers._id': data.farmer._id },
+            { $pull: { favoriteFarmers: { _id: data.farmer._id } } },
             { new: true });
+
+        // Pull from farmer if unsaved
+        const farmer = await Farmer.findOneAndUpdate(
+            { 'favoriteUsers.email': session?.user.email },
+            { $pull: { favoriteUsers: { email: session?.user.email } } },
+            { new: true });
+
         revalidatePath('/');
 
     } catch (e) {
@@ -76,13 +93,13 @@ export async function deleteSavedFarmer({ data }: any) {
 export async function isSavedFarmer(values: any) {
     const { farmer } = values
     const session = await getServerSession();
+    revalidatePath('/');
 
     try {
         await connectDB();
         const user = await User.findOne({ email: session?.user.email });
-        const saved = user.favoriteFarmers.filter((item: any) => item._id === farmer._id).length;
-
-        return saved >= 1 ? 'saved' : 'not_saved'
+        const saved = user.favoriteFarmers.filter((item: any) => item._id === farmer._id) ?? [];
+        return session && saved.length >= 1 ? 'saved' : 'not_saved'
     } catch (e) {
         console.log(e)
         return e

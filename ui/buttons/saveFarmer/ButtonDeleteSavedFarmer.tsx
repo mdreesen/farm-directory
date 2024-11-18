@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { deleteSavedFarmer } from "@/actions/user";
 import LoadingScale from "@/ui/loaders/LoadingScale";
 
-export default function ButtonDeleteSavedFarmer({ data }: any) {
+export default function ButtonDeleteSavedFarmer({ farmer }: any) {
     const router = useRouter();
 
     const [loading, setLoading] = useState(false);
@@ -13,8 +13,7 @@ export default function ButtonDeleteSavedFarmer({ data }: any) {
         e.preventDefault();
         setLoading(true)
 
-        const r = await deleteSavedFarmer({ data });
-        console.log(router)
+        const r = await deleteSavedFarmer({ farmer });
         router.refresh
         setLoading(false)
     };

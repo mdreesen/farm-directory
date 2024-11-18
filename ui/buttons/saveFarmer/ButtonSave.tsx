@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { saveFarmer } from "@/actions/user";
 import LoadingScale from "@/ui/loaders/LoadingScale";
 
-export default function ButtonSave({ data }: any) {
+export default function ButtonSave({ farmer }: any) {
     const router = useRouter();
 
     const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export default function ButtonSave({ data }: any) {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         setLoading(true)
-        const r = await saveFarmer({ data });
+        const r = await saveFarmer({ farmer });
         router.refresh;
         setLoading(false)
     };
