@@ -3,14 +3,62 @@ import { fetchSingleFarmerById } from '@/actions/farmer';
 import ButtonDeleteProduct from '@/ui/buttons/ButtonDeleteProduct';
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+  return classes.filter(Boolean).join(' ');
+};
+
+const people = [
+  { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
+  // More people...
+]
 
 export default async function Page() {
 
   const farmer = await fetchSingleFarmerById() as any;
-
   const farmerId = JSON.parse(JSON.stringify(farmer._id));
+  const usersFavorited = farmer.favoriteUsers;
+
+  const userSection = (
+    <div className="px-4 sm:px-6 lg:px-8 mt-20">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold text-gray-900">Favorite Users</h1>
+          <span>{farmer.favoriteUsers.length}</span>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+        </div>
+      </div>
+      <div className="mt-8 flow-root">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <table className="min-w-full divide-y divide-gray-300">
+              <thead>
+                <tr>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Email
+                  </th>
+                  <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
+                    <span className="sr-only">Edit</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                {usersFavorited.map((person: any) => (
+                  <tr key={person.email} className="even:bg-gray-50">
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.email}</td>
+                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                      <a href={`mailto:${person.email}`} className="text-[#7A3A30] hover:text-[#7A3A30]">
+                        email user<span className="sr-only">, {person.email}</span>
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 
   return (
     <div>
@@ -54,6 +102,10 @@ export default async function Page() {
                 </div>
               ))}
             </div>
+
+            {/* Users saved */}
+            {userSection}
+
           </header>
         </main>
       </div>
