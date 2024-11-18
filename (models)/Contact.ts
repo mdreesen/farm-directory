@@ -5,6 +5,8 @@ mongoose.Promise = global.Promise;
 
 const contactSchema = new Schema(
     {
+        first_name: String,
+        last_name: String,
         email: String,
         subject: String,
         message: String,
