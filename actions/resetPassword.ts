@@ -13,7 +13,7 @@ export const resetPassword = async (values: any) => {
     const token = nanoid(32);
 
     const transporter = nodemailer.createTransport({
-        host: "sandbox.smtp.mailtrap.io",
+        host: process.env.MAILTRAP_HOST,
         port: 587,
         secure: false, // upgrade later with STARTTLS
         auth: {
@@ -40,10 +40,10 @@ export const resetPassword = async (values: any) => {
         }
 
         const info = await transporter.sendMail({
-            from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+            from: 'michael@thefarmdirectory.com', // sender address
             to: email, // list of receivers
             subject: "Reset your password", // Subject line
-            text: "Hello world?", // plain text body
+            text: "Reset your password", // plain text body
             html: htmlBody, // html body
         });
 

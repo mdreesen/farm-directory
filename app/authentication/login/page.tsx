@@ -92,11 +92,11 @@ export default function Page() {
                             Don't have an account?
                         </Link>
                     </p>
-                    {/* <p className="mt-10 text-center text-sm text-gray-400">
+                    <p className="mt-10 text-center text-sm text-gray-400">
                         <Link href="/authentication/reset-password" className="font-semibold leading-6 text-[#7A3A30] hover:text-[#af8882]">
                             Need to reset your password?
                         </Link>
-                    </p> */}
+                    </p>
                 </div>
             </div>
         </div>
