@@ -9,14 +9,15 @@ export default function Page() {
           Thank you for contacting us!
         </h2>
         <div className="mt-10 flex items-center gap-x-6">
-          <span className="flex flex-col">
-            Sign in or create an account
-            <ButtonAuth />
+          <span className="flex flex-col rounded-md px-3 py-2 text-sm font-medium text-gray-700">
+            <Link href="/authentication/login">
+              Sign in or<br/>create an account
+            </Link>
 
           </span>
           <span className="flex flex-col">
             <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-gray-700">
-              Browse our farmers <span aria-hidden="true">→</span>
+              Browse<br />our farmers <span aria-hidden="true">→</span>
             </Link>
           </span>
         </div>
