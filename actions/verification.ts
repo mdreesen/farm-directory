@@ -41,7 +41,7 @@ export const verification = async (values: any) => {
         }
 
         const info = await transporter.sendMail({
-            from: 'michael@thefarmdirectory.com', // sender address
+            from: 'NoReply@thefarmdirectory.com', // sender address
             to: email, // list of receivers
             subject: "Verify your email", // Subject line
             text: "Verify your email", // plain text body

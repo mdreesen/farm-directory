@@ -40,7 +40,7 @@ export const resetPassword = async (values: any) => {
         }
 
         const info = await transporter.sendMail({
-            from: 'michael@thefarmdirectory.com', // sender address
+            from: 'NoReply@thefarmdirectory.com', // sender address
             to: email, // list of receivers
             subject: "Reset your password", // Subject line
             text: "Reset your password", // plain text body
