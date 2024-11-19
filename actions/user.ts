@@ -141,3 +141,19 @@ export async function updateUserProfileImg(img: any) {
         console.log(error);
     }
 };
+
+export async function farmerVerification(values: any) {
+    const { verified_farmer_token } = values;
+
+    try {
+        await connectDB();
+
+        const farmer = await User.findOneAndUpdate({ verified_farmer_token: verified_farmer_token }, {
+            verified_farmer: true
+        });
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};

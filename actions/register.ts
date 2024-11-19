@@ -5,7 +5,7 @@ import Farmer from "@/(models)/Farmer";
 import bcrypt from "bcryptjs";
 
 export const register = async (values: any) => {
-    const { email, password, confirm_password, name, privacy_policy, isFarmer } = values;
+    const { email, password, confirm_password, name, isFarmer } = values;
     try {
         await connectDB();
         const userFound = await User.findOne({ email });

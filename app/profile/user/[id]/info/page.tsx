@@ -10,7 +10,6 @@ export default function Page({ params }: { params: { id: string } }) {
   const { data } = useSession();
   const userData = data?.user;
   const id = params.id;
-  console.log(id)
 
   const router = useRouter();
   const ref = useRef(null);

@@ -4,12 +4,14 @@ import { Field, Label, Switch } from '@headlessui/react'
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { register } from "@/actions/register";
+import { verification } from "@/actions/verification";
 
 export default function Page() {
     const router = useRouter();
     const ref = useRef<HTMLFormElement>(null);
 
-    const [enabled, setEnabled] = useState(false)
+    const [enabled, setEnabled] = useState(false);
+
     const [error, setError] = useState<string>();
 
     const handleSubmit = async (formData: FormData) => {
@@ -25,30 +27,35 @@ export default function Page() {
         if (r?.error) {
             setError(r.error);
             return;
-        } else {
+        }
+        if (enabled) {
+            const res = await verification({
+                email: formData.get("email"),
+            });
+            router.push("/authentication/verification");
+        }
+        else {
             return router.push("/authentication/login");
         }
     };
 
     const SignupToggle = () => (
         <Field className="flex items-center">
-        <Switch
-          checked={enabled}
-          onChange={setEnabled}
-          className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-[#7A3A30]"
-        >
-          <span
-            aria-hidden="true"
-            className="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-5"
-          />
-        </Switch>
-        <Label as="span" className="ml-3 text-sm">
-          <span className="font-medium text-gray-900">{enabled ? "I'm a farm/farm service provider" : "I'm looking for farm products"}</span>{' '}
-        </Label>
-      </Field>
+            <Switch
+                checked={enabled}
+                onChange={setEnabled}
+                className="group relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 data-[checked]:bg-[#7A3A30]"
+            >
+                <span
+                    aria-hidden="true"
+                    className="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-5"
+                />
+            </Switch>
+            <Label as="span" className="ml-3 text-sm">
+                <span className="font-medium text-gray-900">{enabled ? "I'm a farm/farm service provider" : "I'm looking for farm products"}</span>{' '}
+            </Label>
+        </Field>
     );
-
-    console.log(enabled)
 
     return (
         <div className="h-[100vh]">

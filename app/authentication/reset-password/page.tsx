@@ -6,7 +6,6 @@ import Link from "next/link";
 
 export default function Page() {
     const router = useRouter();
-    const [error, setError] = useState("");
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();

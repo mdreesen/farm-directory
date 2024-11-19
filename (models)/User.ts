@@ -31,6 +31,8 @@ const userSchema = new Schema(
         agree_to_privacy_policy: Boolean,
         image: Object,
         resetPasswordToken: String,
+        verified_farmer: Boolean,
+        verified_farmer_token: String,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });
