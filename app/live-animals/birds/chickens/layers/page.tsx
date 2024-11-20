@@ -1,35 +1,18 @@
-import { Suspense } from 'react';
-import styles from '@/app/styles/farmer/Farmer.module.css';
-import { CardsSkeleton } from '@/app/ui/loading/skeletons';
-import { Metadata } from 'next'
-import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperLocation from '@/app/wrappers/WrapperSearch';
+import CardFarmers from '@/ui/cards/CardFarmers';
 
-export const metadata: Metadata = {
-  title: 'Laying Chickens Live Animals',
-  description: 'Live laying chickens, live animals Farm Directory',
-}
-
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
+export default async function Page(props: {
+  searchParams?: Promise<{
     query?: string;
     page?: string;
-  };
+  }>;
 }) {
-  const query = searchParams?.query;
-
+  const searchParams = await props.searchParams;
+  
   return (
-    <>
-      <div className={styles['container']}>
-        <WrapperLocation>
-          <Suspense fallback={<CardsSkeleton />}>
-            <CategoryPage categoryName={'Laying Chickens'} query={query} />
-          </Suspense>
-        </WrapperLocation>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex justify-center items-center w-full place-items-center">
+        <CardFarmers category="Laying Chickens" searchParams={searchParams} />
       </div>
-    </>
+    </main>
   );
 }
-

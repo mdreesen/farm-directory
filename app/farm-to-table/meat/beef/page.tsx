@@ -1,24 +1,14 @@
-import React from 'react';
-import { CategoryCard } from '@/app/ui/category/CategoryCard';
-import links from '@/utils/links/farmToTableLinks/meat/finishedBeef.json';
-import styles from '@/app/styles/Home.module.css';
-import { Metadata } from 'next'
+import CardNavigation from '@/ui/cards/CardNavigation';
 
-export const metadata: Metadata = {
-  title: 'Beef Farm To Table',
-  description: 'Beef, farm to table Farm Directory',
-}
+// Navigation
+import route from '@/utils/routes/farmToTable/meat/beef/routes.json';
 
-
-export default function Page() {
-
-  const cardMapping = links?.map((item) => <CategoryCard itemData={item} key={item} />);
-
+export default function page() {
   return (
-    <>
-      <main className={styles.main}>
-        {cardMapping}
-      </main>
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex justify-center items-center w-full place-items-center">
+        <CardNavigation route={route} />
+      </div>
+    </main>
   );
 }

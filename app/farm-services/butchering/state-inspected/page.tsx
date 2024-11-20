@@ -1,36 +1,18 @@
+import CardFarmers from '@/ui/cards/CardFarmers';
 
-import { Suspense } from 'react';
-import styles from '@/app/styles/farmer/Farmer.module.css';
-import { CardsSkeleton } from '@/app/ui/loading/skeletons';
-import { Metadata } from 'next'
-import CategoryPage from '@/app/ui/category/CategoryPage';
-import WrapperSearch from '@/app/wrappers/WrapperSearch';
-
-export const metadata: Metadata = {
-  title: 'State Inspected Butchering Farm Services',
-  description: 'State inspected, farm services Farm Directory',
-}
-
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
+export default async function Page(props: {
+  searchParams?: Promise<{
     query?: string;
     page?: string;
-  };
+  }>;
 }) {
-  const query = searchParams?.query;
-
+  const searchParams = await props.searchParams;
+  
   return (
-    <>
-      <div className={styles['container']}>
-        <WrapperSearch>
-          <Suspense fallback={<CardsSkeleton />}>
-            <CategoryPage categoryName={'State Inspected Butchering'} query={query} />
-          </Suspense>
-        </WrapperSearch>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex justify-center items-center w-full place-items-center">
+        <CardFarmers category="State Inspected Butchering" searchParams={searchParams} />
       </div>
-    </>
+    </main>
   );
 }
-

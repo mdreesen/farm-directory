@@ -1,26 +1,18 @@
-import React from 'react';
-import { CategoryCard } from '@/app/ui/category/CategoryCard';
-import parentLinks from '@/utils/links/farmToTableLinks/vineyardsOrchardsLinks.json';
-import styles from '@/app/styles/Home.module.css';
-import PageWrapper from '@/app/wrappers/WrapperNavCard';
-import { Metadata } from 'next'
+import CardFarmers from '@/ui/cards/CardFarmers';
 
-export const metadata: Metadata = {
-  title: 'Vineyards & Orchards Farm To Table',
-  description: 'Vineyards & Orchards, farm to table Farm Directory',
-}
-
-
-export default function Page() {
-
-
-  const cardMapping = parentLinks?.map((item, index) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
-
+export default async function Page(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  
   return (
-    <>
-      <main className={styles.main}>
-        {cardMapping}
-      </main>
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex justify-center items-center w-full place-items-center">
+        <CardFarmers category="Vineyards or Orchards" searchParams={searchParams} />
+      </div>
+    </main>
   );
 }

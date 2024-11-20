@@ -1,23 +1,14 @@
-import React from 'react';
-import { CategoryCard } from '@/app/ui/category/CategoryCard';
-import parentLinks from '@/utils/links/liveAnimalLinks/parentLinks.json';
-import styles from '@/app/styles/Home.module.css';
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Live Animals',
-  description: 'Live animals Farm Directory',
-}
+import CardNavigation from '@/ui/cards/CardNavigation';
 
-export default function Page() {
+// Navigation
+import route from '@/utils/routes/liveAnimals/routes.json';
 
-  const cardMapping = parentLinks?.map((item, index) => <CategoryCard itemData={item} key={`${item}-${index}`} />);
-
+export default function page() {
   return (
-    <>
-      <main className={styles.main}>
-        {cardMapping}
-      </main>
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <div className="relative flex justify-center items-center w-full place-items-center">
+        <CardNavigation route={route} />
+      </div>
+    </main>
   );
 }
