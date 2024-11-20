@@ -4,13 +4,14 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { FunnelIcon } from '@heroicons/react/20/solid';
 import { useSession } from "next-auth/react";
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { render } from "react-dom";
 
 export default function SearchFarmerFilter() {
     const { data } = useSession();
     const userData = data?.user;
 
     const renderFilter =
-    userData?._id
+    userData?._id &&
     userData?.address_city &&
     userData?.address_street &&
     userData?.address_state &&

@@ -1,6 +1,7 @@
 
 import { fetchSingleFarmerById } from '@/actions/farmer';
 import ButtonDeleteProduct from '@/ui/buttons/ButtonDeleteProduct';
+import ButtonFavorites from '@/ui/buttons/saveFarmer/ButtonFavorites';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
