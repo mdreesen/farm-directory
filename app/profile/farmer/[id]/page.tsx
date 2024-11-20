@@ -16,7 +16,7 @@ export default async function Page() {
     <div className="px-4 sm:px-6 lg:px-8 mt-20">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-base font-semibold text-gray-900">Favorite Users ({farmer.favoriteUsers.length})</h1>
+          <h1 className="text-base font-semibold text-gray-900">Following users ({farmer.favoriteUsers.length})</h1>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         </div>
