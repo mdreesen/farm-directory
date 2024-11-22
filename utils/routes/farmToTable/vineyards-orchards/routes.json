@@ -1,0 +1,18 @@
+[
+    {
+        "linkName": "Hops",
+        "directTo": "/farm-to-table/vineyards-orchards/hops"
+    },
+    {
+        "linkName": "Orchards",
+        "directTo": "/farm-to-table/vineyards-orchards/orchards"
+    },
+    {
+        "linkName": "Vineyards",
+        "directTo": "/farm-to-table/vineyards-orchards/vineyards"
+    },
+    {
+        "linkName": "Winery",
+        "directTo": "/farm-to-table/vineyards-orchards/winery"
+    }
+]

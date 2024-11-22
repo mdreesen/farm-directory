@@ -1,17 +1,13 @@
-import CardFarmers from '@/ui/cards/CardFarmers';
+import CardNavigation from '@/ui/cards/CardNavigation';
 
-export default async function Page(props: {
-  searchParams?: Promise<{
-    query?: string;
-    page?: string;
-  }>;
-}) {
-  const searchParams = await props.searchParams;
-  
+// Navigation
+import route from '@/utils/routes/farmToTable/vineyards-orchards/routes.json';
+
+export default function page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="relative flex justify-center items-center w-full place-items-center">
-        <CardFarmers category="Vineyards or Orchards" searchParams={searchParams} />
+        <CardNavigation route={route} />
       </div>
     </main>
   );

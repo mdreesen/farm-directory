@@ -85,7 +85,12 @@
     },
 
     {
-        "product_title": "Vineyards or Orchards",
+        "product_title": "Vineyards",
+        "image": "farm_to_table_vineyards_orchards.webp"
+    },
+
+    {
+        "product_title": "Orchards",
         "image": "farm_to_table_vineyards_orchards.webp"
     },
 
