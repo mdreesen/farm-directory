@@ -34,15 +34,15 @@ export default function RootLayout({
           <SpeedInsights />
 
           {/* Google Analytics */}
-          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ18H2MPZ1"></Script>
-          <Script id="google-analytics">
+          <Script async strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}></Script>
+          <Script id="google-analytics" strategy="lazyOnload">
             {
               `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'G-MQ18H2MPZ1');
+              gtag('config', '${process.env.GOOGLE_ANALYTICS}');
               `
             }
 
