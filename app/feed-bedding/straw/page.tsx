@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import CardNavigation from '@/ui/cards/CardNavigation';
+
+export const metadata: Metadata = {
+  title: 'Feed and Bedding | Straw',
+};
 
 // Navigation
 import route from '@/utils/routes/feedBedding/straw/routes.json';

@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import CardFarmers from '@/ui/cards/CardFarmers';
+
+export const metadata: Metadata = {
+  title: 'Farm Events and Agritourism | Farm Venues For Rent',
+};
 
 export default async function Page(props: {
   searchParams?: Promise<{

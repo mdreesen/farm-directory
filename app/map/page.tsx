@@ -1,6 +1,11 @@
 // pages/index.js
+import { Metadata } from 'next';
 import Map from '@/lib/googleMap';
 import { fetchFarmersCoordinates } from '@/actions/farmer';
+
+export const metadata: Metadata = {
+  title: 'Map',
+};
 
 export default async function Page() {
   const farmerCoordinates = await fetchFarmersCoordinates() as any;

@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function Page() {
     const [error, setError] = useState("");
@@ -79,6 +80,7 @@ export default function Page() {
                             <button
                                 type="submit"
                                 className="flex w-full justify-center rounded-md bg-[#7A3A30] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#af8882] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                                onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })}
                             >
                                 Sign in
                             </button>

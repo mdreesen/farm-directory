@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import CardNavigation from '@/ui/cards/CardNavigation';
+
+export const metadata: Metadata = {
+  title: 'Stores',
+};
 
 // Navigation
 import route from '@/utils/routes/stores/routes.json';

@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import CardNavigation from '@/ui/cards/CardNavigation';
+
+export const metadata: Metadata = {
+  title: 'Farm To Table | Eggs',
+};
 
 // Navigation
 import route from '@/utils/routes/farmToTable/eggs/routes.json';

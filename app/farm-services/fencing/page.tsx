@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import CardFarmers from '@/ui/cards/CardFarmers';
+
+export const metadata: Metadata = {
+  title: 'Farm Services | Fencing',
+};
 
 export default async function Page(props: {
   searchParams?: Promise<{

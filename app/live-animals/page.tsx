@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import CardNavigation from '@/ui/cards/CardNavigation';
+
+export const metadata: Metadata = {
+  title: 'Live Animals',
+};
 
 // Navigation
 import route from '@/utils/routes/liveAnimals/routes.json';
