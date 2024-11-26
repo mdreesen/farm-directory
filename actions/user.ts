@@ -37,6 +37,34 @@ export async function updateUser(values: any) {
     }
 };
 
+export async function updateUserFilters(values: any) {
+    const { email, use_my_location, currentLocation } = values;
+
+    const filters = {
+        use_my_location: use_my_location
+    };
+
+    const location = {
+       ...currentLocation
+    }
+
+    try {
+        await connectDB();
+
+        if (use_my_location) {
+            await User.findOneAndUpdate({ email: email }, { filters: { ...filters, ...location }});
+        } else {
+            await User.findOneAndUpdate({ email: email }, { filters: { ...filters }});
+        }
+
+        revalidatePath('/');
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
 export async function updateUserPassword(values: any) {
     const { token, password, confirm_password } = values;
 

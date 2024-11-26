@@ -43,6 +43,7 @@ const farmerSchema = new Schema(
         distance: Number,
         geometry: Object,
         image: Object,
+        filters: Object,
         createdAt: String,
         updatedAt: String
     }, { timestamps: true });

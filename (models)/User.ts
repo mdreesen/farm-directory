@@ -30,6 +30,7 @@ const userSchema = new Schema(
         agree_to_legal: Boolean,
         agree_to_privacy_policy: Boolean,
         image: Object,
+        filters: Object,
         resetPasswordToken: String,
         verified_farmer: Boolean,
         verified_farmer_token: String,

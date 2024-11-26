@@ -1,39 +1,53 @@
 'use client';
 import { Disclosure } from '@headlessui/react';
 import { useSession } from "next-auth/react";
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-};
+import Link from 'next/link';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { ChevronDownIcon, Cog6ToothIcon } from '@heroicons/react/20/solid'
 
 export default function NavigationProfileUser() {
   const { data, status } = useSession();
 
   const navigation = [
     { name: 'Dashboard', href: `/profile/user/${data?.user?._id}`, current: true },
+    { name: 'Filter Settings', href: `/profile/user/${data?.user?._id}/filter`, current: true },
     { name: 'Info', href: `/profile/user/${data?.user?._id}/info`, current: false },
   ];
+
+  const settings = (
+    <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+          <Cog6ToothIcon aria-hidden="true" className="-mr-1 size-5 text-gray-500" />
+          <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
+        </MenuButton>
+      </div>
+
+      <MenuItems
+        // transition
+        className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+      >
+        <div className="py-1">
+          {navigation.map((item: any) => status !== "loading" && (
+            <MenuItem>
+              <a
+                href={item.href}
+                className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+              >
+                {item.name}
+              </a>
+            </MenuItem>
+          ))}
+        </div>
+      </MenuItems>
+    </Menu>
+  )
 
   return (
     <Disclosure as="nav">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 justify-between">
-
-          {navigation.map((item) => status !== "loading" && (
-            <a
-              key={item.name}
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current 
-                  ? 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium',
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
+        <div className="flex h-16 justify-end p-4">
+          {settings}
         </div>
       </div>
     </Disclosure>

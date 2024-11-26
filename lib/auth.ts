@@ -4,7 +4,6 @@ import Farmer from "@/(models)/Farmer";
 import type { NextAuthOptions, DefaultSession, DefaultUser, Product } from "next-auth";
 import credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-// import { type DefaultSession, type DefaultUser } from "next-auth";
 import { type DefaultJWT } from "next-auth/jwt";
 
 declare module "next-auth" {
@@ -17,6 +16,12 @@ declare module "next-auth" {
     product_show: String,
     createdAt: String,
     updatedAt: String
+  }
+
+  interface Filters extends DefaultUser {
+    use_my_location: Boolean,
+    latitude: String,
+    longitude: String
   }
   
   interface Session extends DefaultSession {
@@ -60,6 +65,7 @@ declare module "next-auth" {
         customId: String,
         type: String,
       },
+      filters: Filters,
 
       __v: number,
       resetPasswordToken: string,
@@ -105,6 +111,7 @@ declare module "next-auth" {
       customId: String,
       type: String,
     },
+    filters: Filters,
 
     createdAt: string,
     updatedAt: string,
@@ -153,6 +160,7 @@ declare module "next-auth/jwt" {
       customId: String,
       type: String,
     },
+    filters: Object,
     
     createdAt: string,
     updatedAt: string,

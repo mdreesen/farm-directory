@@ -3,7 +3,7 @@ import { connectDB } from "@/lib/mongodb";
 import Farmer from "@/(models)/Farmer";
 import User from "@/(models)/User";
 import { getServerSession } from "next-auth";
-import { radarForwardCoordinates } from "@/lib/radarApi";
+import { radarForwardCoordinates, radarReverseCoordinates } from "@/lib/radarApi";
 
 export async function fetchFarmers() {
     try {
@@ -143,6 +143,16 @@ export async function deleteFarmerProduct(values: any) {
 
 export async function searchFarmers({ category, searchParams }: any) {
     const { city, state, zip_code } = searchParams;
+    const session = await getServerSession();
+    const sessionUser = session?.user
+
+    const user = await User.findOne({ email: sessionUser?.email });
+    const userFilters = user.filters;
+    const location = { latitude: userFilters.latitude, longitude: userFilters.longitude }
+
+    const radarServices = await radarReverseCoordinates(location);
+    const findLocation = radarServices?.addresses?.find((item: any) => item) ?? [];
+
     try {
         const farmers = await Farmer.aggregate([
             {
@@ -160,7 +170,17 @@ export async function searchFarmers({ category, searchParams }: any) {
             return item.address_city === city || item.address_state === state || item.address_zip === zip_code;
         });
 
-        return filtering.length > 0 ? filtering : farmers
+        const filteringCurrentLocation = farmers.filter((item, index) => {
+            return findLocation.city === item.address_city || findLocation.state === item.address_state || findLocation.postalCode === item.address_zip;
+        });
+
+        switch (true) {
+            case userFilters.use_my_location:
+                return filteringCurrentLocation
+                break;
+            default:
+                return filtering.length > 0 ? filtering : farmers
+        }
     } catch (error) {
         console.log(error)
         return error
