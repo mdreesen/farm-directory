@@ -148,7 +148,7 @@ export async function searchFarmers({ category, searchParams }: any) {
 
     const user = await User.findOne({ email: sessionUser?.email });
     const userFilters = user.filters;
-    const location = { latitude: userFilters.latitude, longitude: userFilters.longitude }
+    const location = { latitude: userFilters?.latitude, longitude: userFilters?.longitude };
 
     const radarServices = await radarReverseCoordinates(location);
     const findLocation = radarServices?.addresses?.find((item: any) => item) ?? [];
@@ -175,7 +175,7 @@ export async function searchFarmers({ category, searchParams }: any) {
         });
 
         switch (true) {
-            case userFilters.use_my_location:
+            case userFilters?.use_my_location:
                 return filteringCurrentLocation
                 break;
             default:
