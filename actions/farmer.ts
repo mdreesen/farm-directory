@@ -4,6 +4,7 @@ import Farmer from "@/(models)/Farmer";
 import User from "@/(models)/User";
 import { getServerSession } from "next-auth";
 import { radarForwardCoordinates, radarReverseCoordinates } from "@/lib/radarApi";
+import { revalidatePath } from 'next/cache';
 
 export async function fetchFarmers() {
     try {
@@ -134,6 +135,24 @@ export async function deleteFarmerProduct(values: any) {
             { 'products._id': id },
             { $pull: { products: { _id: id } } },
             { new: true });
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
+export async function deleteFarmer() {
+
+    try {
+        await connectDB();
+        const session = await getServerSession();
+
+        const user = await User.deleteOne({ email: session?.user.email });
+        const farmer = await Farmer.deleteOne({ email: session?.user.email });
+
+        revalidatePath('/');
+
 
     } catch (e) {
         console.log(e)

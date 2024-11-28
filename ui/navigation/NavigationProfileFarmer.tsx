@@ -14,10 +14,11 @@ export default function NavigationProfile() {
   const useProfile = `/profile/${data?.user.isFarmer ? 'farmer' : 'user'}/${data?.user._id}`;
 
   const navigation = [
+    { name: 'Account', href: `/profile/farmer/${data?.user?._id}/account`, current: false },
     { name: 'Dashboard', href: `/profile/farmer/${data?.user?._id}`, current: true },
-    { name: 'Products', href: `/profile/farmer/${data?.user?._id}/products`, current: false },
     { name: 'Filter Settings', href: `/profile/farmer/${data?.user?._id}/filter`, current: true },
     { name: 'Info', href: `/profile/farmer/${data?.user?._id}/info`, current: false },
+    { name: 'Products', href: `/profile/farmer/${data?.user?._id}/products`, current: false },
   ];
 
   const settings = (
