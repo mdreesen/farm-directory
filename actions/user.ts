@@ -89,6 +89,23 @@ export async function updateUserPassword(values: any) {
     }
 };
 
+export async function deleteUser() {
+
+    try {
+        await connectDB();
+        const session = await getServerSession();
+
+        const user = await User.deleteOne({ email: session?.user.email });
+
+        revalidatePath('/');
+
+
+    } catch (e) {
+        console.log(e)
+        return e
+    }
+};
+
 export async function saveFarmer(data: any) {
     const session = await getServerSession();
     try {

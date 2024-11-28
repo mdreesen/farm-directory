@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { ChevronDownIcon, Cog6ToothIcon } from '@heroicons/react/20/solid'
-import ButtonDeleteFarmer from "@/ui/buttons/ButtonDeleteFarmer"
+import { ChevronDownIcon, Cog6ToothIcon } from '@heroicons/react/20/solid';
+import ButtonDeleteUser from "@/ui/buttons/ButtonDeleteUser";
+
 export default function Page() {
 
   const settings = (
@@ -18,7 +19,7 @@ export default function Page() {
       >
         <div className="py-1">
           <MenuItem>
-            <ButtonDeleteFarmer />
+            <ButtonDeleteUser />
           </MenuItem>
         </div>
       </MenuItems>
@@ -38,7 +39,7 @@ export default function Page() {
                 Delete your account
               </label>
               <div className="mt-2">
-                {settings}
+              {settings}
               </div>
             </div>
           </div>

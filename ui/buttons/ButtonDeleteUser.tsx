@@ -1,15 +1,15 @@
 'use client';
 import { useRouter } from "next/navigation";
-import { deleteFarmer } from '@/actions/farmer';
+import { deleteUser } from '@/actions/user';
 import { signOut } from "next-auth/react";
 
-export default function ButtonDeleteFarmer() {
+export default function ButtonDeleteUser() {
   const router = useRouter();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const r = await deleteFarmer();
+      const r = await deleteUser();
 
       signOut({ redirect: false }).then(() => {
         router.push("/");

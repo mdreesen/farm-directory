@@ -9,6 +9,7 @@ export default function NavigationProfileUser() {
   const { data, status } = useSession();
 
   const navigation = [
+    { name: 'Account', href: `/profile/user/${data?.user?._id}/account`, current: false },
     { name: 'Dashboard', href: `/profile/user/${data?.user?._id}`, current: true },
     { name: 'Filter Settings', href: `/profile/user/${data?.user?._id}/filter`, current: true },
     { name: 'Info', href: `/profile/user/${data?.user?._id}/info`, current: false },
