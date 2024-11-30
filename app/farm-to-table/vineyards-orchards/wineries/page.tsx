@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CardFarmers from '@/ui/cards/CardFarmers';
 
 export const metadata: Metadata = {
-  title: 'Farm To Table | Winery',
+  title: 'Farm To Table | Wineries',
 };
 
 export default async function Page(props: {
@@ -16,7 +16,7 @@ export default async function Page(props: {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="relative flex justify-center items-center w-full place-items-center">
-        <CardFarmers category="Winery" searchParams={searchParams} />
+        <CardFarmers category="Wineries" searchParams={searchParams} />
       </div>
     </main>
   );

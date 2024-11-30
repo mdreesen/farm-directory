@@ -12,7 +12,7 @@
         "directTo": "/farm-to-table/vineyards-orchards/vineyards"
     },
     {
-        "linkName": "Winery",
-        "directTo": "/farm-to-table/vineyards-orchards/winery"
+        "linkName": "Wineries",
+        "directTo": "/farm-to-table/vineyards-orchards/wineries"
     }
 ]
