@@ -26,7 +26,7 @@ export const verification = async (values: any) => {
     <div>
         <h1>Welcome to The Farm Directory</h1>
         <p>Please verify your email.</p>
-        <a href="${process.env.DOMAIN}/authentication/verification/${token}">Click here to verify your email</a>
+        <a href="${process.env.DOMAIN}/authentication/verification/${token}" target="_blank">Click here to verify your email</a>
     </div>
     `;
 

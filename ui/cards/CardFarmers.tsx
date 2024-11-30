@@ -38,7 +38,7 @@ export default async function CardFarmer({ category, searchParams }: any) {
                 <dt className="sr-only">Title</dt>
                 <dt className="sr-only">Role</dt>
                 <dd className="mt-3">
-                  <Link href={`/details/farmer/${item._id}`}>
+                  <Link href={`/details/farmer/${item._id}`} target="_blank">
                     <span className="inline-flex items-center rounded-full bg-[#7A3A30] px-2 py-1 text-sm font-medium text-white ring-1 ring-inset ring-green-600/20">
                       Details
                     </span>
