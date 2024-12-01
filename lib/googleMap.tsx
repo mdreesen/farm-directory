@@ -21,7 +21,7 @@ const Map = ({ zoom, allCoordinates }: any) => {
 
   const farmersMarker = allCoordinates?.map((location: any, index: number) => <MarkerF key={`${location}-${index}`} position={location} icon={pinIcon as any}></MarkerF>) ?? [];
 
-  return allCoordinates.length > 0 ? (
+  return (
     <LoadScript googleMapsApiKey={`${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}>
       {
         !loading && (
@@ -39,11 +39,7 @@ const Map = ({ zoom, allCoordinates }: any) => {
         )
       }
     </LoadScript>
-  ) : (
-    <div>
-      <span>No farmers to map</span>
-    </div>
-  );
+  )
 };
 
 export default Map;
