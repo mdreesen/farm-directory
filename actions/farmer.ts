@@ -147,7 +147,7 @@ export async function searchFarmers({ category, searchParams }: any) {
     const sessionUser = session?.user
 
     const user = await User.findOne({ email: sessionUser?.email });
-    const userFilters = user.filters;
+    const userFilters = user?.filters;
     const location = { latitude: userFilters?.latitude, longitude: userFilters?.longitude };
 
     const radarServices = await radarReverseCoordinates(location);

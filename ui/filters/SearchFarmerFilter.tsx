@@ -64,7 +64,7 @@ export default function SearchFarmerFilter() {
                                 aria-hidden="true"
                                 className="mr-2 size-5 flex-none text-gray-400 group-hover:text-gray-500"
                             />
-                            {isArrChecked.length} {isArrChecked.length === 1 ? 'Filter' : 'Filters'}
+                            {isArrChecked?.length} {isArrChecked?.length === 1 ? 'Filter' : 'Filters'}
                         </DisclosureButton>
                     </div>
                 </div>
