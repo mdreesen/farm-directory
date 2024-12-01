@@ -173,6 +173,8 @@ export async function searchFarmers({ category, searchParams }: any) {
     const findLocation = radarServices?.addresses?.find((item: any) => item) ?? [];
 
     try {
+        await connectDB();
+
         const farmers = await Farmer.aggregate([
             {
                 $search: {
@@ -209,6 +211,8 @@ export async function searchFarmers({ category, searchParams }: any) {
 export async function fetchFarmersCoordinates() {
 
     try {
+        await connectDB();
+
         const farmers = await Farmer.find();
 
         let farmerCoordinates = [] as any;

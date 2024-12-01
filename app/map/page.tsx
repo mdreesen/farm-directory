@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const farmerCoordinates = await fetchFarmersCoordinates() as any;
-  console.log(farmerCoordinates)
 
   return (
     <div className='h-[100vh] content-center text-center bg-white'>
