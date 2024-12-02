@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { fetchFarmerDetails } from '@/actions/farmer';
 import ShareFacebook from "@/ui/socialMedia/share/ShareFacebook";
 import SharePinterest from "@/ui/socialMedia/share/SharePinterest";
@@ -88,7 +89,15 @@ export default async function Page({ params }: { params: { id: string } }) {
   const products = farmer.products.map((item: any) => {
     return item.product_show === 'true' && (
       <li key={item._id}>
-        {item.product_image && <img alt={item.product_image} src={`/images/products/${item.product_image}`} className="mx-auto h-24 w-24 rounded-full" />}
+        {item.product_image &&
+          <Image
+            alt={item.product_image}
+            src={`/images/products/${item.product_image}`}
+            className="mx-auto h-24 w-24 rounded-full"
+            width={100}
+            height={100}
+          />
+        }
         <h3 className="mt-6 text-lg font-semibold leading-7 tracking-tight text-gray-900">
           {item.product_title}
         </h3>
@@ -109,7 +118,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div className='mt-16'>
       <h3 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-3xl">Locate</h3>
       <ul role="list">
-        <a className="text-[#7A3A30] underline" href={`https://maps.google.com/?q=${farmer?.address_road} ${farmer?.address_city}, ${farmer?.address_state} ${farmer?.address_zip}`} target="_blank">{`${farmer?.address_road} ${farmer?.address_city}, ${farmer?.address_state} ${farmer?.address_zip}`}</a>
+        <a className="text-[#7A3A30] underline" href={`https://maps.google.com/?q=${farmer?.address_street ?? farmer?.address_road} ${farmer?.address_city}, ${farmer?.address_state} ${farmer?.address_zip}`} target="_blank">{`${farmer?.address_street ?? farmer?.address_road} ${farmer?.address_city}, ${farmer?.address_state} ${farmer?.address_zip}`}</a>
 
         {farmerLocation && (
           <div className='h-[30vh] content-center text-center bg-white'>

@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
@@ -72,7 +73,13 @@ export default function Page({ params }: { params: { id: string } }) {
       <div className="relative">
         <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
           <span className="flex items-center">
-            <img alt="" src={`/images/products/${productSelected.image}`} className="h-5 w-5 flex-shrink-0 rounded-full" />
+            <Image
+              alt={"Selected product image"}
+              src={`/images/products/${productSelected.image}`}
+              className="h-5 w-5 flex-shrink-0 rounded-full"
+              width={100}
+              height={100}
+            />
             <span className="ml-3 block truncate">{productSelected.product_title}</span>
           </span>
           <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">

@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import ButtonUploader from '@/ui/buttons/ButtonUploader';
@@ -9,6 +9,7 @@ import { StatePicker } from '@/utils/statePicker';
 import { useSession } from "next-auth/react";
 
 import { UpdateFarmer } from '@/actions/farmer';
+import { Switch } from "@headlessui/react";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { data } = useSession();
