@@ -192,7 +192,7 @@ export default function Page({ params }: { params: { id: string } }) {
       <form ref={ref} action={handleSubmit}>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">Make your products</h2>
+            <h2 className="t-2 text-balance text-5xl font-semibold text-gray-900 sm:text-6xl tracking-tight">Make your products</h2>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-4">

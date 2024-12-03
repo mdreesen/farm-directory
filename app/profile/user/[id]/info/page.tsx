@@ -21,10 +21,10 @@ export default function Page({ params }: { params: { id: string } }) {
     const name = e.target.name
 
     setStateData((prevState) => ({
-        ...prevState,
-        [name]: value
+      ...prevState,
+      [name]: value
     }));
-};
+  };
 
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -52,7 +52,7 @@ export default function Page({ params }: { params: { id: string } }) {
       <div className="space-y-12">
 
         <div className="border-b pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+          <h2 className="t-2 text-balance text-5xl font-semibold text-gray-900 sm:text-6xl tracking-tight">Information Settings</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -67,7 +67,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   type="text"
                   autoComplete="first_name"
                   defaultValue={`${userData?.first_name ?? ''}`}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   type="text"
                   autoComplete="last_name"
                   defaultValue={`${userData?.last_name ?? ''}`}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -99,7 +99,24 @@ export default function Page({ params }: { params: { id: string } }) {
                   type="email"
                   autoComplete="email"
                   defaultValue={`${userData?.email ?? ''}`}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="phone" className="block text-sm/6 font-semibold text-gray-900">
+                Phone number
+              </label>
+              <div className="relative mt-2.5">
+
+                <input
+                  id="phone"
+                  name="phone"
+                  defaultValue={`${userData?.phone ?? ''}`}
+                  type="tel"
+                  autoComplete="tel"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                 />
               </div>
             </div>
@@ -115,7 +132,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   type="text"
                   autoComplete="address_street"
                   defaultValue={`${userData?.address_street ?? ''}`}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -131,7 +148,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   type="text"
                   autoComplete="address_city"
                   defaultValue={`${userData?.address_city ?? ''}`}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -148,7 +165,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   defaultValue={`${userData?.address_state ?? ''}`}
                   onChange={handleChange}
                   value={stateData.address_state as string ?? userData?.address_state?.trim() as string}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <StatePicker />
                 </select>
@@ -166,7 +183,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   type="text"
                   autoComplete="address_zip"
                   defaultValue={`${userData?.address_zip ?? ''}`}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

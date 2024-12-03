@@ -7,8 +7,8 @@ export default function Page() {
   const settings = (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-[#7A3A30] px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300">
-          <span>Delete</span>
+      <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-[#7A3A30] px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 w-[275px]">
+      <span>Delete</span>
           <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
         </MenuButton>
       </div>
@@ -31,16 +31,16 @@ export default function Page() {
       <div className="space-y-12">
 
         <div className="border-b pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Account Settings</h2>
+          <h2 className="t-2 text-balance text-5xl font-semibold text-gray-900 sm:text-6xl tracking-tight">Account Settings</h2>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
-              <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                Delete your account
-              </label>
-              <div className="mt-2">
+          <div className="mt-10 flex flex-col">
+            <h2 className="text-base/7 font-semibold text-[#7A3A30]">Account deletion</h2>
+
+            <p className="mt-2 text-balance text-3xl font-semibold text-gray-900 sm:text-3xl tracking-tight">
+              Delete your account
+            </p>
+            <div className="mt-2">
               {settings}
-              </div>
             </div>
           </div>
         </div>
