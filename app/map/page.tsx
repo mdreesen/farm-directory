@@ -1,4 +1,3 @@
-// pages/index.js
 import { Metadata } from 'next';
 import Map from '@/lib/googleMap';
 import { fetchFarmersCoordinates } from '@/actions/farmer';
