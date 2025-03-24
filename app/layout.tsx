@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Provider } from "./provider";
-import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
@@ -45,9 +44,6 @@ export default function RootLayout({
         <body className={inter.className}>
           <Navigation />
           {children}
-
-          {/* Vercel Analytics */}
-          <Analytics />
 
           {/* Vercel Speed insights */}
           <SpeedInsights />
